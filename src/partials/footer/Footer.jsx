@@ -37,7 +37,9 @@ export default props => (
       <li>
         <h2>ANÁPOLIS</h2>
         <ul className="block-list">
-          <li><a href="#">ACIA TEC</a></li>
+          <li><a href="#">HISTÓRIA</a></li>
+          <li><a href="#">INFORMAÇÕES GEOGRÁFICAS</a></li>
+          <li><a href="#">INFORMAÇÕES RELEVANTES</a></li>
         </ul>
       </li>
       <li>
