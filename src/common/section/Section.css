@@ -4,6 +4,6 @@ section {
   padding: 50px 5% 15px 5%;
 }
 
-section:nth-child(even) {
-  background-color: var(--grey);
+section:nth-child(odd) {
+  background-color: #ddd;
 }
