@@ -1,0 +1,15 @@
+.service-item {
+  flex-basis: 30%;
+  padding: 25px;
+  text-align: center;
+}
+
+.service-item i { 
+  font-size: 80px;
+  color: var(--primary);
+}
+
+.service-item h2,
+.service-item p {
+  color: var(--grey);
+}
