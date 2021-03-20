@@ -1,4 +1,5 @@
 .right-menu-chip {
+  text-decoration: none;
   cursor: pointer;
   transition: .2s;
   padding: 5px 10px;

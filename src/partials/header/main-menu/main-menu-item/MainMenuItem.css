@@ -1,15 +1,19 @@
 .main-menu-item>a {
-  padding: 15px;
+  display: block;
+  text-decoration: none;
+  padding: 30px 15px;
   color: var(--grey);
   transition: .2s;
   cursor: pointer;
 }
 
+.main-menu-dropdown:hover,
+.main-menu-item:hover .main-menu-dropdown {
+  opacity: 1;
+  top: calc(var(--menu-heigth));
+}
+
 .main-menu-item>a:active,
 .main-menu-item>a:hover {
   color: var(--grey-hover);
-}
-
-.main-menu-dropdown {
-  display: none;
 }

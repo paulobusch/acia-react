@@ -10,30 +10,32 @@ import RightMenuChip from './right-menu/right-menu-chip/RightMenuChip';
 
 export default props => (
   <header className="header">
-    <img src="images/acia/logo-acia.png" alt="logo"/>
+    <a href="./">
+      <img src="images/acia/logo-acia.png" alt="logo"/>
+    </a>
     <MainMenu>
-      <MainMenuItem text="VANTAGENS ACIA">
-        <MainMenuItem text="ACIA CRED"/>
-        <MainMenuItem text="CERTIFICADO DIGITAL"/>
-        <MainMenuItem text="SERASA"/>
-        <MainMenuItem text="CORTE CONCILIAÇÃO"/>
-        <MainMenuItem text="LIGUE ACIA"/>
-        <MainMenuItem text="CARTÃO DE VANTAGENS"/>
-        <MainMenuItem text="AUDITÓRIO / SALA REUNIÃO"/>
+      <MainMenuItem href="#" text="VANTAGENS ACIA">
+        <MainMenuItem href="#" text="ACIA CRED"/>
+        <MainMenuItem href="#" text="CERTIFICADO DIGITAL"/>
+        <MainMenuItem href="#" text="SERASA"/>
+        <MainMenuItem href="#" text="CORTE CONCILIAÇÃO"/>
+        <MainMenuItem href="#" text="LIGUE ACIA"/>
+        <MainMenuItem href="#" text="CARTÃO DE VANTAGENS"/>
+        <MainMenuItem href="#" text="AUDITÓRIO / SALA REUNIÃO"/>
       </MainMenuItem>
-      <MainMenuItem text="INSTITUCIONAL">
-        <MainMenuItem text="QUEM SOMOS"/>
-        <MainMenuItem text="DIRETORIA"/>
-        <MainMenuItem text="ARQUIVO HISTÓRICO"/>
+      <MainMenuItem href="#" text="INSTITUCIONAL">
+        <MainMenuItem href="#" text="QUEM SOMOS"/>
+        <MainMenuItem href="#" text="DIRETORIA"/>
+        <MainMenuItem href="#" text="ARQUIVO HISTÓRICO"/>
       </MainMenuItem>
-      <MainMenuItem text="FINANCEIRO"/>
-      <MainMenuItem text="CONTATO"/>
-      <MainMenuItem text="ASSOCIE-SE" onlymobile/>
+      <MainMenuItem href="#" text="FINANCEIRO"/>
+      <MainMenuItem href="#" text="CONTATO"/>
+      <MainMenuItem href="#" text="ASSOCIE-SE" onlymobile/>
     </MainMenu>
     <RightMenu onlydesktop>
       <RightMenuIcon icon="bars"/>
       <RightMenuIcon icon="search" title="Pesquisar"/>
-      <RightMenuChip text="ASSOCIE-SE"/>
+      <RightMenuChip href="#" text="ASSOCIE-SE"/>
     </RightMenu>
   </header>
 );
