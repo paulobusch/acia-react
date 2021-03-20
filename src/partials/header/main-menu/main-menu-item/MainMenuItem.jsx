@@ -3,7 +3,7 @@ import './MainMenuItem.css';
 import React from 'react';
 
 import MainMenu from '../MainMenu';
-import If from './../../../../common/operators/if/If';
+import If from './../../../../common/operators/condition/If';
 
 export default props => (
   <li className={ `main-menu-item ${props.onlymobile ? 'main-menu-item-only-mobile' : ''}` }>
