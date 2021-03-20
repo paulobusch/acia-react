@@ -1,0 +1,12 @@
+.right-menu-icon {
+  cursor: pointer;
+  color: var(--primary);
+  transition: .2s;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.right-menu-icon:active,
+.right-menu-icon:hover {
+  color: var(--primary-hover);
+}

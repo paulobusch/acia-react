@@ -1,0 +1,15 @@
+.main-menu-item>a {
+  padding: 15px;
+  color: var(--grey);
+  transition: .2s;
+  cursor: pointer;
+}
+
+.main-menu-item>a:active,
+.main-menu-item>a:hover {
+  color: var(--grey-hover);
+}
+
+.main-menu-dropdown {
+  display: none;
+}

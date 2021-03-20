@@ -9,7 +9,7 @@ import RightMenuIcon from './right-menu/right-menu-icon/RightMenuIcon';
 import RightMenuChip from './right-menu/right-menu-chip/RightMenuChip';
 
 export default props => (
-  <header>
+  <header className="header">
     <img src="images/acia/logo-acia.png" alt="logo"/>
     <MainMenu>
       <MainMenuItem text="VANTAGENS ACIA">
