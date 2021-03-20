@@ -5,5 +5,5 @@ section {
 }
 
 section:nth-child(odd) {
-  background-color: #ddd;
+  background-color: rgb(235, 235, 235);
 }
