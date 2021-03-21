@@ -8,6 +8,70 @@
   box-sizing: border-box;
 }
 
+.header .main {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .header img {
   height: 70px;
+}
+
+.header .toggle-menu {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 40px;
+  transition: .2s;
+}
+
+.header .toggle-menu:active,
+.header .toggle-menu:hover {
+  background-color: #007bff3a;
+}
+
+.header .menu-only-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+  .header {
+    padding-right: 0;
+  }
+
+  .header .main {
+    width: 100%;
+  }
+
+  .header .menu-only-mobile {
+    display: block;
+  }
+
+  .header .menu {
+    opacity: .5;
+    transition: .2s;
+    transform-origin: top;
+    transform: scaleY(0);
+    z-index: 2;
+    background-color: white;
+    position: absolute;
+    top: var(--menu-heigth);
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .header .menu.show-mobile-menu {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .header img {
+    height: 50px;
+  }
 }

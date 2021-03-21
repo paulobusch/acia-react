@@ -20,10 +20,10 @@ export default props => {
       <div className="slides-container">
         <Slider slides={ slides } timeTransition={ 10000 }/>
       </div>
-      <ServicesSection />
+      {/* <ServicesSection />
       <NewsSection />
       <ActionsSection />
-      <ArticlesSection />
+      <ArticlesSection /> */}
     </div>
   );
 }
