@@ -1,35 +1,36 @@
-.news-card {
+.action-card {
+  position: relative;
   flex-basis: 23%;
   background-color: white;
   box-shadow: 0 2px 5px rgb(189, 189, 189);
 }
 
-.news-card .image {
+.action-card .image {
   background-position: bottom center;
   background-size: cover;
   height: 20vw;
 }
 
-.news-card .link-image { 
+.action-card .link-image { 
   text-decoration: none;
 }
 
-.news-card .detail {
+.action-card .detail {
   padding: 15px;
   color: var(--grey);
 }
 
-.news-card .detail h3 {
+.action-card .detail h3 {
   margin: 0;
 }
 
-.news-card .detail a {
+.action-card .detail a {
   display: block;
   padding: 15px;
   text-decoration: none;
   color: var(--primary);
 }
 
-.news-card .detail a:hover {
+.action-card .detail a:hover {
   color: var(--primary-hover);
 }

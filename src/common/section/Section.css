@@ -1,7 +1,7 @@
 section {
   box-sizing: border-box;
   min-height: 100vh;
-  padding: 50px 5% 15px 5%;
+  padding: 50px 5% 25px 5%;
 }
 
 section:nth-child(odd) {

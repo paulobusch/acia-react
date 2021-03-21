@@ -6,6 +6,7 @@ import Slider from '../../common/slider/Slider';
 import TemplateSlideAbout from './template-slide-about/TemplateSlideAbout';
 import ServicesSection from './sections/services/ServicesSection';
 import NewsSection from './sections/news/NewsSection';
+import ActionsSection from './sections/actions/ActionsSection';
 
 export default props => {
   const slides = [
@@ -20,6 +21,7 @@ export default props => {
       </div>
       <ServicesSection />
       <NewsSection />
+      <ActionsSection />
     </div>
   );
 }
