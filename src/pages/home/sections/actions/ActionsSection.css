@@ -1,5 +1,6 @@
 #actions .actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -7,4 +8,10 @@
   margin-bottom: 40px;
   text-align: center;
   color: var(--grey);
+}
+
+@media only screen and (max-width: 500px) {
+  #actions .actions {
+    flex-direction: column;
+  }
 }

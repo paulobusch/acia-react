@@ -21,3 +21,10 @@
 .service-card p {
   color: var(--grey);
 }
+
+
+@media only screen and (max-width: 500px) { 
+  .service-card {
+    padding: 15px 0;
+  }
+}

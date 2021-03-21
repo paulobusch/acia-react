@@ -1,6 +1,7 @@
 #articles .articles,
 #articles .publicities {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -11,7 +12,7 @@
 
 #articles .publicities-slider-container .slider .image,
 #articles .publicities-slider-container .slider {
-  height: 250px;
+  height: 16vw;
 }
 
 #articles h2 {
@@ -22,4 +23,30 @@
 
 #articles h2:not(:first-of-type) {
   margin-top: 80px;
+}
+
+@media only screen and (max-width: 1100px) {
+  #articles .publicities {
+    flex-direction: column;
+  }
+
+  #articles .publicities-slider-container {
+    margin-bottom: 50px;
+    width: 100%;
+  }
+
+  #articles .publicities-slider-container .slider .image,
+  #articles .publicities-slider-container .slider {
+    height: 35vw;
+  }
+
+  #articles .publicities-slider-container:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #articles .articles {
+    flex-direction: column;
+  }
 }

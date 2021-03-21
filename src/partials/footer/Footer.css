@@ -10,6 +10,7 @@
 
 .footer .main-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -44,6 +45,8 @@
 }
 
 .footer .main-list input {
+  box-sizing: border-box;
+  width: 100%;
   padding: 10px;
   font-size: 20px;
   border: none;
@@ -73,4 +76,47 @@
 .footer .social-list i:active,
 .footer .social-list i:hover {
   color: rgb(219, 219, 219);
+}
+
+@media only screen and (max-width: 1300px) { 
+  .footer .main-list > li {
+    flex-basis: 30%;
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .footer .main-list {
+    flex-direction: column;
+  }
+  
+  .footer a,
+  .footer h2 {
+    text-align: center;
+  }
+
+  .footer img {
+    margin-bottom: 50px;
+  }
+
+  .footer .main-list:first-child .block-list li:first-of-type {
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer .social-list {
+    position: static;
+  }
+
+  .footer .main-list input {
+    display: block;
+    margin: 0 auto 15px auto;
+    max-width: 300px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .footer .social-list {
+    justify-content: space-between;
+  }
 }

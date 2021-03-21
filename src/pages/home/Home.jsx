@@ -18,12 +18,12 @@ export default props => {
   return (
     <div id="home">
       <div className="slides-container">
-        <Slider slides={ slides } timeTransition={ 100000 }/>
+        <Slider slides={ slides } timeTransition={ 10000 }/>
       </div>
-      {/* <ServicesSection />
+      <ServicesSection />
       <NewsSection />
       <ActionsSection />
-      <ArticlesSection /> */}
+      <ArticlesSection />
     </div>
   );
 }
