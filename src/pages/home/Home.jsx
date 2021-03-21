@@ -5,6 +5,7 @@ import React from 'react';
 import Slider from '../../common/slider/Slider';
 import TemplateSlideAbout from './template-slide-about/TemplateSlideAbout';
 import ServicesSection from './sections/services/ServicesSection';
+import NewsSection from './sections/news/NewsSection';
 
 export default props => {
   const slides = [
@@ -18,6 +19,7 @@ export default props => {
         <Slider slides={ slides } timeTransition={ 10000 }/>
       </div>
       <ServicesSection />
+      <NewsSection />
     </div>
   );
 }
