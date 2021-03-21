@@ -1,9 +1,9 @@
 section {
   box-sizing: border-box;
   min-height: 100vh;
-  padding: 50px 5% 25px 5%;
+  padding: 50px 5% 50px 5%;
 }
 
 section:nth-child(odd) {
-  background-color: rgb(235, 235, 235);
+  background-color: rgba(235, 235, 235, 0.603);
 }

@@ -1,0 +1,25 @@
+#articles .articles,
+#articles .publicities {
+  display: flex;
+  justify-content: space-between;
+}
+
+#articles .publicities-slider-container {
+  position: relative;
+  width: 48.5%;
+}
+
+#articles .publicities-slider-container .slider .image,
+#articles .publicities-slider-container .slider {
+  height: 250px;
+}
+
+#articles h2 {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--grey);
+}
+
+#articles h2:not(:first-of-type) {
+  margin-top: 80px;
+}

@@ -1,35 +1,26 @@
-.news-card {
+.article-card {
   flex-basis: 23%;
+  box-sizing: border-box;
   background-color: white;
   box-shadow: 0 2px 5px rgb(189, 189, 189);
 }
 
-.news-card .image {
-  background-position: bottom center;
-  background-size: cover;
-  height: 20vw;
-}
-
-.news-card .link-image { 
-  text-decoration: none;
-}
-
-.news-card .detail {
+.article-card .detail {
   padding: 15px;
   color: var(--grey);
 }
 
-.news-card .detail h3 {
+.article-card .detail h3 {
   margin: 0;
 }
 
-.news-card .detail a {
+.article-card .detail a {
   display: block;
   padding: 15px 0;
   text-decoration: none;
   color: var(--primary);
 }
 
-.news-card .detail a:hover {
+.article-card .detail a:hover {
   color: var(--primary-hover);
 }

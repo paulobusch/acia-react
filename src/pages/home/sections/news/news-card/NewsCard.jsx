@@ -9,7 +9,7 @@ export default props => (
     </a>
     <div className="detail">
       <h3>{ props.title }</h3>
-      <p>{ props.children }</p>
+      <div>{ props.children }</div>
       <a href="#">Ver mais</a>
     </div>
   </div>
