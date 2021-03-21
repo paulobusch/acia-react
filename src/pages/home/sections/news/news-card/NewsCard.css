@@ -1,0 +1,35 @@
+.news-card {
+  flex-basis: 23%;
+  background-color: white;
+  box-shadow: 0 2px 5px rgb(189, 189, 189);
+}
+
+.news-card .image {
+  background-position: bottom center;
+  background-size: cover;
+  height: 250px;
+}
+
+.news-card .link-image { 
+  text-decoration: none;
+}
+
+.news-card .detail {
+  padding: 15px;
+  color: var(--grey);
+}
+
+.news-card .detail h3 {
+  margin: 0;
+}
+
+.news-card .detail a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.news-card .detail a:hover {
+  color: var(--primary-hover);
+}

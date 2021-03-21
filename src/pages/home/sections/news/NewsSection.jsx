@@ -39,9 +39,5 @@ export default props => (
         Desenvolvimento do Estado de Goiás. Murilo Barra assumiu a…
       </NewsCard>
     </div>
-    <h2>ACIA EM AÇÃO</h2>
-    <div className="acions">
-      
-    </div>
   </Section>
 );
