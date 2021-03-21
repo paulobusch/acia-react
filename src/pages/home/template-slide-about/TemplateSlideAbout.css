@@ -43,3 +43,53 @@
 .template-slide-about a:hover {
   background-color: rgba(0, 0, 0, 0.842);
 }
+
+@media only screen and (max-width: 1000px) {
+  .template-slide-about .title h1 {
+    font-size: 25px;
+  }
+  
+  .template-slide-about .title h2 {
+    font-size: 20px;
+  }
+  
+  .template-slide-about a {
+    padding: 5px 15px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .template-slide-about .title h1,
+  .template-slide-about .title h2 {
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .template-slide-about {
+    top: 35%;
+  }
+  .template-slide-about .title {
+    margin-bottom: 15px;
+  }
+  .template-slide-about .title h1 {
+    font-size: 20px;
+  }
+  
+  .template-slide-about .title h2 {
+    font-size: 15px;
+  }
+  
+  .template-slide-about a {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .template-slide-about .title h1,
+  .template-slide-about .title h2 {
+    display: none;
+  }
+}
