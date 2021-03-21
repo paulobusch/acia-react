@@ -1,0 +1,23 @@
+.service-card {
+  opacity: .8;
+  display: block;
+  flex-basis: 30%;
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.service-card:hover {
+  opacity: 1;
+}
+
+.service-card i { 
+  font-size: 80px;
+  color: var(--primary);
+}
+
+.service-card h2,
+.service-card p {
+  color: var(--grey);
+}
