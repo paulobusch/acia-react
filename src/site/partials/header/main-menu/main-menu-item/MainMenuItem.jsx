@@ -3,7 +3,7 @@ import './MainMenuItem.css';
 import React, { Component } from 'react';
 
 import MainMenu from '../MainMenu';
-import If from './../../../../common/operators/condition/If';
+import If from './../../../../../common/operators/condition/If';
 
 const INITIAL_STATE = {
   showMobileDropdown: false

@@ -1,6 +1,6 @@
 .header {
   padding: 5px 5%;
-  height: var(--menu-heigth);
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,7 +56,7 @@
     z-index: 2;
     background-color: white;
     position: absolute;
-    top: var(--menu-heigth);
+    top: var(--header-height);
     left: 0;
     width: 100%;
     flex-direction: column;

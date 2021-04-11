@@ -7,7 +7,7 @@ import Slide from './slide/Slide';
 import Indicator from './indicator/Indicator';
 import ButtonPrev from './actions/button-prev/ButtonPrev';
 import ButtonNext from './actions/button-next/ButtonNext';
-import If from '../operators/condition/If';
+import If from '../../../common/operators/condition/If';
 
 const INITIAL_STATE = {
   activeIndex: 0,
