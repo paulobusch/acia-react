@@ -17,6 +17,7 @@ export default props => {
     <div className="sidenav">
       <Menu>
         <MenuItem href="admin/posts" name="Posts" icon="list"/>
+        <MenuItem href="admin/law-suit" name="Processos" icon="balance-scale-right"/>
         <MenuItem href="admin/banners" name="Banners" icon="far fa-bookmark"/>
         <MenuItem href="admin/standards" name="Padrocínios" icon="search-dollar"/>
         <MenuItem href="admin/news" name="Notícias" icon="newspaper"/>

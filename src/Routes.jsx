@@ -21,6 +21,7 @@ export default props => (
       </Route>
       <Route exact path="/admin" component={ AdminLayout }>
         <Route path="posts" component={ Construction }/>
+        <Route path="law-suit" component={ Construction }/>
         <Route path="banners" component={ Construction }/>
         <Route path="standards" component={ Construction }/>
         <Route path="news" component={ Construction }/>
