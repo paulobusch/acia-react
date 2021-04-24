@@ -4,6 +4,7 @@ import { hashHistory, IndexRoute, Redirect, Route, Router } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 
 import promise from 'redux-promise';
+import multi from 'redux-multi';
 import thunk from 'redux-thunk';
 
 import Home from './site/pages/home/Home';
@@ -11,8 +12,11 @@ import Reducers from './reducers/reducers';
 import SiteLayout from './site/SiteLayout';
 import AdminLayout from './admin/AdminLayout';
 import Construction from './admin/pages/construction/Construction';
+import LawSuitList from './admin/pages/law-suits/law-suit-list/index';
 
-const store = applyMiddleware(thunk, promise)(createStore)(Reducers);
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
+  && __REDUX_DEVTOOLS_EXTENSION__();
+const store = applyMiddleware(thunk, multi, promise)(createStore)(Reducers, devTools);
 export default props => (
   <Provider store={ store }>
     <Router history={ hashHistory }>
@@ -21,7 +25,7 @@ export default props => (
       </Route>
       <Route exact path="/admin" component={ AdminLayout }>
         <Route path="posts" component={ Construction }/>
-        <Route path="law-suit" component={ Construction }/>
+        <Route path="law-suit" component={ LawSuitList }/>
         <Route path="banners" component={ Construction }/>
         <Route path="standards" component={ Construction }/>
         <Route path="news" component={ Construction }/>

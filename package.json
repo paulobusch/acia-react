@@ -1,10 +1,10 @@
 {
-  "name": "acia-react",
+  "name": "acia",
   "version": "1.0.0",
   "description": "",
-  "main": "Index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --colors --inline --hot",
+    "start": "webpack-dev-server --progress --colors --inline --hot",
     "prod": "webpack --progress -p"
   },
   "keywords": [],
@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
+    "admin-lte": "2.3.6",
     "axios": "0.15.3",
     "babel-core": "6.22.1",
     "babel-loader": "6.2.10",
@@ -22,7 +23,11 @@
     "css-loader": "0.26.1",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.9.0",
+    "ionicons": "3.0.0",
+    "firebase": "^8.3.2",
+    "lodash": "4.17.4",
     "react": "15.4.2",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "15.4.2",
     "react-redux": "4.4.6",
     "react-redux-toastr": "4.4.2",
@@ -36,5 +41,7 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.6.0"
+  }
 }

@@ -1,0 +1,56 @@
+.action-container {
+  margin: 0 15px;
+  position: relative;
+}
+
+.container-spinner {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.438);
+}
+
+.action-container .spinner {
+  font-size: 25px;
+  color: white;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: calc(50% - 25px / 2);
+  left: calc(50% - 25px / 2);
+  animation: rotate 1s linear infinite;
+}
+
+button.modal-action {
+  outline: none;
+  font-size: 18px;
+  padding: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #0276cd;
+  opacity: .8;
+  transition: .2s;
+}
+
+button.modal-action:active {
+  opacity: 1;
+  transform: scale(0.99);
+}
+
+button.modal-action:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  button.modal-action {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  button.modal-action {
+    font-size: 14px;
+  }
+}
