@@ -27,7 +27,7 @@ export default props => (
       CELULAR, ONDE OFERECEMOS PLANOS DE
       LIGAÇÃO COM ECONOMIA PARA VOCÊ.
     </ServiceCard>
-    <ServiceCard icon="gavel" title="CORTE DE CONCILIAÇÃO" to="law-suit-search">
+    <ServiceCard icon="gavel" title="CORTE DE CONCILIAÇÃO" to="law-suit/search">
       CONSULTE SEUS PROCESSOS
       NA CORTE DE CONCILIAÇÃO.
     </ServiceCard>

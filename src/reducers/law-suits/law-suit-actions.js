@@ -7,6 +7,20 @@ class LawSuitActions extends ActionsBase {
   constructor() {
     super('lawSuits', 'LAW_SUIT', 'law-suit-form');
   }
+  
+  getById(id, completed) {
+    return () => {
+      this.getCollection().doc(id).get().then(doc => {
+        const data = { id: doc.id, ...doc.data() };
+        if (completed) completed(true, data);
+      })
+      .catch((error) => { 
+        toastr.error('Erro', `Falha ao carregar registro!`); 
+        if (completed) completed(false);
+        throw error;
+      });
+    };
+  }
 
   search(term, completed) {
     return dispatch => {
@@ -32,6 +46,7 @@ const actionsInstance = new LawSuitActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
 export function getAll(completed){ return actionsInstance.getAll(completed); }
+export function getById(id, completed){ return actionsInstance.getById(id, completed); }
 export function search(term, completed){ return actionsInstance.search(term, completed); }
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }
 export function create(data, completed){ return actionsInstance.create(data, completed); }

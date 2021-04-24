@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 
-import Message from '../../../common/message';
-import Row from '../../../common/row';
-import { search } from '../../../reducers/law-suits/law-suit-actions';
-import Loading from './../../../common/loading/index';
-import { formatDate } from './../../../common/formatters/date';
+import Message from '../../../../common/message';
+import Row from '../../../../common/row';
+import { search } from '../../../../reducers/law-suits/law-suit-actions';
+import Loading from '../../../../common/loading/index';
+import { formatDate } from '../../../../common/formatters/date';
 import { withRouter } from 'react-router';
 
 class LawSuitSearch extends Component {
@@ -67,8 +67,7 @@ class LawSuitSearch extends Component {
   }
 
   goToLawSuit(id) {
-    const { router } = this.props;
-    const url = `${router.location.pathname}/view/${id}`;
+    const url = `law-suit/view/${id}`;
     this.props.router.push(url);
   }
 
