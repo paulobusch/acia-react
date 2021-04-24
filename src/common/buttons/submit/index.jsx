@@ -1,15 +1,14 @@
 import './submit-button.css';
 
 import React from 'react';
-import If from '../../operators/If';
 
 export default props => (
   <div className="submit-button submit-container" >
-    <If test={ props.loading }>
+    { props.loading &&
       <div className="container-spinner">
         <i  className="spinner fas fa-spinner"></i>
       </div>
-    </If>
+    }
     <button type="submit" disabled={ props.disabled } onClick={ props.onClick } style={ 
       { 
         width: props.fill ? '100%' : 'auto',

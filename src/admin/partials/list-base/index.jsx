@@ -7,7 +7,7 @@ import CardContent from '../card/card-content';
 import CardHeader from '../card/card-header';
 
 import Table from '../../../common/table';
-import Modal from '../../../common/modal/inex';
+import Modal from '../../../common/modal';
 import FixedButton from '../../../common/buttons/fixed';
 
 const INITIAL_STATE = { loading: true, loadingRemove: false, selected: null, showConfirmRemove: false };

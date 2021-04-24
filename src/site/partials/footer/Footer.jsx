@@ -5,7 +5,7 @@ import React from 'react';
 export default props => {
   const year = new Date().getFullYear();
   return (
-    <footer className="footer">
+    <footer>
       <ul className="main-list">
         <li>
           <ul className="block-list">

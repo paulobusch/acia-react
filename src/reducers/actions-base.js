@@ -34,7 +34,7 @@ export default class ActionsBase {
   loadForm(id, completed) {
     return dispatch => {
       this.getCollection().doc(id).get().then(doc => {
-        dispatch(initialize(formId, { id: doc.id, ...doc.data() }));
+        dispatch(initialize(this.formId, { id: doc.id, ...doc.data() }));
         if (completed) completed(true);
       })
       .catch((error) => { 
@@ -46,7 +46,7 @@ export default class ActionsBase {
   }
   
   submitForm() {
-    return submit(formId);
+    return submit(this.formId);
   }
   
   create(values, completed) {
