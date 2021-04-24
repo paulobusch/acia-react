@@ -16,6 +16,8 @@ import LawSuitList from './admin/pages/law-suits/law-suit-list';
 import lawSuitForm from './admin/pages/law-suits/law-suit-form';
 import LawSuitSearch from './site/pages/law-suit/law-suit-search';
 import LawSuitDetail from './site/pages/law-suit/law-suit-detail';
+import SlideList from './admin/pages/slides/slide-list';
+import SlideForm from './admin/pages/slides/slide-form';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -29,13 +31,14 @@ export default props => (
         <Route path="law-suit/view/:id" component={ LawSuitDetail }/>
       </Route>
       <Route exact path="/admin" component={ AdminLayout }>
+        <Route path="slides" component={ SlideList }/>
+        <Route path="slides/new" component={ SlideForm }/>
+        <Route path="slides/edit/:id" component={ SlideForm }/>
         <Route path="posts" component={ Construction }/>
         <Route path="law-suit" component={ LawSuitList }/>
         <Route path="law-suit/new" component={ lawSuitForm }/>
         <Route path="law-suit/edit/:id" component={ lawSuitForm }/>
-        <Route path="banners" component={ Construction }/>
         <Route path="standards" component={ Construction }/>
-        <Route path="news" component={ Construction }/>
         <Route path="benefits" component={ Construction }/>
         <Route path="products" component={ Construction }/>
         <Route path="directors" component={ Construction }/>

@@ -72,6 +72,10 @@ textarea.form-control {
   right: 15px;
 }
 
+.field-padding {
+  padding-right: 10px !important;
+} 
+
 @media only screen and (max-width: 600px) {
   .form-control {
     font-size: 15px;

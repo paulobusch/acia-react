@@ -17,7 +17,9 @@ export default class FieldBase extends Component {
   }
 
   render() {
-    const { label, name, className } = this.props;
+    const { label, className } = this.props;
+    const name = this.props.input.name;
+    const id = this.props.input.id || name;
     const errors = this.errors();
 
     return (
@@ -25,7 +27,7 @@ export default class FieldBase extends Component {
         className={ `form-field ${errors ? 'has-error' : ''} ${className || ''}` }
         style={ this.getStyle() }
       >
-        { label ? <label htmlFor={ name }>{ label }</label> : false }
+        { label ? <label htmlFor={ id }>{ label }</label> : false }
         { this.fieldWithIcon() }
         { errors }
       </div>

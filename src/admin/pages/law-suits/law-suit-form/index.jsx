@@ -8,7 +8,7 @@ import moment from 'moment';
 
 import required from './../../../../common/validators/required';
 import Row from '../../../../common/row';
-import FormBase from '../../../../common/form';
+import FormBase from '../../../../common/form-base';
 import Input from '../../../../common/fields/input';
 import { create, update, loadForm, submitForm } from './../../../../reducers/law-suits/law-suit-actions';
 
