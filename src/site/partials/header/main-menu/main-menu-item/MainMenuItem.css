@@ -28,6 +28,7 @@
 .main-menu-dropdown:hover,
 .main-menu-item:hover .main-menu-dropdown {
   opacity: 1;
+  pointer-events: all;
   top: calc(var(--header-height));
 }
 

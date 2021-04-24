@@ -43,7 +43,8 @@ textarea.form-control {
   max-height: 300px;
 }
 
-.field-icon {
+.field-icon,
+.field-icon-right {
   display: flex;
   align-items: center;
   position: relative;
@@ -53,10 +54,22 @@ textarea.form-control {
   padding-left: 40px;
 }
 
-.field-icon i.icon {
+.field-icon-right .form-control {
+  padding-right: 40px;
+}
+
+.field-icon i.icon,
+.field-icon-right i.icon {
   cursor: pointer;
   position: absolute;
+}
+
+.field-icon i.icon {
   left: 15px;
+}
+
+.field-icon-right i.icon {
+  right: 15px;
 }
 
 @media only screen and (max-width: 600px) {

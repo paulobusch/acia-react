@@ -2,7 +2,7 @@ import './table.css';
 
 import React, { Component } from 'react';
 import Action from './action';
-import Message from './message';
+import Message from '../message';
 import Loading from '../loading';
 
 export default class Table extends Component {

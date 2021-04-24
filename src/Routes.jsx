@@ -14,6 +14,7 @@ import AdminLayout from './admin/AdminLayout';
 import Construction from './admin/pages/construction/Construction';
 import LawSuitList from './admin/pages/law-suits/law-suit-list/index';
 import lawSuitForm from './admin/pages/law-suits/law-suit-form/index';
+import LawSuitSearch from './site/pages/law-suit-search/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -23,6 +24,7 @@ export default props => (
     <Router history={ hashHistory }>
       <Route path="/" component={ SiteLayout }>
         <IndexRoute component={ Home }/>
+        <Route path="law-suit-search" component={ LawSuitSearch }/>
       </Route>
       <Route exact path="/admin" component={ AdminLayout }>
         <Route path="posts" component={ Construction }/>

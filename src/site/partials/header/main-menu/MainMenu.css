@@ -10,6 +10,7 @@
 
 .main-menu-dropdown {
   z-index: 1;
+  pointer-events: none;
   position: absolute;
   opacity: 0;
   padding: 5px;

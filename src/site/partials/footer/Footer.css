@@ -1,4 +1,5 @@
 footer {
+  min-height: var(--footer-height);
   background-color: var(--primary);
   color: white;
   padding-top: 25px;

@@ -1,0 +1,34 @@
+#law-suit-search {
+  padding: 0 5%;
+  padding-top: 35px;
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 28px);
+}
+
+.law-suit-list {
+  padding: 0 15%;
+  list-style: none;
+}
+
+.law-suit-item {
+  display: flex;
+  padding: 15px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.law-suit-item:hover {
+  background-color: #e1f0ff;
+}
+
+.law-suit-item .code {
+  flex-basis: 10%;
+}
+
+.law-suit-item .name {
+  flex-basis: 80%;
+}
+
+.law-suit-item .date {
+  flex-basis: 10%;
+}
