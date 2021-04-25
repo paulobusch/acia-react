@@ -5,6 +5,10 @@
   justify-content: space-between;
 }
 
+#articles .loading-spinner {
+  margin-top: 50px;
+}
+
 #articles .publicities-slider-container {
   position: relative;
   width: 48.5%;

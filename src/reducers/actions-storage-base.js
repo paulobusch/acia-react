@@ -40,11 +40,12 @@ export default class ActionsStorageBase {
         const list = this.sortAsc 
           ? mapped.sort((a, b) => a.order - b.order)
           : mapped.sort((a, b) => b.order - a.order);
-        const urlTasks = list.map(item => this.getFile(item.image).getDownloadURL());
+        const listWithImage = list.filter(item => item.image);
+        const urlTasks = listWithImage.map(item => this.getFile(item.image).getDownloadURL());
         Promise.all(urlTasks).then(urlResults => {
-          for (const index in list){
-            list[index].imageRef = list[index].image;
-            list[index].image = urlResults[index];
+          for (const index in listWithImage){
+            listWithImage[index].imageRef = listWithImage[index].image;
+            listWithImage[index].image = urlResults[index];
           }
           dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
           if (completed) completed(true);

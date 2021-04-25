@@ -28,9 +28,9 @@ class PostList extends ListBase {
 
   configure() {
     this.tableColumns = [
-      { prop: 'image', label: 'Imagem', flex: 5, template: Image },
-      { prop: 'type', label: 'Tipo', flex: 15 },
-      { prop: 'title', label: 'Título', flex: 20 },
+      { prop: 'image', label: 'Imagem', flex: 5, template: props => Image({ ...props, height: '100px' }) },
+      { prop: 'type', label: 'Tipo', flex: 10 },
+      { prop: 'title', label: 'Título', flex: 25 },
       { prop: 'text', label: 'Texto', flex: 50, format: this.resumeText },
       { prop: 'createdAt', label: 'Data', flex: 10, format: formatDate }
     ];

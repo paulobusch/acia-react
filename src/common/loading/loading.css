@@ -6,6 +6,11 @@
   opacity: .5;
 }
 
+.loading-spinner.block-center {
+  display: block;
+  margin: 0 auto;
+}
+
 .loading-spinner i {
   opacity: .6;
   font-size: 30px;

@@ -31,18 +31,21 @@ class PostForm extends FormBase {
 
   form() {
     const types = ['Notícia', 'Artigo', 'Acia em Ação'];
-    const { handleSubmit } = this.props;
+    const { handleSubmit, type } = this.props;
+    const withoutArticle = type !== 'Artigo';
     return (
       <Form onSubmit={ handleSubmit(this.submit) }>
         <Row justify="flex-start">
-          <Field name="image" className="image-field" label="Imagem" button="Selecionar" placeholder="Selecione uma imagem"
-            flex="25" component={ File } validate={ required }
-          />
           <Field name="type" label="Tipo" 
             flex="25" component={ Select } options={ types } validate={ required }
           />
+          { withoutArticle &&
+            <Field name="image" className="image-field" label="Imagem" button="Selecionar" placeholder="Selecione uma imagem"
+              flex="25" component={ File } validate={ required }
+            />
+          }
           <Field name="title" label="Título" type="text" placeholder="Informe o título" 
-            flex="50" component={ Input } validate={ required }
+            flex={ withoutArticle ? 50 : 75 } component={ Input } validate={ required }
           />
         </Row>
         <Row>
@@ -56,5 +59,7 @@ class PostForm extends FormBase {
 }
 
 const postForm = reduxForm({ form: 'post-form' })(withRouter(PostForm));
+const selector = formValueSelector('post-form');
+const mapStateToProps = state => ({ type: selector(state, 'type') });
 const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
-export default connect(null, mapDispatchToProps)(postForm);
+export default connect(mapStateToProps, mapDispatchToProps)(postForm);
