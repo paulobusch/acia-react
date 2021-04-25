@@ -8,11 +8,25 @@ export default class ActionsBase {
   constructor(
     collectionName,
     prefixType,
-    formId
+    formId,
   ) {
     this.collectionName = collectionName;
     this.prefixType = prefixType;
     this.formId = formId;
+  }
+  
+  getById(id, completed) {
+    return () => {
+      this.getCollection().doc(id).get().then(doc => {
+        const data = { id: doc.id, ...doc.data() };
+        if (completed) completed(true, data);
+      })
+      .catch((error) => { 
+        toastr.error('Erro', `Falha ao carregar registro!`); 
+        if (completed) completed(false);
+        throw error;
+      });
+    };
   }
 
   getAll(completed) {
@@ -20,6 +34,7 @@ export default class ActionsBase {
       this.getCollection().get().then(result => {
         const list = result.docs.map(d => ({ id: d.id, ...d.data() }))
           .sort((a, b) => b.createdAt - a.createdAt);
+        list.map(d => d.createdAt = d.createdAt.toDate());
         dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
         if (completed) completed(true);
       })
@@ -85,10 +100,10 @@ export default class ActionsBase {
     };
   }
   
-  remove(id, completed) {
+  remove(values, completed) {
     return dispatch => {
-      this.getCollection().doc(id).delete().then(doc => {
-        dispatch({ type: `${this.prefixType}_DELETED`, payload: id });
+      this.getCollection().doc(values.id).delete().then(doc => {
+        dispatch({ type: `${this.prefixType}_DELETED`, payload: values.id });
         if (completed) completed(true);
       })
       .catch((error) => {

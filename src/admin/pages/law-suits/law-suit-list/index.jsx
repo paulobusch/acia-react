@@ -17,8 +17,8 @@ class LawSuitList extends ListBase {
   configure() {
     this.tableColumns = [
       { prop: 'code', label: 'Código', flex: 10 },
-      { prop: 'name', label: 'Nome', flex: 70 },
-      { prop: 'date', label: 'Data', flex: 20, format: formatDate },
+      { prop: 'name', label: 'Nome', flex: 80 },
+      { prop: 'date', label: 'Data', flex: 10, format: formatDate },
     ];
   }
   

@@ -4,12 +4,14 @@ import { reducer as formReducer } from 'redux-form';
 
 import LawSuitReducer from './law-suits/law-suit-reducer';
 import SlidesReducer from './slides/slide-reducer';
+import PostsReducer from './posts/post-reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
   toastr: toastrReducer,
   lawSuits: LawSuitReducer,
-  slides: SlidesReducer
+  slides: SlidesReducer,
+  posts: PostsReducer
 });
 
 export default rootReducer;

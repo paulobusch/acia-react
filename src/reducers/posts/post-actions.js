@@ -1,12 +1,12 @@
-import ActionsStorageBase from './../actions-storage-base';
+import ActionsStorageBase from '../actions-storage-base';
 
-class SlideActions extends ActionsStorageBase {
+class PostActions extends ActionsStorageBase {
   constructor() {
-    super('slides', 'SLIDE', 'slide-form', true);
+    super('posts', 'POST', 'post-form', false);
   }
 }
 
-const actionsInstance = new SlideActions();
+const actionsInstance = new PostActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
 export function getAll(completed){ return actionsInstance.getAll(completed); }

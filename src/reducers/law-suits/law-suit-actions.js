@@ -7,20 +7,6 @@ class LawSuitActions extends ActionsBase {
   constructor() {
     super('lawSuits', 'LAW_SUIT', 'law-suit-form');
   }
-  
-  getById(id, completed) {
-    return () => {
-      this.getCollection().doc(id).get().then(doc => {
-        const data = { id: doc.id, ...doc.data() };
-        if (completed) completed(true, data);
-      })
-      .catch((error) => { 
-        toastr.error('Erro', `Falha ao carregar registro!`); 
-        if (completed) completed(false);
-        throw error;
-      });
-    };
-  }
 
   search(term, completed) {
     return dispatch => {
@@ -29,7 +15,7 @@ class LawSuitActions extends ActionsBase {
         .startAt(term)
         .get().then(result => {
         const list = result.docs.map(d => ({ id: d.id, ...d.data() }))
-          .sort((a, b) => b.createdAt - a.createdAt);
+          .sort((a, b) => a.createdAt - b.createdAt);
         dispatch({ type: LAW_SUIT_FETCHED, payload: list });
         if (completed) completed(true);
       })
@@ -51,4 +37,4 @@ export function search(term, completed){ return actionsInstance.search(term, com
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }
 export function create(data, completed){ return actionsInstance.create(data, completed); }
 export function update(data, completed){ return actionsInstance.update(data, completed); }
-export function remove(id, completed){ return actionsInstance.remove(id, completed); }
+export function remove(data, completed){ return actionsInstance.remove(data, completed); }

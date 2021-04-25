@@ -36,7 +36,7 @@ export default class ListBase extends Component {
 
   confirmRemove() {
     this.toggleLoadingRemove(true);
-    this.props.remove(this.state.selected.id, this.afterRemove);
+    this.props.remove(this.state.selected, this.afterRemove);
   }
   
   afterRemove(success) {
