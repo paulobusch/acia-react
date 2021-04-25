@@ -7,7 +7,7 @@ import promise from 'redux-promise';
 import multi from 'redux-multi';
 import thunk from 'redux-thunk';
 
-import Home from './site/pages/home/Home';
+import Home from './site/pages/home';
 import Reducers from './reducers/reducers';
 import SiteLayout from './site/SiteLayout';
 import AdminLayout from './admin/AdminLayout';

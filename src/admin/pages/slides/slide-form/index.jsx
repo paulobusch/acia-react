@@ -18,7 +18,7 @@ const DEFAULT_STATE = {
   image: null,
   positionX: 'center',
   positionY: 'center',
-  overrideContent: false,
+  overlaySlide: false,
   title: '',
   subtitle: '',
   actionUrl: ''  
@@ -51,7 +51,7 @@ class SlideForm extends FormBase {
       { text: 'Centro', value: 'center' },
       { text: 'Embaixo', value: 'bottom' }
     ];
-    const { handleSubmit, overrideContent } = this.props;
+    const { handleSubmit, overlaySlide } = this.props;
     return (
       <Form onSubmit={ handleSubmit(this.submit) }>
         <Row justify="flex-start">
@@ -64,11 +64,11 @@ class SlideForm extends FormBase {
           <Field name="positionY" label="Posição Vertical" 
             flex="25" component={ Select } options={ positionYOptions } object validate={ required }
           />
-          <Field name="overrideContent" label="Conteúdo Sobreposto" type="checkbox" 
+          <Field name="overlaySlide" label="Conteúdo Sobreposto" type="checkbox" 
             flex="25" component={ Checkbox }
           />
         </Row>
-        { overrideContent &&
+        { overlaySlide &&
           <Row justify="flex-start">
             <Field name="title" label="Título" type="text" placeholder="Informe o título"
               flex="25" component={ Input } validate={ required }
@@ -88,6 +88,6 @@ class SlideForm extends FormBase {
 
 const slideForm = reduxForm({ form: 'slide-form' })(withRouter(SlideForm));
 const selector = formValueSelector('slide-form');
-const mapStateToProps = state => ({ overrideContent: selector(state, 'overrideContent') });
+const mapStateToProps = state => ({ overlaySlide: selector(state, 'overlaySlide') });
 const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(slideForm);

@@ -1,11 +1,12 @@
 import './table.css';
 
-import React, { Component } from 'react';
+import React from 'react';
 import Action from './action';
 import Message from '../message';
 import Loading from '../loading';
+import DragBase from './../drag-base/index';
 
-export default class Table extends Component {
+export default class Table extends DragBase {
   
   render() {
     const { rows, loading } = this.props;
@@ -21,16 +22,21 @@ export default class Table extends Component {
           <thead style={ this.getHeadStyles() }>
             { this.getColumnHeaders() }
           </thead>
-          <tbody>
+          <tbody onDragOver={ this.dragOver }>
             { this.getRowValues() }
           </tbody>
         </table>
       </div>
     );
   }
+  
+  movedRow(sourceIndex, targetIndex) { 
+    const { movedRow } = this.props;
+    if (movedRow) movedRow(sourceIndex, targetIndex);
+  }
 
   getColumnHeaders() {
-    const { columns, flexAction } = this.props;
+    const { drag, columns, flexAction } = this.props;
     if (!columns || !Array.isArray(columns)) return false;
     const headStyles = this.getHeadStyles();
     const heads = columns.map(c => 
@@ -41,12 +47,18 @@ export default class Table extends Component {
       { c.label }
       </th>
     );
+    if (drag) {
+      const head = <th key="drag" style={ { ...headStyles, width: '5%', textAlign: 'center' } }>
+        <i className="fas fa-sort"></i>
+      </th>;
+      heads.unshift(head);
+    }
     if (this.hasActions()) heads.push(<th key="actions" style={ { ...headStyles, width: `${flexAction || 2 }%` } }>Ações</th>);
     return <tr>{ heads }</tr>;
   }
 
   getColumnValues(row, index) {
-    const { columns, rowClick } = this.props;
+    const { columns, drag, rowClick } = this.props;
     if (!columns || !Array.isArray(columns)) return false;
     const cells = columns.map(c => {
       const raw = row[c.prop];
@@ -55,9 +67,16 @@ export default class Table extends Component {
       const text = format ? format(raw) : raw;
       const content = template ? <Template row={ row } index={ index } column={ c } text={ text } /> : text;
       return (
-        <td key={ c.prop } onClick={ () => rowClick ? rowClick(row) : false }>{ content }</td>
+        <td key={ c.prop } onDragStart={ e => { e.stopPropagation(); e.preventDefault() } } onClick={ () => rowClick ? rowClick(row) : false }>{ content }</td>
       );
     });
+
+    if (drag) {
+      const cell = <td key="drag" className="drag">
+        <i className="fas fa-bars"></i>
+      </td>;
+      cells.unshift(cell);
+    } 
 
     return cells;
   }
@@ -85,10 +104,13 @@ export default class Table extends Component {
   }
 
   getRowValues() {
-    const { rows, rowClick } = this.props;
+    const { rows, drag, rowClick } = this.props;
     if (!rows || !Array.isArray(rows)) return false;
     return rows.map((r, i) => (
       <tr key={ r.id || i } 
+        draggable={ drag } 
+        onDragStart={ e => this.dragStart(e) }
+        onDragEnd={ e => this.dragEnd(e) }
         style={ { cursor: rowClick ? 'pointer' : 'default' } }>
         { this.getColumnValues(r, i) }
         { this.getActionValues(r, i) }
