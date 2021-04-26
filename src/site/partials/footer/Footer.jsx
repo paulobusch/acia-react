@@ -12,7 +12,7 @@ export default props => {
             <li><img src="images/acia/logo-acia-white.png"/></li>
             <li><a href="#">FALE COM UM ATENDENTE</a></li>
             <li><a href="#">POLÍTICA DE PRIVACIDADE</a></li>
-            <li><a href="#">ASSOCIE-SE</a></li>
+            <li><a href="/#/subscribe">ASSOCIE-SE</a></li>
             <li>
               <a href="#">
                 R. Manoel D'abadia, 335 - St. Central, <br />
@@ -24,10 +24,10 @@ export default props => {
         <li>
           <h2>EMPRESAS</h2>
           <ul className="block-list">
-            <li><a href="#">CERTIFICADO DIGITAL</a></li>
-            <li><a href="#">CORTE DE CONCILIAÇÃO</a></li>
-            <li><a href="#">CARTÃO DE VANTAGENS</a></li>
-            <li><a href="#">ACIA CRED</a></li>
+            <li><a href="https://www.aciaanapolis.com.br/site/certificado-digital-acia/">CERTIFICADO DIGITAL</a></li>
+            <li><a href="/#/law-suit/search">CORTE DE CONCILIAÇÃO</a></li>
+            <li><a href="https://www.aciaanapolis.com.br/site/cartao-de-vantagens-acia/">CARTÃO DE VANTAGENS</a></li>
+            <li><a href="https://www.aciaanapolis.com.br/site/aciacred-convenio/">ACIA CRED</a></li>
           </ul>
         </li>
         <li>
@@ -64,7 +64,7 @@ export default props => {
       <div className="bottom">
         <span>
           <i className="far fa-copyright"></i>&nbsp;
-          DEF Brokers { year } - Todos os direitos reservados
+          COPYRIGHT ACIA - ASSOCIAÇÃO COMERCIAL E INDUSTRIAL DE ANÁPOLIS - { year }
         </span>
         <a href="https://gritealto.com" target="_blank">
           Powered by GriteAlto

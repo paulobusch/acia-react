@@ -38,24 +38,24 @@ export default class Header extends Component {
         </div>
         <MainMenu className={ `menu ${this.state.showMenuMobile ? 'show-mobile-menu' : ''}` }>
           <MainMenuItem href="#" text="VANTAGENS ACIA">
-            <MainMenuItem href="#" text="ACIA CRED"/>
-            <MainMenuItem href="#" text="CERTIFICADO DIGITAL"/>
-            <MainMenuItem href="#" text="SERASA"/>
-            <MainMenuItem href="#" text="CORTE CONCILIAÇÃO"/>
-            <MainMenuItem href="#" text="LIGUE ACIA"/>
-            <MainMenuItem href="#" text="CARTÃO DE VANTAGENS"/>
-            <MainMenuItem href="#" text="AUDITÓRIO / SALA REUNIÃO"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/aciacred-convenio/" text="ACIA CRED"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/certificado-digital-acia/" text="CERTIFICADO DIGITAL"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/serasa-experian/" text="SERASA"/>
+            <MainMenuItem href="/#/law-suit/search" text="CORTE CONCILIAÇÃO"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/rede-celular/" text="LIGUE ACIA"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/cartao-de-vantagens-acia/" text="CARTÃO DE VANTAGENS"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/sala-de-reunioes/" text="AUDITÓRIO / SALA REUNIÃO"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-convenios" text="REDE DE CONVÊNIOS"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-saude" text="GUIA SAÚDE"/>
           </MainMenuItem>
           <MainMenuItem href="#" text="INSTITUCIONAL">
-            <MainMenuItem href="#" text="QUEM SOMOS"/>
-            <MainMenuItem href="#" text="DIRETORIA"/>
-            <MainMenuItem href="#" text="ARQUIVO HISTÓRICO"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/quem-somos/" text="QUEM SOMOS"/>
+            <MainMenuItem href="https://www.aciaanapolis.com.br/site/diretoria/" text="DIRETORIA"/>
+            <MainMenuItem href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
           </MainMenuItem>
-          <MainMenuItem href="#" text="FINANCEIRO"/>
+          <MainMenuItem href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
           <MainMenuItem href="#" text="CONTATO"/>
-          <MainMenuItem href="#" text="ASSOCIE-SE" onlymobile/>
+          <MainMenuItem href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
         </MainMenu>
         <RightMenu onlydesktop>
           <RightMenuIcon icon="bars"/>
