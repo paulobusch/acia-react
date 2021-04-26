@@ -43,8 +43,8 @@ export default props => {
           <h2>ANÁPOLIS</h2>
           <ul className="block-list">
             <li><a href="#">HISTÓRIA</a></li>
-            <li><a href="#">INFORMAÇÕES GEOGRÁFICAS</a></li>
-            <li><a href="#">INFORMAÇÕES RELEVANTES</a></li>
+            <li><a href="https://www.aciaanapolis.com.br/site/informacoes-geograficas/">INFORMAÇÕES GEOGRÁFICAS</a></li>
+            <li><a href="https://www.aciaanapolis.com.br/site/informacoes-relevantes/">INFORMAÇÕES RELEVANTES</a></li>
             <li><a href="https://www.juceg.go.gov.br">JUCEG</a></li>
             <li><a href="https://portaldoempreendedor.me">PORTAL DO MICROEMPREENDEDOR</a></li>
             <li><a href="https://www.sebrae.com.br/sites/PortalSebrae/ufs/go?codUf=10&gclid=Cj0KCQjwgtWDBhDZARIsADEKwgMks6rnCHkmrxWWjUQmTWvXRGEUmH1LcrHm9GvHJS5f1Hcucs1v0KwaAlVXEALw_wcB">SEBRAE</a></li>
@@ -55,7 +55,7 @@ export default props => {
           <input type="email" name="email" placeholder="escreva seu email..."/>
           <ul className="social-list">
             <li><a href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
-            <li><a href="#"><i className="fab fa-twitter-square"></i></a></li>
+            <li><a href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
             <li><a href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
             <li><a href="https://www.youtube.com/channel/UCO4ScvIkaZpjLdytMBrYvmA"><i className="fab fa-youtube"></i></a></li>
           </ul>
