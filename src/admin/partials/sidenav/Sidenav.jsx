@@ -19,7 +19,7 @@ export default props => {
         <MenuItem href="admin/slides" name="Slides" icon="images"/>
         <MenuItem href="admin/posts" name="Posts" icon="list"/>
         <MenuItem href="admin/law-suit" name="Processos" icon="balance-scale-right"/>
-        <MenuItem href="admin/standards" name="Padrocínios" icon="search-dollar"/>
+        <MenuItem href="admin/standards" name="Patrocínios" icon="search-dollar"/>
         <MenuItem href="admin/benefits" name="Benefícios" icon="money-check-alt"/>
         <MenuItem href="admin/products" name="Produtos" icon="cubes"/>
         <MenuItem href="admin/directors" name="Diretoria" icon="far fa-user"/>
