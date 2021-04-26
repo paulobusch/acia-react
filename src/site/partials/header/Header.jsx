@@ -60,7 +60,7 @@ export default class Header extends Component {
         <RightMenu onlydesktop>
           <RightMenuIcon icon="bars"/>
           <RightMenuIcon icon="search" title="Pesquisar"/>
-          <RightMenuChip href="#" text="ASSOCIE-SE"/>
+          <RightMenuChip href="/#/subscribe" text="ASSOCIE-SE"/>
         </RightMenu>
       </header>
     );

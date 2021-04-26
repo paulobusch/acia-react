@@ -20,6 +20,7 @@ import SlideList from './admin/pages/slides/slide-list';
 import SlideForm from './admin/pages/slides/slide-form';
 import PostList from './admin/pages/posts/post-list';
 import PostForm from './admin/pages/posts/post-form';
+import Subscribe from './site/pages/subscribe/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -29,6 +30,7 @@ export default props => (
     <Router history={ hashHistory }>
       <Route path="/" component={ SiteLayout }>
         <IndexRoute component={ Home }/>
+        <Route path="subscribe" component={ Subscribe }/>
         <Route path="law-suit/search" component={ LawSuitSearch }/>
         <Route path="law-suit/view/:id" component={ LawSuitDetail }/>
       </Route>

@@ -4,6 +4,7 @@ import { toastr } from 'react-redux-toastr';
 import firebaseInstance from '../firebase/index';
 import NewId from './../common/random/random-id';
 import 'firebase/firestore';
+import 'firebase/storage';
 
 export default class ActionsStorageBase {
   constructor(
