@@ -68,6 +68,5 @@ class LawSuitDetail extends Component {
   }
 }
 
-const mapStateToProps = state => ({ lawSuits: state.lawSuits }); 
 const mapDispatchToProps = dispatch => bindActionCreators({ getById }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LawSuitDetail));
+export default connect(null, mapDispatchToProps)(withRouter(LawSuitDetail));
