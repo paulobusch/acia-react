@@ -1,47 +1,47 @@
 import React from 'react';
 
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
 
-import { getAll, updateOrderBulk, remove } from '../../../../reducers/posts/post-actions';
-import ListBase from '../../../partials/list-base';
-import Image from '../../../../common/image';
-import { formatDate } from './../../../../common/formatters/date';
+import { POST_ACTION, POST_ARTICLE } from '../../../../reducers/posts/post-type';
+import TabsController from './../../../../common/tabs/controller';
+import Tabs from './../../../../common/tabs/index';
+import TabsHeader from './../../../../common/tabs/headers/index';
+import TabHeader from './../../../../common/tabs/headers/header/index';
+import TabsContent from './../../../../common/tabs/contents/index';
+import TabContent from './../../../../common/tabs/contents/content/index';
+import ActionList from './actions/index';
+import { POST_NEWS } from './../../../../reducers/posts/post-type';
+import ArticlesList from './articles/index';
+import NewsList from './news/index';
 
-class PostList extends ListBase {
+class PostListTabs extends TabsController {
   constructor(props) {
-    super(props);
-
-    this.title = 'Posts';
-    this.className = 'page-post-list';
-    this.resumeText = this.resumeText.bind(this);
+    super(props, 'actions');
   }
 
-  resumeText(text) {
-    const limit = 180;
-    if (!text) return false;
-    if (text.length > limit) 
-      return <span>{text.substr(0, limit - 3)}...</span>;
-    return <span>{text}</span>;
-  }
-
-  configure() {
-    this.tableColumns = [
-      { prop: 'image', label: 'Imagem', flex: 5, template: props => Image({ ...props, height: '100px' }) },
-      { prop: 'type', label: 'Tipo', flex: 10 },
-      { prop: 'title', label: 'Título', flex: 25 },
-      { prop: 'text', label: 'Texto', flex: 50, format: this.resumeText },
-      { prop: 'createdAt', label: 'Data', flex: 10, format: formatDate }
-    ];
-    this.sort = 'desc';
-  }
-  
-  getList() {
-    return this.props.posts;
+  render() {
+    return (
+      <Tabs>
+        <TabsHeader>
+          <TabHeader onClick={ this.changeTab } target="actions" current={ this.state.tabActive } title="Acia em Ação"/>
+          <TabHeader onClick={ this.changeTab } target="news" current={ this.state.tabActive } title="Notícias"/>
+          <TabHeader onClick={ this.changeTab } target="articles" current={ this.state.tabActive } title="Artigos"/>
+        </TabsHeader>
+        <TabsContent>
+          <TabContent id="actions" current={ this.state.tabActive }>
+            <ActionList/>
+          </TabContent>
+          <TabContent id="news" current={ this.state.tabActive }>
+            <NewsList/>
+          </TabContent>
+          <TabContent id="articles" current={ this.state.tabActive }>
+            <ArticlesList/>
+          </TabContent>
+        </TabsContent>
+      </Tabs>
+    );
   }
 }
 
-const mapStateToProps = state => ({ posts: state.posts });
-const mapDispatchToProps = dispatch => bindActionCreators({ getAll, updateOrderBulk, remove }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PostList));
+export default withRouter(PostListTabs);

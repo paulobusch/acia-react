@@ -18,7 +18,7 @@ import LawSuitSearch from './site/pages/law-suit/law-suit-search';
 import LawSuitDetail from './site/pages/law-suit/law-suit-detail';
 import SlideList from './admin/pages/slides/slide-list';
 import SlideForm from './admin/pages/slides/slide-form';
-import PostList from './admin/pages/posts/post-list';
+import PostListTabs from './admin/pages/posts/post-list';
 import PostForm from './admin/pages/posts/post-form';
 import Subscribe from './site/pages/subscribe/index';
 
@@ -38,9 +38,11 @@ export default props => (
         <Route path="slides" component={ SlideList }/>
         <Route path="slides/new" component={ SlideForm }/>
         <Route path="slides/edit/:id" component={ SlideForm }/>
-        <Route path="posts" component={ PostList }/>
         <Route path="posts/new" component={ PostForm }/>
+        <Route path="posts/new/:type" component={ PostForm }/>
         <Route path="posts/edit/:id" component={ PostForm }/>
+        <Route path="posts/:tab" component={ PostListTabs }/>
+        <Route path="posts" component={ PostListTabs }/>
         <Route path="law-suit" component={ LawSuitList }/>
         <Route path="law-suit/new" component={ lawSuitForm }/>
         <Route path="law-suit/edit/:id" component={ lawSuitForm }/>

@@ -12,6 +12,7 @@ import FormBase from '../../../../common/form-base';
 import { create, update, loadForm, submitForm } from '../../../../reducers/posts/post-actions';
 import Input from '../../../../common/fields/input/index';
 import TextArea from './../../../../common/fields/textarea/index';
+import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './../../../../reducers/posts/post-type';
 
 const DEFAULT_STATE = {
   image: null,
@@ -23,14 +24,18 @@ const DEFAULT_STATE = {
 class PostForm extends FormBase { 
   constructor(props) {
     super(props);
+    
+    const { router } = this.props;
     if (!this.id) {
-      this.props.initialize(DEFAULT_STATE);
+      const data = DEFAULT_STATE;
+      if (router.params.type) data.type = router.params.type;
+      this.props.initialize(data);
     }
     this.title = 'Post';
   }
 
   form() {
-    const types = ['Notícia', 'Artigo', 'Acia em Ação'];
+    const types = [POST_NEWS, POST_ARTICLE, POST_ACTION];
     const { handleSubmit, type } = this.props;
     const withoutArticle = type !== 'Artigo';
     return (

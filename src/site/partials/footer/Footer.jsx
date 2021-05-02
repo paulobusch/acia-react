@@ -1,6 +1,9 @@
 import './Footer.css';
 
 import React from 'react';
+import { WEBSITE_EMAIL } from '../../../consts';
+import { WEBSITE_PHONE } from './../../../consts';
+import { generateAddContactLink } from './../../../common/api/whatsapp';
 
 export default props => {
   const year = new Date().getFullYear();
@@ -10,7 +13,7 @@ export default props => {
         <li>
           <ul className="block-list">
             <li><img src="images/acia/logo-acia-white.png"/></li>
-            <li><a href="#">FALE COM UM ATENDENTE</a></li>
+            <li><a href={ generateAddContactLink(WEBSITE_PHONE) }>FALE COM UM ATENDENTE</a></li>
             <li><a href="#">POLÍTICA DE PRIVACIDADE</a></li>
             <li><a href="/#/subscribe">ASSOCIE-SE</a></li>
             <li>
@@ -33,7 +36,7 @@ export default props => {
         <li>
           <h2>INSTITUCIONAL</h2>
           <ul className="block-list">
-            <li><a href="#">ACIA TEC</a></li>
+            <li><a href={ `mailto:${WEBSITE_EMAIL}` }>ACIA TEC</a></li>
             <li><a href="https://www.aciaanapolis.com.br/site/acia-mulher">ACIA MULHER</a></li>
             <li><a href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
             <li><a href="https://www.aciaanapolis.com.br/site/politica-da-qualidade">POLÍTICA DE QUALIDADE</a></li>

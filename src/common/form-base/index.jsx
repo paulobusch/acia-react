@@ -83,18 +83,19 @@ export default class FormBase extends Component {
 
   goBack() {
     const { router } = this.props;
-    const { pathname } = router.location;
-    const needBack = pathname.search(/\/edit\/|\/new/) !== -1;
-    if (!needBack) return;
+    if (!this.needGoBack()) return;
     
-    const url = pathname.substring(0, pathname.search(/\/edit\/|\/new/));
-    this.props.router.push(url);
+    router.goBack();
+  }
+
+  needGoBack() {
+    const { router } = this.props;
+    const { pathname } = router.location;
+    return pathname.search(/\/edit\/|\/new/) !== -1;
   }
 
   render() {
-    const { router } = this.props;
-    const { pathname } = router.location;
-    const needBack = pathname.search(/\/edit\/|\/new/) !== -1;
+    const needBack = this.needGoBack();
     return (
       <div className="page-base-form">
         <Card>

@@ -7,6 +7,8 @@ import RightMenu from './right-menu/RightMenu';
 import MainMenuItem from './main-menu/main-menu-item/MainMenuItem';
 import RightMenuIcon from './right-menu/right-menu-icon/RightMenuIcon';
 import RightMenuChip from './right-menu/right-menu-chip/RightMenuChip';
+import { generateAddContactLink } from './../../../common/api/whatsapp';
+import { WEBSITE_PHONE } from './../../../consts';
 
 const INITIAL_STATE = {
   showMenuMobile: false
@@ -54,11 +56,10 @@ export default class Header extends Component {
             <MainMenuItem href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
           </MainMenuItem>
           <MainMenuItem href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
-          <MainMenuItem href="#" text="CONTATO"/>
+          <MainMenuItem href={ generateAddContactLink(WEBSITE_PHONE) } text="CONTATO"/>
           <MainMenuItem href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
         </MainMenu>
         <RightMenu onlydesktop>
-          <RightMenuIcon icon="bars"/>
           <RightMenuIcon icon="search" title="Pesquisar"/>
           <RightMenuChip href="/#/subscribe" text="ASSOCIE-SE"/>
         </RightMenu>

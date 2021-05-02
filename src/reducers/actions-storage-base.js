@@ -60,6 +60,38 @@ export default class ActionsStorageBase {
     };
   }
   
+  getAllByFilter(filters, completed) {
+    return dispatch => {
+      let filtred = this.getCollection();
+
+      for (const prop in filters)
+        filtred = filtred.where(prop, '==', filters[prop]);
+
+        filtred.get().then(result => {
+        const mapped = result.docs.map(d => ({ id: d.id, ...d.data() }));
+        mapped.map(d => d.createdAt = d.createdAt.toDate());
+        const list = this.sortAsc 
+          ? mapped.sort((a, b) => a.order - b.order)
+          : mapped.sort((a, b) => b.order - a.order);
+        const listWithImage = list.filter(item => item.image);
+        const urlTasks = listWithImage.map(item => this.getFile(item.image).getDownloadURL());
+        Promise.all(urlTasks).then(urlResults => {
+          for (const index in listWithImage){
+            listWithImage[index].imageRef = listWithImage[index].image;
+            listWithImage[index].image = urlResults[index];
+          }
+          dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
+          if (completed) completed(true);
+        });
+      })
+      .catch((error) => {
+        toastr.error('Erro', `Falha ao carregar Registros!`);
+        if (completed) completed(false);
+        throw error;
+      });
+    };
+  }
+  
   loadForm(id, completed) {
     return dispatch => {
       this.getCollection().doc(id).get().then(doc => {
@@ -94,7 +126,6 @@ export default class ActionsStorageBase {
             .add(item)
             .then(() => {
               toastr.success('Sucesso', `Registro cadastrado com sucesso!`);
-              dispatch(this.getAll());
               if (completed) completed(true);
             })
             .catch((error) => {
@@ -132,7 +163,6 @@ export default class ActionsStorageBase {
           .update(values)
           .then(() => {
             toastr.success('Sucesso', `Registro atualizado com sucesso!`);
-            dispatch(this.getAll());
             if (completed) completed(true);
           })
           .catch((error) => {
@@ -164,12 +194,14 @@ export default class ActionsStorageBase {
       this.getCollection().doc(values.id).delete().then(doc => {
         dispatch({ type: `${this.prefixType}_DELETED`, payload: values.id });
         if (completed) completed(true);
-        this.getFile(values.imageRef)
-          .delete().then()
-          .catch(() => {
-            toastr.error('Erro', `Falha ao remover imagem!`);
-            if (completed) completed(false);
-          });
+        if (values.imageRef) {
+          this.getFile(values.imageRef)
+            .delete().then()
+            .catch(() => {
+              toastr.error('Erro', `Falha ao remover imagem!`);
+              if (completed) completed(false);
+            });
+        }
       })
       .catch((error) => {
         toastr.error('Erro', `Falha ao remover registro!`);
@@ -179,7 +211,7 @@ export default class ActionsStorageBase {
     };
   }
 
-  updateOrderBulk(list) {
+  updateOrderBulk(list, completed) {
     return dispatch => {
       var batch = firebaseInstance.firestore().batch();
   
@@ -190,10 +222,11 @@ export default class ActionsStorageBase {
       
       return batch.commit().then(() => {
         toastr.success('Sucesso', `Ordem atualizada com sucesso!`);
-        dispatch(this.getAll());
+        if (completed) completed(true);
       })
       .catch((error) => {
         toastr.error('Erro', `Falha ao atualizar ordem!`);
+        if (completed) completed(false);
         throw error;
       });
     };
