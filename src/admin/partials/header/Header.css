@@ -2,8 +2,7 @@
   width: 100%;
   color: black;
   background: white;
-  padding: 10px 0 10px 10px;
-  height: var(--header-height);
+  padding: 15px 0 15px 5px;
   box-sizing: border-box;
   box-shadow: 0 5px 5px #0000002d;
   z-index: 1;
@@ -13,28 +12,31 @@
   align-items: center;
 }
 
-
 .header-admin .title > * {
   display: inline-block;
 }
 
+.header-admin .right {
+  display: flex;
+  align-items: center;
+}
+
 .header-admin i {
-  padding: 0 20px;
+  padding: 0 15px;
   font-size: 20px;
 }
 
 .header-admin h2 {
-  margin: 0 5px;
+  margin: 0;
 }
 
 .header-admin #icon-logout {
-  padding: 15px 0 15px 15px;
-  margin-right: 50px;
+  opacity: .8;
   font-size: 25px;
   transition: .2s;
   cursor: pointer;
 }
 
 .header-admin #icon-logout:hover {
-  color: rgba(255, 255, 255, 0.726);
+  opacity: 1;
 }

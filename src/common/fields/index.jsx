@@ -1,6 +1,7 @@
 import './field-base.css';
 
 import React, { Component } from 'react';
+import { copyToClipboard } from './../api/clipboard';
 
 export default class FieldBase extends Component {
   getStyle() {
@@ -11,15 +12,19 @@ export default class FieldBase extends Component {
   }
 
   errors() {
-    const { meta: { touched, error } } = this.props;
-    if (!touched || !error) return false;
+    const { meta: { touched, error }, readOnly } = this.props;
+    if (!touched || !error || readOnly) return false;
     return <div className="error-message">{ error }</div>;
   }
 
+  orientation() {
+    const { orientation } = this.props;
+    if (!orientation) return false;
+    return <div className="orientation-message">{ orientation }</div>;
+  }
+
   render() {
-    const { label, className } = this.props;
-    const name = this.props.input.name;
-    const id = this.props.input.id || name;
+    const { label, name, className } = this.props;
     const errors = this.errors();
 
     return (
@@ -27,8 +32,9 @@ export default class FieldBase extends Component {
         className={ `form-field ${errors ? 'has-error' : ''} ${className || ''}` }
         style={ this.getStyle() }
       >
-        { label ? <label htmlFor={ id }>{ label }</label> : false }
+        { label ? <label htmlFor={ name }>{ label }</label> : false }
         { this.fieldWithIcon() }
+        { this.orientation() }
         { errors }
       </div>
     );
@@ -37,13 +43,28 @@ export default class FieldBase extends Component {
   fieldWithIcon() {
     const { icon } = this.props;
     const field = this.field();
-    if (!icon) return field;
+    const actions = this.actions();
+    if (!icon && actions.length === 0) return field;
     return (
-      <div className="field-icon">
-        <i className={ `icon fas fa-${icon}` }></i>
+      <div className={ `field-icon-right ${ icon ? 'field-icon' : '' }` }>
+        { icon && <i className={ `icon fas fa-${icon}` }></i> }
         { field }
+        { actions }
       </div>
     );
+  }
+
+  actions() {
+    const actions = [];
+    if (this.props.copyClipboard)
+      actions.push(<i key="copy" className="icon icon-right fas fa-copy" onClick={ this.copyContent.bind(this) }></i>);
+
+    return actions;
+  }
+
+  copyContent() {
+    copyToClipboard(this.props.input.value);
+    this.inputRef.select();
   }
   
   field() { }

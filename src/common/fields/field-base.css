@@ -14,21 +14,36 @@
   width: 100%;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
-  border: 1px solid rgb(194, 194, 194);
   padding: 8px;
   font-size: 18px;
   outline: none;
+  border: 1.5px solid #5e5e5e;
 }
 
+.field-padding {
+  padding-right: 10px !important;
+} 
+
+.form-control[disabled],
 .form-control[readonly] {
+  cursor: default;
   border: 1px solid rgb(204, 204, 204);
-  color: rgb(189, 189, 189);
+  color: rgb(117, 117, 117);
 }
+
+.form-field .error-message,
+.form-field .orientation-message {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
 
 .form-field .error-message {
   color: red;
-  font-size: 15px;
-  margin-top: 5px;
+}
+
+.form-field .orientation-message {
+  color: rgb(139, 139, 139);
 }
 
 .form-control.has-error,
@@ -60,16 +75,25 @@ textarea.form-control {
 
 .field-icon i.icon,
 .field-icon-right i.icon {
-  cursor: pointer;
+  opacity: .5;
   position: absolute;
 }
 
-.field-icon i.icon {
+.field-icon i.icon:not(.icon-right) {
   left: 15px;
 }
 
-.field-icon-right i.icon {
+.field-icon-right i.icon-right {
   right: 15px;
+}
+
+.field-icon-right i.icon-right {
+  transition: .2s;
+  cursor: pointer;
+}
+
+.field-icon-right i.icon-right:hover {
+  opacity: .6;
 }
 
 .field-padding {

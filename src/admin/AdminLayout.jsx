@@ -1,17 +1,27 @@
 import './AdminLayout.css';
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { hashHistory } from 'react-router';
 
 import Header from './partials/header/Header';
 import Sidenav from './partials/sidenav/Sidenav';
 import Content from './partials/content/Content';
 import Toastr from '../common/messages/toastr';
+import { listenSessionChanged } from './../reducers/auth/auth-actions';
 
-export default class AdminLayout extends Component {
+class AdminLayout extends Component {
+  componentWillMount() {
+    this.props.listenSessionChanged(true);
+  }
+
   render() {
+    if (this.props.loading) return false;
+
     return (
       <div className="container-admin">
-        <Header/>
+        <Header user={ this.props.user }/>
         <div className="row-admin">
           <Sidenav />
           <Content>
@@ -23,3 +33,7 @@ export default class AdminLayout extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ loading: state.auth.loading, user: state.auth.user });
+const mapDispatchToProps = dispatch => bindActionCreators({ listenSessionChanged }, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminLayout);

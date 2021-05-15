@@ -21,6 +21,10 @@ import SlideForm from './admin/pages/slides/slide-form';
 import PostListTabs from './admin/pages/posts/post-list';
 import PostForm from './admin/pages/posts/post-form';
 import Subscribe from './site/pages/subscribe/index';
+import Auth from './admin/auth/login/index';
+import Logout from './admin/auth/logout/index';
+import ChangePasswordForm from './admin/auth/change-password/index';
+import ForgotPasswordForm from './admin/auth/forgot-password/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -34,6 +38,11 @@ export default props => (
         <Route path="law-suit/search" component={ LawSuitSearch }/>
         <Route path="law-suit/view/:id" component={ LawSuitDetail }/>
       </Route>
+      <Route exact path="/login" component={ Auth } />
+      <Route exact path="/logout" component={ Logout } />
+      <Route exact path="/change-password" component={ ChangePasswordForm } />
+      <Route exact path="/forgot-password" component={ ForgotPasswordForm } />
+      <Route exact path="/forgot-password/:email" component={ ForgotPasswordForm } />
       <Route exact path="/admin" component={ AdminLayout }>
         <Route path="slides" component={ SlideList }/>
         <Route path="slides/new" component={ SlideForm }/>
