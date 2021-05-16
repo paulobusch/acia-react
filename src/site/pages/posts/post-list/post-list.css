@@ -7,7 +7,7 @@
 #post-list .posts {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #post-list h2 {
