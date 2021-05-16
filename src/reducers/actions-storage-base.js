@@ -75,7 +75,7 @@ export default class ActionsStorageBase {
       for (const prop in filters)
         filtred = filtred.where(prop, '==', filters[prop]);
 
-        filtred.get().then(result => {
+      filtred.get().then(result => {
         const mapped = result.docs.map(d => ({ id: d.id, ...d.data() }));
         mapped.map(d => d.createdAt = d.createdAt.toDate());
         const list = this.sortAsc 
@@ -89,7 +89,7 @@ export default class ActionsStorageBase {
             listWithImage[index].image = urlResults[index];
           }
           dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
-          if (completed) completed(true);
+          if (completed) completed(true, list);
         });
       })
       .catch((error) => {

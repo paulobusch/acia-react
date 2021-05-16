@@ -5,12 +5,15 @@ import React, { Component } from 'react';
 import Loading from './../../../../../../../common/loading/index';
 import Section from './../../../../../../common/section/Section';
 import PostCard from './../post-card/index';
+import { Link } from 'react-router';
+import { mapTypeToTitle } from '../../../../../../../reducers/posts/post-actions';
 
 export default class PostSectionBase extends Component {
-  constructor(props, title) {
+  constructor(props, type) {
     super(props);
 
-    this.title = title;
+    this.title = mapTypeToTitle(type);
+    this.type = type;
   }
 
   render() {
@@ -30,6 +33,7 @@ export default class PostSectionBase extends Component {
           { loading && <Loading block/> }
           { !loading && posts.map(p => <PostCard key={ p.id } { ...p }/>) }
         </div>
+        { !loading && <Link to={ `posts/${encodeURIComponent(this.type)}` } className="link-view-all">Ver todos</Link> }
       </div>
     );
   }

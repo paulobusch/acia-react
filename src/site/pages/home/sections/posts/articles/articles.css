@@ -20,7 +20,7 @@
   color: var(--grey);
 }
 
-.posts-section h2:not(:first-of-type) {
+.posts-section h2.publicity-header {
   margin-top: 80px;
 }
 

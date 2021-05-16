@@ -4,10 +4,11 @@ import React from 'react';
 
 import PostSectionBase from './../shared/post-section/index';
 import Slider from './../../../../../common/slider/Slider';
+import { POST_ARTICLE } from '../../../../../../reducers/posts/post-type';
 
 export default class ArticlesSection extends PostSectionBase {
   constructor(props) {
-    super(props, 'ARTIGOS');
+    super(props, POST_ARTICLE);
   }
 
   content() {
@@ -23,7 +24,7 @@ export default class ArticlesSection extends PostSectionBase {
       <div>
         { super.content() }
   
-        <h2>PUBLICIDADE</h2>
+        <h2 className="publicity-header">PUBLICIDADE</h2>
         <div className="publicities">
           <div className="publicities-slider-container">
             <Slider slides={ publicities1 } timeTransition={ 10000 }/>

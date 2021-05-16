@@ -10,6 +10,21 @@
   color: var(--grey);
 }
 
+.posts-section a.link-view-all {
+  opacity: .8;
+  width: 100px;
+  margin: 25px auto;
+  transition: .2s;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.posts-section a.link-view-all:hover {
+  opacity: 1;
+}
+
 @media only screen and (max-width: 500px) {
   .posts-section .posts {
     flex-direction: column;

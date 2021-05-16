@@ -1,8 +1,18 @@
 import ActionsStorageBase from '../actions-storage-base';
+import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './post-type';
 
 class PostActions extends ActionsStorageBase {
   constructor() {
     super('posts', 'POST', 'post-form', false);
+  }
+
+  mapTypeToTitle(type) {
+    switch (type) {
+      case POST_ACTION: return 'ACIA EM AÇÃO';
+      case POST_ARTICLE: return 'ARTIGOS';
+      case POST_NEWS: return 'NOTÍCIAS';
+      default: throw Error('Default option is not implemented');
+    }
   }
 }
 
@@ -17,3 +27,4 @@ export function create(data, completed){ return actionsInstance.create(data, com
 export function update(data, completed){ return actionsInstance.update(data, completed); }
 export function remove(data, completed){ return actionsInstance.remove(data, completed); }
 export function updateOrderBulk(list, completed){ return actionsInstance.updateOrderBulk(list, completed); }
+export function mapTypeToTitle(type){ return actionsInstance.mapTypeToTitle(type); }

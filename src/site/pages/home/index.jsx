@@ -48,11 +48,16 @@ class Home extends Component {
     });
   }
 
+  getPostsBySection(type) {
+    return this.props.posts
+      .filter(p => p.type === type)
+      .slice(0, 4);
+  }
+
   render() {
-    const { posts } = this.props;
-    const news = posts.filter(p => p.type === 'Notícia');
-    const actions = posts.filter(p => p.type === 'Acia em Ação');
-    const articles = posts.filter(p => p.type === 'Artigo');
+    const news = this.getPostsBySection('Notícia');
+    const actions = this.getPostsBySection('Acia em Ação');
+    const articles = this.getPostsBySection('Artigo');
 
     return (
       <div id="home">

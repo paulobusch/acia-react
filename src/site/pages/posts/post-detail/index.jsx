@@ -1,12 +1,12 @@
-import './post.css';
+import './post-detail.css';
 
 import React, { Component } from 'react';
-import Loading from '../../../common/loading';
+import Loading from '../../../../common/loading';
 import { bindActionCreators } from 'redux';
-import { getById } from './../../../reducers/posts/post-actions';
-import { getIdByRouter } from './../../../common/api/router';
+import { getById } from '../../../../reducers/posts/post-actions';
+import { getIdByRouter } from '../../../../common/api/router';
 import { connect } from 'react-redux';
-import { removeScripts } from '../../../common/api/html';
+import { removeScripts } from '../../../../common/api/html';
 import { withRouter } from 'react-router';
 
 class PostDetail extends Component {
