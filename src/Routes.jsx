@@ -28,6 +28,7 @@ import ChangePasswordForm from './admin/auth/change-password/index';
 import ForgotPasswordForm from './admin/auth/forgot-password/index';
 import PostDetail from './site/pages/posts/post-detail';
 import PostList from './site/pages/posts/post-list';
+import MediaForm from './admin/pages/medias/media-form';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -60,6 +61,9 @@ export default props => (
         <Route path="law-suit" component={ LawSuitList }/>
         <Route path="law-suit/new" component={ lawSuitForm }/>
         <Route path="law-suit/edit/:id" component={ lawSuitForm }/>
+        <Route path="multimedia/new" component={ MediaForm }/>
+        <Route path="multimedia/new/:type" component={ MediaForm }/>
+        <Route path="multimedia/edit/:id" component={ MediaForm }/>
         <Route path="multimedia/:tab" component={ MediaListTabs }/>
         <Route path="multimedia" component={ MediaListTabs }/>
         <Route path="standards" component={ Construction }/>
