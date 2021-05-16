@@ -11,13 +11,15 @@
 }
 
 .form-control {
+  min-height: 45px;
+  border: none;
   width: 100%;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   padding: 8px;
   font-size: 18px;
   outline: none;
-  border: 1.5px solid #5e5e5e;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.384);
 }
 
 .field-padding {
@@ -27,7 +29,7 @@
 .form-control[disabled],
 .form-control[readonly] {
   cursor: default;
-  border: 1px solid rgb(204, 204, 204);
+  box-shadow: 0 0 0 1px rgb(204, 204, 204);
   color: rgb(117, 117, 117);
 }
 

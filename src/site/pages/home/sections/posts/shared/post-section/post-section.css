@@ -1,17 +1,17 @@
-#news .news {
+.posts-section .posts {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-#news h2 {
+.posts-section h2 {
   margin-bottom: 40px;
   text-align: center;
   color: var(--grey);
 }
 
 @media only screen and (max-width: 500px) {
-  #news .news {
+  .posts-section .posts {
     flex-direction: column;
   }
 }

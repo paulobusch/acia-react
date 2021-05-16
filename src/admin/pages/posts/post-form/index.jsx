@@ -39,20 +39,19 @@ class PostForm extends FormBase {
   form() {
     const types = [POST_NEWS, POST_ARTICLE, POST_ACTION];
     const { handleSubmit, type } = this.props;
-    const withoutArticle = type !== 'Artigo';
+    const imageValidators = [];
+    if (type !== 'Artigo') imageValidators.push(required);
     return (
       <Form onSubmit={ handleSubmit(this.submit) }>
         <Row justify="flex-start">
           <Field name="type" label="Tipo" 
             flex="25" component={ Select } options={ types } validate={ required }
           />
-          { withoutArticle &&
-            <Field name="image" className="image-field" label="Imagem" button="Selecionar" placeholder="Selecione uma imagem"
-              flex="25" component={ File } validate={ required }
-            />
-          }
+          <Field name="image" className="image-field" label="Imagem" button="Selecionar" placeholder="Selecione uma imagem"
+            flex="25" component={ File } validate={ imageValidators }
+          />
           <Field name="title" label="Título" type="text" placeholder="Informe o título" 
-            flex={ withoutArticle ? 50 : 75 } component={ Input } validate={ required }
+            flex="50" component={ Input } validate={ required }
           />
         </Row>
         <Row>

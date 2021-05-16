@@ -1,8 +1,12 @@
+:root {
+  --header-height-admin: 60px;
+}
+
 .container-admin .main-admin {
   flex-grow: 1;
 }
 
 .container-admin .row-admin {
-  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - var(--header-height-admin));
   display: flex;
 }

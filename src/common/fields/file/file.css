@@ -6,7 +6,8 @@
 .file-input label {
   color: var(--gray);
   padding: 10px;
-  font-size: 15px;
+  font-size: 14px;
+  align-self: center;
 }
 
 .file-input button {

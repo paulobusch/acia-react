@@ -1,36 +1,36 @@
-.news-card {
+.post-card {
   height: 100%;
   flex-basis: 23%;
   background-color: white;
   box-shadow: 0 2px 5px rgb(189, 189, 189);
 }
 
-.news-card .image {
+.post-card .image {
   background-position: bottom center;
   background-size: cover;
   height: 20vw;
 }
 
-.news-card .link-image { 
+.post-card .link-image { 
   text-decoration: none;
 }
 
-.news-card .detail {
+.post-card .detail {
   padding: 15px;
   line-height: 1.5;
   color: var(--grey);
 }
 
-.news-card .detail .text {
+.post-card .detail .text {
   text-align: justify;
 }
 
-.news-card .detail h3 {
+.post-card .detail h3 {
   margin: 0;
   margin-bottom: 10px;
 }
 
-.news-card .detail a {
+.post-card .detail a {
   display: block;
   text-align: center;
   padding: 15px 0 0 0;
@@ -38,31 +38,31 @@
   color: var(--primary);
 }
 
-.news-card .detail a:hover {
+.post-card .detail a:hover {
   color: var(--primary-hover);
 }
 
 @media only screen and (max-width: 1100px) {
-  .news-card {
+  .post-card {
     flex-basis: 48%;
     margin-bottom: 50px;
   }
 
-  .news-card .image {
+  .post-card .image {
     height: 35vw;
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .news-card {
+  .post-card {
     flex-basis: auto;
   }
 
-  .news-card:last-of-type {
+  .post-card:last-of-type {
     margin-bottom: 0;
   }
 
-  .news-card .image {
+  .post-card .image {
     height: 80vw;
   }
 }

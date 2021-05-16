@@ -54,7 +54,7 @@ class LawSuitSearch extends Component {
         <Row justify="center">
           <div className="form-field" style={ { flexBasis: '50%' } }>
             <div className="field-icon-right">
-              <i className="icon fas fa-search" onClick={ this.search }></i>
+              <i className="icon icon-right fas fa-search" onClick={ this.search }></i>
               <input onChange={ this.onSearch } 
                 type="text" className="form-control" 
                 placeholder="Informe o código do processo"/>

@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 
 import Slider from '../../common/slider/Slider';
 import ServicesSection from './sections/services/ServicesSection';
-import NewsSection from './sections/news/NewsSection';
-import ActionsSection from './sections/actions/ActionsSection';
-import ArticlesSection from './sections/articles/ArticlesSection';
 import { getAll as getAllSlides } from '../../.../../../reducers/slides/slide-actions';
 import { getAll as getAllPosts } from '../../.../../../reducers/posts/post-actions';
 import OverlaySlide from './overlay-slide';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import NewsSection from './sections/posts/news/index';
+import ActionsSection from './sections/posts/actions/index';
+import ArticlesSection from './sections/posts/articles/index';
 
 class Home extends Component {
   constructor(props) {
@@ -60,9 +60,9 @@ class Home extends Component {
           <Slider slides={ this.props.slides.map(s => this.mapSlideData(s)) } timeTransition={ 10000 }/>
         </div>
         <ServicesSection />
-        <NewsSection loading={ this.state.loadingPosts } news={ news }/>
-        <ActionsSection loading={ this.state.loadingPosts } actions={ actions }/>
-        <ArticlesSection loading={ this.state.loadingPosts } articles={ articles }/>
+        <NewsSection loading={ this.state.loadingPosts } posts={ news }/>
+        <ActionsSection loading={ this.state.loadingPosts } posts={ actions }/>
+        <ArticlesSection loading={ this.state.loadingPosts } posts={ articles }/>
       </div>
     );
   }
