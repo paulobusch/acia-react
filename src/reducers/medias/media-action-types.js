@@ -1,0 +1,2 @@
+export const MEDIA_FETCHED = 'MEDIA_FETCHED';
+export const MEDIA_DELETED = 'MEDIA_DELETED';

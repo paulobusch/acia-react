@@ -8,6 +8,8 @@ import TabsHeader from '../../../../common/tabs/headers/index';
 import TabHeader from '../../../../common/tabs/headers/header/index';
 import TabsContent from '../../../../common/tabs/contents/index';
 import TabContent from '../../../../common/tabs/contents/content/index';
+import PhotosList from './photos/index';
+import VideosList from './videos/index';
 
 class MediaListTabs extends TabsController {
   constructor(props) {
@@ -23,10 +25,10 @@ class MediaListTabs extends TabsController {
         </TabsHeader>
         <TabsContent>
           <TabContent id="photos" current={ this.state.tabActive }>
-            Fotos
+            <PhotosList/>
           </TabContent>
           <TabContent id="videos" current={ this.state.tabActive }>
-            Vídeos
+            <VideosList/>
           </TabContent>
         </TabsContent>
       </Tabs>

@@ -20,7 +20,7 @@ import SlideList from './admin/pages/slides/slide-list';
 import SlideForm from './admin/pages/slides/slide-form';
 import PostListTabs from './admin/pages/posts/post-list';
 import PostForm from './admin/pages/posts/post-form';
-import MediaListTabs from './admin/pages/multimedia/media-list';
+import MediaListTabs from './admin/pages/medias/media-list';
 import Subscribe from './site/pages/subscribe/index';
 import Auth from './admin/auth/login/index';
 import Logout from './admin/auth/logout/index';
