@@ -2,7 +2,7 @@
   padding: 0 15% 25px 15%;
   padding-top: 35px;
   box-sizing: border-box;
-  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 28px);
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
 }
 
 #subscribe h2 {

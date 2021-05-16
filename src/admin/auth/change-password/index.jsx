@@ -79,7 +79,7 @@ class ChangePasswordForm extends Component {
     const { handleSubmit } = this.props;
     const { validCode, validating, saving } = this.state;
 
-    if (validating) return <Loading  style={ { paddingTop: '45vh' } }/>;
+    if (validating) return <Loading style={ { paddingTop: '45vh' } }/>;
 
     return (
       <div>

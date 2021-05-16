@@ -10,6 +10,7 @@ const actionsInstance = new PostActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
 export function getAll(completed){ return actionsInstance.getAll(completed); }
+export function getById(id, completed){ return actionsInstance.getById(id, completed); }
 export function getAllByFilter(filters, completed){ return actionsInstance.getAllByFilter(filters, completed); }
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }
 export function create(data, completed){ return actionsInstance.create(data, completed); }

@@ -23,6 +23,14 @@ export default class ActionsStorageBase {
     return () => {
       this.getCollection().doc(id).get().then(doc => {
         const data = { id: doc.id, ...doc.data() };
+        if (data.image) {
+          this.getFile(data.image).getDownloadURL().then(url => {
+            data.imageRef = data.image;
+            data.image = url;
+            if (completed) completed(true, data);
+          })
+          return;
+        }
         if (completed) completed(true, data);
       })
       .catch((error) => { 

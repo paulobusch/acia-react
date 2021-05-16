@@ -3,3 +3,10 @@ export function extractTextFromHtml(html) {
   const regex = /(<([^>]+)>)/ig;
   return html.replace(regex, '');
 }
+
+export function removeScripts(html) {
+  if (!html) return '';
+  return html
+    .replace(/(\r\n|\n|\r)/gm, '')
+    .replace(/(<? *script)/gi, 'illegalscript');
+}

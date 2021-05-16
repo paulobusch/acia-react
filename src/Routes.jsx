@@ -25,7 +25,7 @@ import Auth from './admin/auth/login/index';
 import Logout from './admin/auth/logout/index';
 import ChangePasswordForm from './admin/auth/change-password/index';
 import ForgotPasswordForm from './admin/auth/forgot-password/index';
-import Post from './site/pages/post/index';
+import PostDetail from './site/pages/post';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -38,7 +38,7 @@ export default props => (
         <Route path="subscribe" component={ Subscribe }/>
         <Route path="law-suit/search" component={ LawSuitSearch }/>
         <Route path="law-suit/view/:id" component={ LawSuitDetail }/>
-        <Route path="posts/view/:id" component={ Post }/>
+        <Route path="posts/view/:id" component={ PostDetail }/>
       </Route>
       <Route exact path="/login" component={ Auth } />
       <Route exact path="/logout" component={ Logout } />
