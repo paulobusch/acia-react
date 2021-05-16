@@ -11,7 +11,7 @@ export default props => (
     <h2>ACIA EM AÇÃO</h2>
     <div className="actions">
       { props.loading && <Loading block/> }
-      { !props.loading && props.actions.map(n => <ActionCard key={ n.id } image={ n.image } title={ n.title }>{ n.text }</ActionCard>) }
+      { !props.loading && props.actions.map(n => <ActionCard key={ n.id } image={ n.image } title={ n.title } text={ n.text }/>) }
     </div>
   </Section>
 );

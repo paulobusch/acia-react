@@ -13,6 +13,8 @@ import { create, update, loadForm, submitForm } from '../../../../reducers/posts
 import Input from '../../../../common/fields/input/index';
 import TextArea from './../../../../common/fields/textarea/index';
 import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './../../../../reducers/posts/post-type';
+import TextEditor from './../../../../common/fields/text-editor/index';
+import requiredTextEditor from './../../../../common/validators/requiredTextEditor';
 
 const DEFAULT_STATE = {
   image: null,
@@ -55,7 +57,7 @@ class PostForm extends FormBase {
         </Row>
         <Row>
           <Field name="text" label="Texto" placeholder="Informe um texto"
-            flex="100" rows="10" component={ TextArea } validate={ required }
+            flex="100" component={ TextEditor } validate={ requiredTextEditor }
           />
         </Row>
       </Form>

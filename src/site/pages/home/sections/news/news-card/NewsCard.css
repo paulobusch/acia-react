@@ -1,4 +1,5 @@
 .news-card {
+  height: 100%;
   flex-basis: 23%;
   background-color: white;
   box-shadow: 0 2px 5px rgb(189, 189, 189);
@@ -16,7 +17,12 @@
 
 .news-card .detail {
   padding: 15px;
+  line-height: 1.5;
   color: var(--grey);
+}
+
+.news-card .detail .text {
+  text-align: justify;
 }
 
 .news-card .detail h3 {
@@ -26,7 +32,8 @@
 
 .news-card .detail a {
   display: block;
-  padding: 15px 0;
+  text-align: center;
+  padding: 15px 0 0 0;
   text-decoration: none;
   color: var(--primary);
 }

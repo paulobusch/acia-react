@@ -21,7 +21,7 @@ export default props => {
       <h2>ARTIGOS</h2>
       <div className="articles">
         { props.loading && <Loading block/> }
-        { !props.loading && props.articles.map(n => <ArticleCard key={ n.id } title={ n.title }>{ n.text }</ArticleCard>) }
+        { !props.loading && props.articles.map(n => <ArticleCard key={ n.id } title={ n.title } text={ n.text }/>) }
       </div>
   
       <h2>PUBLICIDADE</h2>

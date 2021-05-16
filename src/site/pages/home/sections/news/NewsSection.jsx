@@ -11,7 +11,7 @@ export default props => (
     <h2>NOTÍCIAS</h2>
     <div className="news">
       { props.loading && <Loading block/> }
-      { !props.loading && props.news.map(n => <NewsCard key={ n.id } image={ n.image } title={ n.title }>{ n.text }</NewsCard>) }
+      { !props.loading && props.news.map(n => <NewsCard key={ n.id } image={ n.image } title={ n.title } text={ n.text }/>) }
     </div>
   </Section>
 );

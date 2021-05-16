@@ -1,0 +1,29 @@
+.text-editor-container {
+  border: none;
+  box-shadow: 0 0 0 1px #5e5e5e;
+  box-sizing: border-box !important;
+  padding: 0;
+}
+
+.text-editor-toolbar {
+  z-index: 10;
+  position: sticky;
+  margin: 0 !important;
+  background: white;
+  visibility: visible;
+  box-shadow: 0 1px 3px #5e5e5e96;
+}
+
+.text-editor-content {
+  max-height: calc(100vh - 530px);
+  max-width: calc(100vw - 380px);
+  overflow: auto;
+  padding: 8px;
+  min-height: 150px;
+}
+
+.text-editor-content .public-DraftStyleDefault-block,
+.text-editor-content .public-DraftEditorPlaceholder-root {
+  margin: 0;
+  padding: .5em 0;
+}

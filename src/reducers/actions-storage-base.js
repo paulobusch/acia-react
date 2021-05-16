@@ -96,7 +96,6 @@ export default class ActionsStorageBase {
     return dispatch => {
       this.getCollection().doc(id).get().then(doc => {
         const data = { id: doc.id, ...doc.data() };
-        data.image = null;
         dispatch(initialize(this.formId, data));
         if (completed) completed(true);
       })

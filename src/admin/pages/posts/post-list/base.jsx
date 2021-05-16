@@ -4,6 +4,8 @@ import ListBase from '../../../partials/list-base';
 import Image from '../../../../common/image';
 import { formatDate } from '../../../../common/formatters/date';
 import { getRouteWithoutParams } from '../../../../common/router';
+import { limitText } from './../../../../common/api/string';
+import { extractTextFromHtml } from './../../../../common/api/html';
 
 export default class PostListBase extends ListBase {
   constructor(props, type) {
@@ -25,12 +27,9 @@ export default class PostListBase extends ListBase {
     router.push(url);
   }
 
-  resumeText(text) {
-    const limit = 300;
-    if (!text) return false;
-    if (text.length > limit) 
-      return <span>{text.substr(0, limit - 3)}...</span>;
-    return <span>{text}</span>;
+  resumeText(html) {
+    const text = extractTextFromHtml(html);
+    return limitText(text, 300);
   }
 
   configure() {

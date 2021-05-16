@@ -19,7 +19,7 @@ export function listenSessionChanged() {
         if (user) {
           const userData = { id: user.uid, email: user.email };
           dispatch({ type: LOGIN, payload: userData }); 
-          if (currentHref != 'admin/slides') hashHistory.push('/admin/slides');
+          if (currentHref.indexOf('admin') === -1) hashHistory.push('/admin/slides');
         } else {
           dispatch({ type: LOGOUT });
           if (currentHref != 'login') hashHistory.push('/login');
