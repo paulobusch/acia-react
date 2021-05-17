@@ -9,6 +9,7 @@ class MediaActions extends ActionsStorageBase {
 const actionsInstance = new MediaActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
+export function getAll(completed){ return actionsInstance.getAll(completed); }
 export function getAllByFilter(filters, completed){ return actionsInstance.getAllByFilter(filters, completed); }
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }
 export function create(data, completed){ return actionsInstance.create(data, completed); }

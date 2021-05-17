@@ -1,0 +1,26 @@
+.photo-card {
+  background-position: bottom center;
+  background-size: cover;
+  height: 20vw;
+  flex-basis: 23%;
+  background-color: white;
+  margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .photo-card {
+    flex-basis: 48%;
+    height: 35vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .photo-card {
+    height: 70vw;
+    flex-basis: auto;
+  }
+
+  .photo-card:last-of-type {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,26 @@
+#media-list  {
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
+  padding: 50px 5% 50px 5%;
+}
+
+#media-list .photos,
+#media-list .videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#media-list h4,
+#media-list h2 {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--grey);
+}
+
+@media only screen and (max-width: 500px) {
+  #media-list .photos,
+  #media-list .videos {
+    flex-direction: column;
+  }
+}

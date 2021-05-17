@@ -57,7 +57,7 @@ export default class ActionsStorageBase {
             listWithImage[index].image = urlResults[index];
           }
           dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
-          if (completed) completed(true);
+          if (completed) completed(true, list);
         });
       })
       .catch((error) => {
