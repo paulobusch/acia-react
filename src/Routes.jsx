@@ -30,6 +30,19 @@ import PostDetail from './site/pages/posts/post-detail';
 import PostList from './site/pages/posts/post-list';
 import MediaForm from './admin/pages/medias/media-form';
 import MediaList from './site/pages/medias/media-list/index';
+import About from './site/pages/static/about';
+import President from './site/pages/static/president';
+import AciaCred from './site/pages/static/acia-cred';
+import Certificate from './site/pages/static/digital-certificate';
+import Serasa from './site/pages/static/serasa';
+import Call from './site/pages/static/call';
+import AdvantagesCard from './site/pages/static/advantages-card';
+import ConciliationCourt from './site/pages/static/conciliation-court';
+import MeetingRoom from './site/pages/static/meeting-room';
+import AciaWoman from './site/pages/static/acia-woman';
+import PolicyQuality from './site/pages/static/policy-quality';
+import GeographicalInformation from './site/pages/static/geographical-information';
+import RelevantInformation from './site/pages/static/relevant-informations'
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -45,6 +58,19 @@ export default props => (
         <Route path="posts/view/:id" component={ PostDetail }/>
         <Route path="posts/:type" component={ PostList }/>
         <Route path="multimedia" component={ MediaList }/>
+        <Route path="about" component={ About }/>
+        <Route path="president" component={ President } />
+        <Route path="acia-cred" component={ AciaCred } />
+        <Route path="digital-certificate" component={ Certificate } />
+        <Route path="serasa" component={Serasa} />
+        <Route path="call" component={Call} />
+        <Route path="advantages-card" component={AdvantagesCard} />
+        <Route path="conciliation-court" component={ConciliationCourt} />
+        <Route path="meeting-room" component={MeetingRoom} />
+        <Route path="acia-woman" component={AciaWoman} />
+        <Route path="policy-quality" component={PolicyQuality} />
+        <Route path="geographical-information" component={GeographicalInformation} />
+        <Route path="relevant-informations" component={RelevantInformation} />
       </Route>
       <Route exact path="/login" component={ Auth } />
       <Route exact path="/logout" component={ Logout } />

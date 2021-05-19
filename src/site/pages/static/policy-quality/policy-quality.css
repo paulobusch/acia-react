@@ -1,0 +1,44 @@
+
+#static-policy-quality   {
+    padding: 0 5%;
+    color: var(--grey);
+    line-height: 1.5;
+}
+
+#static-policy-quality   h4 {
+    text-transform: uppercase;
+}
+
+#static-policy-quality   a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    opacity: 0.9;
+    width: 100%;
+    transition: .2s;
+    margin: 15px 0;
+}
+
+#static-policy-quality   a:hover {
+    opacity: 1;    
+}
+
+#static-policy-quality   .row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#static-policy-quality   .row:nth-child(1) {
+    flex-basis: 15%;
+}
+
+#static-policy-quality   .row:nth-child(2) {
+    flex-basis: 75%;
+}
+
+
+
+

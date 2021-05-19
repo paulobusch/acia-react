@@ -1,0 +1,44 @@
+
+#static-relevant-informations  {
+    padding: 0 5%;
+    color: var(--grey);
+    line-height: 1.5;
+}
+
+#static-relevant-informations h4 {
+    text-transform: uppercase;
+}
+
+#static-relevant-informations a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    opacity: 0.9;
+    width: 100%;
+    transition: .2s;
+    margin: 15px 0;
+}
+
+#static-relevant-informations  a:hover {
+    opacity: 1;    
+}
+
+#static-relevant-informations  .row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#static-relevant-informations  .row:nth-child(1) {
+    flex-basis: 15%;
+}
+
+#static-relevant-informations  .row:nth-child(2) {
+    flex-basis: 75%;
+}
+
+
+
+

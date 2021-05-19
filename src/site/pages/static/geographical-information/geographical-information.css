@@ -1,0 +1,44 @@
+
+#static-geographical-information  {
+    padding: 0 5%;
+    color: var(--grey);
+    line-height: 1.5;
+}
+
+#static-geographical-information  h4 {
+    text-transform: uppercase;
+}
+
+#static-geographical-information  a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    opacity: 0.9;
+    width: 100%;
+    transition: .2s;
+    margin: 15px 0;
+}
+
+#static-geographical-information  a:hover {
+    opacity: 1;    
+}
+
+#static-geographical-information  .row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#static-geographical-information  .row:nth-child(1) {
+    flex-basis: 15%;
+}
+
+#static-geographical-information  .row:nth-child(2) {
+    flex-basis: 75%;
+}
+
+
+
+

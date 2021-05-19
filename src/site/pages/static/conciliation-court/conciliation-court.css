@@ -1,0 +1,43 @@
+#static-conciliation-court {
+    padding: 0 5%;
+    color: var(--grey);
+    line-height: 1.5;
+}
+
+#static-conciliation-court h4 {
+    text-transform: uppercase;
+}
+
+#static-conciliation-court a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    opacity: 0.9;
+    width: 100%;
+    transition: .2s;
+    margin: 15px 0;
+}
+
+#static-conciliation-court a:hover {
+    opacity: 1;    
+}
+
+#static-conciliation-court .row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#static-conciliation-court .row:nth-child(1) {
+    flex-basis: 15%;
+}
+
+#static-conciliation-court .row:nth-child(2) {
+    flex-basis: 75%;
+}
+
+
+
+

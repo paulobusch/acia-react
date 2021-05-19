@@ -52,7 +52,7 @@ export default class Header extends Component {
             <MainMenuItem href="/#/multimedia" text="MULTIMÍDIA"/>
           </MainMenuItem>
           <MainMenuItem href="#" text="INSTITUCIONAL">
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/quem-somos/" text="QUEM SOMOS"/>
+            <MainMenuItem href="/#/about" text="QUEM SOMOS"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/diretoria/" text="DIRETORIA"/>
             <MainMenuItem href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
           </MainMenuItem>

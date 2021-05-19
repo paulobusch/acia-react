@@ -1,0 +1,44 @@
+
+#static-president {
+    padding: 0 5%;
+    color: var(--grey);
+    line-height: 1.5;
+}
+
+#static-president h4 {
+    text-transform: uppercase;
+}
+
+#static-president a {
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: block;
+    opacity: 0.9;
+    width: 100%;
+    transition: .2s;
+    margin: 15px 0;
+}
+
+#static-president a:hover {
+    opacity: 1;    
+}
+
+#static-president .row {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#static-president .row:nth-child(1) {
+    flex-basis: 15%;
+}
+
+#static-president .row:nth-child(2) {
+    flex-basis: 75%;
+}
+
+
+
+
