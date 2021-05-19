@@ -1,44 +1,47 @@
-
 #static-president {
-    padding: 0 5%;
-    color: var(--grey);
-    line-height: 1.5;
+  padding: 15px 5%;
+  line-height: 2;
 }
 
-#static-president h4 {
-    text-transform: uppercase;
+#static-president p {
+  margin-top: .5em;
+  text-align: justify;
 }
 
-#static-president a {
-    padding: 15px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    display: block;
-    opacity: 0.9;
-    width: 100%;
-    transition: .2s;
-    margin: 15px 0;
+#static-president .detail {
+  margin-right: 50px;
 }
 
-#static-president a:hover {
-    opacity: 1;    
+#static-president .galery {
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-#static-president .row {
-    display: flex;
-    justify-content: space-between;
-
+#static-president .detail .title {
+  font-size: 24px;
 }
 
-#static-president .row:nth-child(1) {
-    flex-basis: 15%;
+#static-president .galery .image {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
 }
 
-#static-president .row:nth-child(2) {
-    flex-basis: 75%;
+@media only screen and (max-width: 800px) {
+  #static-president .main-title {
+    text-align: center;
+  }
+
+  #static-president .detail {
+    margin: 0;
+  }
+
+  #static-president .main {
+    flex-direction: column;
+  }
+
+  #static-president .galery .image {
+    width: 90vw;
+  }
 }
-
-
-
-

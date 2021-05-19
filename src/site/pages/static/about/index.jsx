@@ -2,11 +2,12 @@ import './about.css';
 
 import React from 'react';
 import Row from './../../../../common/row/index';
+import { Link } from 'react-router';
 
 export default function About() {
     return (
       <div id="static-about">
-        <h2>QUEM SOMOS</h2>
+        <h2 className="main-title">QUEM SOMOS</h2>
         <Row className="main">
           <div className="detail">
             <p>
@@ -16,7 +17,7 @@ export default function About() {
               de instrumento para defesa dos interesses em comum da categoria.
             </p>
             <Row justify="space-between" className="actions">
-              <a href="https://www.aciaanapolis.com.br/site/palavras-do-presidente">Palavras do Presidente</a>
+              <Link to="/president">Palavras do Presidente</Link>
               <a href="https://www.aciaanapolis.com.br/site/diretoria">Diretoria 2019 - 2021</a>
             </Row>
           </div>
