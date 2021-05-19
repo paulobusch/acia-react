@@ -40,7 +40,7 @@ export default class Header extends Component {
         </div>
         <MainMenu className={ `menu ${this.state.showMenuMobile ? 'show-mobile-menu' : ''}` }>
           <MainMenuItem href="#" text="VANTAGENS ACIA">
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/aciacred-convenio/" text="ACIA CRED"/>
+            <MainMenuItem href="/#/acia-cred" text="ACIA CRED"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/certificado-digital-acia/" text="CERTIFICADO DIGITAL"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/serasa-experian/" text="SERASA"/>
             <MainMenuItem href="/#/law-suit/search" text="CORTE CONCILIAÇÃO"/>

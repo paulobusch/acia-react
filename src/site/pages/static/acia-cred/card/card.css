@@ -1,0 +1,56 @@
+.cred-card {
+  min-height: 110px;
+  flex-basis: 48%;
+  box-sizing: border-box;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.cred-card h3 {
+  margin: 0 15px;
+  text-align: center;
+  flex-basis: 50%;
+  color: rgba(0, 0, 0, 0.63);
+}
+
+.cred-card .action {
+  text-align: center;
+  min-width: 110px;
+  cursor: pointer;
+  padding: 5px 25px;
+  display: block;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  transition: .2s;
+  opacity: .9;
+}
+
+.cred-card .action:hover {
+  opacity: 1;
+}
+
+.cred-card.blue { 
+  background-color: rgba(22, 107, 191, 0.2);
+}
+
+.cred-card.green { 
+  background-color: rgba(20, 168, 168, 0.2);
+}
+
+.cred-card.blue .action {
+  background-color: #1e73be;
+}
+
+.cred-card.green .action {
+  background-color: #1badb7;
+}
+
+@media only screen and (max-width: 900px) {
+  .cred-card { 
+    flex-direction: column;
+  }
+}

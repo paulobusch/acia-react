@@ -1,44 +1,45 @@
-
 #static-acia-cred {
-    padding: 0 5%;
-    color: var(--grey);
-    line-height: 1.5;
+  padding: 15px 5%;
+  line-height: 2;
 }
 
-#static-acia-cred h4 {
-    text-transform: uppercase;
+#static-acia-cred p {
+  margin-top: .5em;
+  text-align: justify;
 }
 
-#static-acia-cred a {
-    padding: 15px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    display: block;
-    opacity: 0.9;
-    width: 100%;
-    transition: .2s;
-    margin: 15px 0;
+#static-acia-cred > img {
+  width: 90vw;
 }
 
-#static-acia-cred a:hover {
-    opacity: 1;    
+#static-acia-cred .subtitle {
+  margin: 0;
 }
 
-#static-acia-cred .row {
-    display: flex;
-    justify-content: space-between;
-
+#static-acia-cred .bold {
+  font-weight: bold;
 }
 
-#static-acia-cred .row:nth-child(1) {
-    flex-basis: 15%;
+#static-acia-cred .details img {
+  flex-basis: 48%;
+  margin-bottom: 50px;
 }
 
-#static-acia-cred .row:nth-child(2) {
-    flex-basis: 75%;
+@media only screen and (max-width: 1600px) {
+  #static-acia-cred .cards {
+    flex-direction: column;
+  }
 }
 
+@media only screen and (max-width: 1200px) {
+  #static-acia-cred .details {
+    flex-direction: column;
+  }
+}
 
-
-
+@media only screen and (max-width: 800px) {
+  #static-acia-cred h2,
+  #static-acia-cred h3 {
+    text-align: center;
+  }
+}

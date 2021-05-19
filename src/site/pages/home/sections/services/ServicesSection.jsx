@@ -7,7 +7,7 @@ import ServiceCard from './service-card/ServiceCard';
 
 export default props => (
   <Section id="services">
-    <ServiceCard icon="credit-card" title="ACIA CRED" href="https://www.aciaanapolis.com.br/site/aciacred-convenio/">
+    <ServiceCard icon="credit-card" title="ACIA CRED" to="acia-cred">
       CARTÃO DE CRÉDITO DO
       TRABALHADOR, BOM PARA
       A EMPRES BOM PARA O FUNCIONÁRIO
