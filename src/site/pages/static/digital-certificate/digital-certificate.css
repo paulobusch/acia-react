@@ -1,0 +1,39 @@
+#static-digital-certificate {
+  padding: 15px 5%;
+  line-height: 2;
+}
+
+#static-digital-certificate p {
+  margin-top: .5em;
+  text-align: justify;
+}
+
+#static-digital-certificate .content p,
+#static-digital-certificate .content h1,
+#static-digital-certificate .content div {
+  text-align: center;
+}
+
+
+#static-digital-certificate .content ul {
+  margin: 0 auto;
+  display: table;
+}
+
+#static-digital-certificate .bold {
+  font-weight: bold;
+}
+
+#static-digital-certificate .contact { 
+  font-weight: bold;
+}
+
+#static-digital-certificate img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  #static-digital-certificate .main-title {
+    text-align: center;
+  }
+}

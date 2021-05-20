@@ -12,7 +12,7 @@ export default props => (
       TRABALHADOR, BOM PARA
       A EMPRES BOM PARA O FUNCIONÁRIO
     </ServiceCard>
-    <ServiceCard icon="desktop" title="CERTIFICADO DIGITAL" href="https://www.aciaanapolis.com.br/site/certificado-digital-acia/">
+    <ServiceCard icon="desktop" title="CERTIFICADO DIGITAL" to="digital-certificate">
       O CERTIFICADO DIGITAL DA ACIA É UMA
       EXCELENTE OPÇÃO PARA QUEM QUER,
       USUFRUIR DE SEGURANÇA E BAIXO CUSTO
