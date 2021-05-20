@@ -1,0 +1,38 @@
+#static-acia-cred {
+  padding: 15px 5%;
+  line-height: 2;
+}
+
+#static-acia-cred p {
+  margin-top: .5em;
+  text-align: justify;
+}
+
+#static-acia-cred .bold {
+  font-weight: bold;
+}
+
+#static-acia-cred .main-list {
+  list-style: decimal;
+}
+
+#static-acia-cred .secondary-list {
+  list-style: disc;
+}
+
+#static-acia-cred img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  #static-acia-cred .main-title {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #static-acia-cred .main-list,
+  #static-acia-cred .secondary-list {
+    padding-left: 25px;
+  }
+}

@@ -45,7 +45,7 @@ export default class Header extends Component {
             <MainMenuItem href="/#/serasa" text="SERASA"/>
             <MainMenuItem href="/#/conciliation-court" text="CORTE CONCILIAÇÃO"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/rede-celular/" text="LIGUE ACIA"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/cartao-de-vantagens-acia/" text="CARTÃO DE VANTAGENS"/>
+            <MainMenuItem href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/sala-de-reunioes/" text="AUDITÓRIO / SALA REUNIÃO"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-convenios" text="REDE DE CONVÊNIOS"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-saude" text="GUIA SAÚDE"/>

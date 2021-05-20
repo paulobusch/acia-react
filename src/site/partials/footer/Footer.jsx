@@ -29,7 +29,7 @@ export default props => {
           <ul className="block-list">
             <li><a href="/#/digital-certificate">CERTIFICADO DIGITAL</a></li>
             <li><a href="/#/conciliation-court">CORTE DE CONCILIAÇÃO</a></li>
-            <li><a href="https://www.aciaanapolis.com.br/site/cartao-de-vantagens-acia/">CARTÃO DE VANTAGENS</a></li>
+            <li><a href="/#/advantages-card">CARTÃO DE VANTAGENS</a></li>
             <li><a href="/#/acia-cred">ACIA CRED</a></li>
           </ul>
         </li>
