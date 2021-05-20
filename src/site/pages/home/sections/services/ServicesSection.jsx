@@ -17,7 +17,7 @@ export default props => (
       EXCELENTE OPÇÃO PARA QUEM QUER,
       USUFRUIR DE SEGURANÇA E BAIXO CUSTO
     </ServiceCard>
-    <ServiceCard icon="search" title="SERASA EXPERIAN" href="https://www.aciaanapolis.com.br/site/serasa-experian/">
+    <ServiceCard icon="search" title="SERASA EXPERIAN" to="serasa">
       OBTENHA INFORMAÇÕES COMERCIAIS E
       FINANCEIRAS SOBRE PESSOAS E EMPRESAS,
       DE FORMA SIMPLES E ONLINE.

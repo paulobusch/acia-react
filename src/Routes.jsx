@@ -59,18 +59,18 @@ export default props => (
         <Route path="posts/:type" component={ PostList }/>
         <Route path="multimedia" component={ MediaList }/>
         <Route path="about" component={ About }/>
-        <Route path="president" component={ President } />
-        <Route path="acia-cred" component={ AciaCred } />
-        <Route path="digital-certificate" component={ Certificate } />
-        <Route path="serasa" component={Serasa} />
-        <Route path="call" component={Call} />
-        <Route path="advantages-card" component={AdvantagesCard} />
-        <Route path="conciliation-court" component={ConciliationCourt} />
-        <Route path="meeting-room" component={MeetingRoom} />
-        <Route path="acia-woman" component={AciaWoman} />
-        <Route path="policy-quality" component={PolicyQuality} />
-        <Route path="geographical-information" component={GeographicalInformation} />
-        <Route path="relevant-informations" component={RelevantInformation} />
+        <Route path="president" component={ President }/>
+        <Route path="acia-cred" component={ AciaCred }/>
+        <Route path="digital-certificate" component={ Certificate }/>
+        <Route path="serasa" component={ Serasa }/>
+        <Route path="call" component={ Call }/>
+        <Route path="advantages-card" component={ AdvantagesCard }/>
+        <Route path="conciliation-court" component={ ConciliationCourt }/>
+        <Route path="meeting-room" component={ MeetingRoom }/>
+        <Route path="acia-woman" component={ AciaWoman }/>
+        <Route path="policy-quality" component={ PolicyQuality }/>
+        <Route path="geographical-information" component={ GeographicalInformation }/>
+        <Route path="relevant-informations" component={ RelevantInformation }/>
       </Route>
       <Route exact path="/login" component={ Auth } />
       <Route exact path="/logout" component={ Logout } />

@@ -42,7 +42,7 @@ export default class Header extends Component {
           <MainMenuItem href="#" text="VANTAGENS ACIA">
             <MainMenuItem href="/#/acia-cred" text="ACIA CRED"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/certificado-digital-acia/" text="CERTIFICADO DIGITAL"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/serasa-experian/" text="SERASA"/>
+            <MainMenuItem href="/#/serasa" text="SERASA"/>
             <MainMenuItem href="/#/law-suit/search" text="CORTE CONCILIAÇÃO"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/rede-celular/" text="LIGUE ACIA"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/cartao-de-vantagens-acia/" text="CARTÃO DE VANTAGENS"/>
