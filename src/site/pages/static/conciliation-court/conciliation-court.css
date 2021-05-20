@@ -1,43 +1,34 @@
 #static-conciliation-court {
-    padding: 0 5%;
-    color: var(--grey);
-    line-height: 1.5;
+  padding: 15px 5%;
+  line-height: 2;
 }
 
-#static-conciliation-court h4 {
-    text-transform: uppercase;
+#static-conciliation-court p {
+  margin-top: .5em;
+  text-align: justify;
 }
 
-#static-conciliation-court a {
-    padding: 15px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    display: block;
-    opacity: 0.9;
-    width: 100%;
-    transition: .2s;
-    margin: 15px 0;
+#static-conciliation-court .bold {
+  font-weight: bold;
 }
 
-#static-conciliation-court a:hover {
-    opacity: 1;    
+#static-conciliation-court hr {
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
-#static-conciliation-court .row {
-    display: flex;
-    justify-content: space-between;
-
+#static-conciliation-court img {
+  width: 100%;
 }
 
-#static-conciliation-court .row:nth-child(1) {
-    flex-basis: 15%;
+#static-conciliation-court .information-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-#static-conciliation-court .row:nth-child(2) {
-    flex-basis: 75%;
+@media only screen and (max-width: 800px) {
+  #static-conciliation-court .main-title {
+    text-align: center;
+  }
 }
-
-
-
-

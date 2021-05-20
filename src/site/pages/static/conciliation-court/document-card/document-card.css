@@ -1,0 +1,29 @@
+.document-card {
+  padding: 5px 0;
+}
+
+.document-card .action {
+  display: block;
+  box-sizing: border-box;
+  width: 250px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: #1e73be;
+  text-transform: uppercase;
+  padding: 2px 5px;
+  transition: .2s;
+  opacity: .9;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.document-card .action:hover {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 800px) {
+  .document-card .action {
+    width: 100%;
+  }
+}
