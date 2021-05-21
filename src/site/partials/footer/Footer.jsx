@@ -37,7 +37,7 @@ export default props => {
           <h2>INSTITUCIONAL</h2>
           <ul className="block-list">
             <li><a href={ `mailto:${WEBSITE_EMAIL}` }>ACIA TEC</a></li>
-            <li><a href="https://www.aciaanapolis.com.br/site/acia-mulher">ACIA MULHER</a></li>
+            <li><a href="/#/acia-woman">ACIA MULHER</a></li>
             <li><a href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
             <li><a href="https://www.aciaanapolis.com.br/site/politica-da-qualidade">POLÍTICA DE QUALIDADE</a></li>
           </ul>

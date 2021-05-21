@@ -1,0 +1,32 @@
+#static-acia-woman {
+  padding: 15px 5%;
+  line-height: 2;
+}
+
+#static-acia-woman p {
+  margin-top: .5em;
+  text-align: justify;
+}
+
+#static-acia-woman .bold {
+  font-weight: bold;
+}
+
+#static-acia-woman img {
+  display: block;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 800px) {
+  #static-acia-woman h2,
+  #static-acia-woman .question {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #static-acia-woman img {
+    width: 80vw;
+  }
+}
+
