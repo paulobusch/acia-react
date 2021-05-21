@@ -22,7 +22,7 @@ export default props => (
       FINANCEIRAS SOBRE PESSOAS E EMPRESAS,
       DE FORMA SIMPLES E ONLINE.
     </ServiceCard>
-    <ServiceCard icon="mobile-alt" title="REDE CELULAR" href="https://www.aciaanapolis.com.br/site/rede-celular/">
+    <ServiceCard icon="mobile-alt" title="REDE CELULAR" to="cell-network">
       ECONOMIA COM QUALIDADE É COM A REDE
       CELULAR, ONDE OFERECEMOS PLANOS DE
       LIGAÇÃO COM ECONOMIA PARA VOCÊ.

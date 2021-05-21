@@ -1,0 +1,45 @@
+#static-cell-network {
+  padding: 15px 5%;
+  line-height: 2;
+}
+
+#static-cell-network img {
+  display: block;
+}
+
+#static-cell-network .action {
+  margin: 15px 0;
+  display: block;
+  text-align: center;
+  padding: 8px 15px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  background-color: #1e73be;
+  transition: .2s;
+  opacity: .9; 
+}
+
+#static-cell-network .action:hover {
+  opacity: 1;
+}
+
+#static-cell-network .action,
+#static-cell-network img {
+  width: 250px;
+}
+
+@media only screen and (max-width: 800px) {
+  #static-cell-network .main-title {
+    text-align: center;
+  }
+
+  #static-cell-network .action {
+    margin: 15px auto;
+  }
+
+  #static-cell-network img {
+    margin: 0 auto;
+  }
+}

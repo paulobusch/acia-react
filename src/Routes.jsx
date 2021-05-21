@@ -43,6 +43,7 @@ import AciaWoman from './site/pages/static/acia-woman';
 import PolicyQuality from './site/pages/static/policy-quality';
 import GeographicalInformation from './site/pages/static/geographical-information';
 import RelevantInformation from './site/pages/static/relevant-informations'
+import CellNetwork from './site/pages/static/cell-network/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -71,6 +72,7 @@ export default props => (
         <Route path="policy-quality" component={ PolicyQuality }/>
         <Route path="geographical-information" component={ GeographicalInformation }/>
         <Route path="relevant-informations" component={ RelevantInformation }/>
+        <Route path="cell-network" component={ CellNetwork }/>
       </Route>
       <Route exact path="/login" component={ Auth } />
       <Route exact path="/logout" component={ Logout } />
