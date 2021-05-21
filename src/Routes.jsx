@@ -35,7 +35,6 @@ import President from './site/pages/static/president';
 import AciaCred from './site/pages/static/acia-cred';
 import Certificate from './site/pages/static/digital-certificate';
 import Serasa from './site/pages/static/serasa';
-import Call from './site/pages/static/call';
 import AdvantagesCard from './site/pages/static/advantages-card';
 import ConciliationCourt from './site/pages/static/conciliation-court';
 import MeetingRoom from './site/pages/static/meeting-room';
@@ -64,7 +63,6 @@ export default props => (
         <Route path="acia-cred" component={ AciaCred }/>
         <Route path="digital-certificate" component={ Certificate }/>
         <Route path="serasa" component={ Serasa }/>
-        <Route path="call" component={ Call }/>
         <Route path="advantages-card" component={ AdvantagesCard }/>
         <Route path="conciliation-court" component={ ConciliationCourt }/>
         <Route path="meeting-room" component={ MeetingRoom }/>

@@ -5,70 +5,89 @@ import React from 'react';
 export default function GeographicalInformation() {
   return (
     <div id="static-geographical-information">
-      <h2>POLÍTICA DA QUALIDADE</h2>
+      <h2>INFORMAÇÕES GEOGRÁFICAS</h2>
       <p>
-        A ACIA, fundada em 8 de fevereiro de 1936, é uma entidade civil, representativa, sem fins lucrativos, 
-        com personalidade jurídica de caráter assistencial, cultural e social; com patrimônio e individualidade 
-        próprios e distintos de seus sócios; com sede e foro em Anápolis-GO.
+        <div className="bold">Fundação</div>
+        <div>1887</div>
       </p>
       <p>
-        A Associação Comercial e Industrial de Anápolis – ACIA, com sede e foro em Anápolis, foi fundada em 8 de 
-        fevereiro de 1936, com o propósito de unir e defender os seus associados e comerciantes. Ampliou o seu campo de 
-        ação, recebendo e absorvendo a Associação Industrial, que se uniram, fortalecendo-se. Após anos de intenso trabalho, 
-        dificuldades e vencendo obstáculos, transforma-se, hoje, no centro das discussões, estudos e decisões importantes 
-        para os desafios do desenvolvimento da região. Além dos benefícios conquistados, avança em audaciosos projetos, 
-        como ligação ferroviária, Estação Multimodal, Aeroporto Internacional de Cargas e Universidade com a certeza de 
-        novos horizontes para Anápolis, face à austeridade de seu procedimento e parcerias com os poderes públicos.
+        <div className="bold">Área total</div>
+        <div>918,37 Km²</div>
       </p>
-      <ul className="main-list">
-        <li>
-          <div className="bold">MISSÃO</div>
-          <p>
-            Integrar, representar e defender os direitos dos associados, interagindo com outras entidades em prol do seu 
-            desenvolvimento e progresso, prestando serviços sociais e afins à entidade.
-          </p>
-        </li>
-        <li>
-          <div className="bold">VISÃO</div>
-          <p>Ser uma referência em Gestão de Associação Comercial e Industrial na região Centro Oeste goiana</p>
-        </li>
-        <li>
-          <div className="bold">VALORES</div>
-          <ul className="secondary-list">
-            <li>
-              <span className="bold">Atitude de dono: </span>acatar demandas com responsabilidade, compromisso e competência, 
-              buscando os resultados planejados.
-            </li>
-            <li>
-              <span className="bold">Interdependência: </span>priorizar o “nós” à frente do “eu”, cultivando relações de 
-              cooperação mútua, parceria e integração que possa fortalecer a entidade como legítima representante em Anápolis e 
-              região.
-            </li>
-            <li>
-              <span className="bold">Ética: </span>transparência nas ações e respeito às pessoas, associados, diretores, 
-              colaboradores ou fornecedores, construindo dessa forma nossa credibilidade.
-            </li>
-            <li>
-              <span className="bold">Excelência: </span>oferecer produtos e serviços com qualidade reconhecida e busca da 
-              excelência, fazendo sempre o melhor possível para atender as necessidades de nossos associados.
-            </li>
-            <li>
-              <span className="bold">Proatividade: </span>encorajar a criatividade e iniciativa dos colaboradores no 
-              desenvolvimento e realização de suas atividades.
-            </li>
-            <li>
-              <span className="bold">Respeito à Memória: </span>a imagem institucional e credibilidade da associação construída 
-              ao longo de sua história carrega lutas e conquistas 
-              para a cidade. Por isso, respeitamos, preservamos e difundimos essa memória aos públicos que relacionamos.
-            </li>
-            <li>
-              <span className="bold">Política da Qualidade: “PRESTAR SERVIÇOS QUE ATENDAM NOSSOS CLIENTES COM MELHORIA 
-              CONTÍNUA E COMPROMISSO COM A COMUNIDADE LOCAL”</span>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <div className="reference">Anápolis, 12 / 06 / 19 – Rev.01</div>
+      <p>
+        <div className="bold">População</div>
+        <div>307.977</div>
+      </p>
+      <p>
+        <div className="bold">Densidade Demográfica</div>
+        <div>261,73 hab/km²</div>
+      </p>
+      <p>
+        <div className="bold">Distâncias</div>
+        <div>
+          Anápolis está 171 quilômetros de Brasília, 54 quilômetros de Goiânia, 362 quilômetros de Uberlândia, 813 quilômetros de 
+          Belo Horizonte, 846 quilômetros de Palmas, 953 quilômetros de São Paulo, 987 quilômetros de Cuiabá, 1.027 quilômetros 
+          de Santos, 1.202 quilômetros do Rio de Janeiro, 1.616 quilômetros de Salvador.
+        </div>
+      </p>
+      <p>
+        <div className="bold">Localização</div>
+        <div>Situa-se na Latitude 16º 19’ 36’’ e Longitude 48º 57’ 10’’</div>
+      </p>
+      <p>
+        <div className="bold">Altitude</div>
+        <div>1.017 metros</div>
+      </p>
+      <p>
+        <div className="bold">Limites</div>
+        <div>Norte : Municípios de Abadiânia e Pirenópolis
+          Sul : Municípios de Terezópolis, Goianápolis, Leopoldo de Bulhões e Silvânia
+          Leste : Municípios de Silvânia e Abadiânia
+          Oeste : Municípios de Nerópolis, Ouro Verde e Petrolina de Goiás.
+        </div>
+      </p>
+      <p>
+        <div className="bold">Clima e Temperatura</div>
+        <div>
+          Clima Mesotérmico, quase megatérmico e úmido.
+          Precipitação Pluviométrica Anual: – 1.450 m m, com maior concentração das chuvas de Novembro a Março.
+          Temperatura média anual : 22ºC, variando ao longo do ano de 5ºC em média.
+        </div>
+      </p>
+      <p>
+        <div className="bold">Solo</div>
+        <div>
+          Em maior proporção ocorrem solos muito profundos, argilosos a médio, bem drenados, de baixa suscetibilidade à erosão e 
+          com fertilidade natural muito baixa (areias quartzosas).
+        </div>
+      </p>
+      <p>
+        <div className="bold">Vegetação</div>
+        <div>
+          Área de transição recoberta pela vegetação florestal semidecídua estacional – Floresta Estacional Semidecídua e 
+          vegetação não florestal arbóreo – herbácea semidecídua xeromorfa.
+          Cerrado em seus diferentes aspectos.
+          A vegetação original foi devastada para implantação de empreendimentos agropastoris.
+        </div>
+      </p>
+      <p>
+        <div className="bold">Hidrografia</div>
+        <div>
+          Situado nos primeiros contrafortes do Planalto Central Goiano, o Município de Anápolis pertence às duas grandes 
+          Bacias Hidrográficas do Paraná e Amazonas. Pertencentes à Bacia do Paraná, merecem destaque os Ribeirões 
+          Gonçalves a João Leite, afluentes da margem esquerda do Rio Meia Ponte, que banham as partes sul e sudeste dos 
+          Ribeirões das Antas e Piancó, tributários da margem esquerda do Rio Corumbá. Da Bacia Amazônica destaca-se o 
+          Ribeirão Padre Souza, afluente da margem esquerda do Rio das Almas, grande tributário do Tocantins. Sobressaem-se o 
+          Município de Pelada do Sul e o Morro do Caiapó nas divisas com o Município de Silvânia.
+        </div>
+      </p>
+      <p>
+        <div className="bold">Topografia</div>
+        <div>
+          Plana % 43 Ondulada % 54 Montanhosa % 03. Os destaque são os Morros do Betume, de Santa Bárbara, do Tira-Chapéu, 
+          da Conceição e Três Ranchos.
+        </div>
+      </p>
     </div>
   );
 }

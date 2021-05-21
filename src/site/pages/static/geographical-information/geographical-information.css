@@ -1,3 +1,4 @@
+
 #static-geographical-information {
   padding: 15px 5%;
   line-height: 2;
@@ -12,17 +13,10 @@
   font-weight: bold;
 }
 
-#static-geographical-information .reference {
-  text-align: right;
-}
-
 @media only screen and (max-width: 800px) {
-  #static-geographical-information h2 {
+  #static-geographical-information h2,
+  #static-geographical-information p,
+  #static-geographical-information .bold {
     text-align: center;
-  }
-
-  #static-geographical-information .main-list,
-  #static-geographical-information .secondary-list {
-    padding-left: 25px;
   }
 }

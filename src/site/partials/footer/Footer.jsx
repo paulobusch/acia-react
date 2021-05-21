@@ -39,7 +39,7 @@ export default props => {
             <li><a href={ `mailto:${WEBSITE_EMAIL}` }>ACIA TEC</a></li>
             <li><a href="/#/acia-woman">ACIA MULHER</a></li>
             <li><a href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
-            <li><a href="/#/geographical-information">POLÍTICA DE QUALIDADE</a></li>
+            <li><a href="/#/policy-quality">POLÍTICA DE QUALIDADE</a></li>
           </ul>
         </li>
         <li>

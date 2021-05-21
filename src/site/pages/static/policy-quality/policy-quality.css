@@ -1,44 +1,28 @@
-
-#static-policy-quality   {
-    padding: 0 5%;
-    color: var(--grey);
-    line-height: 1.5;
+#static-policy-qualityn {
+  padding: 15px 5%;
+  line-height: 2;
 }
 
-#static-policy-quality   h4 {
-    text-transform: uppercase;
+#static-policy-qualityn p {
+  margin-top: .5em;
+  text-align: justify;
 }
 
-#static-policy-quality   a {
-    padding: 15px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    display: block;
-    opacity: 0.9;
-    width: 100%;
-    transition: .2s;
-    margin: 15px 0;
+#static-policy-qualityn .bold {
+  font-weight: bold;
 }
 
-#static-policy-quality   a:hover {
-    opacity: 1;    
+#static-policy-qualityn .reference {
+  text-align: right;
 }
 
-#static-policy-quality   .row {
-    display: flex;
-    justify-content: space-between;
+@media only screen and (max-width: 800px) {
+  #static-policy-qualityn h2 {
+    text-align: center;
+  }
 
+  #static-policy-qualityn .main-list,
+  #static-policy-qualityn .secondary-list {
+    padding-left: 25px;
+  }
 }
-
-#static-policy-quality   .row:nth-child(1) {
-    flex-basis: 15%;
-}
-
-#static-policy-quality   .row:nth-child(2) {
-    flex-basis: 75%;
-}
-
-
-
-
