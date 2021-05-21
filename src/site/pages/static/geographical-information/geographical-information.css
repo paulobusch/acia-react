@@ -1,44 +1,28 @@
-
-#static-geographical-information  {
-    padding: 0 5%;
-    color: var(--grey);
-    line-height: 1.5;
+#static-geographical-information {
+  padding: 15px 5%;
+  line-height: 2;
 }
 
-#static-geographical-information  h4 {
-    text-transform: uppercase;
+#static-geographical-information p {
+  margin-top: .5em;
+  text-align: justify;
 }
 
-#static-geographical-information  a {
-    padding: 15px;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    display: block;
-    opacity: 0.9;
-    width: 100%;
-    transition: .2s;
-    margin: 15px 0;
+#static-geographical-information .bold {
+  font-weight: bold;
 }
 
-#static-geographical-information  a:hover {
-    opacity: 1;    
+#static-geographical-information .reference {
+  text-align: right;
 }
 
-#static-geographical-information  .row {
-    display: flex;
-    justify-content: space-between;
+@media only screen and (max-width: 800px) {
+  #static-geographical-information h2 {
+    text-align: center;
+  }
 
+  #static-geographical-information .main-list,
+  #static-geographical-information .secondary-list {
+    padding-left: 25px;
+  }
 }
-
-#static-geographical-information  .row:nth-child(1) {
-    flex-basis: 15%;
-}
-
-#static-geographical-information  .row:nth-child(2) {
-    flex-basis: 75%;
-}
-
-
-
-
