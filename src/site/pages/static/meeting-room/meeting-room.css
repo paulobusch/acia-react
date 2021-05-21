@@ -1,0 +1,27 @@
+#static-meeting-room {
+  padding: 15px 5%;
+  line-height: 2;
+}
+
+#static-meeting-room p {
+  margin-top: .5em;
+  text-align: justify;
+}
+
+#static-meeting-room .photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 800px) {
+  #static-meeting-room .main-title {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #static-meeting-room .photos {
+    flex-direction: column;
+  }
+}

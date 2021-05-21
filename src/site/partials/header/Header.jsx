@@ -49,6 +49,7 @@ export default class Header extends Component {
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/sala-de-reunioes/" text="AUDITÓRIO / SALA REUNIÃO"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-convenios" text="REDE DE CONVÊNIOS"/>
             <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-saude" text="GUIA SAÚDE"/>
+            <MainMenuItem href="/#/meeting-room" text="SALA DE REUNIÕES"/>
             <MainMenuItem href="/#/multimedia" text="MULTIMÍDIA"/>
           </MainMenuItem>
           <MainMenuItem href="#" text="INSTITUCIONAL">
