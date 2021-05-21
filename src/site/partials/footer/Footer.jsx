@@ -46,8 +46,8 @@ export default props => {
           <h2>ANÁPOLIS</h2>
           <ul className="block-list">
             <li><a href="https://www.aciaanapolis.com.br/site/historia/">HISTÓRIA</a></li>
-            <li><a href="https://www.aciaanapolis.com.br/site/informacoes-geograficas/">INFORMAÇÕES GEOGRÁFICAS</a></li>
-            <li><a href="https://www.aciaanapolis.com.br/site/informacoes-relevantes/">INFORMAÇÕES RELEVANTES</a></li>
+            <li><a href="/#/geographical-information">INFORMAÇÕES GEOGRÁFICAS</a></li>
+            <li><a href="/#/relevant-informations">INFORMAÇÕES RELEVANTES</a></li>
             <li><a href="https://www.juceg.go.gov.br">JUCEG</a></li>
             <li><a href="https://portaldoempreendedor.me">PORTAL DO MICROEMPREENDEDOR</a></li>
             <li><a href="https://www.sebrae.com.br/sites/PortalSebrae/ufs/go?codUf=10&gclid=Cj0KCQjwgtWDBhDZARIsADEKwgMks6rnCHkmrxWWjUQmTWvXRGEUmH1LcrHm9GvHJS5f1Hcucs1v0KwaAlVXEALw_wcB">SEBRAE</a></li>
