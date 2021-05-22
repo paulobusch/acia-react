@@ -222,6 +222,8 @@ export default class ActionsStorageBase {
     return () => {
       var batch = firebaseInstance.firestore().batch();
   
+      firebaseInstance.storage().ref().tac
+
       for (const item of list) {
         const record = this.getCollection().doc(item.id);
         batch.update(record, { order: item.order });

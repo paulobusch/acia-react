@@ -3,6 +3,7 @@ import './image.css';
 import FieldBase from './../index';
 
 import React from 'react';
+import { fileToBase64 } from './../../api/file';
 
 export default class Image extends FieldBase {
   constructor(props) {
@@ -12,14 +13,13 @@ export default class Image extends FieldBase {
     this.state = { url: this.getBackgroundImage() };
     this.onChange = this.onChange.bind(this);
     this.getBackgroundImage = this.getBackgroundImage.bind(this);
-    this.fileToBase64 = this.fileToBase64.bind(this);
     this.remove = this.remove.bind(this);
   }
 
   onChange(e) {
     const [file] = e.target.files;
     if (file) {
-      this.fileToBase64(file, base64 => {
+      fileToBase64(file, base64 => {
         this.setState({ ...this.state, url: base64 });
       });
       this.props.input.onChange(file);
@@ -30,17 +30,6 @@ export default class Image extends FieldBase {
     const { imageUrl, imageDefault } = this.props;
     return imageUrl || imageDefault;
   }
-
-  fileToBase64(file, completed) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      completed(reader.result);
-    };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
- }
 
   remove() {
     this.props.input.onChange(null);

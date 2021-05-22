@@ -42,7 +42,11 @@ export default class Table extends DragBase {
     const heads = columns.map(c => 
       <th 
         key={ c.prop } 
-        style={ { ...headStyles, width: c.flex ? `${c.flex}%` : '' } }
+        style={ { 
+          ...headStyles, 
+          width: c.flex ? `${c.flex}%` : '',
+          textAlign: c.textAlign
+        } }
       >
       { c.label }
       </th>
@@ -67,7 +71,12 @@ export default class Table extends DragBase {
       const text = format ? format(raw) : raw;
       const content = template ? <Template row={ row } index={ index } column={ c } text={ text } /> : text;
       return (
-        <td key={ c.prop } onDragStart={ e => { e.stopPropagation(); e.preventDefault() } } onClick={ () => rowClick ? rowClick(row) : false }>{ content }</td>
+        <td 
+          key={ c.prop } 
+          onDragStart={ e => { e.stopPropagation(); e.preventDefault() } } 
+          onClick={ () => rowClick ? rowClick(row) : false }
+          style={ { textAlign: c.textAlign } }
+        >{ content }</td>
       );
     });
 

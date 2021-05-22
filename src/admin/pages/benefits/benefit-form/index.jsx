@@ -9,14 +9,14 @@ import Select from '../../../../common/fields/select';
 import Row from '../../../../common/row';
 import FormBase from '../../../../common/form-base';
 import Input from '../../../../common/fields/input/index';
-import { create, update, loadForm, submitForm } from '../../../../reducers/posts/post-actions';
+import { create, update, loadForm, submitForm } from '../../../../reducers/benefits/benefits-actions';
 import { BENEFITS_AGREEMENT, BENEFITS_HEALTH } from './../../../../reducers/benefits/benefits-type';
-import PostGroup from './post-group/index';
+import Accredited from './accredited/index';
 
 const DEFAULT_STATE = {
   title: null,
   type: null,
-  posts: []
+  accrediteds: []
 };
 
 class BenefitForm extends FormBase { 
@@ -34,25 +34,27 @@ class BenefitForm extends FormBase {
 
   form() {
     const types = [BENEFITS_AGREEMENT, BENEFITS_HEALTH];
-    const { handleSubmit, posts } = this.props;
+    const { handleSubmit, accrediteds } = this.props;
     return (
-      <Form onSubmit={ handleSubmit(this.submit) }>
-        <Row justify="flex-start">
-          <Field name="type" label="Tipo" 
-            flex="25" component={ Select } options={ types } validate={ required }
-          />
-          <Field name="title" label="Título" type="text" placeholder="Informe o título" className="field-padding"
-            flex="25" component={ Input } validate={ required }
-          />
-        </Row>
-        <PostGroup posts={ posts }/>
-      </Form>
+      <div>
+        <Form onSubmit={ handleSubmit(this.submit) }>
+          <Row justify="flex-start">
+            <Field name="type" label="Tipo" 
+              flex="25" component={ Select } options={ types } validate={ required }
+            />
+            <Field name="title" label="Título" type="text" placeholder="Informe o título" className="field-padding"
+              flex="25" component={ Input } validate={ required }
+            />
+          </Row>
+        </Form>
+        <Accredited accrediteds={ accrediteds }/>
+      </div>
     );
   }
 }
 
 const form = reduxForm({ form: 'benefit-form' })(withRouter(BenefitForm));
 const selector = formValueSelector('benefit-form');
-const mapStateToProps = state => ({ cards: selector(state, 'cards') });
+const mapStateToProps = state => ({ accrediteds: selector(state, 'accrediteds') });
 const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(form);
