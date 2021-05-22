@@ -3,10 +3,65 @@ import { initialize } from 'redux-form';
 
 import ActionsStorageBase from '../actions-storage-base';
 import NewId from './../../common/random/random-id';
+import { BENEFIT_AGREEMENT, BENEFIT_HEALTH } from './benefits-type';
 
 class BenefitActions extends ActionsStorageBase {
   constructor() {
     super('benefits', 'BENEFIT', 'benefit-form', false);
+  }
+
+  mapTypeToTitle(type) {
+    switch (type) {
+      case BENEFIT_AGREEMENT: return 'GUIA DE CONVÊNIOS';
+      case BENEFIT_HEALTH: return 'GUIA DE SAÚDE';
+      default: throw Error('Not implemented');
+    }
+  }
+  
+  getAccrediteds(benefits) {
+    const accrediteds = [];
+    if (!benefits || benefits.length === 0) return accrediteds;
+    for (const benefit of benefits) {
+      for (const accredited of benefit.accrediteds) {
+        accrediteds.push(accredited);
+      }
+    }
+
+    return accrediteds;
+  }
+
+  getAllByFilter(filters, completed) {
+    return dispatch => {
+      let filtred = this.getCollection();
+
+      for (const prop in filters)
+        filtred = filtred.where(prop, '==', filters[prop]);
+
+      filtred.get().then(result => {
+        const mapped = result.docs.map(d => ({ id: d.id, ...d.data() }));
+        mapped.map(d => d.createdAt = d.createdAt.toDate());
+        const list = this.sortAsc 
+          ? mapped.sort((a, b) => a.order - b.order)
+          : mapped.sort((a, b) => b.order - a.order);
+
+        const accrediteds = this.getAccrediteds(list);
+        const tasksGetUrl = accrediteds.map(item => this.getFile(item.image).getDownloadURL());
+        Promise.all(tasksGetUrl).then(urlResults => {
+          for (const accredited of accrediteds){
+            const index = accrediteds.indexOf(accredited);
+            accredited.imageRef = accredited.image;
+            accredited.image = urlResults[index];
+          }
+          dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
+          if (completed) completed(true, list);
+        });
+      })
+      .catch((error) => {
+        toastr.error('Erro', `Falha ao carregar Registros!`);
+        if (completed) completed(false);
+        throw error;
+      });
+    };
   }
   
   loadForm(id, completed) {
@@ -123,3 +178,5 @@ export function loadForm(id, completed){ return actionsInstance.loadForm(id, com
 export function create(data, completed){ return actionsInstance.create(data, completed); }
 export function update(data, completed){ return actionsInstance.update(data, completed); }
 export function remove(data, completed){ return actionsInstance.remove(data, completed); }
+export function mapTypeToTitle(type){ return actionsInstance.mapTypeToTitle(type); }
+export function getAccrediteds(benefits){ return actionsInstance.getAccrediteds(benefits); }

@@ -1,2 +1,2 @@
-export const BENEFITS_AGREEMENT = 'Convênio';
-export const BENEFITS_HEALTH = 'Saúde';
+export const BENEFIT_AGREEMENT = 'Convênio';
+export const BENEFIT_HEALTH = 'Saúde';

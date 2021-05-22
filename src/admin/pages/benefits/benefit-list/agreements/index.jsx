@@ -3,12 +3,12 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
 import { getAllByFilter, remove } from '../../../../../reducers/benefits/benefits-actions';
-import { BENEFITS_AGREEMENT } from './../../../../../reducers/benefits/benefits-type';
+import { BENEFIT_AGREEMENT } from './../../../../../reducers/benefits/benefits-type';
 import BenefitListBase from './../base';
 
 class AgreementsList extends BenefitListBase {
   constructor(props) {
-    super(props, BENEFITS_AGREEMENT);
+    super(props, BENEFIT_AGREEMENT);
   }
 }
 

@@ -11,7 +11,7 @@ class PostActions extends ActionsStorageBase {
       case POST_ACTION: return 'ACIA EM AÇÃO';
       case POST_ARTICLE: return 'ARTIGOS';
       case POST_NEWS: return 'NOTÍCIAS';
-      default: throw Error('Default option is not implemented');
+      default: throw Error('Not implemented');
     }
   }
 }

@@ -1,0 +1,88 @@
+.benefit-card {
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: .2s;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  line-height: 1.5;
+  margin: 5px 0;
+  color: black;
+  box-shadow: 2px 2px 5px #ddd;
+  border: 1px solid #ddd;
+  min-height: 10vw;
+  text-align: justify;
+  border-radius: 5px;
+}
+
+.benefit-card:hover {
+  background-color: #e1f0ff;
+}
+
+.benefit-card .mobile-title {
+  display: none;
+}
+
+.benefit-card .image {
+  flex-basis: 20%;
+  background-color: white;
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+}
+
+.benefit-card .about {
+  flex-basis: 50%;
+  padding: 0 15px;
+}
+
+.benefit-card .contact {
+  flex-basis: 30%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-card h3 {
+  margin-top: 0;
+  color: var(--primary);
+}
+
+.benefit-card .contact li {
+  margin: 10px 0;
+}
+
+.benefit-card .contact i {
+  color: var(--primary);
+  width: 20px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .benefit-card {
+    flex-direction: column;
+  }
+  
+  .benefit-card h3 {
+    text-align: center;
+  }
+
+  .benefit-card .image {
+    min-height: 40vw;
+  }
+
+  .benefit-card .about {
+    padding: 0;
+  }
+
+  .benefit-card .mobile-title {
+    display: block;
+  }
+
+  .benefit-card .desktop-title {
+    display: none;
+  }
+}

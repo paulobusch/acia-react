@@ -10,7 +10,7 @@ import Row from '../../../../common/row';
 import FormBase from '../../../../common/form-base';
 import Input from '../../../../common/fields/input/index';
 import { create, update, loadForm, submitForm } from '../../../../reducers/benefits/benefits-actions';
-import { BENEFITS_AGREEMENT, BENEFITS_HEALTH } from './../../../../reducers/benefits/benefits-type';
+import { BENEFIT_AGREEMENT, BENEFIT_HEALTH } from './../../../../reducers/benefits/benefits-type';
 import Accredited from './accredited/index';
 
 const DEFAULT_STATE = {
@@ -33,7 +33,7 @@ class BenefitForm extends FormBase {
   }
 
   form() {
-    const types = [BENEFITS_AGREEMENT, BENEFITS_HEALTH];
+    const types = [BENEFIT_AGREEMENT, BENEFIT_HEALTH];
     const { handleSubmit, accrediteds } = this.props;
     return (
       <div>
