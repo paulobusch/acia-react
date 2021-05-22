@@ -6,6 +6,7 @@ import SlidesReducer from './slides/slide-reducer';
 import PostsReducer from './posts/post-reducer';
 import authReducer from './auth/auth-reducer';
 import MediasReducer from './medias/media-reducer';
+import BenefitsReducer from './benefits/benefits-reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   toastr: toastrReducer,
   slides: SlidesReducer,
   posts: PostsReducer,
-  medias: MediasReducer
+  medias: MediasReducer,
+  benefits: BenefitsReducer
 });
 
 export default rootReducer;

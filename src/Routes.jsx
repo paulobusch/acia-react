@@ -15,8 +15,9 @@ import Construction from './admin/pages/construction/Construction';
 import SlideList from './admin/pages/slides/slide-list';
 import SlideForm from './admin/pages/slides/slide-form';
 import PostListTabs from './admin/pages/posts/post-list';
-import PostForm from './admin/pages/posts/post-form';
 import MediaListTabs from './admin/pages/medias/media-list';
+import BenefitListTabs from './admin/pages/benefits/benefit-list';
+import PostForm from './admin/pages/posts/post-form';
 import Subscribe from './site/pages/subscribe/index';
 import Auth from './admin/auth/login/index';
 import Logout from './admin/auth/logout/index';
@@ -85,8 +86,9 @@ export default () => (
         <Route path="multimedia/edit/:id" component={ MediaForm }/>
         <Route path="multimedia/:tab" component={ MediaListTabs }/>
         <Route path="multimedia" component={ MediaListTabs }/>
+        <Route path="benefits/:tab" component={ BenefitListTabs }/>
+        <Route path="benefits" component={ BenefitListTabs }/>
         <Route path="standards" component={ Construction }/>
-        <Route path="benefits" component={ Construction }/>
         <Route path="products" component={ Construction }/>
         <Route path="directors" component={ Construction }/>
         <Route path="covenants" component={ Construction }/>
