@@ -30,6 +30,27 @@ class BenefitActions extends ActionsStorageBase {
     return accrediteds;
   }
 
+  getAccreditedById(id, completed){
+    return () => {
+      this.getCollection()
+      .where('accreditedIds', 'array-contains', { id: id })
+      .get().then(result => {
+        const [ beneffit ] = result.docs.map(d => ({ id: d.id, ...d.data() }));
+        const accredited = beneffit.accrediteds.find(a => a.id === id);
+        this.getFile(accredited.image).getDownloadURL().then(url => {
+          accredited.imageRef = accredited.image;
+          accredited.image = url;
+          if (completed) completed(true, accredited);
+        });
+      })
+      .catch((error) => {
+        toastr.error('Erro', `Falha ao carregar Registro!`);
+        if (completed) completed(false);
+        throw error;
+      });
+    };
+  }
+
   getAllByFilter(filters, completed) {
     return dispatch => {
       let filtred = this.getCollection();
@@ -106,6 +127,7 @@ class BenefitActions extends ActionsStorageBase {
         Promise.all(tasksUpload)
           .then(() => {
             const item = Object.assign(new Object(), values);
+            item.accreditedIds = values.accrediteds.map(a => a.id);
             item.createdAt = new Date();
             item.order = maxOrder + 1;
             this.getCollection()
@@ -131,9 +153,14 @@ class BenefitActions extends ActionsStorageBase {
   
   update(values, completed) {
     return () => {
+      values.accreditedIds = values.accrediteds.map(a => a.id);
       for (const accredited of values.accrediteds) {
-        if (accredited.image instanceof File) continue;
-        accredited.image = accredited.imageRef || accredited.image
+        if (accredited.image instanceof File) {
+          delete accredited.imageRef;
+          continue;
+        } 
+        accredited.image = accredited.imageRef || accredited.image;
+        delete accredited.imageRef;
       }
 
       const tasksUpload = values.accrediteds
@@ -173,6 +200,7 @@ const actionsInstance = new BenefitActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
 export function getAll(completed){ return actionsInstance.getAll(completed); }
+export function getAccreditedById(id, completed){ return actionsInstance.getAccreditedById(id, completed); }
 export function getAllByFilter(filters, completed){ return actionsInstance.getAllByFilter(filters, completed); }
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }
 export function create(data, completed){ return actionsInstance.create(data, completed); }

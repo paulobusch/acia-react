@@ -45,7 +45,8 @@ import ServiceList from './admin/pages/services/service-list/index';
 import ServiceForm from './admin/pages/services/service-form';
 import StandardList from './admin/pages/standards/standard-list';
 import StandardForm from './admin/pages/standards/standard-form';
-import BenefitList from './site/pages/benefits/benefit-list/index';
+import BenefitList from './site/pages/benefits/benefit-list';
+import BenefitDetail from './site/pages/benefits/benefit-detail';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -58,6 +59,7 @@ export default () => (
         <Route path="subscribe" component={ Subscribe }/>
         <Route path="posts/view/:id" component={ PostDetail }/>
         <Route path="posts/:type" component={ PostList }/>
+        <Route path="benefits/view/:id" component={ BenefitDetail }/>
         <Route path="benefits/:type" component={ BenefitList }/>
         <Route path="multimedia" component={ MediaList }/>
         <Route path="about" component={ About }/>

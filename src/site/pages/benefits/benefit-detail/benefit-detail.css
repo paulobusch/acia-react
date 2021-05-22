@@ -1,0 +1,50 @@
+#benefit {
+  line-height: 1.5;
+  padding: 35px 5%;
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
+}
+
+#benefit .content {
+  display: flex;
+  justify-content: space-between;
+}
+
+#benefit .image {
+  height: 40vw;
+  flex-basis: 60%;
+  background-position: top center;
+  background-size: cover;
+}
+
+#benefit .detail {
+  padding: 0 15px;
+  flex-basis: 40%;
+}
+
+#benefit .contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#benefit .contact li {
+  margin: 10px 0;
+}
+
+#benefit .contact i {
+  color: var(--primary);
+  width: 20px;
+  text-align: center;
+  margin-right: 5px;
+}
+
+@media only screen and (max-width: 1100px) {
+  #benefit h2 {
+    text-align: center;
+  }
+
+  #benefit .content {
+    flex-direction: column;
+  }
+}
