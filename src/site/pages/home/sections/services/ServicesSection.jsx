@@ -1,35 +1,48 @@
 import './ServicesSection.css';
 
-import React from 'react';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import Section from '../../../../common/section/Section';
 import ServiceCard from './service-card/ServiceCard';
+import { getAll } from '../../../../../reducers/services/service-actions';
 
-export default props => (
-  <Section id="services">
-    <ServiceCard icon="credit-card" title="ACIA CRED" to="acia-cred">
-      CARTÃO DE CRÉDITO DO
-      TRABALHADOR, BOM PARA
-      A EMPRES BOM PARA O FUNCIONÁRIO
-    </ServiceCard>
-    <ServiceCard icon="desktop" title="CERTIFICADO DIGITAL" to="digital-certificate">
-      O CERTIFICADO DIGITAL DA ACIA É UMA
-      EXCELENTE OPÇÃO PARA QUEM QUER,
-      USUFRUIR DE SEGURANÇA E BAIXO CUSTO
-    </ServiceCard>
-    <ServiceCard icon="search" title="SERASA EXPERIAN" to="serasa">
-      OBTENHA INFORMAÇÕES COMERCIAIS E
-      FINANCEIRAS SOBRE PESSOAS E EMPRESAS,
-      DE FORMA SIMPLES E ONLINE.
-    </ServiceCard>
-    <ServiceCard icon="mobile-alt" title="REDE CELULAR" to="cell-network">
-      ECONOMIA COM QUALIDADE É COM A REDE
-      CELULAR, ONDE OFERECEMOS PLANOS DE
-      LIGAÇÃO COM ECONOMIA PARA VOCÊ.
-    </ServiceCard>
-    <ServiceCard icon="gavel" title="CORTE DE CONCILIAÇÃO" to="conciliation-court">
-      CONSULTE SEUS PROCESSOS
-      NA CORTE DE CONCILIAÇÃO.
-    </ServiceCard>
-  </Section>
-);
+class ServicesSection extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { loading: true };
+    this.afterLoad = this.afterLoad.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.getAll(this.afterLoad);
+  }
+
+  afterLoad(success) {
+    if (success) {
+      this.setState({
+        ...this.state,
+        loading: false
+      });
+    }
+  }
+
+  render() {
+    const { loading } = this.state;
+    const { services } = this.props;
+    if (loading) return false;
+    if (services.length === 0) return false;
+
+    return (
+      <Section id="services">
+        { services.map(s => <ServiceCard key={ s.id } { ...s }>{ s.description }</ServiceCard>) }
+      </Section>
+    );    
+  }
+}
+
+const mapStateToProps = state => ({ services: state.services });
+const mapDispatchToProps = dispatch => bindActionCreators({ getAll }, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(ServicesSection);

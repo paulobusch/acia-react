@@ -2,7 +2,7 @@ import './message.css';
 
 import React from 'react';
 
-export default props => {
+export default function Message(props) {
   const message = props.message || 'Nenhum registro encontrado';
 
   return (

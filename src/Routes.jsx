@@ -40,6 +40,11 @@ import PolicyQuality from './site/pages/static/policy-quality';
 import GeographicalInformation from './site/pages/static/geographical-information';
 import RelevantInformation from './site/pages/static/relevant-informations'
 import CellNetwork from './site/pages/static/cell-network/index';
+import BenefitForm from './admin/pages/benefits/benefit-form';
+import ServiceList from './admin/pages/services/service-list/index';
+import ServiceForm from './admin/pages/services/service-form';
+import StandardList from './admin/pages/standards/standard-list';
+import StandardForm from './admin/pages/standards/standard-form';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -86,12 +91,19 @@ export default () => (
         <Route path="multimedia/edit/:id" component={ MediaForm }/>
         <Route path="multimedia/:tab" component={ MediaListTabs }/>
         <Route path="multimedia" component={ MediaListTabs }/>
+        <Route path="benefits/new" component={ BenefitForm }/>
+        <Route path="benefits/new/:type" component={ BenefitForm }/>
+        <Route path="benefits/edit/:id" component={ BenefitForm }/>
         <Route path="benefits/:tab" component={ BenefitListTabs }/>
         <Route path="benefits" component={ BenefitListTabs }/>
-        <Route path="standards" component={ Construction }/>
+        <Route path="services/new" component={ ServiceForm }/>
+        <Route path="services/edit/:id" component={ ServiceForm }/>
+        <Route path="services" component={ ServiceList }/>
+        <Route path="standards/new" component={ StandardForm }/>
+        <Route path="standards/edit/:id" component={ StandardForm }/>
+        <Route path="standards" component={ StandardList }/>
         <Route path="products" component={ Construction }/>
         <Route path="directors" component={ Construction }/>
-        <Route path="covenants" component={ Construction }/>
       </Route>
     </Router>
   </Provider>

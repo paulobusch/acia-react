@@ -7,6 +7,7 @@ export default class BenefitListBase extends ListBase {
 
     this.type = type;
     this.className = 'page-benefit-list';
+    this.count = this.count.bind(this);
   }
 
   componentWillMount() {
@@ -20,9 +21,15 @@ export default class BenefitListBase extends ListBase {
     router.push(url);
   }
 
+  count(row) {
+    if (!row.posts) return 0;
+    return row.posts.length;
+  }
+
   configure() {
     this.tableColumns = [
-      { prop: 'title', label: 'Título', flex: 100 }
+      { prop: 'title', label: 'Título', flex: 90 },
+      { prop: 'posts', label: 'Contagem', flex: 10, template: this.count }
     ];
   }
   

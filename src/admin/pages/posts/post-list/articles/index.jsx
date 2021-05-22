@@ -10,12 +10,6 @@ class ArticlesList extends PostListBase {
   constructor(props) {
     super(props, POST_ARTICLE);
   }
-  
-  configure() { 
-    super.configure();
-
-    this.tableColumns = this.tableColumns.filter(t => t.label !== 'Imagem');
-  }
 }
 
 const mapStateToProps = state => ({ posts: state.posts });

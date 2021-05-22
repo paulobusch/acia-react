@@ -3,12 +3,12 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
 import { getAllByFilter, remove } from '../../../../../reducers/benefits/benefits-actions';
-import { BENEFITS_HEALTHS } from './../../../../../reducers/benefits/benefits-type';
+import { BENEFITS_HEALTH } from './../../../../../reducers/benefits/benefits-type';
 import BenefitListBase from './../base';
 
 class HealthsList extends BenefitListBase {
   constructor(props) {
-    super(props, BENEFITS_HEALTHS);
+    super(props, BENEFITS_HEALTH);
   }
 }
 

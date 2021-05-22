@@ -219,7 +219,7 @@ export default class ActionsStorageBase {
   }
 
   updateOrderBulk(list, completed) {
-    return dispatch => {
+    return () => {
       var batch = firebaseInstance.firestore().batch();
   
       for (const item of list) {

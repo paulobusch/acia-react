@@ -1,0 +1,8 @@
+#post-form .buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#post-form .buttons .submit-button {
+  margin-left: 15px;
+}

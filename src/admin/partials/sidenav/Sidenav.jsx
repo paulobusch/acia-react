@@ -20,10 +20,10 @@ export default props => {
         <MenuItem href="admin/posts" name="Posts" icon="list"/>
         <MenuItem href="admin/multimedia" name="Multimídia" icon="photo-video"/>
         <MenuItem href="admin/benefits" name="Benefícios" icon="money-check-alt"/>
+        <MenuItem href="admin/services" name="Serviços" icon="layer-group"/>
         <MenuItem href="admin/standards" name="Patrocínios" icon="search-dollar"/>
         <MenuItem href="admin/products" name="Produtos" icon="cubes"/>
         <MenuItem href="admin/directors" name="Diretoria" icon="far fa-user"/>
-        <MenuItem href="admin/covenants" name="Convênios" icon="far fa-building"/>
       </Menu>
     </div>
   );
