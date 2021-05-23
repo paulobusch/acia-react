@@ -26,7 +26,7 @@ import ForgotPasswordForm from './admin/auth/forgot-password/index';
 import PostDetail from './site/pages/posts/post-detail';
 import PostList from './site/pages/posts/post-list';
 import MediaForm from './admin/pages/medias/media-form';
-import MediaList from './site/pages/medias/media-list/index';
+import MediaList from './site/pages/medias';
 import About from './site/pages/static/about';
 import President from './site/pages/static/president';
 import AciaCred from './site/pages/static/acia-cred';

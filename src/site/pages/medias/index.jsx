@@ -3,10 +3,11 @@ import './media-list.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getAll } from '../../../../reducers/medias/media-actions';
 import { withRouter } from 'react-router';
-import Loading from './../../../../common/loading/index';
-import { MEDIA_PHOTO, MEDIA_VIDEO } from './../../../../reducers/medias/media-type';
+
+import { MEDIA_PHOTO, MEDIA_VIDEO } from './../../../reducers/medias/media-type';
+import { getAll } from '../../../reducers/medias/media-actions';
+import Loading from './../../../common/loading/index';
 import PhotoCard from './photo-card/index';
 import VideoCard from './video-card/index';
 
