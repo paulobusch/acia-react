@@ -11,23 +11,23 @@ export default function BenefitCard(props) {
       <div className="about">
         <h3 className="desktop-title">{ props.title }</h3>
         <p>{ props.description }</p>
-        <ul className="contact"> 
-          { props.responsible &&
-            <li>
-              <i className="fas fa-user"></i>
-              { props.responsible }
-            </li>
-          }
-          <li>
-            <i className="fas fa-phone-alt"></i>
-            { props.phone }
-          </li>
-          <li>
-            <i className="fas fa-map-marker-alt"></i>
-            { props.address }
-          </li>
-        </ul>
       </div>
+      <ul className="contact"> 
+        { props.responsible &&
+          <li>
+            <i className="fas fa-user"></i>
+            { props.responsible }
+          </li>
+        }
+        <li>
+          <i className="fas fa-phone-alt"></i>
+          { props.phone }
+        </li>
+        <li>
+          <i className="fas fa-map-marker-alt"></i>
+          { props.address }
+        </li>
+      </ul>
     </Link>
   );
 }

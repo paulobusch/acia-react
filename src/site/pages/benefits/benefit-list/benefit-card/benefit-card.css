@@ -1,6 +1,7 @@
 .benefit-card {
   width: 100%;
   cursor: pointer;
+  box-sizing: border-box;
   text-decoration: none;
   display: block;
   transition: .2s;

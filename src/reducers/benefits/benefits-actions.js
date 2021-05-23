@@ -33,7 +33,7 @@ class BenefitActions extends ActionsStorageBase {
   getAccreditedById(id, completed){
     return () => {
       this.getCollection()
-      .where('accreditedIds', 'array-contains', { id: id })
+      .where('accreditedIds', 'array-contains', id)
       .get().then(result => {
         const [ beneffit ] = result.docs.map(d => ({ id: d.id, ...d.data() }));
         const accredited = beneffit.accrediteds.find(a => a.id === id);

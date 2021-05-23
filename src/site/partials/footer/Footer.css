@@ -15,7 +15,7 @@ footer .main-list {
   justify-content: space-between;
 }
 
-footer .main-list h2 {
+footer .main-list h3 {
   margin-top: 0;
 }
 
@@ -120,7 +120,7 @@ footer .bottom a:hover {
   }
   
   footer a,
-  footer h2 {
+  footer h3 {
     text-align: center;
   }
 

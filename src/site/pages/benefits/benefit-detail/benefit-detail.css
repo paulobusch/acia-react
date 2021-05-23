@@ -11,15 +11,19 @@
 }
 
 #benefit .image {
-  height: 40vw;
+  height: 30vw;
   flex-basis: 60%;
-  background-position: top center;
+  background-position: center center;
   background-size: cover;
 }
 
 #benefit .detail {
-  padding: 0 15px;
+  padding-left: 25px;
   flex-basis: 40%;
+}
+
+#benefit .detail p {
+  margin-top: 0;
 }
 
 #benefit .contact {
@@ -40,6 +44,10 @@
 }
 
 @media only screen and (max-width: 1100px) {
+  #benefit .detail {
+    padding: 0;
+  }
+
   #benefit h2 {
     text-align: center;
   }

@@ -40,30 +40,30 @@ export default class Header extends Component {
         </div>
         <MainMenu className={ `menu ${this.state.showMenuMobile ? 'show-mobile-menu' : ''}` }>
           <MainMenuItem href="#" text="VANTAGENS ACIA">
-            <MainMenuItem href="/#/acia-cred" text="ACIA CRED"/>
-            <MainMenuItem href="/#/digital-certificate" text="CERTIFICADO DIGITAL"/>
-            <MainMenuItem href="/#/serasa" text="SERASA"/>
-            <MainMenuItem href="/#/conciliation-court" text="CORTE CONCILIAÇÃO"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/rede-celular/" text="LIGUE ACIA"/>
-            <MainMenuItem href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/sala-de-reunioes/" text="AUDITÓRIO / SALA REUNIÃO"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-convenios" text="REDE DE CONVÊNIOS"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/empresas/guia-de-saude" text="GUIA SAÚDE"/>
-            <MainMenuItem href="/#/meeting-room" text="SALA DE REUNIÕES"/>
-            <MainMenuItem href="/#/multimedia" text="MULTIMÍDIA"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/acia-cred" text="ACIA CRED"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/digital-certificate" text="CERTIFICADO DIGITAL"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/serasa" text="SERASA"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/conciliation-court" text="CORTE CONCILIAÇÃO"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/cell-network" text="LIGUE ACIA"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/sala-de-reunioes/" text="AUDITÓRIO / SALA REUNIÃO"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/empresas/guia-de-convenios" text="REDE DE CONVÊNIOS"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/empresas/guia-de-saude" text="GUIA SAÚDE"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/meeting-room" text="SALA DE REUNIÕES"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/multimedia" text="MULTIMÍDIA"/>
           </MainMenuItem>
           <MainMenuItem href="#" text="INSTITUCIONAL">
-            <MainMenuItem href="/#/about" text="QUEM SOMOS"/>
-            <MainMenuItem href="https://www.aciaanapolis.com.br/site/diretoria/" text="DIRETORIA"/>
-            <MainMenuItem href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/about" text="QUEM SOMOS"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/diretoria/" text="DIRETORIA"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
           </MainMenuItem>
-          <MainMenuItem href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
-          <MainMenuItem href={ generateAddContactLink(WEBSITE_PHONE) } text="CONTATO"/>
-          <MainMenuItem href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
+          <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
+          <MainMenuItem onClick={ this.toggleMenuMobile } href={ generateAddContactLink(WEBSITE_PHONE) } text="CONTATO"/>
+          <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
         </MainMenu>
         <RightMenu onlydesktop>
-          <RightMenuIcon icon="search" title="Pesquisar"/>
-          <RightMenuChip href="/#/subscribe" text="ASSOCIE-SE"/>
+          <RightMenuIcon onClick={ this.toggleMenuMobile } icon="search" title="Pesquisar"/>
+          <RightMenuChip onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE"/>
         </RightMenu>
       </header>
     );

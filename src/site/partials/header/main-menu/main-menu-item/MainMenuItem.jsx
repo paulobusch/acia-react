@@ -15,6 +15,7 @@ export default class MainMenuItem extends Component {
 
     this.state = INITIAL_STATE;
     this.toggleMenuDropdown = this.toggleMenuDropdown.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   toggleMenuDropdown() {
@@ -24,10 +25,24 @@ export default class MainMenuItem extends Component {
     });
   }
 
+  onClick(e) {
+    e.stopPropagation();
+    const isDesktop = window.innerWidth > 1100;
+    if (this.props.children)
+      this.toggleMenuDropdown();
+    else if(isDesktop) {
+      const dropdown = e.currentTarget.closest('.main-menu-dropdown');
+      dropdown.style.display = 'none';
+      setTimeout(() => dropdown.style.display = 'block', 0); 
+    }
+    if (this.props.onClick)
+      this.props.onClick(e);
+  }
+
   render() {
     return (
       <li className={ `main-menu-item ${this.props.onlymobile ? 'main-menu-item-only-mobile' : ''}` }>
-        <a href={ this.props.href } onClick={ this.props.children ? this.toggleMenuDropdown : false }>
+        <a href={ this.props.href } onClick={ this.onClick }>
           { this.props.text }
           <If test={ this.props.children }>
             <i className="icon-dropdown fas fa-sort-down"></i>
