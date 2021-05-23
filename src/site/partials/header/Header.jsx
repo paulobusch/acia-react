@@ -54,7 +54,7 @@ export default class Header extends Component {
           </MainMenuItem>
           <MainMenuItem href="#" text="INSTITUCIONAL">
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/about" text="QUEM SOMOS"/>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/diretoria/" text="DIRETORIA"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/boards" text="DIRETORIA"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
           </MainMenuItem>
           <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>

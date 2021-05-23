@@ -1,7 +1,7 @@
 import { toastr } from 'react-redux-toastr';
 
 import ActionsStorageBase from '../actions-storage-base';
-import { BOARD_PRESIDENCY } from './board-type';
+import { BOARD_PRESIDENT } from './board-type';
 
 class BoardActions extends ActionsStorageBase {
   constructor() {
@@ -10,7 +10,7 @@ class BoardActions extends ActionsStorageBase {
   
   getPresident(completed) {
     return () => {
-      this.getCollection().where('type', '==', BOARD_PRESIDENCY).get()
+      this.getCollection().where('type', '==', BOARD_PRESIDENT).get()
         .then(result => {
           const [ president ] = result.docs.map(d => ({ id: d.id, ...d.data() }));
           

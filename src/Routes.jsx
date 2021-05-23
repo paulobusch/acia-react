@@ -48,6 +48,7 @@ import StandardForm from './admin/pages/standards/standard-form';
 import BenefitList from './site/pages/benefits/benefit-list';
 import BenefitDetail from './site/pages/benefits/benefit-detail';
 import BoardForm from './admin/pages/boards/board-form';
+import BoardDetail from './site/pages/board/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -63,6 +64,7 @@ export default () => (
         <Route path="benefits/view/:id" component={ BenefitDetail }/>
         <Route path="benefits/:type" component={ BenefitList }/>
         <Route path="multimedia" component={ MediaList }/>
+        <Route path="boards" component={ BoardDetail }/>
         <Route path="about" component={ About }/>
         <Route path="president" component={ President }/>
         <Route path="acia-cred" component={ AciaCred }/>

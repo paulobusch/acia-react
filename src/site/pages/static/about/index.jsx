@@ -18,7 +18,7 @@ export default function About() {
           </p>
           <Row justify="space-between" className="actions">
             <Link to="/president">Palavras do Presidente</Link>
-            <a href="https://www.aciaanapolis.com.br/site/diretoria">Diretoria 2019 - 2021</a>
+            <Link to="/boards">Diretoria</Link>
           </Row>
         </div>
         <iframe className="video" src="https://www.youtube.com/embed/D0ep4dn4rpA?feature=oembed"/>

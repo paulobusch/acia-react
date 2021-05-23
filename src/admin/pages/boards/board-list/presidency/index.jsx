@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { reduxForm, formValueSelector, Field, Form } from 'redux-form';
 
 import { getPresident, submitForm, update } from '../../../../../reducers/boards/board-actions';
-import { BOARD_PRESIDENCY } from './../../../../../reducers/boards/board-type';
+import { BOARD_PRESIDENT } from './../../../../../reducers/boards/board-type';
 import FormBase from './../../../../../common/form-base/index';
 import Image from './../../../../../common/fields/image/index';
 import Col from './../../../../../common/col/index';
