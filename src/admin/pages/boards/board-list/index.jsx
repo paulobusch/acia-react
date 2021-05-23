@@ -9,6 +9,10 @@ import TabHeader from './../../../../common/tabs/headers/header/index';
 import TabsContent from './../../../../common/tabs/contents/index';
 import TabContent from './../../../../common/tabs/contents/content/index';
 import PresidencyForm from './presidency/index';
+import VicePresidencyList from './vice-presidency/index';
+import SecretaryList from './secretary/index';
+import TreasurerList from './treasurer/index';
+import DirectorList from './director/index';
 
 class BoardTabs extends TabsController {
   constructor(props) {
@@ -23,23 +27,23 @@ class BoardTabs extends TabsController {
           <TabHeader onClick={ this.changeTab } target="vice-presidency" current={ this.state.tabActive } title="Vice Presidência"/>
           <TabHeader onClick={ this.changeTab } target="secretaries" current={ this.state.tabActive } title="Secretários"/>
           <TabHeader onClick={ this.changeTab } target="treasurers" current={ this.state.tabActive } title="Tesoureiros"/>
-          <TabHeader onClick={ this.changeTab } target="direction" current={ this.state.tabActive } title="Direção"/>
+          <TabHeader onClick={ this.changeTab } target="directors" current={ this.state.tabActive } title="Diretores"/>
         </TabsHeader>
         <TabsContent>
           <TabContent id="presidency" current={ this.state.tabActive }>
-            <PresidencyForm />
+            <PresidencyForm/>
           </TabContent>
           <TabContent id="vice-presidency" current={ this.state.tabActive }>
-            vice-presidency
+            <VicePresidencyList/>
           </TabContent>
           <TabContent id="secretaries" current={ this.state.tabActive }>
-            secretaries
+            <SecretaryList/>
           </TabContent>
           <TabContent id="treasurers" current={ this.state.tabActive }>
-            treasurers
+            <TreasurerList/>
           </TabContent>
-          <TabContent id="direction" current={ this.state.tabActive }>
-            direction
+          <TabContent id="directors" current={ this.state.tabActive }>
+            <DirectorList />
           </TabContent>
         </TabsContent>
       </Tabs>

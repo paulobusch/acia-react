@@ -11,6 +11,7 @@
 }
 
 .form-control {
+  background-color: white;
   min-height: 45px;
   border: none;
   width: 100%;
