@@ -1,0 +1,2 @@
+export const BOARD_FETCHED = 'BOARD_FETCHED';
+export const BOARD_DELETED = 'BOARD_DELETED';

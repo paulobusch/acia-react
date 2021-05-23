@@ -63,9 +63,10 @@ export default class FormBase extends Component {
 
   submit(values) {
     this.toggleSaveLoading(true);
-    if (this.id)
+    if (this.id){
+      values.id = this.id;
       this.props.update(values, this.afterSubmit);
-    else
+    } else
       this.props.create(values, this.afterSubmit);
   }
     

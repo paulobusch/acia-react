@@ -9,6 +9,7 @@ import MediasReducer from './medias/media-reducer';
 import BenefitsReducer from './benefits/benefits-reducer';
 import ServicesReducer from './services/service-reducer';
 import StandardsReducer from './standards/standard-reducer';
+import BoardsReducer from './boards/board-reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -19,7 +20,8 @@ const rootReducer = combineReducers({
   medias: MediasReducer,
   benefits: BenefitsReducer,
   services: ServicesReducer,
-  standards: StandardsReducer
+  standards: StandardsReducer,
+  boards: BoardsReducer
 });
 
 export default rootReducer;

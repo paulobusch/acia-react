@@ -41,7 +41,7 @@ class StandardForm extends FormBase {
           <Field name="title" label="Título" type="text" placeholder="Informe o título"
             flex="25" component={ Input } validate={ required }
           />
-          <Field name="transition" label="Tempo de transição em segundos" type="number" placeholder="Informe o tempo de transição" className="field-padding"
+          <Field name="transition" label="Tempo de Transição em Segundos" type="number" placeholder="Informe o tempo de transição" className="field-padding"
             flex="25" component={ Input } validate={ [required, integer, oneOrMore] }
           />
         </Row>

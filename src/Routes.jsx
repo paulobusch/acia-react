@@ -11,12 +11,12 @@ import Home from './site/pages/home';
 import Reducers from './reducers/reducers';
 import SiteLayout from './site/SiteLayout';
 import AdminLayout from './admin/AdminLayout';
-import Construction from './admin/pages/construction/Construction';
 import SlideList from './admin/pages/slides/slide-list';
 import SlideForm from './admin/pages/slides/slide-form';
 import PostListTabs from './admin/pages/posts/post-list';
 import MediaListTabs from './admin/pages/medias/media-list';
 import BenefitListTabs from './admin/pages/benefits/benefit-list';
+import BoardTabs from './admin/pages/boards/board-list';
 import PostForm from './admin/pages/posts/post-form';
 import Subscribe from './site/pages/subscribe/index';
 import Auth from './admin/auth/login/index';
@@ -106,7 +106,8 @@ export default () => (
         <Route path="standards/new" component={ StandardForm }/>
         <Route path="standards/edit/:id" component={ StandardForm }/>
         <Route path="standards" component={ StandardList }/>
-        <Route path="directors" component={ Construction }/>
+        <Route path="boards/:tab" component={ BoardTabs }/>
+        <Route path="boards" component={ BoardTabs }/>
       </Route>
     </Router>
   </Provider>

@@ -1,6 +1,7 @@
 .image-input {
   height: 100%;
   border: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
 }
