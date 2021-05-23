@@ -221,8 +221,6 @@ export default class ActionsStorageBase {
   updateOrderBulk(list, completed) {
     return () => {
       var batch = firebaseInstance.firestore().batch();
-  
-      firebaseInstance.storage().ref().tac
 
       for (const item of list) {
         const record = this.getCollection().doc(item.id);

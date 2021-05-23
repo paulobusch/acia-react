@@ -3,7 +3,7 @@ import './modal.css';
 import React from 'react';
 import Action from './action';
 
-export default props => {
+export default function Modal(props){
     const { title, show, actions, onClose } = props;
     const buttons = actions || [{ text: 'Fechar', click: onClose }];
     return (
