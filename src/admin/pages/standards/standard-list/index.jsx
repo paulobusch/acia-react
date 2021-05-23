@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import { getAll, updateOrderBulk, remove } from '../../../../reducers/services/service-actions';
+import { getAll, updateOrderBulk, remove } from '../../../../reducers/standards/standard-actions';
 import ListBase from '../../../partials/list-base';
 
 class StandardList extends ListBase {
@@ -20,8 +20,8 @@ class StandardList extends ListBase {
 
   configure() {
     this.tableColumns = [
-      { prop: 'title', label: 'Título', flex: 40 },
-      { prop: 'slides', label: 'Contagem', flex: 10, template: this.count }
+      { prop: 'title', label: 'Título', flex: 90 },
+      { prop: 'slides', label: 'Contagem', textAlign: 'center', flex: 10, format: slides => slides.length }
     ];
   }
   

@@ -9,6 +9,7 @@ export default class Image extends Component {
     super(props);
 
     this.state = { imageUrl: null };
+    this.loadImageUrl = this.loadImageUrl.bind(this);
   }
 
   componentWillMount() {

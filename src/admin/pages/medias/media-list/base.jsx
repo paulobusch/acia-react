@@ -32,7 +32,7 @@ export default class MediaListBase extends ListBase {
       { prop: 'createdAt', label: 'Data', flex: 10, format: formatDate }
     ];
 
-    if (needImage) this.tableColumns.unshift({ prop: 'path', label: 'Imagem', flex: 5, template: props => Image({ ...props, image: props.path }) });
+    if (needImage) this.tableColumns.unshift({ prop: 'path', label: 'Imagem', flex: 5, template: props => <Image { ...props } image={ props.path }/> });
 
     this.sort = 'desc';
   }

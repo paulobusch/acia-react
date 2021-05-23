@@ -1,4 +1,8 @@
+
+import { toastr } from 'react-redux-toastr';
 import ActionsStorageBase from '../actions-storage-base';
+import { initialize } from 'redux-form';
+import NewId from './../../common/random/random-id';
 
 class StandardActions extends ActionsStorageBase {
   constructor() {
@@ -18,7 +22,7 @@ class StandardActions extends ActionsStorageBase {
         const tasksGetUrl = slides.map(item => this.getFile(item.image).getDownloadURL());
         Promise.all(tasksGetUrl).then(urlResults => {
           for (const slide of slides){
-            const index = slides.indexOf(accredited);
+            const index = slides.indexOf(slide);
             slide.imageRef = slide.image;
             slide.image = urlResults[index];
           }
@@ -63,8 +67,9 @@ class StandardActions extends ActionsStorageBase {
     };
   }
 
-  create(values, completed) {
+  create(data, completed) {
     return () => {
+      const values = this.mapStandard(data);
       this.getCollection().orderBy('order', 'desc').limit(1).get().then(doc => { 
         const maxOrder = doc.size > 0 ? doc.docs[0].data().order : 0;
         const tasksUpload = values.slides.map(slide => {
@@ -99,14 +104,15 @@ class StandardActions extends ActionsStorageBase {
     };
   }
   
-  update(values, completed) {
+  update(data, completed) {
     return () => {
+      const values = this.mapStandard(data);
       for (const slide of values.slides) {
         if (slide.image instanceof File) {
           delete slide.imageRef;
           continue;
         } 
-        slided.image = slide.imageRef || slide.image;
+        slide.image = slide.imageRef || slide.image;
         delete slide.imageRef;
       }
 
@@ -152,6 +158,13 @@ class StandardActions extends ActionsStorageBase {
     }
 
     return slides;
+  }
+
+  mapStandard(data) {
+    const standard = Object.assign(new Object(), data);
+    standard.slides = standard.slides || [];
+    standard.slides = standard.slides.filter(r => r.image || r.title);
+    return standard;
   }
 }
 

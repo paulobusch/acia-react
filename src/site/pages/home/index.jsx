@@ -6,6 +6,7 @@ import Slider from '../../common/slider/Slider';
 import ServicesSection from './sections/services/ServicesSection';
 import { getAll as getAllSlides } from '../../.../../../reducers/slides/slide-actions';
 import { getAll as getAllPosts } from '../../.../../../reducers/posts/post-actions';
+import { getAll as getAllStandards } from '../../.../../../reducers/standards/standard-actions';
 import OverlaySlide from './overlay-slide';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -17,14 +18,16 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { loadingPosts: true };
+    this.state = { loadingPosts: true, loadingStandards: true };
     this.mapSlideData = this.mapSlideData.bind(this);
     this.afterLoadPosts = this.afterLoadPosts.bind(this);
+    this.afterLoadStandards = this.afterLoadStandards.bind(this);
     this.toggleLoadingPosts = this.toggleLoadingPosts.bind(this);
   }
 
   componentWillMount() {
     this.props.getAllSlides();
+    this.props.getAllStandards(this.afterLoadStandards);
     this.props.getAllPosts(this.afterLoadPosts);
   }
 
@@ -39,6 +42,15 @@ class Home extends Component {
 
   afterLoadPosts(success) {
     if (success) this.toggleLoadingPosts(false);
+  }
+
+  afterLoadStandards(success) {
+    if (success) {
+      this.setState({
+        ...this.state,
+        loadingStandards: false
+      });
+    }
   }
 
   toggleLoadingPosts(loading) {
@@ -67,12 +79,17 @@ class Home extends Component {
         <ServicesSection />
         <NewsSection loading={ this.state.loadingPosts } posts={ news }/>
         <ActionsSection loading={ this.state.loadingPosts } posts={ actions }/>
-        <ArticlesSection loading={ this.state.loadingPosts } posts={ articles }/>
+        <ArticlesSection 
+          loading={ this.state.loadingPosts } 
+          loadingStandards={ this.state.loadingStandards } 
+          posts={ articles }
+          standards={ this.props.standards }
+        />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({ slides: state.slides, posts: state.posts });
-const mapDispatchToProps = dispatch => bindActionCreators({ getAllSlides, getAllPosts }, dispatch);
+const mapStateToProps = state => ({ slides: state.slides, posts: state.posts, standards: state.standards });
+const mapDispatchToProps = dispatch => bindActionCreators({ getAllSlides, getAllPosts, getAllStandards }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

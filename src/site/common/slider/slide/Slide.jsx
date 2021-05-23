@@ -4,7 +4,10 @@ import React from 'react';
 
 export default props => (
   <li className={ `slide ${ props.active ? 'active' : '' }` }>
-    <div className="image" style={
+    <div title={ props.title } 
+      className={ `image${props.link ? ' link' : ''}` }
+      onClick={ () => window.open(props.link, '_blank') }
+      style={
         { 
           backgroundImage: `url('${ props.image }')`,
           backgroundPosition: props.position || 'top center'

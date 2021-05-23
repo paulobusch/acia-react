@@ -75,7 +75,7 @@ export default class Table extends DragBase {
           key={ c.prop } 
           onDragStart={ e => { e.stopPropagation(); e.preventDefault() } } 
           onClick={ () => rowClick ? rowClick(row) : false }
-          style={ { textAlign: c.textAlign } }
+          style={ { textAlign: c.textAlign, verticalAlign: c.verticalAlign } }
         >{ content }</td>
       );
     });
@@ -95,12 +95,14 @@ export default class Table extends DragBase {
     const { actions } = this.props;
     return (
       <td>
-        { actions.map(a => <Action 
-              key={ a.icon || a.title } 
-              color={ a.color }
-              icon={ a.icon } title={ a.title } 
-              onClick={ () => a.click(row, index) }
-            />
+        { actions
+          .filter(a => !a.show || a.show(row))
+          .map(a => <Action 
+            key={ a.icon || a.title } 
+            color={ a.color }
+            icon={ a.icon } title={ a.title } 
+            onClick={ () => a.click(row, index) }
+          />
           ) 
         }
       </td>

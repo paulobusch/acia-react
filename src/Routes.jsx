@@ -106,7 +106,6 @@ export default () => (
         <Route path="standards/new" component={ StandardForm }/>
         <Route path="standards/edit/:id" component={ StandardForm }/>
         <Route path="standards" component={ StandardList }/>
-        <Route path="products" component={ Construction }/>
         <Route path="directors" component={ Construction }/>
       </Route>
     </Router>

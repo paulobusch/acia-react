@@ -34,7 +34,7 @@ export default class PostListBase extends ListBase {
 
   configure() {
     this.tableColumns = [
-      { prop: 'image', label: 'Imagem', flex: 5, template: props => Image({ ...props, height: '100px' }) },
+      { prop: 'image', label: 'Imagem', flex: 5, template: props => <Image { ...props } height="100px"/> },
       { prop: 'title', label: 'Título', flex: 25 },
       { prop: 'text', label: 'Texto', flex: 60, format: this.resumeText },
       { prop: 'createdAt', label: 'Data', flex: 10, format: formatDate }

@@ -1,9 +1,4 @@
 .slides-container {    
-  flex-basis: calc(50% - 38px);
-}
-
-@media only screen and (max-width: 1000px) {
-  .slides-container {
-    flex-basis: 100%;
-  }
+  flex-basis: 100%;
+  margin: 0;
 }

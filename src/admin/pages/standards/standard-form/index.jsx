@@ -8,13 +8,14 @@ import required from '../../../../common/validators/required';
 import Row from '../../../../common/row';
 import FormBase from '../../../../common/form-base';
 import Input from '../../../../common/fields/input/index';
-import { create, update, loadForm, submitForm } from '../../../../reducers/standards/standard-actions';
 import SlideList from './slide-list/index';
 import integer from './../../../../common/validators/number/integer';
 import oneOrMore from './../../../../common/validators/number/one-or-more';
+import { create, update, loadForm, submitForm } from '../../../../reducers/standards/standard-actions';
 
 const DEFAULT_STATE = {
   title: null,
+  transition: 5,
   slides: []
 };
 
@@ -32,7 +33,8 @@ class StandardForm extends FormBase {
   }
 
   form() {
-    const { handleSubmit, slides } = this.props;
+    const { handleSubmit } = this.props;
+    const slides = this.props.slides || [];
     return (
       <Form onSubmit={ handleSubmit(this.submit) }>
         <Row justify="flex-start">
