@@ -62,7 +62,6 @@ export default class Header extends Component {
           <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
         </MainMenu>
         <RightMenu onlydesktop>
-          <RightMenuIcon onClick={ this.toggleMenuMobile } icon="search" title="Pesquisar"/>
           <RightMenuChip onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE"/>
         </RightMenu>
       </header>
