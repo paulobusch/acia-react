@@ -15,7 +15,7 @@ footer .main-list {
   justify-content: space-between;
 }
 
-footer .main-list h3 {
+footer .main-list h4 {
   margin-top: 0;
 }
 
@@ -26,6 +26,7 @@ footer .block-list a {
   text-decoration: none;
   color: white;
   transition: .2s;
+  font-size: 14px;
 }
 
 footer .block-list a:active,
@@ -90,8 +91,9 @@ footer .bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px 5%;
+  padding: 15px 5%;
   border-top: 1px solid rgb(160, 160, 160);
+  font-size: 14px;
 }
 
 footer .bottom a {
@@ -120,7 +122,7 @@ footer .bottom a:hover {
   }
   
   footer a,
-  footer h3 {
+  footer h4 {
     text-align: center;
   }
 

@@ -20,10 +20,6 @@
   list-style: disc;
 }
 
-#static-acia-cred img {
-  width: 100%;
-}
-
 @media only screen and (max-width: 800px) {
   #static-acia-cred .main-title {
     text-align: center;

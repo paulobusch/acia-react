@@ -21,10 +21,6 @@
   color: var(--grey);
 }
 
-.posts-section h2.publicity-header {
-  margin-top: 80px;
-}
-
 @media only screen and (max-width: 1100px) {
   .posts-section .publicities {
     flex-direction: column;

@@ -25,7 +25,7 @@ export default props => {
           </ul>
         </li>
         <li>
-          <h3>EMPRESAS</h3>
+          <h4>EMPRESAS</h4>
           <ul className="block-list">
             <li><a href="/#/digital-certificate">CERTIFICADO DIGITAL</a></li>
             <li><a href="/#/conciliation-court">CORTE DE CONCILIAÇÃO</a></li>
@@ -34,7 +34,7 @@ export default props => {
           </ul>
         </li>
         <li>
-          <h3>INSTITUCIONAL</h3>
+          <h4>INSTITUCIONAL</h4>
           <ul className="block-list">
             <li><a href={ `mailto:${WEBSITE_EMAIL}` }>ACIA TEC</a></li>
             <li><a href="/#/acia-woman">ACIA MULHER</a></li>
@@ -43,7 +43,7 @@ export default props => {
           </ul>
         </li>
         <li>
-          <h3>ANÁPOLIS</h3>
+          <h4>ANÁPOLIS</h4>
           <ul className="block-list">
             <li><a href="https://www.aciaanapolis.com.br/site/historia/">HISTÓRIA</a></li>
             <li><a href="/#/geographical-information">INFORMAÇÕES GEOGRÁFICAS</a></li>
@@ -54,7 +54,7 @@ export default props => {
           </ul>
         </li>
         <li>
-          <h3>RECEBA NOVIDADES</h3>
+          <h4>RECEBA NOVIDADES</h4>
           <input type="email" name="email" placeholder="escreva seu email..."/>
           <ul className="social-list">
             <li><a href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>

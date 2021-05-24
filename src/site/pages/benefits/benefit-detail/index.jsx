@@ -96,7 +96,7 @@ class BenefitDetail extends Component {
             flex="100" component={ TextArea } validate={ required }
           />
         </Row>
-        <SubmitButton onClick={ () => dispatch(submit('message-form')) } text="ENVIAR" fill/>
+        <SubmitButton onClick={ () => dispatch(submit('message-form')) } text="ENVIAR MENSAGEM" fill/>
       </Form>
     );
   }
