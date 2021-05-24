@@ -47,8 +47,8 @@ export default class Header extends Component {
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/cell-network" text="LIGUE ACIA"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/sala-de-reunioes/" text="AUDITÓRIO / SALA REUNIÃO"/>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/empresas/guia-de-convenios" text="REDE DE CONVÊNIOS"/>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/site/empresas/guia-de-saude" text="GUIA SAÚDE"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/benefits/Conv%C3%AAnio" text="REDE DE CONVÊNIOS"/>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/benefits/Sa%C3%BAde" text="GUIA SAÚDE"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/meeting-room" text="SALA DE REUNIÕES"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/multimedia" text="MULTIMÍDIA"/>
           </MainMenuItem>
