@@ -61,6 +61,7 @@ export default () => (
         <Route path="subscribe" component={ Subscribe }/>
         <Route path="posts/view/:id" component={ PostDetail }/>
         <Route path="posts/:type" component={ PostList }/>
+        <Route path="posts" component={ PostList }/>
         <Route path="benefits/view/:id" component={ BenefitDetail }/>
         <Route path="benefits/:type" component={ BenefitList }/>
         <Route path="multimedia" component={ MediaList }/>

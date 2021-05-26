@@ -4,6 +4,14 @@ import React, { Component } from 'react';
 import { copyToClipboard } from './../api/clipboard';
 
 export default class FieldBase extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleOnChange = this.handleOnChange.bind(this);
+  }
+
+  field() { }
+
   getStyle() {
     const { flex, px } = this.props;
     if (px) return { witdth: `${px}px` };
@@ -55,9 +63,12 @@ export default class FieldBase extends Component {
   }
 
   actions() {
+    const { copyClipboard, action } = this.props;
     const actions = [];
-    if (this.props.copyClipboard)
+    if (copyClipboard)
       actions.push(<i key="copy" className="icon icon-right fas fa-copy" onClick={ this.copyContent.bind(this) }></i>);
+    if (action)
+      actions.push(<i key={ action.icon } className={ `icon icon-right ${action.icon}` } onClick={ action.onClick }></i>);
 
     return actions;
   }
@@ -66,6 +77,10 @@ export default class FieldBase extends Component {
     copyToClipboard(this.props.input.value);
     this.inputRef.select();
   }
-  
-  field() { }
+
+  handleOnChange(ev) {
+    const { input, onchange } = this.props;
+    input.onChange(ev);
+    if (onchange) onchange(ev);
+  }
 }
