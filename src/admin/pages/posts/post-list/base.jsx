@@ -6,6 +6,7 @@ import { formatDate } from '../../../../common/formatters/date';
 import { getRouteWithoutParams } from '../../../../common/router';
 import { limitText } from './../../../../common/api/string';
 import { extractTextFromHtml } from './../../../../common/api/html';
+import Resume from './../../../../common/resume/index';
 
 export default class PostListBase extends ListBase {
   constructor(props, type) {
@@ -13,7 +14,6 @@ export default class PostListBase extends ListBase {
 
     this.type = type;
     this.className = 'page-post-list';
-    this.resumeText = this.resumeText.bind(this);
   }
 
   componentWillMount() {
@@ -27,16 +27,11 @@ export default class PostListBase extends ListBase {
     router.push(url);
   }
 
-  resumeText(html) {
-    const text = extractTextFromHtml(html);
-    return limitText(text, 300);
-  }
-
   configure() {
     this.tableColumns = [
       { prop: 'image', label: 'Imagem', flex: 5, template: props => <Image { ...props } height="100px"/> },
       { prop: 'title', label: 'Título', flex: 25 },
-      { prop: 'text', label: 'Texto', flex: 60, format: this.resumeText },
+      { prop: 'text', label: 'Texto', flex: 60, template: props => Resume({ text: extractTextFromHtml(props.row.text) }) },
       { prop: 'createdAt', label: 'Data', flex: 10, format: formatDate }
     ];
     this.sort = 'desc';

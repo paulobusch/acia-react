@@ -2,7 +2,6 @@ import './post-card.css';
 
 import React from 'react';
 import { extractTextFromHtml } from '../../../../../../../common/api/html';
-import { limitText } from '../../../../../../../common/api/string';
 import { Link } from 'react-router';
 
 export default function PostCard(props) {
@@ -16,7 +15,7 @@ export default function PostCard(props) {
       }
       <div className="detail">
         <h3>{ props.title }</h3>
-        <div className="text">{ limitText(extractTextFromHtml(props.text), 280) }</div>
+        <div className="text" style={ { WebkitLineClamp: props.image ? 3 : 8 } }>{ extractTextFromHtml(props.text) }</div>
         <Link to={ link }>Ver mais</Link>
       </div>
     </div>

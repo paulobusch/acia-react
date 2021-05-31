@@ -63,7 +63,7 @@ class Home extends Component {
   getPostsBySection(type) {
     return this.props.posts
       .filter(p => p.type === type)
-      .slice(0, 4);
+      .slice(0, 3);
   }
 
   render() {
