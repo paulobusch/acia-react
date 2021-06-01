@@ -8,7 +8,7 @@ export default function DocumentCard(props) {
   return (
     <div className="document-card">
       <div className="description">{ description }</div>
-      <a className="action" href={ url } target="_blank">{ title }</a>
+      <a className="action" href={ url }>{ title }</a>
     </div>
   );
 }
