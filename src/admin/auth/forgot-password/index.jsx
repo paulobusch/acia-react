@@ -44,6 +44,7 @@ class ForgotPasswordForm extends Component {
             <h2>Redefinir Senha</h2>
             <Field component={ Input } type="email" name="email"
               placeholder="E-mail" icon="user"/>
+            <Link className="link" to="/login">Já tenho uma conta</Link>
             <SubmitButton loading={ forgotPasswordEmailLoading } disabled={ !this.isValid() } fill padding="10px" text="Enviar Email"/>
           </Form>
         </If>

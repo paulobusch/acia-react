@@ -3,13 +3,12 @@ import './AdminLayout.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { hashHistory } from 'react-router';
 
 import Header from './partials/header/Header';
 import Sidenav from './partials/sidenav/Sidenav';
 import Content from './partials/content/Content';
 import Toastr from '../common/messages/toastr';
-import { listenSessionChanged } from './../reducers/auth/auth-actions';
+import { listenSessionChanged, redirectToLogin } from './../reducers/auth/auth-actions';
 
 class AdminLayout extends Component {
   componentWillMount() {
@@ -17,13 +16,19 @@ class AdminLayout extends Component {
   }
 
   render() {
-    if (this.props.loading) return false;
+    const { loading, user } = this.props;
+    if (loading) return false;
+
+    if (!user) {
+      redirectToLogin();
+      return false;
+    }
 
     return (
       <div className="container-admin">
-        <Header user={ this.props.user }/>
+        <Header user={ user }/>
         <div className="row-admin">
-          <Sidenav />
+          <Sidenav user={ user }/>
           <Content>
             { this.props.children }
           </Content>

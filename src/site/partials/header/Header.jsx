@@ -1,6 +1,8 @@
 import './Header.css';
 
 import React, { Component } from 'react';
+import { hashHistory } from 'react-router';
+import { connect } from 'react-redux';
 
 import MainMenu from './main-menu/MainMenu';
 import RightMenu from './right-menu/RightMenu';
@@ -10,14 +12,13 @@ import RightMenuChip from './right-menu/right-menu-chip/RightMenuChip';
 import Search from './search';
 import { generateAddContactLink } from './../../../common/api/whatsapp';
 import { WEBSITE_PHONE } from './../../../consts';
-import { hashHistory } from 'react-router';
 
 const INITIAL_STATE = {
   showMenuMobile: false,
   showSearch: false
 };
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
 
@@ -48,6 +49,8 @@ export default class Header extends Component {
   }
 
   render() {
+    const { user } = this.props;
+
     return (
       <div>
         <header className="header">
@@ -81,6 +84,10 @@ export default class Header extends Component {
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
           </MainMenu>
           <RightMenu onlydesktop>
+            { user 
+              ? <RightMenuIcon onClick={ () => hashHistory.push('/admin') } icon="user" title="Admin"/> 
+              : <RightMenuIcon onClick={ () => hashHistory.push('/login') } icon="user" title="Logar"/> 
+            }
             <RightMenuIcon onClick={ this.toggleSearch } icon="search" title="Pesquisar"/>
             <RightMenuChip onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE"/>
           </RightMenu>
@@ -90,3 +97,6 @@ export default class Header extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ ...state.contact, user: state.auth.user });
+export default connect(mapStateToProps)(Header);

@@ -30,13 +30,23 @@
   margin: 0;
 }
 
-.header-admin #icon-logout {
-  opacity: .8;
+.header-admin .right h4 {
+  margin-right: 10px;
+}
+
+.header-admin .right .icon:last-of-type {
+  margin-right: 50px;
+}
+
+.header-admin .icon {
+  padding: 10px;
   font-size: 25px;
   transition: .2s;
   cursor: pointer;
+  color: black;
+  opacity: .8;
 }
 
-.header-admin #icon-logout:hover {
+.header-admin .icon:hover {
   opacity: 1;
 }

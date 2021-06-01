@@ -2,7 +2,7 @@ import './change-password.css';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { Form, Field, formValueSelector, reduxForm } from 'redux-form';
 
@@ -90,6 +90,7 @@ class ChangePasswordForm extends Component {
               placeholder="Nova senha" validate={ required, password }/>
             <Field component={ Password } type="password" name="confirmPassword"
               placeholder="Confirmação da senha" validate={ required, this.equalPassword.bind(this) }/>
+            <Link className="link" to="/login">Já tenho uma conta</Link>
             <SubmitButton disabled={ !this.isValid() } loading={ saving } fill padding="10px" text="Alterar"/>
           </Form>
         </If>
@@ -101,11 +102,11 @@ class ChangePasswordForm extends Component {
   }
 }
 
-const changePasswordForm = reduxForm({ form: 'change-password-form' })(withRouter(ChangePasswordForm));
+const form = reduxForm({ form: 'change-password-form' })(withRouter(ChangePasswordForm));
 const selector = formValueSelector('change-password-form');
 const mapStateToProps = state => ({ 
   newPassword: selector(state, 'newPassword'), 
   confirmPassword: selector(state, 'confirmPassword')
 });
 const mapDispatchToProps = dispatch => bindActionCreators({ validateResetCode, changePasswordWithResetCode }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(changePasswordForm);
+export default connect(mapStateToProps, mapDispatchToProps)(form);

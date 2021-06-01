@@ -15,14 +15,21 @@ export function listenSessionChanged() {
   return dispatch => {
     dispatch({ type: LOADING });
     firebaseInstance.auth().onAuthStateChanged(user => {
-      const currentHref = location.hash.substr(2);
         if (user) {
-          const userData = { id: user.uid, email: user.email };
-          dispatch({ type: LOGIN, payload: userData }); 
-          if (currentHref.indexOf('admin') === -1) hashHistory.push('/admin/slides');
+          firebaseInstance.firestore().collection('users').where('accountId', '==', user.uid).get().then(result => {
+            const [doc] = result.docs;
+            if (!doc) {
+              dispatch(logout());
+              redirectToLogin();
+              toastr.error('Erro', 'O usuário foi removido!');
+              return;
+            }
+            const userData = { id: doc.id, ...doc.data() };
+            dispatch({ type: LOGIN, payload: userData }); 
+          });
         } else {
           dispatch({ type: LOGOUT });
-          if (currentHref != 'login') hashHistory.push('/login');
+          redirectToLogin();
         }        
       }
     );
@@ -97,4 +104,12 @@ export function validateResetCode(code, completed) {
       throw error;
     });
   }
+}
+
+export function redirectToLogin() {
+  const { hash, href } = location;
+  const currentHref = hash.substr(2);
+  if (currentHref.indexOf('login') !== -1) return;
+  const redirect = href.substr(href.indexOf('#') + 2);
+  if (redirect) hashHistory.push(`/login?redirect=${encodeURIComponent(redirect)}`);
 }

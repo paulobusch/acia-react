@@ -25,13 +25,13 @@
   padding: 10px 0;
 }
 
-.link-forgot-password {
+.link {
   margin-top: 15px;
   display: block;
   transition: .2s;
   color: #007bff;
 }
 
-.link-forgot-password:hover {
+.link:hover {
   opacity: .8;
 }

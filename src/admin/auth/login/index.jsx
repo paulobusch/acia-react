@@ -11,7 +11,8 @@ import SubmitButton from '../../../common/buttons/submit';
 import email from '../../../common/validators/email';
 import Password from './../../../common/fields/password';
 import { login, listenSessionChanged } from '../../../reducers/auth/auth-actions';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
+import { ROLE_ADMIN, ROLE_EDITOR } from './../../../reducers/users/role-type';
 
 class Auth extends Component {
   constructor(props) {
@@ -42,6 +43,19 @@ class Auth extends Component {
     this.toggleLoadingLogin(false);
   }
 
+  redirectUser() {
+    const { router } = this.props;
+    const redirect = router.location.query.redirect || this.getRedirectRoute();
+    setTimeout(() => hashHistory.push(`/${redirect}`), 0);
+  }
+
+  getRedirectRoute() {
+    const { user } = this.props;
+    if (user.role === ROLE_ADMIN) return 'admin/slides';
+    if (user.role === ROLE_EDITOR) return 'admin/posts';
+    throw new Error('Method not implemented');
+  }
+
   toggleLoadingLogin(loading) {
     this.setState({
       ...this.state,
@@ -50,8 +64,12 @@ class Auth extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, email } = this.props;
+    const { handleSubmit, user, loading, email } = this.props;
     if (loading) return false;
+    if (user) {
+      this.redirectUser();
+      return false;
+    }
 
     return (
       <div className="background-login">
@@ -61,7 +79,7 @@ class Auth extends Component {
             placeholder="E-mail" icon="user"/>
           <Field component={ Password } name="password"
             placeholder="Senha" icon="envelope"/>
-          <Link className="link-forgot-password" to={ (`/forgot-password/${email ? encodeURIComponent(email) : ''}`) }>Esqueci minha senha</Link>
+          <Link className="link" to={ (`/forgot-password/${email ? encodeURIComponent(email) : ''}`) }>Esqueci minha senha</Link>
           <SubmitButton disabled={ !this.isValid() } loading={ this.state.loginLoading } fill padding="10px" text="Entrar"/>
         </Form>
         <Toastr />
