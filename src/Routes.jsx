@@ -53,6 +53,7 @@ import BoardDetail from './site/pages/board/index';
 import UserForm from './admin/pages/users/user-form';
 import PageList from './admin/pages/pages/page-list/index';
 import PageForm from './admin/pages/pages/page-form';
+import Page from './site/pages/page/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -68,6 +69,7 @@ export default () => (
         <Route path="posts" component={ PostList }/>
         <Route path="benefits/view/:id" component={ BenefitDetail }/>
         <Route path="benefits/:type" component={ BenefitList }/>
+        <Route path="page/view/:id" component={ Page }/>
         <Route path="multimedia" component={ MediaList }/>
         <Route path="boards" component={ BoardDetail }/>
         <Route path="about" component={ About }/>

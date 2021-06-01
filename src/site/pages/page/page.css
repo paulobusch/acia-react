@@ -1,0 +1,31 @@
+#page {
+  padding: 35px 15%;
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
+}
+
+#page .content {
+  text-align: justify;
+  margin-top: 25px;
+  line-height: 2;
+  white-space: pre-line;
+}
+
+#page .image {
+  background-position: top center;
+  background-size: cover;
+  height: 50vw;
+}
+
+#page h2 {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 800px) {
+  #page {
+    padding: 35px 5%;
+  }
+}

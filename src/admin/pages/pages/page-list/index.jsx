@@ -30,7 +30,7 @@ class PageList extends ListBase {
   }
 
   generateLink(page) {
-    return `${location.host}/#/page/${page.id}`;
+    return `${location.host}/#/page/view/${page.id}`;
   }
   
   getList() {

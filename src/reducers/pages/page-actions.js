@@ -9,6 +9,7 @@ class PageActions extends ActionsBase {
 const actionsInstance = new PageActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
+export function getById(id, completed){ return actionsInstance.getById(id, completed); }
 export function getAll(completed){ return actionsInstance.getAll(completed); }
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }
 export function create(data, completed){ return actionsInstance.create(data, completed); }
