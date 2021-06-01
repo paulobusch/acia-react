@@ -22,7 +22,8 @@ export default props => {
         <MenuItem href="admin/benefits" name="Benefícios" icon="money-check-alt"/>
         <MenuItem href="admin/services" name="Serviços" icon="layer-group"/>
         <MenuItem href="admin/standards" name="Patrocínios" icon="search-dollar"/>
-        <MenuItem href="admin/boards" name="Diretoria" icon="far fa-user"/>
+        <MenuItem href="admin/users" name="Usuários" icon="users"/>
+        <MenuItem href="admin/boards" name="Diretoria" icon="building"/>
       </Menu>
     </div>
   );

@@ -102,7 +102,7 @@ export default class ActionsBase {
   
   remove(values, completed) {
     return dispatch => {
-      this.getCollection().doc(values.id).delete().then(doc => {
+      this.getCollection().doc(values.id).delete().then(() => {
         dispatch({ type: `${this.prefixType}_DELETED`, payload: values.id });
         if (completed) completed(true);
       })

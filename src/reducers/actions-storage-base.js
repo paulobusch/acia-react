@@ -120,7 +120,7 @@ export default class ActionsStorageBase {
   }
   
   create(values, completed) {
-    return dispatch => {
+    return () => {
       this.getCollection().orderBy('order', 'desc').limit(1).get().then(doc => { 
         const maxOrder = doc.size > 0 ? doc.docs[0].data().order : 0;
         const save = path => {
@@ -161,7 +161,7 @@ export default class ActionsStorageBase {
   }
   
   update(values, completed) {
-    return dispatch => {
+    return () => {
       const save = path => {
         if (path) values.image = path;
         if (values.imageUrl) delete values.imageUrl;

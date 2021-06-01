@@ -16,6 +16,7 @@ import SlideForm from './admin/pages/slides/slide-form';
 import PostListTabs from './admin/pages/posts/post-list';
 import MediaListTabs from './admin/pages/medias/media-list';
 import BenefitListTabs from './admin/pages/benefits/benefit-list';
+import UserListTabs from './admin/pages/users/user-list';
 import BoardTabs from './admin/pages/boards/board-list';
 import PostForm from './admin/pages/posts/post-form';
 import Subscribe from './site/pages/subscribe/index';
@@ -49,6 +50,7 @@ import BenefitList from './site/pages/benefits/benefit-list';
 import BenefitDetail from './site/pages/benefits/benefit-detail';
 import BoardForm from './admin/pages/boards/board-form';
 import BoardDetail from './site/pages/board/index';
+import UserForm from './admin/pages/users/user-form';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -115,6 +117,11 @@ export default () => (
         <Route path="boards/edit/:id" component={ BoardForm }/>
         <Route path="boards/:tab" component={ BoardTabs }/>
         <Route path="boards" component={ BoardTabs }/>
+        <Route path="users/new" component={ UserForm }/>
+        <Route path="users/new/:role" component={ UserForm }/>
+        <Route path="users/edit/:id" component={ UserForm }/>
+        <Route path="users/:tab" component={ UserListTabs }/>
+        <Route path="users" component={ UserListTabs }/>
       </Route>
     </Router>
   </Provider>
