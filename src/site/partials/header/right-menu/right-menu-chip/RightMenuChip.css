@@ -3,7 +3,7 @@
   cursor: pointer;
   transition: .2s;
   padding: 5px 10px;
-  margin: 0 5px;
+  margin: 0 10px;
   color: white;
   background-color: var(--primary);
   border-radius: 8px;

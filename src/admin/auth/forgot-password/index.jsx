@@ -12,6 +12,7 @@ import SubmitButton from '../../../common/buttons/submit';
 import email from '../../../common/validators/email';
 import If from '../../../common/operators/condition/If';
 import { forgotPassword } from '../../../reducers/auth/auth-actions';
+import Row from './../../../common/row/index';
 
 class ForgotPasswordForm extends Component {
   constructor(props) {
@@ -44,7 +45,10 @@ class ForgotPasswordForm extends Component {
             <h2>Redefinir Senha</h2>
             <Field component={ Input } type="email" name="email"
               placeholder="E-mail" icon="user"/>
-            <Link className="link" to="/login">Já tenho uma conta</Link>
+            <Row>
+              <Link className="link" to="/login">Já tenho uma conta</Link>
+              <Link className="link" to="/">Ir para o Site</Link>
+            </Row>
             <SubmitButton loading={ forgotPasswordEmailLoading } disabled={ !this.isValid() } fill padding="10px" text="Enviar Email"/>
           </Form>
         </If>

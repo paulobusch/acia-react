@@ -14,6 +14,7 @@ import required from './../../../common/validators/required';
 import Loading from './../../../common/loading';
 import Password from './../../../common/fields/password';
 import { validateResetCode, changePasswordWithResetCode } from './../../../reducers/auth/auth-actions';
+import Row from './../../../common/row/index';
 
 class ChangePasswordForm extends Component {
   constructor(props) {
@@ -90,7 +91,10 @@ class ChangePasswordForm extends Component {
               placeholder="Nova senha" validate={ required, password }/>
             <Field component={ Password } type="password" name="confirmPassword"
               placeholder="Confirmação da senha" validate={ required, this.equalPassword.bind(this) }/>
-            <Link className="link" to="/login">Já tenho uma conta</Link>
+            <Row>
+              <Link className="link" to="/login">Já tenho uma conta</Link>
+              <Link className="link" to="/">Ir para o Site</Link>
+            </Row>
             <SubmitButton disabled={ !this.isValid() } loading={ saving } fill padding="10px" text="Alterar"/>
           </Form>
         </If>

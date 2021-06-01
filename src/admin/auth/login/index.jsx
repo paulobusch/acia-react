@@ -13,6 +13,7 @@ import Password from './../../../common/fields/password';
 import { login, listenSessionChanged } from '../../../reducers/auth/auth-actions';
 import { Link, hashHistory } from 'react-router';
 import { ROLE_ADMIN, ROLE_EDITOR } from './../../../reducers/users/role-type';
+import Row from './../../../common/row/index';
 
 class Auth extends Component {
   constructor(props) {
@@ -79,7 +80,10 @@ class Auth extends Component {
             placeholder="E-mail" icon="user"/>
           <Field component={ Password } name="password"
             placeholder="Senha" icon="envelope"/>
-          <Link className="link" to={ (`/forgot-password/${email ? encodeURIComponent(email) : ''}`) }>Esqueci minha senha</Link>
+          <Row>
+            <Link className="link" to={ (`/forgot-password/${email ? encodeURIComponent(email) : ''}`) }>Esqueci minha senha</Link>
+            <Link className="link" to="/">Ir para o Site</Link>
+          </Row>
           <SubmitButton disabled={ !this.isValid() } loading={ this.state.loginLoading } fill padding="10px" text="Entrar"/>
         </Form>
         <Toastr />

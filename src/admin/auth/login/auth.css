@@ -27,6 +27,7 @@
 
 .link {
   margin-top: 15px;
+  margin-bottom: 5px;
   display: block;
   transition: .2s;
   color: #007bff;

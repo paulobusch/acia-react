@@ -85,7 +85,7 @@ class Header extends Component {
           </MainMenu>
           <RightMenu onlydesktop>
             { user 
-              ? <RightMenuIcon onClick={ () => hashHistory.push('/admin') } icon="user" title="Admin"/> 
+              ? <RightMenuIcon onClick={ () => hashHistory.push('/admin') } icon="user-cog" title="Admin"/> 
               : <RightMenuIcon onClick={ () => hashHistory.push('/login') } icon="user" title="Logar"/> 
             }
             <RightMenuIcon onClick={ this.toggleSearch } icon="search" title="Pesquisar"/>
