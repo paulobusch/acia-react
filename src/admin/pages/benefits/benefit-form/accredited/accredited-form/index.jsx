@@ -64,7 +64,7 @@ class AccreditedForm extends Component {
             flex="25" component={ File } validate={ required }
           />
           <Field name="phone" label="Telefone" type="text" placeholder="Informe o telefone" 
-            flex="25" component={ Input } validate={ required, phone }
+            flex="25" component={ Input } validate={ [required, phone] }
           />
         </Row>
         <Row>
