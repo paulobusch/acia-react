@@ -6,7 +6,7 @@ import 'firebase/auth';
 
 class UserActions extends ActionsBase {
   constructor() {
-    super('users', 'USER', 'user-form', true);
+    super('users', 'USER', 'user-form');
   }
 
   create(values, completed) {

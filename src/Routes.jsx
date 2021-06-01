@@ -51,6 +51,8 @@ import BenefitDetail from './site/pages/benefits/benefit-detail';
 import BoardForm from './admin/pages/boards/board-form';
 import BoardDetail from './site/pages/board/index';
 import UserForm from './admin/pages/users/user-form';
+import PageList from './admin/pages/pages/page-list/index';
+import PageForm from './admin/pages/pages/page-form';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -112,6 +114,9 @@ export default () => (
         <Route path="standards/new" component={ StandardForm }/>
         <Route path="standards/edit/:id" component={ StandardForm }/>
         <Route path="standards" component={ StandardList }/>
+        <Route path="pages" component={ PageList }/>
+        <Route path="pages/new" component={ PageForm }/>
+        <Route path="pages/edit/:id" component={ PageForm }/>
         <Route path="boards/new" component={ BoardForm }/>
         <Route path="boards/new/:type" component={ BoardForm }/>
         <Route path="boards/edit/:id" component={ BoardForm }/>

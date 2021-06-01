@@ -34,6 +34,17 @@ class MediaForm extends FormBase {
     this.title = 'Mídia';
   }
 
+  getTitle() {
+    if (this.id) {
+      if (this.state.loading)
+        return 'Carregando...';
+      else
+        return `Edição da ${this.title}`;
+    }
+    
+    return `Cadastro da ${this.title}`;
+  }
+
   form() {
     const types = [MEDIA_PHOTO, MEDIA_VIDEO];
     const { handleSubmit, type } = this.props;

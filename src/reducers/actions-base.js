@@ -8,7 +8,7 @@ export default class ActionsBase {
   constructor(
     collectionName,
     prefixType,
-    formId,
+    formId
   ) {
     this.collectionName = collectionName;
     this.prefixType = prefixType;

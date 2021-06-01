@@ -11,6 +11,7 @@ import ServicesReducer from './services/service-reducer';
 import StandardsReducer from './standards/standard-reducer';
 import BoardsReducer from './boards/board-reducer';
 import UsersReducer from './users/user-reducer';
+import PagesReducer from './pages/page-reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   services: ServicesReducer,
   standards: StandardsReducer,
   boards: BoardsReducer,
-  users: UsersReducer
+  users: UsersReducer,
+  pages: PagesReducer
 });
 
 export default rootReducer;

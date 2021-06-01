@@ -35,6 +35,7 @@ export default props => {
             <MenuItem href="admin/benefits" name="Benefícios" icon="money-check-alt"/>
             <MenuItem href="admin/services" name="Serviços" icon="layer-group"/>
             <MenuItem href="admin/standards" name="Patrocínios" icon="search-dollar"/>
+            <MenuItem href="admin/pages" name="Páginas" icon="scroll"/>
           </div>
         </If>
         <If test={ ROLE_ADMIN === user.role }>
