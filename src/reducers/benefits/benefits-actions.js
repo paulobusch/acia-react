@@ -50,13 +50,49 @@ class BenefitActions extends ActionsStorageBase {
       });
     };
   }
+  
+  getById(id, completed) {
+    return () => {
+      this.getCollection().doc(id).get().then(doc => {
+        const data = { id: doc.id, ...doc.data() };
+        const tasksGetUrl = data.accrediteds.map(item => this.getFile(item.image).getDownloadURL());
+        Promise.all(tasksGetUrl)
+          .then(urlResults => {
+            for (const accredited of data.accrediteds){
+              const index = data.accrediteds.indexOf(accredited);
+              accredited.imageRef = accredited.image;
+              accredited.image = urlResults[index];
+            }
+            if (completed) completed(true, data);
+          })
+          .catch((error) => {
+            toastr.error('Erro', `Falha ao obter imagems!`);
+            if (completed) completed(false);
+            throw error;
+          });    
+
+      })
+      .catch((error) => { 
+        toastr.error('Erro', `Falha ao carregar registro!`); 
+        if (completed) completed(false);
+        throw error;
+      });
+    };
+  }
 
   getAllByFilter(filters, completed) {
     return dispatch => {
       let filtred = this.getCollection();
 
-      for (const prop in filters)
-        filtred = filtred.where(prop, '==', filters[prop]);
+      if (filters) {
+        const { search, type } = filters;
+        if (type)
+          filtred = filtred.where('type', '==', type);
+        if (search) {
+          filtred = filtred.where('title', '>=', search);
+          filtred = filtred.where('title', '<=', search + '~');
+        }
+      }
 
       filtred.get().then(result => {
         const mapped = result.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -200,6 +236,7 @@ const actionsInstance = new BenefitActions();
 
 export function submitForm(){ return actionsInstance.submitForm(); }
 export function getAll(completed){ return actionsInstance.getAll(completed); }
+export function getById(id, completed){ return actionsInstance.getById(id, completed); }
 export function getAccreditedById(id, completed){ return actionsInstance.getAccreditedById(id, completed); }
 export function getAllByFilter(filters, completed){ return actionsInstance.getAllByFilter(filters, completed); }
 export function loadForm(id, completed){ return actionsInstance.loadForm(id, completed); }

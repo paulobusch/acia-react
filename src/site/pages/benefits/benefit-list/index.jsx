@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { reduxForm, Field, Form } from 'redux-form';
 import { withRouter } from 'react-router';
 
-import { getAllByFilter, getAccrediteds, mapTypeToTitle } from '../../../../reducers/benefits/benefits-actions';
+import { getById, getAccrediteds, mapTypeToTitle } from '../../../../reducers/benefits/benefits-actions';
 import Loading from '../../../../common/loading/index';
 import BenefitCard from './benefit-card/index';
 import Input from './../../../../common/fields/input/index';
@@ -17,22 +17,22 @@ class BenefitList extends Component {
     super(props);
 
     this.state = { loading: true };
-    this.type = this.props.router.params.type;
-    this.title = mapTypeToTitle(this.type);
+    this.id = this.props.router.params.id;
     this.afterLoad = this.afterLoad.bind(this);
     this.onSearch = this.onSearch.bind(this);
     this.search = this.search.bind(this);
   }
 
   componentWillMount() {
-    this.props.getAllByFilter({ type: this.type }, this.afterLoad);
+    this.props.getById(this.id, this.afterLoad);
   }
 
-  afterLoad(success, list) {
+  afterLoad(success, data) {
     if (success) {
-      const accrediteds = getAccrediteds(list); 
+      const accrediteds = getAccrediteds([data]); 
       this.setState({
         ...this.state,
+        title: mapTypeToTitle(data.type),
         loading: false,
         fullAccrediteds: accrediteds,
         filtredAccrediteds: accrediteds
@@ -43,7 +43,7 @@ class BenefitList extends Component {
   render() {
     return (
       <div id="benefit-list">
-        <h2>{ this.title }</h2>
+        <h2>{ this.state.title }</h2>
         { this.searchForm() }
         <div className="benefits">
           { this.list() }
@@ -97,5 +97,5 @@ class BenefitList extends Component {
 }
 
 const form = reduxForm({ form: 'search-benefits-from' })(withRouter(BenefitList));
-const mapDispatchToProps = dispatch => bindActionCreators({ getAllByFilter }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ getById }, dispatch);
 export default connect(null, mapDispatchToProps)(withRouter(form));

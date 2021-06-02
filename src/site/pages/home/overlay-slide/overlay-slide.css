@@ -7,8 +7,9 @@
   height: 100%;
 }
 
-.template-slide-about-bg.link {
+.template-slide-about-bg.action-link {
   cursor: pointer;
+  opacity: 0;
 }
 
 .template-slide-about {

@@ -1,0 +1,44 @@
+#standard-list {
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
+  padding: 50px 5% 50px 5%;
+}
+
+#standard-list .standards {
+  padding: 0 5%;
+}
+
+#standard-list .standard {
+  display: flex;
+  padding: 15px;
+  transition: .2s;
+  cursor: pointer;
+}
+
+#standard-list .standard:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+#standard-list .standard .title {
+  flex-basis: 90%;
+}
+
+#standard-list .standard .count {
+  flex-basis: 10%;
+}
+
+#standard-list h2 {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--grey);
+}
+
+#standard-list #search-standards {
+  margin: 0 25% 25px 25%;
+}
+
+@media only screen and (max-width: 500px) {
+  #standard-list .standards {
+    flex-direction: column;
+  }
+}
