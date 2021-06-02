@@ -7,6 +7,10 @@
   height: 100%;
 }
 
+.template-slide-about-bg.link {
+  cursor: pointer;
+}
+
 .template-slide-about {
   width: 100%;
   position: absolute;

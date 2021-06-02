@@ -13,15 +13,19 @@ import { create, update, loadForm, submitForm } from '../../../../reducers/slide
 import Input from './../../../../common/fields/input/index';
 import Checkbox from './../../../../common/fields/checkbox/index';
 import url from './../../../../common/validators/url/url';
+import { SLIDE_OVERLAY_BUTTON, SLIDE_OVERLAY_LINK } from './../../../../reducers/slides/slide-type';
 
 const DEFAULT_STATE = {
   image: null,
   positionX: 'center',
   positionY: 'center',
   overlaySlide: false,
-  title: '',
-  subtitle: '',
-  actionUrl: ''  
+  overlay: {
+    type: null,
+    url: '',
+    title: '',
+    subtitle: ''
+  }
 };
 
 class SlideForm extends FormBase { 
@@ -51,6 +55,7 @@ class SlideForm extends FormBase {
       { text: 'Centro', value: 'center' },
       { text: 'Embaixo', value: 'bottom' }
     ];
+    const types = [SLIDE_OVERLAY_LINK, SLIDE_OVERLAY_BUTTON];
     const { handleSubmit, overlaySlide } = this.props;
     return (
       <Form onSubmit={ handleSubmit(this.submit) }>
@@ -70,24 +75,34 @@ class SlideForm extends FormBase {
         </Row>
         { overlaySlide &&
           <Row justify="flex-start">
-            <Field name="title" label="Título" type="text" placeholder="Informe o título"
-              flex="25" component={ Input } validate={ required }
+            <Field name="overlay.type" label="Tipo" 
+              flex="25" component={ Select } options={ types } validate={ required }
             />
-            <Field name="subtitle" label="Subtítulo" type="text" placeholder="Informe o subtítulo"
-              flex="25" component={ Input } validate={ required }
-            />
-            <Field name="actionUrl" label="Url do Botão" type="text" placeholder="Informe a url" className="field-padding"
+            <Field name="overlay.url" label={ this.getUrlFieldLabel() } type="text" placeholder="Informe a url"
               flex="25" component={ Input } validate={ [required, url] }
+            />
+            <Field name="overlay.title" label="Título" type="text" placeholder="Informe o título"
+              flex="25" component={ Input }
+            />
+            <Field name="overlay.subtitle" label="Subtítulo" type="text" placeholder="Informe o subtítulo"
+              flex="25" component={ Input }
             />
           </Row>
         }
       </Form>
     );
   }
+
+  getUrlFieldLabel() {
+    const { type } = this.props;
+    if (type === SLIDE_OVERLAY_LINK) return 'Url do Link';
+    if (type === SLIDE_OVERLAY_BUTTON) return 'Url do Botão';
+    return 'Url';
+  }
 }
 
 const slideForm = reduxForm({ form: 'slide-form' })(withRouter(SlideForm));
 const selector = formValueSelector('slide-form');
-const mapStateToProps = state => ({ overlaySlide: selector(state, 'overlaySlide') });
+const mapStateToProps = state => ({ overlaySlide: selector(state, 'overlaySlide'), type: selector(state, 'overlay.type') });
 const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(slideForm);
