@@ -3,9 +3,10 @@ import './Footer.css';
 import React from 'react';
 import { WEBSITE_EMAIL } from '../../../consts';
 import { WEBSITE_PHONE } from './../../../consts';
-import { generateAddContactLink } from './../../../common/api/whatsapp';
+import { generateAddContactLink, generateSendMessageLink } from './../../../common/api/whatsapp';
 import { Link } from 'react-router';
 import { POST_ACTION } from './../../../reducers/posts/post-type';
+import FixedButton from './../../../common/buttons/fixed/index';
 
 export default props => {
   const year = new Date().getFullYear();
@@ -76,6 +77,7 @@ export default props => {
           Powered by GriteAlto
         </a>         
       </div>
+      <FixedButton image="images/social/whatsapp.png" href={ generateAddContactLink(WEBSITE_PHONE) }/>
     </footer>
   );  
 }

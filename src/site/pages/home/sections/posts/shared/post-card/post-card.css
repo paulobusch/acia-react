@@ -27,8 +27,11 @@
   flex-direction: column;
 }
 
-.post-card .detail .text {
+.post-card .detail .text-container {
   flex-grow: 1;
+}
+
+.post-card .detail .text-container .text {
   text-align: justify;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -47,7 +50,7 @@
   transition: .2s;
   display: block;
   text-align: center;
-  margin: 25px auto 0 auto;
+  margin: 15px auto 0 auto;
   text-decoration: none;
   color: var(--primary);
 }

@@ -37,4 +37,9 @@
   #service-list .services {
     flex-direction: column;
   }
+
+  #service-list #search-services {
+    margin: 0;
+    margin-bottom: 25px;
+  }
 }

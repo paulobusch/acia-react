@@ -24,4 +24,9 @@
   #benefit-list .benefits {
     flex-direction: column;
   }
+
+  #benefit-list #search-benefits {
+    margin: 0;
+    margin-bottom: 25px;
+  }
 }

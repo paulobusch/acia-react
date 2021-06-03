@@ -24,4 +24,9 @@
   #post-list .posts {
     flex-direction: column;
   }
+
+  #post-list #search-posts {
+    margin: 0;
+    margin-bottom: 25px;
+  }
 }

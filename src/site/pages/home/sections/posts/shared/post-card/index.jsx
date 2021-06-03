@@ -15,7 +15,9 @@ export default function PostCard(props) {
       }
       <div className="detail">
         <h3>{ props.title }</h3>
-        <div className="text" style={ { WebkitLineClamp: props.image ? 3 : 8 } }>{ extractTextFromHtml(props.text) }</div>
+        <div className="text-container">
+          <div className="text" style={ { WebkitLineClamp: props.image ? 3 : 8 } }>{ extractTextFromHtml(props.text) }</div>
+        </div>
         <Link to={ link }>Ver mais</Link>
       </div>
     </div>
