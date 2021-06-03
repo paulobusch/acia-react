@@ -33,10 +33,12 @@ class PostList extends Component {
 
   afterLoad(success, list) {
     if (success) {
+      const posts = list.sort((a, b) => b.type.localeCompare(a.type));
       this.setState({
         ...this.state,
         loading: false,
-        posts: list.sort((a, b) => b.type.localeCompare(a.type))
+        fullPosts: posts,
+        filtredPosts: posts
       });
     }
   }
@@ -88,16 +90,20 @@ class PostList extends Component {
       this.searchId = null;
     }
     this.toggleLoading(true);
-    this.props.getAllByFilter({ type: this.type, search: this.state.search }, this.afterLoad);
+    this.setState({ 
+      ...this.state, loading: false,
+      filtredPosts: this.state.fullPosts
+        .filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
+    });
   }
 
   list() {
-    const { posts, loading } = this.state;
+    const { filtredPosts, loading } = this.state;
     if (loading) return <Loading block style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
 
-    if (!posts || posts.length === 0) return <Message style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
+    if (!filtredPosts || filtredPosts.length === 0) return <Message style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
 
-    return posts.map(p => <PostCard key={ p.id } { ...p }/>);
+    return filtredPosts.map(p => <PostCard key={ p.id } { ...p }/>);
   }   
 }
 

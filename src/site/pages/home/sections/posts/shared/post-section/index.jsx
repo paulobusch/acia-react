@@ -33,7 +33,7 @@ export default class PostSectionBase extends Component {
           { loading && <Loading block/> }
           { !loading && posts.map(p => <PostCard key={ p.id } { ...p }/>) }
         </div>
-        { !loading && <Link to={ `posts/${encodeURIComponent(this.type)}` } className="link-view-all">Ver todos</Link> }
+        { !loading && <Link to={ `posts/${encodeURIComponent(this.type)}` } className="link-view-all">Ver Todos</Link> }
       </div>
     );
   }

@@ -1,17 +1,16 @@
 import './home.css';
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import Slider from '../../common/slider/Slider';
-import ServicesSection from './sections/services';
 import { getAll as getAllSlides } from '../../.../../../reducers/slides/slide-actions';
 import { getAll as getAllPosts } from '../../.../../../reducers/posts/post-actions';
 import { getAll as getAllStandards } from '../../.../../../reducers/standards/standard-actions';
+import Slider from '../../common/slider/Slider';
+import ServicesSection from './sections/services';
 import OverlaySlide from './overlay-slide';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import NewsSection from './sections/posts/news/index';
-import ActionsSection from './sections/posts/actions/index';
 import ArticlesSection from './sections/posts/articles/index';
 
 class Home extends Component {
@@ -68,7 +67,6 @@ class Home extends Component {
 
   render() {
     const news = this.getPostsBySection('Notícia');
-    const actions = this.getPostsBySection('Acia em Ação');
     const articles = this.getPostsBySection('Artigo');
 
     return (
@@ -78,7 +76,6 @@ class Home extends Component {
         </div>
         <ServicesSection />
         <NewsSection loading={ this.state.loadingPosts } posts={ news }/>
-        <ActionsSection loading={ this.state.loadingPosts } posts={ actions }/>
         <ArticlesSection 
           loading={ this.state.loadingPosts } 
           loadingStandards={ this.state.loadingStandards } 

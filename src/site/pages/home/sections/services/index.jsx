@@ -42,7 +42,7 @@ class ServicesSection extends Component {
         <div className="services">
           { services.slice(0, limit).map(s => <ServiceCard key={ s.id } { ...s }>{ s.description }</ServiceCard>) }
         </div>
-        { !loading && services.length > limit && <Link to="services" className="link-view-all">Ver todos</Link> }
+        { !loading && services.length > limit && <Link to="services" className="link-view-all">Ver Todos</Link> }
       </Section>
     );    
   }

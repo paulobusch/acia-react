@@ -4,6 +4,8 @@ import React from 'react';
 import { WEBSITE_EMAIL } from '../../../consts';
 import { WEBSITE_PHONE } from './../../../consts';
 import { generateAddContactLink } from './../../../common/api/whatsapp';
+import { Link } from 'react-router';
+import { POST_ACTION } from './../../../reducers/posts/post-type';
 
 export default props => {
   const year = new Date().getFullYear();
@@ -40,6 +42,7 @@ export default props => {
             <li><a href="/#/acia-woman">ACIA MULHER</a></li>
             <li><a href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
             <li><a href="/#/policy-quality">POLÍTICA DE QUALIDADE</a></li>
+            <li><Link to={ `/posts/${encodeURIComponent(POST_ACTION)}` }>{ POST_ACTION.toUpperCase() }</Link></li>
           </ul>
         </li>
         <li>

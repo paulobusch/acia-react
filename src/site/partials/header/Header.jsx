@@ -12,6 +12,7 @@ import RightMenuChip from './right-menu/right-menu-chip/RightMenuChip';
 import Search from './search';
 import { generateAddContactLink } from './../../../common/api/whatsapp';
 import { WEBSITE_PHONE } from './../../../consts';
+import { POST_ACTION } from './../../../reducers/posts/post-type';
 
 const INITIAL_STATE = {
   showMenuMobile: false,
@@ -78,6 +79,7 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/about" text="QUEM SOMOS"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/boards" text="DIRETORIA"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href={ `/#/posts/${encodeURIComponent(POST_ACTION)}` } text={ POST_ACTION.toUpperCase() }/>
             </MainMenuItem>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href={ generateAddContactLink(WEBSITE_PHONE) } text="CONTATO"/>
