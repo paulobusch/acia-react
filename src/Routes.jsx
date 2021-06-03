@@ -57,6 +57,7 @@ import Page from './site/pages/page/index';
 import Standards from './site/pages/standards';
 import Services from './site/pages/services';
 import Contact from './site/pages/contact/index';
+import History from './site/pages/static/history/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -90,6 +91,7 @@ export default () => (
         <Route path="geographical-information" component={ GeographicalInformation }/>
         <Route path="relevant-informations" component={ RelevantInformation }/>
         <Route path="cell-network" component={ CellNetwork }/>
+        <Route path="history" component={ History }/>
         <Route path="contact" component={ Contact }/>
       </Route>
       <Route exact path="/login" component={ Auth } />

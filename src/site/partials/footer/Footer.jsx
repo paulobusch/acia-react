@@ -3,7 +3,7 @@ import './Footer.css';
 import React from 'react';
 import { WEBSITE_ADDRESS, WEBSITE_EMAIL } from '../../../consts';
 import { WEBSITE_WHATSAPP } from './../../../consts';
-import { generateAddContactLink, generateSendMessageLink } from './../../../common/api/whatsapp';
+import { generateAddContactLink } from './../../../common/api/whatsapp';
 import { Link } from 'react-router';
 import { POST_ACTION } from './../../../reducers/posts/post-type';
 import FixedButton from './../../../common/buttons/fixed/index';
@@ -16,7 +16,6 @@ export default props => {
         <li>
           <ul className="block-list">
             <li><img src="images/acia/logo-acia-white.png"/></li>
-            <li><a href={ generateAddContactLink(WEBSITE_WHATSAPP) }>FALE COM UM ATENDENTE</a></li>
             <li><a href="#">POLÍTICA DE PRIVACIDADE</a></li>
             <li><a href="/#/subscribe">ASSOCIE-SE</a></li>
             <li><a href="#">{ WEBSITE_ADDRESS }</a></li>
@@ -44,7 +43,7 @@ export default props => {
         <li>
           <h4>ANÁPOLIS</h4>
           <ul className="block-list">
-            <li><a href="https://www.aciaanapolis.com.br/site/historia/">HISTÓRIA</a></li>
+            <li><a href="/#/history">HISTÓRIA</a></li>
             <li><a href="/#/geographical-information">INFORMAÇÕES GEOGRÁFICAS</a></li>
             <li><a href="/#/relevant-informations">INFORMAÇÕES RELEVANTES</a></li>
             <li><a href="https://www.juceg.go.gov.br">JUCEG</a></li>

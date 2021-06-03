@@ -1,28 +1,28 @@
-#static-policy-qualityn {
+#static-policy-quality {
   padding: 15px 5%;
   line-height: 2;
 }
 
-#static-policy-qualityn p {
+#static-policy-quality p {
   margin-top: .5em;
   text-align: justify;
 }
 
-#static-policy-qualityn .bold {
+#static-policy-quality .bold {
   font-weight: bold;
 }
 
-#static-policy-qualityn .reference {
+#static-policy-quality .reference {
   text-align: right;
 }
 
 @media only screen and (max-width: 800px) {
-  #static-policy-qualityn h2 {
+  #static-policy-quality h2 {
     text-align: center;
   }
 
-  #static-policy-qualityn .main-list,
-  #static-policy-qualityn .secondary-list {
+  #static-policy-quality .main-list,
+  #static-policy-quality .secondary-list {
     padding-left: 25px;
   }
 }
