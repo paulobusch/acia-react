@@ -1,10 +1,50 @@
+:root {
+  --join-height: 80px;
+}
+
 #home .loading-spinner {
   margin-top: 25vh;
+}
+
+#home .slides-container .slider .image,
+#home .slides-container .slider {
+  height: calc(100vh - 60px - var(--join-height));
+}
+
+#home .join {
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 25px;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 5%;
+  height: var(--join-height);
+  background-color: var(--primary);
+}
+
+#home .join i {
+  font-size: 50px;
+  margin: 15px;
 }
 
 @media only screen and (max-width: 1100px) {
   #home .slides-container .slider .image,
   #home .slides-container .slider {
     height: 45vw;
+  }
+
+  #home .join {
+    height: auto;
+    font-size: 20px;
+  }
+
+  #home .join i {
+    font-size: 30px;
   }
 }

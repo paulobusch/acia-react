@@ -12,6 +12,7 @@ import ServicesSection from './sections/services';
 import OverlaySlide from './overlay-slide';
 import NewsSection from './sections/posts/news/index';
 import ArticlesSection from './sections/posts/articles/index';
+import SubmitButton from './../../../common/buttons/submit/index';
 
 class Home extends Component {
   constructor(props) {
@@ -73,6 +74,10 @@ class Home extends Component {
       <div id="home">
         <div className="slides-container">
           <Slider slides={ this.props.slides.map(s => this.mapSlideData(s)) } timeTransition={ 10000 }/>
+          <a className="join" href="/#/subscribe">
+            <i className="fas fa-handshake"></i>
+            <span>ASSOCIE-SE! CLIQUE AQUI E FAÇA SEU PRÉ CADASTRO QUE ENTRAREMOS EM CONTATO</span>
+          </a>
         </div>
         <ServicesSection />
         <NewsSection loading={ this.state.loadingPosts } posts={ news }/>
