@@ -1,0 +1,28 @@
+#services a.link-view-all {
+  opacity: .8;
+  width: 100px;
+  margin: 25px auto;
+  transition: .2s;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+#services a.link-view-all:hover {
+  opacity: 1;
+}
+
+#services .services {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 500px) {
+  .services {
+    flex-direction: column;
+  }
+}

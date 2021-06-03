@@ -36,6 +36,7 @@ class BenefitDetail extends Component {
         loading: false,
         accredited: accredited
       });
+      this.props.initialize({ message: `Olá, estou vendo uma página "${accredited.title}" no site ACIA, poderia me ajudar?` });
     }
   }
 

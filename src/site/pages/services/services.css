@@ -1,0 +1,40 @@
+#service-list {
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
+  padding: 50px 5% 50px 5%;
+}
+
+#service-list .services-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#service-list .service:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+#service-list .service .title {
+  flex-basis: 90%;
+}
+
+#service-list .service .count {
+  flex-basis: 10%;
+}
+
+#service-list h2 {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--grey);
+}
+
+#service-list #search-services {
+  margin: 0 25% 25px 25%;
+}
+
+@media only screen and (max-width: 500px) {
+  #service-list .services {
+    flex-direction: column;
+  }
+}

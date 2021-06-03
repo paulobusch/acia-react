@@ -1,12 +1,13 @@
-import './ServicesSection.css';
+import './services.css';
 
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
+import { getAll } from '../../../../../reducers/services/service-actions';
 import Section from '../../../../common/section/Section';
 import ServiceCard from './service-card/ServiceCard';
-import { getAll } from '../../../../../reducers/services/service-actions';
 
 class ServicesSection extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class ServicesSection extends Component {
   }
 
   render() {
+    const limit = 6;
     const { loading } = this.state;
     const { services } = this.props;
     if (loading) return false;
@@ -37,7 +39,10 @@ class ServicesSection extends Component {
 
     return (
       <Section id="services">
-        { services.map(s => <ServiceCard key={ s.id } { ...s }>{ s.description }</ServiceCard>) }
+        <div className="services">
+          { services.slice(0, limit).map(s => <ServiceCard key={ s.id } { ...s }>{ s.description }</ServiceCard>) }
+        </div>
+        { !loading && services.length > limit && <Link to="services" className="link-view-all">Ver todos</Link> }
       </Section>
     );    
   }

@@ -3,7 +3,7 @@ import './home.css';
 import React, { Component } from 'react';
 
 import Slider from '../../common/slider/Slider';
-import ServicesSection from './sections/services/ServicesSection';
+import ServicesSection from './sections/services';
 import { getAll as getAllSlides } from '../../.../../../reducers/slides/slide-actions';
 import { getAll as getAllPosts } from '../../.../../../reducers/posts/post-actions';
 import { getAll as getAllStandards } from '../../.../../../reducers/standards/standard-actions';
