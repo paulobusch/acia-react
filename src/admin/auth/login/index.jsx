@@ -10,10 +10,10 @@ import Input from '../../../common/fields/input';
 import SubmitButton from '../../../common/buttons/submit';
 import email from '../../../common/validators/email';
 import Password from './../../../common/fields/password';
+import Row from './../../../common/row/index';
 import { login, listenSessionChanged } from '../../../reducers/auth/auth-actions';
 import { Link, hashHistory } from 'react-router';
 import { ROLE_ADMIN, ROLE_EDITOR } from './../../../reducers/users/role-type';
-import Row from './../../../common/row/index';
 
 class Auth extends Component {
   constructor(props) {
@@ -73,20 +73,22 @@ class Auth extends Component {
     }
 
     return (
-      <div className="background-login">
-        <Form id="form-login" onSubmit={ handleSubmit(this.submit) }>
-          <h2>Login</h2>
-          <Field component={ Input } type="email" name="email"
-            placeholder="E-mail" icon="user"/>
-          <Field component={ Password } name="password"
-            placeholder="Senha" icon="envelope"/>
-          <Row>
-            <Link className="link" to={ (`/forgot-password/${email ? encodeURIComponent(email) : ''}`) }>Esqueci minha senha</Link>
-            <Link className="link" to="/">Ir para o Site</Link>
-          </Row>
-          <SubmitButton disabled={ !this.isValid() } loading={ this.state.loginLoading } fill padding="10px" text="Entrar"/>
-        </Form>
-        <Toastr />
+      <div className="background-login" style={ { backgroundImage: `url('images/acia/background-login.jpg')` } }>
+        <div className="background-overlay">
+          <Form id="form-login" onSubmit={ handleSubmit(this.submit) }>
+            <h2>Login</h2>
+            <Field component={ Input } type="email" name="email"
+              placeholder="E-mail" icon="user"/>
+            <Field component={ Password } name="password"
+              placeholder="Senha" icon="envelope"/>
+            <Row>
+              <Link className="link" to={ (`/forgot-password/${email ? encodeURIComponent(email) : ''}`) }>Esqueci minha senha</Link>
+              <Link className="link" to="/">Ir para o Site</Link>
+            </Row>
+            <SubmitButton disabled={ !this.isValid() } loading={ this.state.loginLoading } fill padding="10px" text="Entrar"/>
+          </Form>
+          <Toastr />
+        </div>
       </div>
     );
   }

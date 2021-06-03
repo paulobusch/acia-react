@@ -83,24 +83,28 @@ class ChangePasswordForm extends Component {
     if (validating) return <Loading style={ { paddingTop: '45vh' } }/>;
 
     return (
-      <div>
-        <If test={ validCode }>
-          <Form id="form-change-password" onSubmit={ handleSubmit(this.changePassword) }>
-            <h2>Redefinir Senha</h2>
-            <Field component={ Password } type="password" name="newPassword"
-              placeholder="Nova senha" validate={ required, password }/>
-            <Field component={ Password } type="password" name="confirmPassword"
-              placeholder="Confirmação da senha" validate={ required, this.equalPassword.bind(this) }/>
-            <Row>
-              <Link className="link" to="/login">Já tenho uma conta</Link>
-              <Link className="link" to="/">Ir para o Site</Link>
-            </Row>
-            <SubmitButton disabled={ !this.isValid() } loading={ saving } fill padding="10px" text="Alterar"/>
-          </Form>
-        </If>
-        <If test={ !validCode }>
-          <span className="code-error-message">O link de alteração de senha está expirado!</span>
-        </If>
+      <div className="background-change-password" style={ { backgroundImage: `url('images/acia/background-login.jpg')` } }>
+        <div className="background-overlay">
+          <If test={ validCode }>
+            <Form id="form-change-password" onSubmit={ handleSubmit(this.changePassword) }>
+              <h2>Redefinir Senha</h2>
+              <Field component={ Password } type="password" name="newPassword"
+                placeholder="Nova senha" validate={ required, password }/>
+              <Field component={ Password } type="password" name="confirmPassword"
+                placeholder="Confirmação da senha" validate={ required, this.equalPassword.bind(this) }/>
+              <Row>
+                <Link className="link" to="/login">Já tenho uma conta</Link>
+                <Link className="link" to="/">Ir para o Site</Link>
+              </Row>
+              <SubmitButton disabled={ !this.isValid() } loading={ saving } fill padding="10px" text="Alterar"/>
+            </Form>
+          </If>
+          <If test={ !validCode }>
+            <div className="code-error-message">
+              <span>O link de alteração de senha está expirado!</span>
+            </div>
+          </If>
+        </div>
       </div>
     );
   }

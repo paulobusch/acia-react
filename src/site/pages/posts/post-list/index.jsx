@@ -28,7 +28,7 @@ class PostList extends Component {
   }
 
   componentWillMount() {
-    this.props.getAllByFilter({ type: this.type, search: this.state.search }, this.afterLoad);
+    this.props.getAllByFilter({ type: this.type }, this.afterLoad);
   }
 
   afterLoad(success, list) {
@@ -38,7 +38,9 @@ class PostList extends Component {
         ...this.state,
         loading: false,
         fullPosts: posts,
-        filtredPosts: posts
+        filtredPosts: this.state.search 
+          ? posts.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
+          : posts
       });
     }
   }

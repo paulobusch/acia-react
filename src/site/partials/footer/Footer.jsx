@@ -41,9 +41,9 @@ export default props => {
           <ul className="block-list">
             <li><a href={ `mailto:${WEBSITE_EMAIL}` }>ACIA TEC</a></li>
             <li><a href="/#/acia-woman">ACIA MULHER</a></li>
+            <li><Link to={ `/posts/${encodeURIComponent(POST_ACTION)}` }>{ POST_ACTION.toUpperCase() }</Link></li>
             <li><a href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
             <li><a href="/#/policy-quality">POLÍTICA DE QUALIDADE</a></li>
-            <li><Link to={ `/posts/${encodeURIComponent(POST_ACTION)}` }>{ POST_ACTION.toUpperCase() }</Link></li>
           </ul>
         </li>
         <li>

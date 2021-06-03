@@ -39,26 +39,28 @@ class ForgotPasswordForm extends Component {
     const { handleSubmit, forgotPassword, forgotPasswordEmailSended, forgotPasswordEmailLoading } = this.props;
 
     return (
-      <div className="background-forgot-password">
-        <If test={ !forgotPasswordEmailSended }>
-          <Form id="form-forgot-password" onSubmit={ handleSubmit(forgotPassword) }>
-            <h2>Redefinir Senha</h2>
-            <Field component={ Input } type="email" name="email"
-              placeholder="E-mail" icon="user"/>
-            <Row>
-              <Link className="link" to="/login">Já tenho uma conta</Link>
-              <Link className="link" to="/">Ir para o Site</Link>
-            </Row>
-            <SubmitButton loading={ forgotPasswordEmailLoading } disabled={ !this.isValid() } fill padding="10px" text="Enviar Email"/>
-          </Form>
-        </If>
-        <If test={ forgotPasswordEmailSended }>
-          <div className="success-message">
-            <span>Acesse sua caixa de entrada para obter o link de redefinição!</span><br />
-            <Link className="link-login" to="/login">Clique aqui para logar</Link>
-          </div>
-        </If>
-        <Toastr />
+      <div className="background-forgot-password" style={ { backgroundImage: `url('images/acia/background-login.jpg')` } }>
+        <div className="background-overlay">
+          <If test={ !forgotPasswordEmailSended }>
+            <Form id="form-forgot-password" onSubmit={ handleSubmit(forgotPassword) }>
+              <h2>Redefinir Senha</h2>
+              <Field component={ Input } type="email" name="email"
+                placeholder="E-mail" icon="user"/>
+              <Row>
+                <Link className="link" to="/login">Já tenho uma conta</Link>
+                <Link className="link" to="/">Ir para o Site</Link>
+              </Row>
+              <SubmitButton loading={ forgotPasswordEmailLoading } disabled={ !this.isValid() } fill padding="10px" text="Enviar Email"/>
+            </Form>
+          </If>
+          <If test={ forgotPasswordEmailSended }>
+            <div className="success-message">
+              <span>Acesse sua caixa de entrada para obter o link de redefinição!</span><br />
+              <Link className="link-login" to="/login">Clique aqui para logar</Link>
+            </div>
+          </If>
+          <Toastr />
+        </div>
       </div>
     );
   }
