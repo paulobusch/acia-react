@@ -34,7 +34,6 @@ export default class PostListBase extends ListBase {
       { prop: 'text', label: 'Texto', flex: 60, template: props => Resume({ text: extractTextFromHtml(props.row.text) }) },
       { prop: 'createdAt', label: 'Data', flex: 10, format: formatDate }
     ];
-    this.sort = 'desc';
   }
 
   afterUpdateOrder(success) { 

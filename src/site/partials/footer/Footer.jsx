@@ -1,8 +1,8 @@
 import './Footer.css';
 
 import React from 'react';
-import { WEBSITE_EMAIL } from '../../../consts';
-import { WEBSITE_PHONE } from './../../../consts';
+import { WEBSITE_ADDRESS, WEBSITE_EMAIL } from '../../../consts';
+import { WEBSITE_WHATSAPP } from './../../../consts';
 import { generateAddContactLink, generateSendMessageLink } from './../../../common/api/whatsapp';
 import { Link } from 'react-router';
 import { POST_ACTION } from './../../../reducers/posts/post-type';
@@ -16,15 +16,10 @@ export default props => {
         <li>
           <ul className="block-list">
             <li><img src="images/acia/logo-acia-white.png"/></li>
-            <li><a href={ generateAddContactLink(WEBSITE_PHONE) }>FALE COM UM ATENDENTE</a></li>
+            <li><a href={ generateAddContactLink(WEBSITE_WHATSAPP) }>FALE COM UM ATENDENTE</a></li>
             <li><a href="#">POLÍTICA DE PRIVACIDADE</a></li>
             <li><a href="/#/subscribe">ASSOCIE-SE</a></li>
-            <li>
-              <a href="#">
-                R. Manoel D'abadia, 335 - St. Central, <br />
-                Anápolis - GO, 75020-030
-              </a>
-            </li>
+            <li><a href="#">{ WEBSITE_ADDRESS }</a></li>
           </ul>
         </li>
         <li>
@@ -77,7 +72,7 @@ export default props => {
           Powered by GriteAlto
         </a>         
       </div>
-      <FixedButton image="images/social/whatsapp.png" href={ generateAddContactLink(WEBSITE_PHONE) }/>
+      <FixedButton image="images/social/whatsapp.png" href={ generateAddContactLink(WEBSITE_WHATSAPP) }/>
     </footer>
   );  
 }

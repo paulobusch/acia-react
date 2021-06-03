@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import { getAllByFilter, updateOrderBulk, remove } from '../../../../../reducers/posts/post-actions';
+import { getAllByFilter, remove } from '../../../../../reducers/posts/post-actions';
 import { POST_ACTION } from './../../../../../reducers/posts/post-type';
 import PostListBase from './../base';
 
@@ -13,5 +13,5 @@ class ActionList extends PostListBase {
 }
 
 const mapStateToProps = state => ({ posts: state.posts });
-const mapDispatchToProps = dispatch => bindActionCreators({ getAllByFilter, updateOrderBulk, remove }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ getAllByFilter, remove }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ActionList));

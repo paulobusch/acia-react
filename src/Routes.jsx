@@ -56,6 +56,7 @@ import PageForm from './admin/pages/pages/page-form';
 import Page from './site/pages/page/index';
 import Standards from './site/pages/standards';
 import Services from './site/pages/services';
+import Contact from './site/pages/contact/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -89,6 +90,7 @@ export default () => (
         <Route path="geographical-information" component={ GeographicalInformation }/>
         <Route path="relevant-informations" component={ RelevantInformation }/>
         <Route path="cell-network" component={ CellNetwork }/>
+        <Route path="contact" component={ Contact }/>
       </Route>
       <Route exact path="/login" component={ Auth } />
       <Route exact path="/logout" component={ Logout } />

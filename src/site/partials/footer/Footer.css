@@ -27,6 +27,7 @@ footer .block-list a {
   color: white;
   transition: .2s;
   font-size: 14px;
+  white-space: pre-wrap;
 }
 
 footer .block-list a:active,
