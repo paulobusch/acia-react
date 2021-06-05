@@ -14,6 +14,8 @@ import Input from '../../../../common/fields/input/index';
 import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './../../../../reducers/posts/post-type';
 import TextEditor from './../../../../common/fields/text-editor/index';
 import requiredTextEditor from './../../../../common/validators/requiredTextEditor';
+import PhotoList from './media-list/photo-list/index';
+import VideoList from './media-list/video-list/index';
 
 const DEFAULT_STATE = {
   image: null,
@@ -38,6 +40,8 @@ class PostForm extends FormBase {
   form() {
     const types = [POST_NEWS, POST_ARTICLE, POST_ACTION];
     const { handleSubmit, type } = this.props;
+    const photos = this.props.photos || [];
+    const videos = this.props.videos || [];
     const imageValidators = [];
     if (type !== 'Artigo') imageValidators.push(required);
     return (
@@ -58,6 +62,10 @@ class PostForm extends FormBase {
             flex="100" component={ TextEditor } validate={ requiredTextEditor }
           />
         </Row>
+        <Row>
+          <PhotoList photos={ photos }/>
+          <VideoList videos={ videos }/>
+        </Row>
       </Form>
     );
   }
@@ -65,6 +73,10 @@ class PostForm extends FormBase {
 
 const postForm = reduxForm({ form: 'post-form' })(withRouter(PostForm));
 const selector = formValueSelector('post-form');
-const mapStateToProps = state => ({ type: selector(state, 'type') });
+const mapStateToProps = state => ({ 
+  type: selector(state, 'type'),
+  photos: selector(state, 'photos'),
+  videos: selector(state, 'videos')
+});
 const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(postForm);

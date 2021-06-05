@@ -2,6 +2,7 @@ import { toastr } from 'react-redux-toastr';
 
 import ActionsStorageBase from '../actions-storage-base';
 import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './post-type';
+import NewId from './../../common/random/random-id';
 
 class PostActions extends ActionsStorageBase {
   constructor() {
@@ -44,6 +45,102 @@ class PostActions extends ActionsStorageBase {
       });
     };
   }
+  
+  create(data, completed) {
+    return () => {
+      const values = this.mapPost(data);
+      this.getCollection().orderBy('order', 'desc').limit(1).get().then(doc => { 
+        const maxOrder = doc.size > 0 ? doc.docs[0].data().order : 0;
+        const tasksUpload = values.photos.map(photo => {
+          const file = photo.image;
+          const name = `${NewId()}${this.getExtension(file.name)}`;
+          photo.image = this.getPath(name);
+          return this.getFile(photo.image).put(file);
+        });
+        if (values.image instanceof File) {
+          const file = values.image;
+          const name = `${NewId()}${this.getExtension(file.name)}`;
+          values.image = this.getPath(name);
+          tasksUpload.push(this.getFile(values.image).put(file));
+        }
+        Promise.all(tasksUpload)
+          .then(() => {
+            const item = Object.assign(new Object(), values);
+            item.createdAt = new Date();
+            item.order = maxOrder + 1;
+            this.getCollection()
+              .add(item)
+              .then(() => {
+                toastr.success('Sucesso', `Registro cadastrado com sucesso!`);
+                if (completed) completed(true);
+              })
+              .catch((error) => {
+                toastr.error('Erro', `Falha ao criar registro!`);
+                if (completed) completed(false);
+                throw error;
+              });
+          })
+          .catch((error) => {
+            toastr.error('Erro', `Falha ao enviar imagem!`);
+            if (completed) completed(false);
+            throw error;
+          });
+      });
+    };
+  }
+  
+  update(data, completed) {
+    return () => {
+      const values = this.mapPost(data);
+      for (const photo of values.photos) {
+        if (photo.image instanceof File) {
+          delete photo.imageRef;
+          continue;
+        } 
+        photo.image = photo.imageRef || photo.image;
+        delete photo.imageRef;
+      }
+
+      const tasksUpload = values.photos
+        .filter(a => a.image instanceof File)
+        .map(photo => {
+          const file = photo.image;
+          const name = `${NewId()}${this.getExtension(file.name)}`;
+          photo.image = this.getPath(name);
+          return this.getFile(photo.image).put(file);
+        });
+
+      if (values.image instanceof File) {
+        const file = values.image;
+        const name = `${NewId()}${this.getExtension(file.name)}`;
+        values.image = this.getPath(name);
+        tasksUpload.push(this.getFile(values.image).put(file));
+      }
+      
+      if (values.imageUrl) delete values.imageUrl;
+
+      Promise.all(tasksUpload)
+        .then(() => {
+          this.getCollection()
+            .doc(values.id)
+            .update(values)
+            .then(() => {
+              toastr.success('Sucesso', `Registro atualizado com sucesso!`);
+              if (completed) completed(true);
+            })
+            .catch((error) => {
+              toastr.error('Erro', `Falha ao atualizar registro!`);
+              if (completed) completed(false);
+              throw error;
+            });
+        })
+        .catch((error) => {
+          toastr.error('Erro', `Falha ao enviar imagem!`);
+          if (completed) completed(false);
+          throw error;
+        });
+    };
+  }
 
   mapTypeToTitle(type) {
     switch (type) {
@@ -52,6 +149,15 @@ class PostActions extends ActionsStorageBase {
       case POST_NEWS: return 'NOTÍCIAS';
       default: return 'POSTAGENS';
     }
+  }
+
+  mapPost(data) {
+    const post = Object.assign(new Object(), data);
+    post.photos = post.photos || [];
+    post.videos = post.videos || [];
+    post.photos = post.photos.filter(r => r.image || r.title);
+    post.videos = post.videos.filter(r => r.link || r.title);
+    return post;
   }
 }
 
