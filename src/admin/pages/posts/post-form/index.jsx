@@ -11,7 +11,6 @@ import File from '../../../../common/fields/file';
 import FormBase from '../../../../common/form-base';
 import { create, update, loadForm, submitForm } from '../../../../reducers/posts/post-actions';
 import Input from '../../../../common/fields/input/index';
-import TextArea from './../../../../common/fields/textarea/index';
 import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './../../../../reducers/posts/post-type';
 import TextEditor from './../../../../common/fields/text-editor/index';
 import requiredTextEditor from './../../../../common/validators/requiredTextEditor';

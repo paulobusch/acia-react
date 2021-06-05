@@ -31,13 +31,12 @@ export default class Select extends FieldBase {
   }
 
   onChange(e) {
-    const { input: { onChange } } = this.props;
     if (e.target.value == -1) {
       this.setState({ inserting: true });
-      onChange(null);
+      this.handleOnChange(null);
       return;
     }
-    onChange(e.target.value);
+    this.handleOnChange(e.target.value);
   }
 
   closeInsert() {
@@ -58,10 +57,11 @@ export default class Select extends FieldBase {
       );
     }
 
-    const { input, readOnly } = this.props;
+    const { input, title, readOnly } = this.props;
     return (
       <select { ...input }
-        disabled={ readOnly } 
+        title={ title }
+        disabled={ readOnly }
         className="form-control" 
         onChange={ this.onChange }
         placeholder={ this.props.placeholder }>

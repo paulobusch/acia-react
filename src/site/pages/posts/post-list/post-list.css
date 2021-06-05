@@ -20,6 +20,20 @@
   margin: 0 25% 25px 25%;
 }
 
+
+@media only screen and (max-width: 1000px) {
+  #post-list #search-posts {
+    margin: 0 10% 25px 10%;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  #post-list #search-posts {
+    margin: 0 5% 25px 5%;
+  }
+}
+
 @media only screen and (max-width: 500px) {
   #post-list .posts {
     flex-direction: column;
@@ -28,5 +42,13 @@
   #post-list #search-posts {
     margin: 0;
     margin-bottom: 25px;
+  }
+
+  #post-list .row-fields {
+    flex-direction: column;
+  }
+
+  #post-list .row-fields .form-field {
+    padding: 10px 0;
   }
 }
