@@ -33,8 +33,10 @@ class PresidencyForm extends FormBase {
 
   afterLoad(success, president) {
     if (success) {
-      this.id = president.id;
-      this.props.initialize(president);
+      if (president) {
+        this.id = president.id;
+        this.props.initialize(president);
+      }
       this.setState({ ...this.state, loading: false });
     }
   }

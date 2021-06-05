@@ -19,10 +19,9 @@ export default class File extends FieldBase {
   }
 
   onChange(e) {
-    const { input: { onChange } } = this.props;
     const [file] = e.target.files;
     if (file) this.setState({ ...this.state, name: file.name });
-    onChange(file);
+    this.handleOnChange(file);
   }
 
   field() {

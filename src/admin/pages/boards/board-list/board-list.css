@@ -1,0 +1,9 @@
+.import-errors {
+  margin: 0;
+  padding-left: 35px;
+  color: red;
+}
+
+#modal-import .body {
+  max-width: 600px;
+}

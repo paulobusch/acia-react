@@ -1,6 +1,10 @@
+import './board-list.css';
 import React from 'react';
 
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Form, reduxForm, submit, Field, reset } from 'redux-form';
 
 import TabsController from './../../../../common/tabs/controller';
 import Tabs from './../../../../common/tabs/index';
@@ -16,21 +20,32 @@ import DirectorList from './director/index';
 import Modal from '../../../../common/modal';
 import TabAction from '../../../../common/tabs/headers/actions/action/index';
 import TabActions from './../../../../common/tabs/headers/actions/index';
-import { connect } from 'react-redux';
-import { removeBatch, getAllByFilter } from './../../../../reducers/boards/board-actions';
+import required from './../../../../common/validators/required';
+import File from './../../../../common/fields/file/index';
+import Select from './../../../../common/fields/select/index';
+import { removeBatch, getAllByFilter, importBatch } from './../../../../reducers/boards/board-actions';
 import { BOARD_TREASURER, BOARD_VICE_PRESIDENCY } from '../../../../reducers/boards/board-type';
 import { BOARD_SECRETARY, BOARD_DIRECTOR } from './../../../../reducers/boards/board-type';
-import { bindActionCreators } from 'redux';
+import { BOARD_IMPORT_CREATE, BOARD_IMPORT_OVERWRITE } from './../../../../reducers/boards/import/board-operation';
 
 class BoardTabs extends TabsController {
   constructor(props) {
     super(props, 'presidency');
 
-    this.state = { ...this.state, loadingRemove: false, showConfirmRemove: false };
+    this.state = { ...this.state, 
+      loadingRemove: false,
+      loadingImport: false, 
+      showConfirmRemove: false,
+      showImport: false
+    };
     this.confirmRemove = this.confirmRemove.bind(this);
+    this.confirmImport = this.confirmImport.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.closeImportModal = this.closeImportModal.bind(this);
     this.removeBatch = this.removeBatch.bind(this);
+    this.import = this.import.bind(this);
     this.afterRemove = this.afterRemove.bind(this);
+    this.afterImport = this.afterImport.bind(this);
   }
 
   render() {
@@ -43,6 +58,7 @@ class BoardTabs extends TabsController {
           <TabHeader onClick={ this.changeTab } target="treasurers" current={ this.state.tabActive } title="Tesoureiros"/>
           <TabHeader onClick={ this.changeTab } target="directors" current={ this.state.tabActive } title="Diretores"/>
           <TabActions>
+            <TabAction onClick={ this.import } icon="upload" color="white" title="Importar"/>
             { this.state.tabActive !== 'presidency' && <TabAction onClick={ this.removeBatch } icon="trash-alt" color="white" title="Remover Todos"/> }
           </TabActions>
         </TabsHeader>
@@ -64,6 +80,7 @@ class BoardTabs extends TabsController {
           </TabContent>
         </TabsContent>
         { this.modalRemoveBatch() }
+        { this.modalImport() }
       </Tabs>
     );
   }
@@ -81,6 +98,48 @@ class BoardTabs extends TabsController {
       >
         Deseja realmente remover todos os registros da listagem?
       </Modal>
+    );
+  }
+
+  modalImport() {
+    const modalActions = [
+      { 
+        text: 'CANCELAR', 
+        pallet: { fill: '#c8c8c8', text: 'black' }, 
+        click: this.closeImportModal.bind(this) 
+      },
+      { 
+        text: 'IMPORTAR',
+        pallet: { fill: '#0276cd', text: 'white' }, 
+        loading: this.state.loadingImport, 
+        click: () => this.props.dispatch(submit('import-form'))
+      }
+    ];
+
+    const operations = [BOARD_IMPORT_OVERWRITE, BOARD_IMPORT_CREATE];
+    const { handleSubmit } = this.props;
+
+    return ( 
+      <Modal id="modal-import" title="Importação" actions={ modalActions } 
+        show={ this.state.showImport } onClose={ this.closeImportModal }>
+        <Form id="import-form" onSubmit={ handleSubmit(this.confirmImport) }>
+          <Field name="file" label="Arquivo" button="Selecionar" placeholder="Selecione o arquivo" accept=".xlsx"
+            component={ File } validate={ required } orientation={ this.importFileOrientation() }
+          />
+          <Field name="operation" label="Operação"
+            component={ Select } options={ operations } validate={ required }
+          />
+        </Form>
+      </Modal>
+    );
+  }
+
+  importFileOrientation() {
+    return (
+      <div>
+        Os dados devem ser inseridos na&nbsp;
+        <a href="/documents/Diretoria - Importação.xlsx" target="_blank">planilha de importação</a>
+      </div>
     );
   }
 
@@ -102,7 +161,32 @@ class BoardTabs extends TabsController {
   }
 
   closeModal() {
-    this.setState({ ...this.state, showConfirmRemove: false });
+    this.setState({ ...this.state, loadingRemove: false, showConfirmRemove: false });
+  }
+
+  import() {
+    this.setState({ ...this.state, showImport: true });
+  }
+
+  confirmImport(values) {
+    this.setState({ ...this.state, loadingImport: true });
+    this.props.importBatch(values, this.afterImport);
+  }
+  
+  afterImport(success) {
+    if (success) {
+      const type = this.getType();
+      this.closeImportModal();
+      if (type) this.props.getAllByFilter({ type });
+      return;
+    }
+
+    this.setState({ ...this.state, loadingImport: false });
+  }
+
+  closeImportModal() {
+    this.setState({ ...this.state, loadingImport: false, showImport: false });
+    this.props.dispatch(reset('import-form'));
   }
 
   getType() {
@@ -110,11 +194,11 @@ class BoardTabs extends TabsController {
     if (this.state.tabActive === 'secretaries') return BOARD_SECRETARY;
     if (this.state.tabActive === 'treasurers') return BOARD_TREASURER;
     if (this.state.tabActive === 'directors') return BOARD_DIRECTOR;
-    throw new Error ('Not implemented');
   }
 }
 
-const tabs = withRouter(BoardTabs);
+const form = reduxForm({ form: 'import-form' })(withRouter(BoardTabs));
 const mapStateToProps = state => ({ boards: state.boards });
-const mapDispatchToProps = dispatch => bindActionCreators({ removeBatch, getAllByFilter }, dispatch);
-export default connect(mapStateToProps, mapDispatchToProps)(tabs);
+const mapDispatchToProps = dispatch => bindActionCreators({ removeBatch, getAllByFilter, importBatch }, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(form);
+

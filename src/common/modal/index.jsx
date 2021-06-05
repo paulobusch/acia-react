@@ -8,7 +8,7 @@ export default function Modal(props){
     const buttons = actions || [{ text: 'Fechar', click: onClose }];
     return (
       <div className={ `block ${ show ? '' : 'hide' }` }>
-        <div className="modal">
+        <div className="modal" id={ props.id }>
           <div className="header">
             <h2>{ title }</h2>
             <i title="Fechar" className="fas fa-times" onClick={ () => onClose() }></i>
