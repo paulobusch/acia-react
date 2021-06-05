@@ -8,6 +8,39 @@ class PostActions extends ActionsStorageBase {
   constructor() {
     super('posts', 'POST', 'post-form', false);
   }
+  
+  getById(id, completed) {
+    return () => {
+      this.getCollection().doc(id).get().then(doc => {      
+        const data = { id: doc.id, ...doc.data() };
+        const tasksGetUrl = (data.photos || []).map(item => this.getFile(item.image).getDownloadURL());
+        if (data.image) tasksGetUrl.push(this.getFile(data.image).getDownloadURL());
+        Promise.all(tasksGetUrl)
+          .then(urlResults => {
+            for (const photo of (data.photos || [])){
+              const index = data.photos.indexOf(photo);
+              photo.imageRef = photo.image;
+              photo.image = urlResults[index];
+            }
+            if (data.image) {
+              data.imageRef = data.image;
+              data.image = urlResults[urlResults.length - 1];
+            }
+            if (completed) completed(true, data);
+          })
+          .catch((error) => {
+            toastr.error('Erro', `Falha ao obter imagems!`);
+            if (completed) completed(false, data);
+            throw error;
+          }); 
+      })
+      .catch((error) => { 
+        toastr.error('Erro', `Falha ao carregar registro!`); 
+        if (completed) completed(false);
+        throw error;
+      });
+    };
+  }
 
   getAllByFilter(filters, completed) {
     return dispatch => {

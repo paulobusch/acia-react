@@ -16,3 +16,23 @@
   background-size: cover;
   height: 50vw;
 }
+
+#post .photos,
+#post .videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#post h4 {
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--grey);
+}
+
+@media only screen and (max-width: 500px) {
+  #post .photos,
+  #post .videos {
+    flex-direction: column;
+  }
+}

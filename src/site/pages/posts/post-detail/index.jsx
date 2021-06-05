@@ -8,6 +8,8 @@ import { getIdByRouter } from '../../../../common/api/router';
 import { connect } from 'react-redux';
 import { removeScripts } from '../../../../common/api/html';
 import { withRouter } from 'react-router';
+import VideoCard from './../../medias/video-card/index';
+import PhotoCard from './../../medias/photo-card/index';
 
 class PostDetail extends Component {
   constructor(props) {
@@ -52,6 +54,34 @@ class PostDetail extends Component {
         <h2>{ post.title }</h2>
         { post.image && <div className="image" style={ { backgroundImage: `url('${post.image}')` } }></div> }
         <div className="content" dangerouslySetInnerHTML={ { __html: post.text } }></div>
+        { this.photos(post.photos) }
+        { this.videos(post.videos) }
+      </div>
+    );
+  }
+
+  photos(photos) {
+    if (!photos || photos.length === 0) return false;
+
+    return (
+      <div>
+        <h4>FOTOS</h4>
+        <div className="photos">
+          { photos.map((p, i) => <PhotoCard key={ i } { ...p } flexBasis="30%"/>) }
+        </div>
+      </div>
+    );
+  }
+
+  videos(videos) {
+    if (!videos || videos.length === 0) return false;
+
+    return (
+      <div>
+        <h4>VÍDEOS</h4>
+        <div className="videos">
+          { videos.map((p, i) => <VideoCard key={ i } { ...p } url={ p.link } flexBasis="30%"/>) }
+        </div>
       </div>
     );
   }

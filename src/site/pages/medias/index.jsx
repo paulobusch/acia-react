@@ -70,7 +70,7 @@ class MediaList extends Component {
 
   videos(list) {
     return list.map(p => <VideoCard key={ p.id } { ...p }/>);
-  }  
+  }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({ getAll }, dispatch);
