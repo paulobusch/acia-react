@@ -11,16 +11,22 @@ import Loading from '../../../../common/loading/index';
 import BenefitCard from './benefit-card/index';
 import Input from './../../../../common/fields/input/index';
 import Message from './../../../../common/message/index';
+import Row from './../../../../common/row/index';
+import Select from './../../../../common/fields/select/index';
+import required from './../../../../common/validators/required';
+import { BENEFIT_SORT_DATE, BENEFIT_SORT_TITLE } from './../../../../reducers/benefits/benefits-sort';
 
 class BenefitList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true };
+    this.state = { loading: true, sort: BENEFIT_SORT_DATE };
     this.id = this.props.router.params.id;
     this.afterLoad = this.afterLoad.bind(this);
     this.onSearch = this.onSearch.bind(this);
+    this.onSort = this.onSort.bind(this);
     this.search = this.search.bind(this);
+    this.props.initialize({ sort: this.state.sort });
   }
 
   componentWillMount() {
@@ -35,7 +41,7 @@ class BenefitList extends Component {
         title: mapTypeToTitle(data.type),
         loading: false,
         fullAccrediteds: accrediteds,
-        filtredAccrediteds: accrediteds
+        filtredAccrediteds: this.applySort(this.applyFilter(accrediteds))
       });
     }
   }
@@ -52,15 +58,35 @@ class BenefitList extends Component {
     );
   }
 
+  applyFilter(accrediteds) {
+    if (this.state.search) 
+      return accrediteds.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
+    return accrediteds;
+  }
+
+  applySort(accrediteds) {
+    const { sort } = this.state;
+    if (!sort) return accrediteds;
+    if (sort === BENEFIT_SORT_DATE) return accrediteds;
+    if (sort === BENEFIT_SORT_TITLE) return accrediteds.sort((a, b) => a.title.localeCompare(b.title));
+    return accrediteds;
+  }
+
   searchForm() {
     const { handleSubmit } = this.props;
-    
+    const sortOptions = [BENEFIT_SORT_DATE, BENEFIT_SORT_TITLE];
     return (
       <Form id="search-benefits" onSubmit={ handleSubmit(this.search) }>
-        <Field name="search" type="text" placeholder="Termo de busca" autoComplete="off"
-          action={ { icon: 'fas fa-search', onClick: this.search } } 
-          onchange={ this.onSearch } component={ Input }
-        />
+        <Row className="row-fields">
+          <Field name="search" type="text" placeholder="Termo de busca" autoComplete="off"
+            action={ { icon: 'fas fa-search', onClick: this.search } } 
+            onchange={ this.onSearch } component={ Input }
+            flex="80"
+          />
+          <Field name="sort" title="Ordenação" flex="20" 
+            onchange={ this.onSort } component={ Select } options={ sortOptions} validate={ required }
+          />
+        </Row>
       </Form>
     );
   }
@@ -72,6 +98,10 @@ class BenefitList extends Component {
     });
     if (this.searchId) clearTimeout(this.searchId);
     this.searchId = setTimeout(() => this.search(), 500);
+  }
+
+  onSort(ev) {
+    this.setState({ ...this.state, sort: ev }, () => this.search());
   }  
   
   search() {
@@ -81,8 +111,7 @@ class BenefitList extends Component {
     }
     this.setState({ 
       ...this.state, loading: false,
-      filtredAccrediteds: this.state.fullAccrediteds
-        .filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
+      filtredAccrediteds: this.applySort(this.applyFilter(this.state.fullAccrediteds))
     });
   }
 
