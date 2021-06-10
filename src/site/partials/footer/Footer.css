@@ -92,9 +92,9 @@ footer .bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 5%;
+  padding: 10px 5%;
   border-top: 1px solid rgb(160, 160, 160);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 footer .bottom a {

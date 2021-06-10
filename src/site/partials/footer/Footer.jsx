@@ -33,7 +33,6 @@ export default props => {
         <li>
           <h4>INSTITUCIONAL</h4>
           <ul className="block-list">
-            <li><a href={ `mailto:${WEBSITE_EMAIL}` }>ACIA TEC</a></li>
             <li><a href="/#/acia-woman">ACIA MULHER</a></li>
             <li><Link to={ `/posts/${encodeURIComponent(POST_ACTION)}` }>{ POST_ACTION.toUpperCase() }</Link></li>
             <li><a href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
@@ -46,19 +45,16 @@ export default props => {
             <li><a href="/#/history">HISTÓRIA</a></li>
             <li><a href="/#/geographical-information">INFORMAÇÕES GEOGRÁFICAS</a></li>
             <li><a href="/#/relevant-informations">INFORMAÇÕES RELEVANTES</a></li>
-            <li><a href="https://www.juceg.go.gov.br">JUCEG</a></li>
-            <li><a href="https://portaldoempreendedor.me">PORTAL DO MICROEMPREENDEDOR</a></li>
-            <li><a href="https://www.sebrae.com.br/sites/PortalSebrae/ufs/go?codUf=10&gclid=Cj0KCQjwgtWDBhDZARIsADEKwgMks6rnCHkmrxWWjUQmTWvXRGEUmH1LcrHm9GvHJS5f1Hcucs1v0KwaAlVXEALw_wcB">SEBRAE</a></li>
           </ul>
         </li>
         <li>
           <h4>RECEBA NOVIDADES</h4>
           <input type="email" name="email" placeholder="escreva seu email..."/>
           <ul className="social-list">
-            <li><a href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
             <li><a href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
             <li><a href="https://www.youtube.com/channel/UCO4ScvIkaZpjLdytMBrYvmA"><i className="fab fa-youtube"></i></a></li>
+            <li><a href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
           </ul>
         </li>
       </ul>        
