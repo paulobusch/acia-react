@@ -33,6 +33,14 @@ class Standards extends Component {
     this.props.getAllByFilter({ type: this.type }, this.afterLoad);
   }
 
+  componentWillUpdate() {
+    if (this.type === this.props.router.params.type) return;
+    this.type = this.props.router.params.type;
+    this.title = mapTypeToTitle(this.type);
+    this.setState({ ...this.state, loading: true });
+    this.props.getAllByFilter({ type: this.type }, this.afterLoad);
+  }
+
   afterLoad(success, list) {
     if (success) {
       this.setState({

@@ -70,8 +70,7 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/cell-network" text="LIGUE ACIA"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/meeting-room" text="AUDITÓRIO / SALA REUNIÃO"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Conv%C3%AAnio" text="REDE DE CONVÊNIOS"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Sa%C3%BAde" text="GUIA SAÚDE"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/multimedia" text="MULTIMÍDIA"/>
             </MainMenuItem>
             <MainMenuItem href="#" text="INSTITUCIONAL">
@@ -80,7 +79,10 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" target="_blank" text="ARQUIVO HISTÓRICO"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href={ `/#/posts/${encodeURIComponent(POST_ACTION)}` } text={ POST_ACTION.toUpperCase() }/>
             </MainMenuItem>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
+            <MainMenuItem href="#" text="BENEFÍCIOS">
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Convênio" text="REDE DE CONVÊNIOS"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Saúde" text="GUIA SAÚDE"/>
+            </MainMenuItem>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/contact" text="CONTATO"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
           </MainMenu>
