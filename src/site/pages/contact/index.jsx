@@ -12,9 +12,9 @@ export default function Contact() {
       <h2>CONTATO</h2>
       <ul>
         <li><i className="fas fa-phone-alt"></i> { WEBSITE_LANDLINE }</li>
-        <li className="link"><a href={ generateAddContactLink(WEBSITE_WHATSAPP) }><i className="fab fa-whatsapp-square"></i> { WEBSITE_WHATSAPP }</a></li>
-        <li className="link"><a href={ `mailto:${WEBSITE_EMAIL}` }><i className="fas fa-envelope"></i> { WEBSITE_EMAIL }</a></li>
-        <li className="map"><i className="fas fa-map-marker-alt"></i> { WEBSITE_ADDRESS }</li>
+        <li><a href={ generateAddContactLink(WEBSITE_WHATSAPP) }><i className="fab fa-whatsapp-square"></i> { WEBSITE_WHATSAPP }</a></li>
+        <li><a href={ `mailto:${WEBSITE_EMAIL}` }><i className="fas fa-envelope"></i> { WEBSITE_EMAIL }</a></li>
+        <li><i className="fas fa-map-marker-alt"></i> { WEBSITE_ADDRESS }</li>
       </ul>
     </div>
   );

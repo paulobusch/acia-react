@@ -3,16 +3,29 @@ footer {
   background-color: var(--primary);
   color: white;
   padding-top: 25px;
+  text-align: justify;
+  line-height: 1.5;
 }
 
 footer img {
-  max-width: 250px;
+  max-width: 160px;
+  display: block;
+  margin: auto;
 }
 
 footer .main-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+footer .main-list li {
+  flex-basis: 18%;
+  margin: 10px 0;
+}
+
+footer .main-list li.autosize {
+  flex-basis: auto;
 }
 
 footer .main-list h4 {
@@ -21,7 +34,6 @@ footer .main-list h4 {
 
 footer .block-list a {
   display: block;
-  padding: 5px 0;
   cursor: pointer;
   text-decoration: none;
   color: white;
@@ -33,6 +45,11 @@ footer .block-list a {
 footer .block-list a:active,
 footer .block-list a:hover {
   color: rgb(219, 219, 219);
+}
+
+footer .block-list i {
+  width: 25px;
+  text-align: center;
 }
 
 footer .main-list,
@@ -50,15 +67,6 @@ footer .main-list {
 
 footer .main-list li:last-of-type {
   position: relative;
-}
-
-footer .main-list input {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 10px;
-  font-size: 20px;
-  border: none;
-  outline: none;
 }
 
 footer .social-list {
@@ -110,10 +118,10 @@ footer .bottom a:hover {
   color: rgb(219, 219, 219);
 }
 
-@media only screen and (max-width: 1300px) { 
+@media only screen and (max-width: 1200px) { 
   footer .main-list > li {
     flex-basis: 30%;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 }
 
@@ -127,23 +135,16 @@ footer .bottom a:hover {
     text-align: center;
   }
 
-  footer .block-list img {
-    margin-bottom: 50px;
-  }
-
-  footer .main-list:first-child .block-list li:first-of-type {
-    display: flex;
-    justify-content: center;
-  }
-
   footer .social-list {
     position: static;
   }
 
-  footer .main-list input {
-    display: block;
-    margin: 0 auto 15px auto;
-    max-width: 300px;
+  footer .block-list {
+    text-align: center;
+  }
+
+  footer .social-list li {
+    text-align: center;
   }
 
   footer .bottom {

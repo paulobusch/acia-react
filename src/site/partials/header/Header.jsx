@@ -78,6 +78,12 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/boards" text="DIRETORIA"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" target="_blank" text="ARQUIVO HISTÓRICO"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href={ `/#/posts/${encodeURIComponent(POST_ACTION)}` } text={ POST_ACTION.toUpperCase() }/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/acia-woman" text="ACIA MULHER"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/polodedefesa" text="POLO DE DEFESA"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/policy-quality" text="POLÍTICA DE QUALIDADE"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/history" text="HISTÓRIA"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/geographical-information" text="INFORMAÇÕES GEOGRÁFICAS"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/relevant-informations" text="INFORMAÇÕES RELEVANTES"/>
             </MainMenuItem>
             <MainMenuItem href="#" text="BENEFÍCIOS">
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Convênio" text="REDE DE CONVÊNIOS"/>
