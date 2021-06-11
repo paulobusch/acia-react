@@ -22,7 +22,9 @@ export default () => {
           <h4>INFORMAÇÕES</h4>
           <ul className="block-list">
             <li><i className="fas fa-map-marker-alt"></i>{ WEBSITE_ADDRESS }</li>
-            <li><a href={ `tel:55${WEBSITE_LANDLINE.replace(/\D/g, '')}` }><i className="fas fa-phone-alt"></i>{ WEBSITE_LANDLINE }</a></li>
+            <li><a href={ `mailto:${WEBSITE_EMAIL}` }><i className="fas fa-envelope"></i> { WEBSITE_EMAIL }</a></li>
+            <li><a href={ `tel:55${WEBSITE_LANDLINE.replace(/\D/g, '')}` }><i className="fas fa-phone-alt"></i> { WEBSITE_LANDLINE }</a></li>
+            <li><a href={ generateAddContactLink(WEBSITE_WHATSAPP) }><i className="fab fa-whatsapp-square"></i> { WEBSITE_WHATSAPP }</a></li>
           </ul>
         </li>
         <li>
