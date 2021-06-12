@@ -20,7 +20,8 @@ class BenefitList extends ListBase {
 
   configure() {
     this.tableColumns = [
-      { prop: 'title', label: 'Título', flex: 90 },
+      { prop: 'title', label: 'Título', flex: 50 },
+      { prop: 'type', label: 'Tipo', flex: 40 },
       { prop: 'accrediteds', label: 'Conveniados', textAlign: 'center', flex: 10, format: accrediteds => accrediteds.length }
     ];
   }

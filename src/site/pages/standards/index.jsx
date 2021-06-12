@@ -14,17 +14,17 @@ import { STANDARD_SORT_COUNT, STANDARD_SORT_DATE, STANDARD_SORT_TITLE } from './
 import Row from './../../../common/row/index';
 import Select from './../../../common/fields/select/index';
 import required from './../../../common/validators/required';
+import { BENEFIT_AGREEMENT, BENEFIT_ALL, BENEFIT_HEALTH } from './../../../reducers/benefits/benefits-type';
 
 class Standards extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true, sort: STANDARD_SORT_DATE };
+    this.state = { loading: true, sort: STANDARD_SORT_DATE, type: BENEFIT_ALL };
     this.afterLoad = this.afterLoad.bind(this);
     this.onSearch = this.onSearch.bind(this);
-    this.onSort = this.onSort.bind(this);
     this.search = this.search.bind(this);
-    this.props.initialize({ sort: this.state.sort });
+    this.props.initialize({ sort: this.state.sort, type: this.state.type });
   }
 
   componentWillMount() {
@@ -55,9 +55,12 @@ class Standards extends Component {
   }
 
   applyFilter(standards) {
-    if (this.state.search) 
-      return standards.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
-    return standards;
+    let result = standards;
+    if (this.state.search)
+      result = result.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1);
+    if (this.state.type && BENEFIT_ALL !== this.state.type) 
+      result = result.filter(a => a.type === this.state.type);
+    return result;
   }
 
   applySort(standards) {
@@ -73,16 +76,24 @@ class Standards extends Component {
   searchForm() {
     const { handleSubmit } = this.props;
     const sortOptions = [STANDARD_SORT_DATE, STANDARD_SORT_TITLE, STANDARD_SORT_COUNT];
+    const types = [BENEFIT_ALL, BENEFIT_AGREEMENT, BENEFIT_HEALTH];
     return (
       <Form id="search-standards" onSubmit={ handleSubmit(this.search) }>
-        <Row className="row-fields">
+        <Row>
           <Field name="search" type="text" placeholder="Termo de busca" autoComplete="off"
             action={ { icon: 'fas fa-search', onClick: this.search } } 
             onchange={ this.onSearch } component={ Input }
-            flex="80"
+            flex="100"
           />
-          <Field name="sort" title="Ordenação" flex="20" 
-            onchange={ this.onSort } component={ Select } options={ sortOptions} validate={ required }
+        </Row>
+        <Row>
+          <Field name="type" label="Tipo" flex="50" 
+            onchange={ ev => this.setState({ ...this.state, type: ev }, () => this.search()) } 
+            component={ Select } options={ types} validate={ required }
+          />
+          <Field name="sort" label="Ordenação" flex="50" 
+            onchange={ ev => this.setState({ ...this.state, sort: ev }, () => this.search()) } 
+            component={ Select } options={ sortOptions} validate={ required }
           />
         </Row>
       </Form>
@@ -96,10 +107,6 @@ class Standards extends Component {
     });
     if (this.searchId) clearTimeout(this.searchId);
     this.searchId = setTimeout(() => this.search(), 500);
-  }
-
-  onSort(ev) {
-    this.setState({ ...this.state, sort: ev }, () => this.search());
   }
   
   search() {

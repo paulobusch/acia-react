@@ -25,6 +25,7 @@
 
 #standard-list .standard .count {
   flex-basis: 10%;
+  text-align: end;
 }
 
 #standard-list h2 {
@@ -57,14 +58,6 @@
   #standard-list #search-standards {
     margin: 0;
     margin-bottom: 25px;
-  }
-
-  #standard-list .row-fields {
-    flex-direction: column;
-  }
-
-  #standard-list .row-fields .form-field {
-    padding: 10px 0;
   }
 }
 

@@ -9,10 +9,13 @@ import Row from '../../../../common/row';
 import FormBase from '../../../../common/form-base';
 import Input from '../../../../common/fields/input/index';
 import { create, update, loadForm, submitForm } from '../../../../reducers/benefits/benefits-actions';
+import { BENEFIT_AGREEMENT, BENEFIT_HEALTH } from './../../../../reducers/benefits/benefits-type';
 import Accredited from './accredited/index';
+import Select from './../../../../common/fields/select/index';
 
 const DEFAULT_STATE = {
   title: null,
+  type: null,
   accrediteds: []
 };
 
@@ -29,13 +32,17 @@ class BenefitForm extends FormBase {
   }
 
   form() {
+    const types = [BENEFIT_AGREEMENT, BENEFIT_HEALTH];
     const { handleSubmit, accrediteds } = this.props;
     return (
       <div>
         <Form onSubmit={ handleSubmit(this.submit) }>
           <Row justify="flex-start">
+            <Field name="type" label="Tipo" 
+              flex="25" component={ Select } options={ types } validate={ required }
+            />
             <Field name="title" label="Título" type="text" placeholder="Informe o título" className="field-padding"
-              flex="50" component={ Input } validate={ required }
+              flex="25" component={ Input } validate={ required }
             />
           </Row>
         </Form>
