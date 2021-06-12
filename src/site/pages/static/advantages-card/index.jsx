@@ -17,7 +17,7 @@ export default function AdvantagesCard() {
         <li>
           Opção por FAZER o Cartão de Vantagens ACIA.
           <p>
-            É necessário: – Preencher o RQ.18 – Ficha de Cadastro de Funcionário e Dependente; efetuar o pagamento da 
+            É necessário: – <a target="_blank" href="/documents/Ficha de Cadastro de Funcionario e Dependente.pdf">Preencher o RQ.18 – Ficha de Cadastro de Funcionário e Dependente</a>; efetuar o pagamento da 
             taxa anual de R$ 26,00 (vinte e seis reais);
           </p>
           <ul className="secondary-list">

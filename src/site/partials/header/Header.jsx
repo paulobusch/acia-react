@@ -56,7 +56,7 @@ class Header extends Component {
       <div>
         <header className="header">
           <div className="main">
-            <a href="./">
+            <a target="_blank" href="./">
               <img src="images/acia/logo-acia.png" alt="logo"/>
             </a>
             <i className="menu-only-mobile toggle-menu fas fa-bars" onClick={ this.toggleMenuMobile }></i>
@@ -70,7 +70,6 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/cell-network" text="LIGUE ACIA"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/meeting-room" text="AUDITÓRIO / SALA REUNIÃO"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.sicoob.com.br/web/sicoob/segunda-via-boleto" text="FINANCEIRO"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/multimedia" text="MULTIMÍDIA"/>
             </MainMenuItem>
             <MainMenuItem href="#" text="INSTITUCIONAL">

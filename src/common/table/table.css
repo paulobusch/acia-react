@@ -15,6 +15,7 @@
 }
 
 .table-grid th {
+  z-index: 1;
   font-size: 18px;
   position: sticky;
   top: 0;

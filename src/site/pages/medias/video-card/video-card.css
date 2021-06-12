@@ -1,4 +1,7 @@
 .video-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   background-position: bottom center;
   background-size: cover;
   height: 20vw;
