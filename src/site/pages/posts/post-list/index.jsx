@@ -14,6 +14,8 @@ import Row from './../../../../common/row/index';
 import Select from './../../../../common/fields/select/index';
 import { POST_SORT_DATE, POST_SORT_TYPE, POST_SORT_TITLE } from './../../../../reducers/posts/post-sort';
 import required from './../../../../common/validators/required';
+import { POST_ARTICLE } from '../../../../reducers/posts/post-type';
+import { POST_NEWS } from './../../../../reducers/posts/post-type';
 
 class PostList extends Component {
   constructor(props) {
@@ -22,10 +24,10 @@ class PostList extends Component {
     this.state = { 
       loading: true, 
       search: this.props.router.location.query.search,
-      sort: POST_SORT_TYPE
+      sort: POST_SORT_TYPE,
+      type: this.props.router.params.type
     };
-    this.type = this.props.router.params.type;
-    this.title = mapTypeToTitle(this.type);
+    this.title = mapTypeToTitle(this.state.type);
     this.afterLoad = this.afterLoad.bind(this);
     this.onSearch = this.onSearch.bind(this);
     this.onSort = this.onSort.bind(this);
@@ -35,7 +37,7 @@ class PostList extends Component {
   }
 
   componentWillMount() {
-    this.props.getAllByFilter({ type: this.type }, this.afterLoad);
+    this.props.getAllByFilter({ }, this.afterLoad);
   }
 
   afterLoad(success, list) {
@@ -69,9 +71,15 @@ class PostList extends Component {
   }
 
   applyFilter(posts) {
+    let result = posts;
     if (this.state.search) 
-      return posts.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
-    return posts;
+      result = result.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1);
+    if (this.state.type) {
+      result = this.state.type === POST_ARTICLE 
+        ? result.filter(a => [POST_ARTICLE, POST_NEWS].indexOf(a.type) !== -1)
+        : result.filter(a => a.type === this.state.type);
+    }
+    return result;
   }
 
   applySort(posts) {

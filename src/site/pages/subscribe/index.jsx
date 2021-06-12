@@ -12,6 +12,12 @@ import { generateSendMessageLink } from '../../../common/api/whatsapp';
 import { WEBSITE_WHATSAPP } from './../../../consts';
 
 class Subscribe extends Component {
+  constructor(props) {
+    super(props);
+
+    this.sendMessage = this.sendMessage.bind(this);
+  }
+
   render() {
     const { handleSubmit } = this.props;
     const whatsappMessage = 'Olá, gostaria de mais informações sobre o Cartão de Vantagens ACIA.';
@@ -21,7 +27,7 @@ class Subscribe extends Component {
         <p>É com muita satisfação que a Associação Comercial e Industrial de Anápolis – ACIA, agradece sua intenção em tornar-se um de nossos membros.
           Para associar- se Insira seus dados nos campos abaixo que entraremos em contato.</p>
         <p>Caso já seja um associado, e deseja obter o Cartão de vantagens ACIA, <a target="_blank" href={ generateSendMessageLink(WEBSITE_WHATSAPP, whatsappMessage) }>clique aqui!</a></p>
-        <Form onSubmit={ handleSubmit(() => {}) }>
+        <Form onSubmit={ handleSubmit(this.sendMessage) }>
           <Row justify="flex-start">
             <Field name="name" label="Nome Completo" type="text"
               flex="50" component={ Input } validate={ required }
@@ -37,11 +43,24 @@ class Subscribe extends Component {
             <Field name="customer" label="Empresa" type="text"
               flex="75" component={ Input }
             />
-            <SubmitButton text="ENVIAR"/>
+            <SubmitButton text="ENVIAR WHATSAPP"/>
           </Row>
         </Form>
       </div>
     );
+  }
+
+  sendMessage(values) {
+    const message = 
+    'Olá, gostaria de participar do programa de associados do ACIA\n' + 
+    'Segue informações cadastrais: \n' + 
+    ' - Nome Completo: ' + values.name + '\n' + 
+    ' - Email: ' + values.email + '\n' + 
+    ' - Telefone: ' + values.phone + '\n' + 
+    (values.customer ? ' - Empresa: ' + values.customer : '') +  '\n';
+
+    const link = generateSendMessageLink(WEBSITE_WHATSAPP, message);
+    window.open(link, '_blank');
   }
 }
 

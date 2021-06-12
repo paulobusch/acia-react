@@ -10,6 +10,7 @@ import TabsContent from './../../../../common/tabs/contents/index';
 import TabContent from './../../../../common/tabs/contents/content/index';
 import ActionList from './actions/index';
 import ArticlesList from './articles/index';
+import NewsList from './news/index';
 
 class PostListTabs extends TabsController {
   constructor(props) {
@@ -21,11 +22,15 @@ class PostListTabs extends TabsController {
       <Tabs>
         <TabsHeader>
           <TabHeader onClick={ this.changeTab } target="actions" current={ this.state.tabActive } title="Acia em Ação"/>
+          <TabHeader onClick={ this.changeTab } target="news" current={ this.state.tabActive } title="Notícias"/>
           <TabHeader onClick={ this.changeTab } target="articles" current={ this.state.tabActive } title="Artigos"/>
         </TabsHeader>
         <TabsContent>
           <TabContent id="actions" current={ this.state.tabActive }>
             <ActionList/>
+          </TabContent>
+          <TabContent id="news" current={ this.state.tabActive }>
+            <NewsList/>
           </TabContent>
           <TabContent id="articles" current={ this.state.tabActive }>
             <ArticlesList/>
