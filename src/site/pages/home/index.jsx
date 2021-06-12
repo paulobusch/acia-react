@@ -10,9 +10,7 @@ import { getAll as getAllStandards } from '../../.../../../reducers/standards/st
 import Slider from '../../common/slider/Slider';
 import ServicesSection from './sections/services';
 import OverlaySlide from './overlay-slide';
-import NewsSection from './sections/posts/news/index';
 import ArticlesSection from './sections/posts/articles/index';
-import SubmitButton from './../../../common/buttons/submit/index';
 
 class Home extends Component {
   constructor(props) {
@@ -67,7 +65,6 @@ class Home extends Component {
   }
 
   render() {
-    const news = this.getPostsBySection('Notícia');
     const articles = this.getPostsBySection('Artigo');
 
     return (
@@ -80,7 +77,6 @@ class Home extends Component {
           </a>
         </div>
         <ServicesSection />
-        <NewsSection loading={ this.state.loadingPosts } posts={ news }/>
         <ArticlesSection 
           loading={ this.state.loadingPosts } 
           loadingStandards={ this.state.loadingStandards } 

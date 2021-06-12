@@ -1,7 +1,7 @@
 import { toastr } from 'react-redux-toastr';
 
 import ActionsStorageBase from '../actions-storage-base';
-import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './post-type';
+import { POST_ACTION, POST_ARTICLE } from './post-type';
 import NewId from './../../common/random/random-id';
 
 class PostActions extends ActionsStorageBase {
@@ -179,7 +179,6 @@ class PostActions extends ActionsStorageBase {
     switch (type) {
       case POST_ACTION: return 'ACIA EM AÇÃO';
       case POST_ARTICLE: return 'ARTIGOS';
-      case POST_NEWS: return 'NOTÍCIAS';
       default: return 'POSTAGENS';
     }
   }

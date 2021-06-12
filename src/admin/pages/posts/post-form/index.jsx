@@ -11,7 +11,7 @@ import File from '../../../../common/fields/file';
 import FormBase from '../../../../common/form-base';
 import { create, update, loadForm, submitForm } from '../../../../reducers/posts/post-actions';
 import Input from '../../../../common/fields/input/index';
-import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './../../../../reducers/posts/post-type';
+import { POST_ACTION, POST_ARTICLE } from './../../../../reducers/posts/post-type';
 import TextEditor from './../../../../common/fields/text-editor/index';
 import requiredTextEditor from './../../../../common/validators/requiredTextEditor';
 import PhotoList from './media-list/photo-list/index';
@@ -38,7 +38,7 @@ class PostForm extends FormBase {
   }
 
   form() {
-    const types = [POST_NEWS, POST_ARTICLE, POST_ACTION];
+    const types = [POST_ARTICLE, POST_ACTION];
     const { handleSubmit, type } = this.props;
     const photos = this.props.photos || [];
     const videos = this.props.videos || [];
