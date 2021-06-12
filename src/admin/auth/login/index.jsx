@@ -26,7 +26,7 @@ class Auth extends Component {
   }
   
   componentWillMount() {
-    this.props.listenSessionChanged();
+    this.props.listenSessionChanged(true);
   }
 
   isValid() {

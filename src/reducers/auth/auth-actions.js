@@ -11,7 +11,7 @@ import {
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
-export function listenSessionChanged() {
+export function listenSessionChanged(isAdmin) {
   return dispatch => {
     dispatch({ type: LOADING });
     firebaseInstance.auth().onAuthStateChanged(user => {
@@ -29,7 +29,7 @@ export function listenSessionChanged() {
           });
         } else {
           dispatch({ type: LOGOUT });
-          redirectToLogin();
+          if (isAdmin) redirectToLogin();
         }        
       }
     );

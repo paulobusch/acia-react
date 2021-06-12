@@ -36,8 +36,6 @@ class AccreditedForm extends Component {
       e.preventDefault();
       e.stopPropagation();
     }
-    this.props.dispatch(reset(FORM_ID));
-    this.props.destroy();
     this.props.initialize(DEFAULT_STATE);
   }
 
