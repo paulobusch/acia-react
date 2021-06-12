@@ -5,17 +5,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import required from '../../../../common/validators/required';
-import Select from '../../../../common/fields/select';
 import Row from '../../../../common/row';
 import FormBase from '../../../../common/form-base';
 import Input from '../../../../common/fields/input/index';
 import { create, update, loadForm, submitForm } from '../../../../reducers/benefits/benefits-actions';
-import { BENEFIT_AGREEMENT, BENEFIT_HEALTH } from './../../../../reducers/benefits/benefits-type';
 import Accredited from './accredited/index';
 
 const DEFAULT_STATE = {
   title: null,
-  type: null,
   accrediteds: []
 };
 
@@ -26,24 +23,19 @@ class BenefitForm extends FormBase {
     const { router } = this.props;
     if (!this.id) {
       const data = DEFAULT_STATE;
-      if (router.params.type) data.type = router.params.type;
       this.props.initialize(data);
     }
     this.title = 'Benefício';
   }
 
   form() {
-    const types = [BENEFIT_AGREEMENT, BENEFIT_HEALTH];
     const { handleSubmit, accrediteds } = this.props;
     return (
       <div>
         <Form onSubmit={ handleSubmit(this.submit) }>
           <Row justify="flex-start">
-            <Field name="type" label="Tipo" 
-              flex="25" component={ Select } options={ types } validate={ required }
-            />
             <Field name="title" label="Título" type="text" placeholder="Informe o título" className="field-padding"
-              flex="25" component={ Input } validate={ required }
+              flex="50" component={ Input } validate={ required }
             />
           </Row>
         </Form>

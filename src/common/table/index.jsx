@@ -57,7 +57,7 @@ export default class Table extends DragBase {
       </th>;
       heads.unshift(head);
     }
-    if (this.hasActions()) heads.push(<th key="actions" className="header-actions" style={ { ...headStyles, width: `${actions.length * 50 }px` } }>Ações</th>);
+    if (this.hasActions()) heads.push(<th key="actions" className="header-actions" style={ { ...headStyles, minWidth: `${actions.length * 50 }px` } }>Ações</th>);
     return <tr>{ heads }</tr>;
   }
 

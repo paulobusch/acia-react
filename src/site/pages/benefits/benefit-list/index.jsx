@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import { reduxForm, Field, Form } from 'redux-form';
 import { withRouter } from 'react-router';
 
-import { getById, getAccrediteds, mapTypeToTitle } from '../../../../reducers/benefits/benefits-actions';
+import { getById, getAccrediteds } from '../../../../reducers/benefits/benefits-actions';
 import Loading from '../../../../common/loading/index';
 import BenefitCard from './benefit-card/index';
 import Input from './../../../../common/fields/input/index';
@@ -38,7 +38,6 @@ class BenefitList extends Component {
       const accrediteds = getAccrediteds([data]); 
       this.setState({
         ...this.state,
-        title: mapTypeToTitle(data.type),
         loading: false,
         fullAccrediteds: accrediteds,
         filtredAccrediteds: this.applySort(this.applyFilter(accrediteds))
@@ -49,7 +48,7 @@ class BenefitList extends Component {
   render() {
     return (
       <div id="benefit-list">
-        <h2>{ this.state.title }</h2>
+        <h2>REDE DE CONVÊNIOS</h2>
         { this.searchForm() }
         <div className="benefits">
           { this.list() }

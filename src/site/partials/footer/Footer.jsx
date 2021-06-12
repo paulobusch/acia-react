@@ -17,6 +17,12 @@ export default () => {
           <ul className="block-list">
             <li><a target="_blank" href="/"><img src="images/acia/logo-acia-white.png"/></a></li>
           </ul>
+          <ul className="social-list">
+            <li><a target="_blank" href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCO4ScvIkaZpjLdytMBrYvmA"><i className="fab fa-youtube"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
+          </ul>
         </li>
         <li>
           <h4>INFORMAÇÕES</h4>
@@ -27,40 +33,7 @@ export default () => {
             <li><a target="_blank" href={ generateAddContactLink(WEBSITE_WHATSAPP) }><i className="fab fa-whatsapp-square"></i> { WEBSITE_WHATSAPP }</a></li>
           </ul>
         </li>
-        <li>
-          <h4>EMPRESAS</h4>
-          <ul className="block-list">
-            <li><a target="_blank" href="/#/digital-certificate">CERTIFICADO DIGITAL</a></li>
-            <li><a target="_blank" href="/#/conciliation-court">CORTE DE CONCILIAÇÃO</a></li>
-            <li><a target="_blank" href="/#/advantages-card">CARTÃO DE VANTAGENS</a></li>
-            <li><a target="_blank" href="/#/acia-cred">ACIA CRED</a></li>
-          </ul>
-        </li>
-        <li>
-          <h4>INSTITUCIONAL</h4>
-          <ul className="block-list">
-            <li><a target="_blank" href="/#/acia-woman">ACIA MULHER</a></li>
-            <li><Link to={ `/posts/${encodeURIComponent(POST_ACTION)}` }>{ POST_ACTION.toUpperCase() }</Link></li>
-            <li><a target="_blank" href="https://www.aciaanapolis.com.br/polodedefesa">POLO DE DEFESA</a></li>
-            <li><a target="_blank" href="/#/policy-quality">POLÍTICA DE QUALIDADE</a></li>
-            <li><a target="_blank" href="#">POLÍTICA DE PRIVACIDADE</a></li>
-          </ul>
-        </li>
-        <li className="autosize">
-          <h4>ANÁPOLIS</h4>
-          <ul className="block-list">
-            <li><a target="_blank" href="/#/history">HISTÓRIA</a></li>
-            <li><a target="_blank" href="/#/geographical-information">INFORMAÇÕES GEOGRÁFICAS</a></li>
-            <li><a target="_blank" href="/#/relevant-informations">INFORMAÇÕES RELEVANTES</a></li>
-          </ul>
-          <ul className="social-list">
-            <li><a target="_blank" href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
-            <li><a target="_blank" href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
-            <li><a target="_blank" href="https://www.youtube.com/channel/UCO4ScvIkaZpjLdytMBrYvmA"><i className="fab fa-youtube"></i></a></li>
-            <li><a target="_blank" href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
-          </ul>
-        </li>
-      </ul>        
+      </ul>
       <div className="bottom">
         <span>
           <i className="far fa-copyright"></i>&nbsp;

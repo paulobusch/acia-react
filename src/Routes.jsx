@@ -15,7 +15,7 @@ import SlideList from './admin/pages/slides/slide-list';
 import SlideForm from './admin/pages/slides/slide-form';
 import PostListTabs from './admin/pages/posts/post-list';
 import MediaListTabs from './admin/pages/medias/media-list';
-import BenefitListTabs from './admin/pages/benefits/benefit-list';
+import BenefitList from './admin/pages/benefits/benefit-list';
 import UserListTabs from './admin/pages/users/user-list';
 import BoardTabs from './admin/pages/boards/board-list';
 import PostForm from './admin/pages/posts/post-form';
@@ -46,7 +46,7 @@ import ServiceList from './admin/pages/services/service-list/index';
 import ServiceForm from './admin/pages/services/service-form';
 import StandardList from './admin/pages/standards/standard-list';
 import StandardForm from './admin/pages/standards/standard-form';
-import BenefitList from './site/pages/benefits/benefit-list';
+import Benefits from './site/pages/benefits/benefit-list';
 import BenefitDetail from './site/pages/benefits/benefit-detail';
 import BoardForm from './admin/pages/boards/board-form';
 import BoardDetail from './site/pages/board/index';
@@ -71,9 +71,9 @@ export default () => (
         <Route path="posts/view/:id" component={ PostDetail }/>
         <Route path="posts/:type" component={ PostList }/>
         <Route path="posts" component={ PostList }/>
-        <Route path="standards/:type" component={ Standards }/>
+        <Route path="standards" component={ Standards }/>
         <Route path="benefits/view/:id" component={ BenefitDetail }/>
-        <Route path="benefits/:id" component={ BenefitList }/>
+        <Route path="benefits/:id" component={ Benefits }/>
         <Route path="page/view/:id" component={ Page }/>
         <Route path="services" component={ Services }/>
         <Route path="multimedia" component={ MediaList }/>
@@ -114,10 +114,8 @@ export default () => (
         <Route path="multimedia/:tab" component={ MediaListTabs }/>
         <Route path="multimedia" component={ MediaListTabs }/>
         <Route path="benefits/new" component={ BenefitForm }/>
-        <Route path="benefits/new/:type" component={ BenefitForm }/>
         <Route path="benefits/edit/:id" component={ BenefitForm }/>
-        <Route path="benefits/:tab" component={ BenefitListTabs }/>
-        <Route path="benefits" component={ BenefitListTabs }/>
+        <Route path="benefits" component={ BenefitList }/>
         <Route path="services/new" component={ ServiceForm }/>
         <Route path="services/edit/:id" component={ ServiceForm }/>
         <Route path="services" component={ ServiceList }/>

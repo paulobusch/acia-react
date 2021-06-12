@@ -84,10 +84,7 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/geographical-information" text="INFORMAÇÕES GEOGRÁFICAS"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/relevant-informations" text="INFORMAÇÕES RELEVANTES"/>
             </MainMenuItem>
-            <MainMenuItem href="#" text="BENEFÍCIOS">
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Convênio" text="REDE DE CONVÊNIOS"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards/Saúde" text="GUIA SAÚDE"/>
-            </MainMenuItem>
+            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards" text="REDE DE CONVÊNIOS"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/contact" text="CONTATO"/>
             <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
           </MainMenu>

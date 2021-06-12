@@ -1,39 +1,35 @@
-import React from 'react';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router';
 
-import TabsController from './../../../../common/tabs/controller';
-import Tabs from './../../../../common/tabs/index';
-import TabsHeader from './../../../../common/tabs/headers/index';
-import TabHeader from './../../../../common/tabs/headers/header/index';
-import TabsContent from './../../../../common/tabs/contents/index';
-import TabContent from './../../../../common/tabs/contents/content/index';
-import AgreementsList from './agreements/index';
-import HealthsList from './healths/index';
+import ListBase from '../../../partials/list-base';
+import { getAllByFilter, remove } from '../../../../reducers/benefits/benefits-actions';
 
-class BenefitListTabs extends TabsController {
+class BenefitList extends ListBase {
   constructor(props) {
-    super(props, 'agreements');
+    super(props);
+
+    this.title = 'Benefícios';
+    this.className = 'page-benefit-list';
   }
 
-  render() {
-    return (
-      <Tabs>
-        <TabsHeader>
-          <TabHeader onClick={ this.changeTab } target="agreements" current={ this.state.tabActive } title="Convênios"/>
-          <TabHeader onClick={ this.changeTab } target="healths" current={ this.state.tabActive } title="Saúde"/>
-        </TabsHeader>
-        <TabsContent>
-          <TabContent id="agreements" current={ this.state.tabActive }>
-            <AgreementsList />
-          </TabContent>
-          <TabContent id="healths" current={ this.state.tabActive }>
-            <HealthsList />
-          </TabContent>
-        </TabsContent>
-      </Tabs>
-    );
+  componentWillMount() {
+    this.toggleLoading(true);
+    this.props.getAllByFilter({  }, this.afterLoad);
+  }
+
+  configure() {
+    this.tableColumns = [
+      { prop: 'title', label: 'Título', flex: 90 },
+      { prop: 'accrediteds', label: 'Conveniados', textAlign: 'center', flex: 10, format: accrediteds => accrediteds.length }
+    ];
+  }
+  
+  getList() {
+    return this.props.benefits;
   }
 }
 
-export default withRouter(BenefitListTabs);
+const mapStateToProps = state => ({ benefits: state.benefits });
+const mapDispatchToProps = dispatch => bindActionCreators({ getAllByFilter, remove }, dispatch);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(BenefitList));

@@ -8,17 +8,19 @@ import Input from './../../../common/fields/input/index';
 import phone from './../../../common/validators/phone';
 import SubmitButton from '../../../common/buttons/submit';
 import email from './../../../common/validators/email';
+import { generateSendMessageLink } from '../../../common/api/whatsapp';
+import { WEBSITE_WHATSAPP } from './../../../consts';
 
 class Subscribe extends Component {
   render() {
     const { handleSubmit } = this.props;
+    const whatsappMessage = 'Olá, gostaria de mais informações sobre o Cartão de Vantagens ACIA.';
     return (
       <div id="subscribe">
         <h2>ASSOCIE-SE</h2>
         <p>É com muita satisfação que a Associação Comercial e Industrial de Anápolis – ACIA, agradece sua intenção em tornar-se um de nossos membros.
-          Para associar- se Insira seus dados nos campos abaixo que entraremos em contato.
-          Caso já seja um associado, e deseja obter o Cartão de vantagens ACIA, clique aqui!</p>
-        <p>Caso queira obter, de imediato, nosso Cadastro de Sócio Contribuinte, <a target="_blank" href="https://www.aciaanapolis.com.br/site/userfiles/forms/cadastro_socio_contribuinte.pdf">clique aqui!</a></p>
+          Para associar- se Insira seus dados nos campos abaixo que entraremos em contato.</p>
+        <p>Caso já seja um associado, e deseja obter o Cartão de vantagens ACIA, <a target="_blank" href={ generateSendMessageLink(WEBSITE_WHATSAPP, whatsappMessage) }>clique aqui!</a></p>
         <Form onSubmit={ handleSubmit(() => {}) }>
           <Row justify="flex-start">
             <Field name="name" label="Nome Completo" type="text"

@@ -9,7 +9,7 @@ import { withRouter, hashHistory } from 'react-router';
 import Loading from '../../../common/loading/index';
 import Input from './../../../common/fields/input/index';
 import Message from './../../../common/message/index';
-import { getAllByFilter, mapTypeToTitle } from '../../../reducers/benefits/benefits-actions';
+import { getAllByFilter } from '../../../reducers/benefits/benefits-actions';
 import { STANDARD_SORT_COUNT, STANDARD_SORT_DATE, STANDARD_SORT_TITLE } from './../../../reducers/standards/standard-sort';
 import Row from './../../../common/row/index';
 import Select from './../../../common/fields/select/index';
@@ -20,8 +20,6 @@ class Standards extends Component {
     super(props);
 
     this.state = { loading: true, sort: STANDARD_SORT_DATE };
-    this.type = this.props.router.params.type;
-    this.title = mapTypeToTitle(this.type);
     this.afterLoad = this.afterLoad.bind(this);
     this.onSearch = this.onSearch.bind(this);
     this.onSort = this.onSort.bind(this);
@@ -30,15 +28,7 @@ class Standards extends Component {
   }
 
   componentWillMount() {
-    this.props.getAllByFilter({ type: this.type }, this.afterLoad);
-  }
-
-  componentWillUpdate() {
-    if (this.type === this.props.router.params.type) return;
-    this.type = this.props.router.params.type;
-    this.title = mapTypeToTitle(this.type);
-    this.setState({ ...this.state, loading: true });
-    this.props.getAllByFilter({ type: this.type }, this.afterLoad);
+    this.props.getAllByFilter({ }, this.afterLoad);
   }
 
   afterLoad(success, list) {
@@ -55,7 +45,7 @@ class Standards extends Component {
   render() {
     return (
       <div id="standard-list">
-        <h2>{ this.title }</h2>
+        <h2>REDE DE CONVÊNIOS</h2>
         { this.searchForm() }
         <div className="standards">
           { this.list() }

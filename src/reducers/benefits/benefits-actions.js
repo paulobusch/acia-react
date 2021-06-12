@@ -13,7 +13,7 @@ class BenefitActions extends ActionsStorageBase {
   mapTypeToTitle(type) {
     switch (type) {
       case BENEFIT_AGREEMENT: return 'GUIA DE CONVÊNIOS';
-      case BENEFIT_HEALTH: return 'GUIA DE SAÚDE';
+      case BENEFIT_HEALTH: return 'REDE DE CONVÊNIOS';
       default: throw Error('Not implemented');
     }
   }

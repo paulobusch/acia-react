@@ -17,7 +17,8 @@
 
 .video-card .video {
   width: 100%;
-  height: calc(100% - 40px);
+  height: calc(100% - 80px);
+  flex-shrink: 0;
   border: none;
   border-bottom-right-radius: 0;
   background-color: #ddd;
