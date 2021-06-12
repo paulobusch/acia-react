@@ -1,0 +1,80 @@
+.search-card {
+  width: 100%;
+  cursor: pointer;
+  box-sizing: border-box;
+  text-decoration: none;
+  display: block;
+  transition: .2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  line-height: 1.5;
+  margin: 5px 0;
+  color: black;
+  box-shadow: 2px 2px 5px #ddd;
+  border: 1px solid #ddd;
+  min-height: 10vw;
+  text-align: justify;
+  border-radius: 5px;
+}
+
+.search-card:hover {
+  background-color: #e1f0ff;
+}
+
+.search-card .mobile-title {
+  display: none;
+}
+
+.search-card .image {
+  border-radius: 5px;
+  background-position: center;
+  background-size: cover;
+}
+
+.search-card .icon {
+  font-size: 80px;
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-card .image,
+.search-card .icon {
+  height: 100%;
+  flex-basis: 20%;
+}
+
+.search-card .about {
+  flex-grow: 1;
+  padding-left: 15px;
+}
+
+.search-card h3 {
+  margin: 0;
+  color: var(--primary);
+}
+
+@media only screen and (max-width: 1200px) {
+  .search-card {
+    flex-direction: column;
+  }
+  
+  .search-card h3 {
+    text-align: center;
+  }
+
+  .search-card .image {
+    min-height: 40vw;
+  }
+
+  .search-card .mobile-title {
+    display: block;
+  }
+
+  .search-card .desktop-title {
+    display: none;
+  }
+}

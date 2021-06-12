@@ -38,7 +38,7 @@ class Header extends Component {
 
   search(search) {
     if (search)
-      hashHistory.push(`/posts?search=${search}`);
+      hashHistory.push(`/search?query=${search}`);
     this.toggleSearch();
   }
 

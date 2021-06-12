@@ -9,7 +9,6 @@ import Row from '../../../../common/row';
 import FormBase from '../../../../common/form-base';
 import Input from './../../../../common/fields/input/index';
 import { create, update, loadForm, submitForm } from '../../../../reducers/services/service-actions';
-import url from './../../../../common/validators/url/url';
 import TextArea from './../../../../common/fields/textarea/index';
 import maxLength from './../../../../common/validators/length/max-length';
 
@@ -51,7 +50,7 @@ class ServiceForm extends FormBase {
             flex="25" component={ Input } validate={ required }
           />
           <Field name="link" label="Link" type="text" placeholder="Informe o link" 
-            flex="50" component={ Input } validate={ [required, url] }
+            flex="50" component={ Input } validate={ [required] }
           />
         </Row>
         <Row>

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { reduxForm, Field, Form } from 'redux-form';
-import { withRouter, hashHistory } from 'react-router';
+import { withRouter } from 'react-router';
 
 import { getAll } from '../../../reducers/services/service-actions';
 import Loading from '../../../common/loading/index';

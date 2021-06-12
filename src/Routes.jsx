@@ -58,6 +58,7 @@ import Standards from './site/pages/standards';
 import Services from './site/pages/services';
 import Contact from './site/pages/contact/index';
 import History from './site/pages/static/history/index';
+import SearchList from './site/pages/search';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -93,6 +94,7 @@ export default () => (
         <Route path="cell-network" component={ CellNetwork }/>
         <Route path="history" component={ History }/>
         <Route path="contact" component={ Contact }/>
+        <Route path="search" component={ SearchList }/>
       </Route>
       <Route exact path="/login" component={ Auth } />
       <Route exact path="/logout" component={ Logout } />

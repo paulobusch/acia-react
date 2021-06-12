@@ -1,5 +1,3 @@
-import { toastr } from 'react-redux-toastr';
-
 import ActionsStorageBase from './../actions-storage-base';
 
 class ServiceActions extends ActionsStorageBase {

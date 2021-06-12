@@ -12,6 +12,7 @@ import StandardsReducer from './standards/standard-reducer';
 import BoardsReducer from './boards/board-reducer';
 import UsersReducer from './users/user-reducer';
 import PagesReducer from './pages/page-reducer';
+import SearchReducer from './search/search-reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
   standards: StandardsReducer,
   boards: BoardsReducer,
   users: UsersReducer,
-  pages: PagesReducer
+  pages: PagesReducer,
+  search: SearchReducer
 });
 
 export default rootReducer;

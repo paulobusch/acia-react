@@ -239,8 +239,8 @@ export default class ActionsStorageBase {
     };
   }
 
-  getCollection() {
-    return firebaseInstance.firestore().collection(this.collectionName);
+  getCollection(collection) {
+    return firebaseInstance.firestore().collection(collection || this.collectionName);
   }
 
   getPath(fileName) {
