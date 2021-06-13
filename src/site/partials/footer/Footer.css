@@ -20,7 +20,7 @@ footer .main-list {
 }
 
 footer .main-list li {
-  flex-basis: 18%;
+  flex-basis: 25%;
   margin: 10px 0;
 }
 
@@ -73,6 +73,7 @@ footer .social-list {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 footer .social-list a {
