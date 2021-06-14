@@ -71,7 +71,7 @@ class Home extends Component {
       <div id="home">
         <div className="slides-container">
           <Slider slides={ this.props.slides.map(s => this.mapSlideData(s)) } timeTransition={ 10000 }/>
-          <a target="_blank" className="join" href="/#/subscribe">
+          <a className="join" href="/#/subscribe">
             <i className="fas fa-handshake"></i>
             <span>ASSOCIE-SE! CLIQUE AQUI E FAÇA SEU PRÉ CADASTRO QUE ENTRAREMOS EM CONTATO</span>
           </a>

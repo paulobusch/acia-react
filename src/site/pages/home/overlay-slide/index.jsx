@@ -26,7 +26,7 @@ function getButton(props) {
     <div className="template-slide-about-bg">
       <div className="template-slide-about">
         { getTitle(props) }
-        <a target="_blank" href={ props.url }>SAIBA MAIS</a>
+        <a href={ props.url }>SAIBA MAIS</a>
       </div>
     </div>
   );

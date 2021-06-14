@@ -15,7 +15,7 @@ export default () => {
       <ul className="main-list">
         <li>
           <ul className="block-list">
-            <li><a target="_blank" href="/"><img src="images/acia/logo-acia-white.png"/></a></li>
+            <li><a href="/"><img src="images/acia/logo-acia-white.png"/></a></li>
           </ul>
           <ul className="social-list">
             <li><a target="_blank" href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
@@ -39,7 +39,7 @@ export default () => {
           <i className="far fa-copyright"></i>&nbsp;
           COPYRIGHT ACIA - ASSOCIAÇÃO COMERCIAL E INDUSTRIAL DE ANÁPOLIS - { year }
         </span>
-        <a target="_blank" href="https://gritealto.com" target="_blank">
+        <a href="https://gritealto.com">
           Powered by GriteAlto
         </a>         
       </div>

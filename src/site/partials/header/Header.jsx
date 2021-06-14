@@ -56,7 +56,7 @@ class Header extends Component {
       <div>
         <header className="header">
           <div className="main">
-            <a target="_blank" href="./">
+            <a href="./">
               <img src="images/acia/logo-acia.png" alt="logo"/>
             </a>
             <i className="menu-only-mobile toggle-menu fas fa-bars" onClick={ this.toggleMenuMobile }></i>
@@ -75,7 +75,7 @@ class Header extends Component {
             <MainMenuItem href="#" text="INSTITUCIONAL">
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/about" text="QUEM SOMOS"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/boards" text="DIRETORIA"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" target="_blank" text="ARQUIVO HISTÓRICO"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href={ `/#/posts/${encodeURIComponent(POST_ACTION)}` } text={ POST_ACTION.toUpperCase() }/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/acia-woman" text="ACIA MULHER"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/polodedefesa" text="POLO DE DEFESA"/>

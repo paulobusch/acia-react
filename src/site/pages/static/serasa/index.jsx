@@ -23,9 +23,9 @@ export default function Serasa() {
       </ul>
       <p>Estamos à disposição através do nosso SUPORTE DE ATENDIMENTO ACIA, pessoalmente ou através dos seguintes contatos:</p>
       <p>Telefone: <span className="bold">62 4014-7012</span></p>
-      <p>Email: <a target="_blank" className="email" href="mailto:suporte.servico@aciaanapolis.com.br">suporte.servico@aciaanapolis.com.br</a></p>
+      <p>Email: <a className="email" href="mailto:suporte.servico@aciaanapolis.com.br">suporte.servico@aciaanapolis.com.br</a></p>
       <hr />
-      <a className="login-link" href="https://sitenet.serasa.com.br/Logon/index.jsp" target="_blank">ACESSAR TELA PARA LOGIN</a>
+      <a className="login-link" href="https://sitenet.serasa.com.br/Logon/index.jsp">ACESSAR TELA PARA LOGIN</a>
     </div>
   );
 }

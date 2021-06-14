@@ -42,7 +42,7 @@ export default class MainMenuItem extends Component {
   render() {
     return (
       <li className={ `main-menu-item ${this.props.onlymobile ? 'main-menu-item-only-mobile' : ''}` }>
-        <a href={ this.props.href } onClick={ this.onClick } target="_blank">
+        <a href={ this.props.href } onClick={ this.onClick } target={ this.props.target }>
           { this.props.text }
           <If test={ this.props.children }>
             <i className="icon-dropdown fas fa-sort-down"></i>
