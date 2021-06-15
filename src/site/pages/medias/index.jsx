@@ -1,25 +1,23 @@
-import './media-list.css';
+import './medias.css';
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { withRouter, Link } from 'react-router';
 
-import { MEDIA_PHOTO, MEDIA_VIDEO } from './../../../reducers/medias/media-type';
-import { getAll } from '../../../reducers/medias/media-actions';
 import Loading from './../../../common/loading/index';
-import PhotoCard from './photo-card/index';
-import VideoCard from './video-card/index';
+import Message from './../../../common/message/index';
+import { Link } from 'react-router';
 
-class MediaList extends Component {
-  constructor(props) {
+const TAKE = 8;
+export default class MediaListBase extends Component {
+  constructor(props, type) {
     super(props);
 
-    this.state = { loading: true, viewAllPhotos: false };
-    this.type = this.props.router.params.type;
+    this.type = type;
+    this.state = { loading: true, page: 1 };
     this.afterLoad = this.afterLoad.bind(this);
-    this.toggleViewAllPhotos = this.toggleViewAllPhotos.bind(this);
+    this.nextPage = this.nextPage.bind(this);
   }
+
+  card(props) { }
 
   componentWillMount() {
     this.props.getAll(this.afterLoad);
@@ -27,72 +25,64 @@ class MediaList extends Component {
 
   afterLoad(success, list) {
     if (success) {
+      const cards = this.applyFilter(list);
       this.setState({
         ...this.state,
         loading: false,
-        medias: list
+        allCards: cards,
+        paginatedCards: this.applyPagination(cards)
       });
     }
+  }
+
+  applyFilter(list) {
+    return list.filter(m => m.type === this.type);
+  }
+
+  applyPagination(list) {
+    return list.slice(0, this.state.page * TAKE);
+  }
+
+  nextPage() {
+    this.setState({
+      ...this.state,
+      page: this.state.page + 1
+    }, () => {
+      this.setState({
+        ...this.state,
+        paginatedCards: this.applyPagination(this.state.allCards)
+      }); 
+    });
   }
 
   render() {
     return (
       <div id="media-list">
-        <h4>MULTIMÍDIA</h4>
-        { this.container() }
-      </div>
-    );
-  }
-
-  container() {
-    const { medias, loading } = this.state;
-    if (loading) return <Loading style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
-
-    const photos = medias.filter(m => m.type === MEDIA_PHOTO);
-    const videos = medias.filter(m => m.type === MEDIA_VIDEO);
-
-    return (
-      <div>
         <h2>FOTOS</h2>
-        <div className="photos">
-          { 
-            this.photos(photos) 
-            // this.state.viewAllPhotos 
-            //   ? this.photos(photos) 
-            //   : this.galeryPhotos()
-          }
-        </div>
-        <h2>VÍDEOS</h2>
-        <div className="videos">
-          { this.videos(videos) }
-        </div>
+        { this.cards() }
       </div>
     );
   }
 
-  toggleViewAllPhotos() {
-    this.setState({
-      ...this.state,
-      viewAllPhotos: !this.state.viewAllPhotos
-    });
-  }
+  cards() {
+    const { paginatedCards, loading } = this.state;
+    if (loading) return <Loading style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
+    if (paginatedCards.length === 0) return <Message />
 
-  galeryPhotos() {
     return (
       <div>
-        <Link className="link-view-all" onClick={ this.toggleViewAllPhotos }>Ver Todos</Link>
+        <div className="media-cards">
+          { paginatedCards.map(p => this.card(p)) }
+        </div>
+        { this.buttonLoadMore() }
       </div>
     );
   }
 
-  photos(list) {
-    return list.map(p => <PhotoCard key={ p.id } { ...p }/>);
-  }
-
-  videos(list) {
-    return list.map(p => <VideoCard key={ p.id } { ...p }/>);
+  buttonLoadMore() {
+    const records = this.state.page * TAKE;
+    if (this.state.allCards.length <= records) return false;
+    if (this.state.allCards.length === this.state.paginatedCards.length) return false;
+    return (<Link onClick={ this.nextPage } className="link-load-more">Carregar mais</Link>);
   }
 }
-
-const mapDispatchToProps = dispatch => bindActionCreators({ getAll }, dispatch);
-export default connect(null, mapDispatchToProps)(withRouter(MediaList));

@@ -18,9 +18,9 @@
   color: var(--grey);
 }
 
-#media-list a.link-view-all {
+#media-list a.link-load-more {
   opacity: .8;
-  width: 100px;
+  width: 200px;
   margin: 25px auto;
   transition: .2s;
   cursor: pointer;
@@ -32,7 +32,7 @@
   color: var(--primary);
 }
 
-#media-list a.link-view-all:hover {
+#media-list a.link-load-more:hover {
   opacity: 1;
 }
 

@@ -71,7 +71,8 @@ class Header extends Component {
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/cell-network" text="LIGUE ACIA"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/meeting-room" text="AUDITÓRIO / SALA REUNIÃO"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/multimedia" text="MULTIMÍDIA"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/photos" text="FOTOS"/>
+              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/videos" text="VÍDEOS"/>
             </MainMenuItem>
             <MainMenuItem href="#" text="INSTITUCIONAL">
               <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/about" text="QUEM SOMOS"/>

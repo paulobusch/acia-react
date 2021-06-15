@@ -59,6 +59,8 @@ import Services from './site/pages/services';
 import Contact from './site/pages/contact/index';
 import History from './site/pages/static/history/index';
 import SearchList from './site/pages/search';
+import PhotoList from './site/pages/medias/photos';
+import VideoList from './site/pages/medias/videos';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
   && __REDUX_DEVTOOLS_EXTENSION__();
@@ -78,6 +80,8 @@ export default () => (
         <Route path="page/view/:id" component={ Page }/>
         <Route path="services" component={ Services }/>
         <Route path="multimedia" component={ MediaList }/>
+        <Route path="photos" component={ PhotoList }/>
+        <Route path="videos" component={ VideoList }/>
         <Route path="boards" component={ BoardDetail }/>
         <Route path="about" component={ About }/>
         <Route path="president" component={ President }/>

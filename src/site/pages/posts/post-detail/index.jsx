@@ -8,8 +8,8 @@ import { getIdByRouter } from '../../../../common/api/router';
 import { connect } from 'react-redux';
 import { removeScripts } from '../../../../common/api/html';
 import { withRouter } from 'react-router';
-import VideoCard from './../../medias/video-card/index';
-import PhotoCard from './../../medias/photo-card/index';
+import PhotoCard from './../../medias/photos/photo-card/index';
+import VideoCard from './../../medias/videos/video-card/index';
 
 class PostDetail extends Component {
   constructor(props) {

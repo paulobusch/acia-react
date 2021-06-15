@@ -2,7 +2,7 @@ import './video-card.css';
 
 import React from 'react';
 
-import { getYoutubeLink } from '../../../../common/api/youtube';
+import { getYoutubeLink } from '../../../../../common/api/youtube';
 
 export default function VideoCard(props) {
   const { url, title, flexBasis } = props;

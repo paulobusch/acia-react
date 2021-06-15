@@ -1,7 +1,7 @@
 import './meeting-room.css'
 
 import React from 'react';
-import PhotoCard from './../../medias/photo-card/index';
+import PhotoCard from './../../medias/photos/photo-card/index';
 
 export default function MeetingRoom() {
   const images = [
