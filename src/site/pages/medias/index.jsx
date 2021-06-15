@@ -3,7 +3,7 @@ import './media-list.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router';
+import { withRouter, Link } from 'react-router';
 
 import { MEDIA_PHOTO, MEDIA_VIDEO } from './../../../reducers/medias/media-type';
 import { getAll } from '../../../reducers/medias/media-actions';
@@ -15,9 +15,10 @@ class MediaList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true };
+    this.state = { loading: true, viewAllPhotos: false };
     this.type = this.props.router.params.type;
     this.afterLoad = this.afterLoad.bind(this);
+    this.toggleViewAllPhotos = this.toggleViewAllPhotos.bind(this);
   }
 
   componentWillMount() {
@@ -54,12 +55,32 @@ class MediaList extends Component {
       <div>
         <h2>FOTOS</h2>
         <div className="photos">
-          { this.photos(photos) }
+          { 
+            this.photos(photos) 
+            // this.state.viewAllPhotos 
+            //   ? this.photos(photos) 
+            //   : this.galeryPhotos()
+          }
         </div>
         <h2>VÍDEOS</h2>
         <div className="videos">
           { this.videos(videos) }
         </div>
+      </div>
+    );
+  }
+
+  toggleViewAllPhotos() {
+    this.setState({
+      ...this.state,
+      viewAllPhotos: !this.state.viewAllPhotos
+    });
+  }
+
+  galeryPhotos() {
+    return (
+      <div>
+        <Link className="link-view-all" onClick={ this.toggleViewAllPhotos }>Ver Todos</Link>
       </div>
     );
   }

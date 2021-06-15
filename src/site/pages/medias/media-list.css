@@ -18,6 +18,24 @@
   color: var(--grey);
 }
 
+#media-list a.link-view-all {
+  opacity: .8;
+  width: 100px;
+  margin: 25px auto;
+  transition: .2s;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+#media-list a.link-view-all:hover {
+  opacity: 1;
+}
+
 @media only screen and (max-width: 500px) {
   #media-list .photos,
   #media-list .videos {
