@@ -6,19 +6,24 @@ import DocumentCard from './document-card/index';
 export default function ConciliationCourt() {
   const documents = [
     { 
-      title: 'Regimento',
-      url: 'https://www.aciaanapolis.com.br/site/wp-content/uploads/2021/04/regimento_interno_2021.pdf',
-      description: 'Clique no botão abaixo e leia o Regimento da 1ª Corte de Conciliação e Arbitragem da Anápolis:'
+      title: 'Portaria',
+      url: '/documents/ALTERAÇÃO REGIMENTO INTERNO.pdf',
+      description: 'Clique no botão abaixo e tenha acesso a Portaria'
     },
     { 
-      title: 'Consultar Valores',
-      url: 'https://www.aciaanapolis.com.br/site/wp-content/uploads/2021/04/PORTARIA_001_REAJUSTESCORTE.pdf',
-      description: 'Tabela de Custas da 1ª Corte de Conciliação e Arbitragem:'
+      title: 'Regimento Interno',
+      url: '/documents/Regimento.Interno.1ªCCA.JUNHO-21.pdf',
+      description: 'Clique no botão abaixo e leia o Regimento da 1ª Corte de Conciliação e Arbitragem da Anápolis'
     },
     { 
-      title: 'Modelo de Cláusula',
-      url: 'https://www.aciaanapolis.com.br/site/wp-content/uploads/2021/04/MODELO_DE_CL%c3%81USULA_COMPROMISS%c3%93RIA_DA_1%c2%aa_CCA_v2.pdf',
-      description: 'Baixe o modelo de Cláusula para o seu Contrato:'
+      title: 'Tabela de Custos',
+      url: '/documents/TABELA DE CUSTAS JUNHO-21.pdf',
+      description: 'Baixe a Tabela de Custos para o seu Contrato'
+    },
+    { 
+      title: 'Cláusula',
+      url: '/documents/MODELO_DE_CLÁUSULA_COMPROMISSÓRIA_DA_1ª_CCA_v2.pdf',
+      description: 'Baixe a Cláusula para o seu Contrato'
     }
   ];
 

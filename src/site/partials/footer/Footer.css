@@ -70,6 +70,7 @@ footer .main-list li:last-of-type {
 
 footer .social-list {
   bottom: 0;
+  flex-basis: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,7 +93,12 @@ footer .social-list i:hover {
   color: rgb(219, 219, 219);
 }
 
-
+footer .social {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 footer .bottom {
   display: flex;

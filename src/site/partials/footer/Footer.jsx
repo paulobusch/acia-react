@@ -17,12 +17,6 @@ export default () => {
           <ul className="block-list">
             <li><a href="/"><img src="images/acia/logo-acia-white.png"/></a></li>
           </ul>
-          <ul className="social-list">
-            <li><a target="_blank" href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
-            <li><a target="_blank" href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
-            <li><a target="_blank" href="https://www.youtube.com/channel/UCO4ScvIkaZpjLdytMBrYvmA"><i className="fab fa-youtube"></i></a></li>
-            <li><a target="_blank" href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
-          </ul>
         </li>
         <li>
           <h4>INFORMAÇÕES</h4>
@@ -31,6 +25,14 @@ export default () => {
             <li><a target="_blank" href={ `mailto:${WEBSITE_EMAIL}` }><i className="fas fa-envelope"></i> { WEBSITE_EMAIL }</a></li>
             <li><a target="_blank" href={ `tel:55${WEBSITE_LANDLINE.replace(/\D/g, '')}` }><i className="fas fa-phone-alt"></i> { WEBSITE_LANDLINE }</a></li>
             <li><a target="_blank" href={ generateAddContactLink(WEBSITE_WHATSAPP) }><i className="fab fa-whatsapp-square"></i> { WEBSITE_WHATSAPP }</a></li>
+          </ul>
+        </li>
+        <li className="social">
+          <ul className="social-list">
+            <li><a target="_blank" href="https://www.instagram.com/aciaanapolisoficial"><i className="fab fa-instagram"></i></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/acia.anapolis"><i className="fab fa-facebook"></i></a></li>
+            <li><a target="_blank" href="https://www.youtube.com/channel/UCO4ScvIkaZpjLdytMBrYvmA"><i className="fab fa-youtube"></i></a></li>
+            <li><a target="_blank" href="https://twitter.com/aciaanapolis"><i className="fab fa-twitter-square"></i></a></li>
           </ul>
         </li>
       </ul>
