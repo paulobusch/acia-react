@@ -11,6 +11,8 @@ import Slider from '../../common/slider/Slider';
 import ServicesSection from './sections/services';
 import OverlaySlide from './overlay-slide';
 import ArticlesSection from './sections/posts/articles/index';
+import { POST_ARTICLE, POST_NEWS } from './../../../reducers/posts/post-type';
+import StandardsSection from './sections/standards/index';
 
 class Home extends Component {
   constructor(props) {
@@ -58,15 +60,13 @@ class Home extends Component {
     });
   }
 
-  getPostsBySection(type) {
+  getArticles() {
     return this.props.posts
-      .filter(p => p.type === type)
+      .filter(p => [POST_ARTICLE, POST_NEWS].indexOf(p.type) !== -1)
       .slice(0, 3);
   }
 
   render() {
-    const articles = this.getPostsBySection('Artigo');
-
     return (
       <div id="home">
         <div className="slides-container">
@@ -77,12 +77,8 @@ class Home extends Component {
           </a>
         </div>
         <ServicesSection />
-        <ArticlesSection 
-          loading={ this.state.loadingPosts } 
-          loadingStandards={ this.state.loadingStandards } 
-          posts={ articles }
-          standards={ this.props.standards }
-        />
+        <ArticlesSection loading={ this.state.loadingPosts } posts={ this.getArticles() }/>
+        <StandardsSection loading={ this.state.loadingStandards } standards={ this.props.standards }/>
       </div>
     );
   }

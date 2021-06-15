@@ -12,8 +12,8 @@ export default function OverlaySlide(props) {
 
 function getLink(props) {
   return (
-    <div className="template-slide-about-bg action-link" 
-      onClick={ () => { window.location.replace(props.url); debugger;} }>
+    <div className="template-slide-about-bg action-link" title={ props.tooltip }
+      onClick={ () => { window.location.replace(props.url); } }>
       <div className="template-slide-about">
         { getTitle(props) }
       </div>

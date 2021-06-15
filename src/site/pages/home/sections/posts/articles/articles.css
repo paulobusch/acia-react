@@ -1,42 +1,5 @@
-.posts-section .publicities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.posts-section .publicities-slider-container {
-  position: relative;
-  margin-bottom: 25px;
-  width: 48.5%;
-}
-
-.posts-section .publicities-slider-container .slider .image,
-.posts-section .publicities-slider-container .slider {
-  height: 16vw;
-}
-
 .posts-section h2 {
   margin-bottom: 40px;
   text-align: center;
   color: var(--grey);
-}
-
-@media only screen and (max-width: 1100px) {
-  .posts-section .publicities {
-    flex-direction: column;
-  }
-
-  .posts-section .publicities-slider-container {
-    margin-bottom: 50px;
-    width: 100%;
-  }
-
-  .posts-section .publicities-slider-container .slider .image,
-  .posts-section .publicities-slider-container .slider {
-    height: 35vw;
-  }
-
-  .posts-section .publicities-slider-container:last-of-type {
-    margin-bottom: 0;
-  }
 }

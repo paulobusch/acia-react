@@ -21,7 +21,7 @@ class SearchList extends Component {
     super(props);
 
     this.state = { 
-      loading: false, 
+      loading: !!this.props.router.location.query.query, 
       search: this.props.router.location.query.query,
       sort: SEARCH_SORT_DATE
     };
@@ -42,7 +42,7 @@ class SearchList extends Component {
         ...this.state,
         loading: false,
         fullRecords: list,
-        filtredRecords: null
+        filtredRecords: this.state.search ? this.applySort(this.applyFilter(list)) : null
       });
     }
   }

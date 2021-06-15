@@ -9,7 +9,7 @@
 }
 
 .post-card .image {
-  background-position: bottom center;
+  background-position: top center;
   background-size: cover;
   height: 20vw;
 }

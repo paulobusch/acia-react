@@ -47,6 +47,7 @@ class Header extends Component {
       ...this.state,
       showSearch: !this.state.showSearch
     });
+    document.querySelector('input[name=search]').focus();
   }
 
   render() {
