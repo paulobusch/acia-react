@@ -58,7 +58,7 @@ export default class MediaListBase extends Component {
   render() {
     return (
       <div id="media-list">
-        <h2>FOTOS</h2>
+        <h2>Vídeos</h2>
         { this.cards() }
       </div>
     );

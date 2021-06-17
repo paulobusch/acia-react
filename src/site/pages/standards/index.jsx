@@ -67,7 +67,7 @@ class Standards extends Component {
     const { sort } = this.state;
     if (!sort) return standards;
     if (sort === STANDARD_SORT_TITLE) return standards.sort((a, b) => a.title.localeCompare(b.title));
-    if (sort === STANDARD_SORT_DATE) return standards.sort((a, b) => a.createdAt - b.createdAt);
+   // if (sort === STANDARD_SORT_DATE) return standards.sort((a, b) => a.createdAt - b.createdAt);
     if (sort === STANDARD_SORT_COUNT) 
       return standards.sort((a, b) => (b.accrediteds ? b.accrediteds.length : 0) - (a.accrediteds ? a.accrediteds.length : 0));
     return standards;
@@ -75,7 +75,8 @@ class Standards extends Component {
 
   searchForm() {
     const { handleSubmit } = this.props;
-    const sortOptions = [STANDARD_SORT_DATE, STANDARD_SORT_TITLE, STANDARD_SORT_COUNT];
+   // const sortOptions = [STANDARD_SORT_DATE, STANDARD_SORT_TITLE, STANDARD_SORT_COUNT];
+    const sortOptions = [ STANDARD_SORT_TITLE, STANDARD_SORT_COUNT];
     const types = [BENEFIT_ALL, BENEFIT_AGREEMENT, BENEFIT_HEALTH];
     return (
       <Form id="search-standards" onSubmit={ handleSubmit(this.search) }>

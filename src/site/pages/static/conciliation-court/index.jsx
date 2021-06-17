@@ -7,7 +7,7 @@ export default function ConciliationCourt() {
   const documents = [
     { 
       title: 'Portaria',
-      url: '/documents/ALTERAÇÃO REGIMENTO INTERNO.pdf',
+      url: '/documents/ALTERAÇÃOREGIMENTOINTERNO.pdf',
       description: 'Clique no botão abaixo e tenha acesso a Portaria'
     },
     { 
@@ -18,7 +18,7 @@ export default function ConciliationCourt() {
     { 
       title: 'Tabela de Custos',
       url: '/documents/TABELA DE CUSTAS JUNHO-21.pdf',
-      description: 'Baixe a Tabela de Custos para o seu Contrato'
+      description: 'Baixe a Tabela de Custas para o seu Contrato'
     },
     { 
       title: 'Cláusula',
@@ -39,11 +39,12 @@ export default function ConciliationCourt() {
           Horário de Atendimento: <span className="bold">8h às 18h segunda a quinta-feira e sexta-feira das 8h às 17:30h</span>
         </li>
         <li>
-          Auxiliar Administrativo: <span className="bold">Rafael de Paula Silva</span>
+          Gestores da 1°CCA: <span className="bold">Dra. Caroline Kowalewski e Dr. Olin Daniel Ferreira Silva</span>
         </li>
         <li>
-          Conciliadores e Árbitros: <span className="bold">Dra. Caroline Kowalewski e Dr. Olin Daniel Ferreira Silva</span>
+          Secretário: <span className="bold">Rafael de Paula Silva</span>
         </li>
+       
         <li>
           Contato Corte de Conciliação: <span className="bold">(62) 4014-7007 / (62) 9 9844-6447</span>
         </li>
