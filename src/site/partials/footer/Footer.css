@@ -16,7 +16,7 @@ footer img {
 footer .main-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 footer .main-list li {
@@ -71,6 +71,7 @@ footer .main-list li:last-of-type {
 footer .social-list {
   bottom: 0;
   flex-basis: 50%;
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,7 +95,6 @@ footer .social-list i:hover {
 }
 
 footer .social {
-  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;

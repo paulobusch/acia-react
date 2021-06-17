@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import Loading from './../../../common/loading/index';
 import Message from './../../../common/message/index';
 import { Link } from 'react-router';
+import { mapTypeToTitle } from '../../../reducers/medias/media-actions';
 
 const TAKE = 8;
 export default class MediaListBase extends Component {
@@ -12,6 +13,7 @@ export default class MediaListBase extends Component {
     super(props);
 
     this.type = type;
+    this.title = mapTypeToTitle(this.type);
     this.state = { loading: true, page: 1 };
     this.afterLoad = this.afterLoad.bind(this);
     this.nextPage = this.nextPage.bind(this);
@@ -58,7 +60,7 @@ export default class MediaListBase extends Component {
   render() {
     return (
       <div id="media-list">
-        <h2>Vídeos</h2>
+        <h2>{ this.title }</h2>
         { this.cards() }
       </div>
     );
