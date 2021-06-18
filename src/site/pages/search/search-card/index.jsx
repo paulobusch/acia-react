@@ -1,6 +1,8 @@
 import './search-card.css';
 
 import React from 'react';
+
+import Resume from '../../../../common/resume';
 import { SEARCH_POST } from '../../../../reducers/search/search-type';
 import { SEARCH_SERVICE } from './../../../../reducers/search/search-type';
 
@@ -12,6 +14,7 @@ export default function SearchCard(props) {
       { props.type === SEARCH_SERVICE && <i className={ `icon ${props.icon}` }></i> }
       <div className="about">
         <h3 className="desktop-title">{ props.title }</h3>
+        { props.description && <Resume text={ props.description } lines={ 4 }/> }
       </div>
     </a>
   );

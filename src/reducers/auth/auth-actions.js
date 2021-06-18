@@ -107,7 +107,6 @@ export function validateResetCode(code, completed) {
 }
 
 export function redirectToLogin() {
-  debugger;
   const { hash, href } = location;
   const currentHref = hash.substr(2);
   if (currentHref.indexOf('login') !== -1) return;

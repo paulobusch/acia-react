@@ -1,4 +1,5 @@
 import { toastr } from 'react-redux-toastr';
+import { extractTextFromHtml } from '../../common/api/html';
 
 import ActionsStorageBase from '../actions-storage-base';
 import { SEARCH_POST, SEARCH_SERVICE } from './search-type';
@@ -28,6 +29,7 @@ class SearchActions extends ActionsStorageBase {
               title: d.title,
               image: d.image,
               icon: d.icon,
+              description: extractTextFromHtml(d.description || d.text),
               link: this.getLink(type, d),
               type: type
             })

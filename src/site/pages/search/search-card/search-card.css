@@ -7,7 +7,6 @@
   transition: .2s;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 15px;
   line-height: 1.5;
   margin: 5px 0;
@@ -49,7 +48,9 @@
 
 .search-card .about {
   flex-grow: 1;
+  width: 100%;
   padding-left: 15px;
+  box-sizing: border-box;
 }
 
 .search-card h3 {

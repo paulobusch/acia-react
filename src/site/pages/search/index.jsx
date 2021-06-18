@@ -69,7 +69,9 @@ class SearchList extends Component {
   applyFilter(records) {
     let result = records;
     if (this.state.search) 
-      result = result.filter(a => (a.title || '').toLowerCase().search(this.state.search.toLowerCase()) !== -1);
+      result = result.filter(a => (a.title || '').toLowerCase().search(this.state.search.toLowerCase()) !== -1
+        || (a.description || '').toLowerCase().search(this.state.search.toLowerCase()) !== -1
+      );
     else
       result = null;
     return result;
