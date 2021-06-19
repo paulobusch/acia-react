@@ -1,5 +1,6 @@
 .header-admin {
   width: 100%;
+  font-size: 15px;
   color: black;
   background: white;
   padding: 5px;
@@ -32,6 +33,7 @@
 
 .header-admin .right h4 {
   margin: 0;
+  font-size: 15px;
   margin-right: 10px;
 }
 

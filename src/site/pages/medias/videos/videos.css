@@ -21,6 +21,7 @@
 #media-list a.link-load-more {
   opacity: .8;
   width: 200px;
+  font-size: 15px;
   margin: 25px auto;
   transition: .2s;
   cursor: pointer;

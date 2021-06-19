@@ -38,6 +38,25 @@
   margin: 0 25% 25px 25%;
 }
 
+#standard-list a.link-load-more {
+  opacity: .8;
+  width: 200px;
+  font-size: 15px;
+  margin: 25px auto;
+  transition: .2s;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+#standard-list a.link-load-more:hover {
+  opacity: 1;
+}
+
 @media only screen and (max-width: 1000px) {
   #standard-list #search-standards {
     margin: 0 10% 25px 10%;

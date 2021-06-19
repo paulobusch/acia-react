@@ -101,17 +101,8 @@ class BenefitActions extends ActionsStorageBase {
           ? mapped.sort((a, b) => a.order - b.order)
           : mapped.sort((a, b) => b.order - a.order);
 
-        const accrediteds = this.getAccrediteds(list);
-        const tasksGetUrl = accrediteds.map(item => this.getFile(item.image).getDownloadURL());
-        Promise.all(tasksGetUrl).then(urlResults => {
-          for (const accredited of accrediteds){
-            const index = accrediteds.indexOf(accredited);
-            accredited.imageRef = accredited.image;
-            accredited.image = urlResults[index];
-          }
-          dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
-          if (completed) completed(true, list);
-        });
+        dispatch({ type: `${this.prefixType}_FETCHED`, payload: list });
+        if (completed) completed(true, list);
       })
       .catch((error) => {
         toastr.error('Erro', `Falha ao carregar Registros!`);

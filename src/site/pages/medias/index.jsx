@@ -1,10 +1,10 @@
 import './medias.css';
 
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import Loading from './../../../common/loading/index';
 import Message from './../../../common/message/index';
-import { Link } from 'react-router';
 import { mapTypeToTitle } from '../../../reducers/medias/media-actions';
 
 const TAKE = 8;
@@ -69,7 +69,7 @@ export default class MediaListBase extends Component {
   cards() {
     const { paginatedCards, loading } = this.state;
     if (loading) return <Loading style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
-    if (paginatedCards.length === 0) return <Message />
+    if (paginatedCards.length === 0) return <Message />;
 
     return (
       <div>
