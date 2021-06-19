@@ -92,12 +92,12 @@ class SearchList extends Component {
     return (
       <Form id="search-records" onSubmit={ handleSubmit(this.search) }>
         <Row className="row-fields">
-          <Field name="search" type="text" placeholder="Termo de busca" autoComplete="off"
+          <Field name="search" className="field-radio field-shadow" type="text" placeholder="Termo de busca" autoComplete="off"
             action={ { icon: 'fas fa-search', onClick: this.search } } 
             onchange={ this.onSearch } component={ Input }
             flex="80"
           />
-          <Field name="sort" title="Ordenação" flex="20" 
+          <Field name="sort" className="field-radio field-shadow" title="Ordenação" flex="20" 
             onchange={ ev => this.setState({ ...this.state, sort: ev }, () => this.search()) } 
             component={ Select } options={ sortOptions} validate={ required }
           />

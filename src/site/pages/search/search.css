@@ -1,5 +1,6 @@
 #search-list {
   box-sizing: border-box;
+  background-color: rgba(235, 235, 235, 0.603);
   min-height: calc(100vh - var(--header-height) - var(--footer-height) - 25px);
   padding: 50px 5% 50px 5%;
 }

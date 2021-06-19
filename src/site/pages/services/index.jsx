@@ -54,7 +54,7 @@ class Services extends Component {
     
     return (
       <Form id="search-services" onSubmit={ handleSubmit(this.search) }>
-        <Field name="search" type="text" placeholder="Termo de busca" autoComplete="off"
+        <Field name="search" className="field-radio field-shadow" type="text" placeholder="Termo de busca" autoComplete="off"
           action={ { icon: 'fas fa-search', onClick: this.search } } 
           onchange={ this.onSearch } component={ Input }
         />

@@ -40,6 +40,14 @@
   margin-top: 5px;
 }
 
+.form-field.field-radio .form-control {
+  border-radius: 50px;
+  padding-left: 20px;
+}
+
+.form-field.field-shadow .form-control {
+  box-shadow: 1px 1px 5px rgb(178 178 178);
+}
 
 .form-field .error-message {
   color: red;

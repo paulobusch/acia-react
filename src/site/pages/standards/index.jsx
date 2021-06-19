@@ -102,18 +102,18 @@ class Standards extends Component {
     return (
       <Form id="search-standards" onSubmit={ handleSubmit(this.search) }>
         <Row>
-          <Field name="search" type="text" placeholder="Termo de busca" autoComplete="off"
+          <Field name="search" className="field-radio field-shadow" type="text" placeholder="Termo de busca" autoComplete="off"
             action={ { icon: 'fas fa-search', onClick: this.search } } 
             onchange={ this.onSearch } component={ Input }
             flex="100"
           />
         </Row>
         <Row>
-          <Field name="type" label="Tipo" flex="50" 
+          <Field name="type" className="field-radio field-shadow" label="Tipo" flex="50" 
             onchange={ ev => this.setState({ ...this.state, type: ev }, () => this.search()) } 
             component={ Select } options={ types} validate={ required }
           />
-          <Field name="sort" label="Ordenação" flex="50" 
+          <Field name="sort" className="field-radio field-shadow" label="Ordenação" flex="50" 
             onchange={ ev => this.setState({ ...this.state, sort: ev }, () => this.search()) } 
             component={ Select } options={ sortOptions} validate={ required }
           />

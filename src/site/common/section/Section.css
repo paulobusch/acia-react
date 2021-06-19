@@ -8,6 +8,6 @@ section h2 {
   font-size: 15px;
 }
 
-section:nth-child(odd) {
+section:nth-child(even) {
   background-color: rgba(235, 235, 235, 0.603);
 }
