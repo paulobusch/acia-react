@@ -21,6 +21,7 @@
   text-transform: uppercase;
   font-weight: bold;
   color: var(--primary);
+  font-size: 15px;
 }
 
 .posts-section a.link-view-all:hover {

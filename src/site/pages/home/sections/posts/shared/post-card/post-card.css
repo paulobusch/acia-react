@@ -32,6 +32,7 @@
 }
 
 .post-card .detail .text-container .text {
+  font-size: 12px;
   text-align: justify;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -41,10 +42,12 @@
 
 .post-card .detail h3 {
   margin: 0;
+  font-size: 15px;
   margin-bottom: 10px;
 }
 
 .post-card .detail a {
+  font-size: 14px;
   opacity: .8;
   width: 100px;
   transition: .2s;

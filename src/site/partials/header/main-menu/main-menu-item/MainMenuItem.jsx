@@ -32,6 +32,7 @@ export default class MainMenuItem extends Component {
       this.toggleMenuDropdown();
     else if(isDesktop) {
       const dropdown = e.currentTarget.closest('.main-menu-dropdown');
+      if (!dropdown.style) return;
       dropdown.style.display = 'none';
       setTimeout(() => dropdown.style.display = 'block', 0); 
     }

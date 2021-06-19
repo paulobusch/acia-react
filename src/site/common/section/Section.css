@@ -4,6 +4,10 @@ section {
   padding: 20px 5%;
 }
 
+section h2 {
+  font-size: 15px;
+}
+
 section:nth-child(odd) {
   background-color: rgba(235, 235, 235, 0.603);
 }

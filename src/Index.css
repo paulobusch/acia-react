@@ -18,3 +18,15 @@ html, body {
 strong {
   font-weight: 800;
 }
+
+h2 {
+  font-size: 15px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4 {
+  font-size: 12px;
+}
