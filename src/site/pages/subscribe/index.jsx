@@ -19,7 +19,8 @@ class Subscribe extends Component {
 
     this.state = { showModalSuccess: false };
     this.sendEmail = this.sendEmail.bind(this);
-    this.closeModalSuccess = this.closeModalSuccess.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   render() {
@@ -61,41 +62,48 @@ class Subscribe extends Component {
   }
 
   modalSuccess() {
+    const modalActions = [
+      { text: 'FECHAR', pallet: { fill: '#c8c8c8', text: 'black' }, click: this.closeModal.bind(this) },
+      { text: 'ENVIAR WHATSAPP', click: this.sendMessage.bind(this) }
+    ];
+
     return ( 
-      <Modal title="Informação" show={ this.state.showModalSuccess } 
-        onClose={ this.closeModalSuccess }
+      <Modal title="Informação" show={ this.state.showModalSuccess } actions={ modalActions }
+        onClose={ this.closeModal }
       >
         Email enviado com sucesso, em breve a Acia entrará em contato
       </Modal>
     );
   }
 
-  closeModalSuccess() {
+  sendEmail(values) {      
+    this.setState({
+      ...this.state,
+      values: values,
+      showModalSuccess: true
+    });
+  }
+
+  sendMessage() {
+    const { values } = this.state;
+    const message = 
+    'Olá, gostaria de participar do programa de associados do ACIA\n' + 
+    'Segue informações cadastrais: \n' + 
+    ' - Nome Completo: ' + values.name + '\n' + 
+    ' - Email: ' + values.email + '\n' + 
+    ' - Telefone: ' + values.phone + '\n' + 
+    (values.customer ? ' - Empresa: ' + values.customer : '') +  '\n';
+
+    const link = generateSendMessageLink(WEBSITE_WHATSAPP, message);
+    window.open(link, '_blank');
+    this.closeModal();
+  }
+
+  closeModal() {
     this.setState({
       ...this.state,
       showModalSuccess: false
     });
-  }
-
-  sendEmail(values) {
-    // TODO: Send email
-    // const message = 
-    // 'Olá, gostaria de participar do programa de associados do ACIA\n' + 
-    // 'Segue informações cadastrais: \n' + 
-    // ' - Nome Completo: ' + values.name + '\n' + 
-    // ' - Email: ' + values.email + '\n' + 
-    // ' - Telefone: ' + values.phone + '\n' + 
-    // (values.customer ? ' - Empresa: ' + values.customer : '') +  '\n';
-    this.afterSendEmail(true);
-  }
-
-  afterSendEmail(success) {
-    if (success) {
-      this.setState({
-        ...this.state,
-        showModalSuccess: true
-      });
-    }
   }
 }
 

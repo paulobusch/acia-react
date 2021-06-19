@@ -1,0 +1,7 @@
+.galery.galery-posts .cards {
+    align-items: stretch;
+}
+
+.galery.galery-posts .cards .post-card {
+    margin-bottom: 0;
+}

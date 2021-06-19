@@ -62,8 +62,7 @@ class Home extends Component {
 
   getArticles() {
     return this.props.posts
-      .filter(p => [POST_ARTICLE, POST_NEWS].indexOf(p.type) !== -1)
-      .slice(0, 3);
+      .filter(p => [POST_ARTICLE, POST_NEWS].indexOf(p.type) !== -1);
   }
 
   render() {
