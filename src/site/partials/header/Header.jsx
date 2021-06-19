@@ -46,8 +46,9 @@ class Header extends Component {
     this.setState({
       ...this.state,
       showSearch: !this.state.showSearch
+    }, () => {
+      if (this.state.showSearch) document.querySelector('input[name=search]').focus();
     });
-    document.querySelector('input[name=search]').focus();
   }
 
   render() {
