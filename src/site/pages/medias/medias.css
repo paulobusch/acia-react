@@ -36,6 +36,25 @@
   opacity: 1;
 }
 
+#media-list a.link-view-all {
+  opacity: .8;
+  width: 100px;
+  margin: 25px auto;
+  transition: .2s;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--primary);
+  font-size: 15px;
+}
+
+#media-list a.link-view-all:hover {
+  opacity: 1;
+}
+
 @media only screen and (max-width: 500px) {
   #media-list .media-cards {
     flex-direction: column;

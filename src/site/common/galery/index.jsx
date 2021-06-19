@@ -5,7 +5,7 @@ import Loading from './../../../common/loading';
 
 const INITIAL_STATE = {
   activePage: 0,
-  cardsTake: 4,
+  cardsTake: 3,
   prevDisabled: true,
   nextDisabled: false
 }; 

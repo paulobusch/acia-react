@@ -5,3 +5,9 @@
 .galery.galery-posts .cards .post-card {
     margin-bottom: 0;
 }
+
+@media screen and (max-width: 350px) {
+    .galery.galery-posts .actions {
+        top: calc(50% - 25px);
+    }
+}

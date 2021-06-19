@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 
 import Loading from './../../../common/loading/index';
 import Message from './../../../common/message/index';
+import GaleryMedia from './../../common/galery/galery-media';
 import { mapTypeToTitle } from '../../../reducers/medias/media-actions';
 
 const TAKE = 8;
@@ -14,7 +15,7 @@ export default class MediaListBase extends Component {
 
     this.type = type;
     this.title = mapTypeToTitle(this.type);
-    this.state = { loading: true, page: 1 };
+    this.state = { loading: true, page: 1, viewAll: false };
     this.afterLoad = this.afterLoad.bind(this);
     this.nextPage = this.nextPage.bind(this);
   }
@@ -67,16 +68,23 @@ export default class MediaListBase extends Component {
   }
 
   cards() {
-    const { paginatedCards, loading } = this.state;
+    const { paginatedCards, viewAll, loading } = this.state;
     if (loading) return <Loading style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
     if (paginatedCards.length === 0) return <Message />;
-
+    if (viewAll) {
+      return (
+        <div>
+          <div className="media-cards">
+            { paginatedCards.map(p => this.card(p)) }
+          </div>
+          { this.buttonLoadMore() }
+        </div>
+      );
+    }
     return (
       <div>
-        <div className="media-cards">
-          { paginatedCards.map(p => this.card(p)) }
-        </div>
-        { this.buttonLoadMore() }
+        <GaleryMedia cards={ paginatedCards } type={ this.type } card={ this.card }/>
+        { !loading && <Link onClick={ () => this.setState({ ...this.state, viewAll: true }) } className="link-view-all">Ver Todos</Link> }
       </div>
     );
   }
