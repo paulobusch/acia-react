@@ -16,7 +16,7 @@ export default function ConciliationCourt() {
       description: 'Clique no botão abaixo e leia o Regimento da 1ª Corte de Conciliação e Arbitragem da Anápolis'
     },
     { 
-      title: 'Tabela de Custos',
+      title: 'Tabela de Custas',
       url: '/documents/TABELA DE CUSTAS JUNHO-21.pdf',
       description: 'Baixe a Tabela de Custas para o seu Contrato'
     },

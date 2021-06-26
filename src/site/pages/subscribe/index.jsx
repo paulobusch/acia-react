@@ -37,7 +37,7 @@ class Subscribe extends Component {
             <Field name="name" label="Nome Completo" type="text"
               flex="75" component={ Input } validate={ required }
             />
-            <Field name="email" label="Email" type="text"
+            <Field name="email" label="E-mail" type="text"
               flex="25" component={ Input } validate={ [required, email] }
             />
           </Row>
@@ -50,7 +50,7 @@ class Subscribe extends Component {
             />
           </Row>
           <Row>
-            <Field name="accept" label="Eu concordo em receber notificações e emails da Acia"
+            <Field name="accept" label="Eu concordo em receber notificações e e-mails da Acia"
               component={ Checkbox }
             />
             <SubmitButton text="ENVIAR"/>

@@ -45,7 +45,7 @@ class UserForm extends FormBase {
           <Field name="name" type="text" label="Nome" placeholder="Informe o nome"
             flex="25" component={ Input } validate={ required }
           />
-          <Field name="email" type="email" label="Email" placeholder="Informe o email" 
+          <Field name="email" type="email" label="E-mail" placeholder="Informe o email" 
             flex="25" component={ Input } readOnly={ !!this.id } validate={ [required, email] }
           />
           <Field name="role" label="Papel" placeholder="Informe o papel"
