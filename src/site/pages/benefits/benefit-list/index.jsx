@@ -128,10 +128,8 @@ class BenefitList extends Component {
     if (filtredAccrediteds.length === 0) return <Message style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
 
     return (
-      <div>
-        <div className="benefit-cards">
-          { filtredAccrediteds.map(a => <BenefitCard key={ a.id } { ...a }/>) }
-        </div>
+      <div className="benefit-cards">
+        { filtredAccrediteds.map(a => <BenefitCard key={ a.id } { ...a }/>) }
       </div>
     );
   }

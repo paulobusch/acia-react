@@ -23,6 +23,7 @@
 
 #benefit-list .benefit-cards {
   background-color: white;
+  width: 100%;
 }
 
 #benefit-list a.link-load-more {

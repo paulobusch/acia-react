@@ -10,13 +10,18 @@ import Row from './../../../../../../common/row/index';
 import File from './../../../../../../common/fields/file/index';
 import SubmitButton from './../../../../../../common/buttons/submit/index';
 import phone from './../../../../../../common/validators/phone';
+import email from './../../../../../../common/validators/email';
 import TextArea from './../../../../../../common/fields/textarea/index';
+import url from '../../../../../../common/validators/url/url';
 
 const FORM_ID = 'accredited-form';
 const DEFAULT_STATE = {
   image: null,
   title: '',
   phone: '',
+  whatsapp: '',
+  email: '',
+  website: '',
   address: '',
   responsible: '',
   description: ''  
@@ -59,10 +64,21 @@ class AccreditedForm extends Component {
             flex="50" component={ Input } validate={ required }
           />
           <Field name="image" className="image-field" label="Imagem" button="Selecionar" placeholder="Selecione uma imagem"
-            flex="25" component={ File } validate={ required }
+            flex="50" component={ File } validate={ required }
           />
+        </Row>
+        <Row>
           <Field name="phone" label="Telefone" type="text" placeholder="Informe o telefone" 
             flex="25" component={ Input } validate={ [required, phone] }
+          />
+          <Field name="whatsapp" label="Whatsapp" type="text" placeholder="Informe o whatsapp" 
+            flex="25" component={ Input } validate={ phone }
+          />
+          <Field name="email" label="E-mail" type="email" placeholder="Informe o email" 
+            flex="25" component={ Input } validate={ email }
+          />
+          <Field name="website" label="Site" type="text" placeholder="Informe a url do site"
+            flex="25" component={ Input } validate={ url }
           />
         </Row>
         <Row>

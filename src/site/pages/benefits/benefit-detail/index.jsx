@@ -13,7 +13,7 @@ import required from './../../../../common/validators/required';
 import SubmitButton from '../../../../common/buttons/submit';
 import { getAccreditedById } from '../../../../reducers/benefits/benefits-actions';
 import { getIdByRouter } from '../../../../common/api/router';
-import { generateSendMessageLink } from '../../../../common/api/whatsapp';
+import { generateAddContactLink, generateSendMessageLink } from '../../../../common/api/whatsapp';
 
 class BenefitDetail extends Component {
   constructor(props) {
@@ -62,21 +62,8 @@ class BenefitDetail extends Component {
           <div className="image" style={ { backgroundImage: `url('${accredited.image}')` } }></div>
           <div className="detail">
             <p>{ accredited.description }</p>
-            <ul className="contact"> 
-              { accredited.responsible &&
-                <li>
-                  <i className="fas fa-user"></i>
-                  { accredited.responsible }
-                </li>
-              }
-              <li>
-                <i className="fas fa-phone-alt"></i>
-                { accredited.phone }
-              </li>
-              <li>
-                <i className="fas fa-map-marker-alt"></i>
-                { accredited.address }
-              </li>
+            <ul className="contact">
+              { this.details(accredited) }
             </ul>
             <div className="message">
               { this.message() }
@@ -84,6 +71,53 @@ class BenefitDetail extends Component {
           </div>
         </div>
       </div>
+    );
+  }
+
+  details(accredited) {
+    const details = [];
+
+    if (accredited.responsible)
+      details.push(this.detail(details.length, accredited.responsible, 'fas fa-user'));
+    details.push(
+      this.detail(
+        details.length, accredited.phone, 'fas fa-phone-alt', 
+        p => window.open(`tel:55${p.replace(/\D/g, '')}`, '_self')
+      )
+    );
+    if (accredited.whatsapp)
+      details.push(
+        this.detail(
+          details.length, accredited.whatsapp, 'fab fa-whatsapp-square',
+          p => window.open(generateAddContactLink(p), '_self')
+        )
+      );
+    if (accredited.email)
+      details.push(
+        this.detail(
+          details.length, accredited.email, 'fas fa-envelope',
+          email => window.open(`mailto:${email}`, '_self')
+        )
+      );
+    details.push(this.detail(details.length, accredited.address, 'fas fa-map-marker-alt'));
+    if (accredited.website)
+      details.push(
+        this.detail(
+          details.length, accredited.website, 'fas fa-globe',
+          website => window.open(website, '_self')
+        )
+      );
+
+    return details;
+  }
+
+  detail(key, text, icon, action) {
+    return (
+      <li key={ key } onClick={ () => action ? action(text) : false } 
+        className={ action ? 'link-action' : '' }>
+        <i className={ icon }></i>
+        { text }
+      </li>
     );
   }
 

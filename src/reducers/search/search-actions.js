@@ -18,7 +18,7 @@ class SearchActions extends ActionsStorageBase {
       ]).then(results => {
         const [ postsResult, servicesResult, benefitsResult ] = results;
         const documents = [...postsResult.docs, ...servicesResult.docs, ...benefitsResult.docs];
-        const mapped = documents
+         const mapped = documents
           .map(d => ({ id: d.id, ...d.data() }))
           .map(d => {
             function getType() {
