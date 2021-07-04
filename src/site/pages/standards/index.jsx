@@ -32,11 +32,12 @@ class Standards extends Component {
 
   afterLoad(success, list) {
     if (success) {
+      const sorted = list.sort((a, b) => (a.title || '').localeCompare(b.title));;
       this.setState({
         ...this.state,
         loading: false,
-        allStandards: list,
-        filtredStandards: this.applyFilter(list)
+        allStandards: sorted,
+        filtredStandards: this.applyFilter(sorted)
       });
     }
   }

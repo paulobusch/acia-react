@@ -9,7 +9,7 @@
   justify-content: space-between;
   padding: 15px;
   line-height: 1.5;
-  margin: 5px 0;
+  margin: 15px 0;
   color: black;
   box-shadow: 2px 2px 5px #ddd;
   background-color: white;
@@ -54,6 +54,8 @@
 
 .benefit-card .contact li {
   margin: 10px 0;
+  opacity: .8;
+  transition: .2s;
 }
 
 .benefit-card .contact i {
@@ -61,6 +63,14 @@
   width: 20px;
   text-align: center;
   margin-right: 5px;
+}
+
+.benefit-card .link-action {
+  cursor: pointer;
+}
+
+.benefit-card .link-action:hover {
+  opacity: 1;
 }
 
 @media only screen and (max-width: 1200px) {
