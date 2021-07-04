@@ -16,6 +16,7 @@ import { POST_SORT_DATE, POST_SORT_TYPE, POST_SORT_TITLE } from './../../../../r
 import required from './../../../../common/validators/required';
 import { POST_ARTICLE } from '../../../../reducers/posts/post-type';
 import { POST_NEWS } from './../../../../reducers/posts/post-type';
+import { extractTextFromHtml } from '../../../../common/api/html';
 
 class PostList extends Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class PostList extends Component {
 
   afterLoad(success, list) {
     if (success) {
+      for(const record of list) record.text = extractTextFromHtml(record.text);
       this.setState({
         ...this.state,
         loading: false,
@@ -73,7 +75,9 @@ class PostList extends Component {
   applyFilter(posts) {
     let result = posts;
     if (this.state.search) 
-      result = result.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1);
+      result = result.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1
+        || (a.text || '').toLowerCase().search(this.state.search.toLowerCase()) !== -1
+      );
     if (this.state.type) {
       result = this.state.type === POST_ARTICLE 
         ? result.filter(a => [POST_ARTICLE, POST_NEWS].indexOf(a.type) !== -1)
