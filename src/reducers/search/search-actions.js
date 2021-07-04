@@ -2,7 +2,7 @@ import { toastr } from 'react-redux-toastr';
 import { extractTextFromHtml } from '../../common/api/html';
 
 import ActionsStorageBase from '../actions-storage-base';
-import { SEARCH_POST, SEARCH_SERVICE } from './search-type';
+import { SEARCH_CONVENANT, SEARCH_POST, SEARCH_SERVICE } from './search-type';
 
 class SearchActions extends ActionsStorageBase {
   constructor() {
@@ -13,15 +13,20 @@ class SearchActions extends ActionsStorageBase {
     return () => {
       Promise.all([
         this.getCollection('posts').get(),
-        this.getCollection('services').get()
+        this.getCollection('services').get(),
+        this.getCollection('benefits').get()
       ]).then(results => {
-        const [ postsResult, servicesResult ] = results;
-        const documents = [...postsResult.docs, ...servicesResult.docs];
+        const [ postsResult, servicesResult, benefitsResult ] = results;
+        const documents = [...postsResult.docs, ...servicesResult.docs, ...benefitsResult.docs];
         const mapped = documents
           .map(d => ({ id: d.id, ...d.data() }))
           .map(d => {
-            const type = postsResult.docs.some(p => p.id === d.id)
-              ? SEARCH_POST : SEARCH_SERVICE;
+            function getType() {
+              if (postsResult.docs.some(p => p.id === d.id)) return SEARCH_POST;
+              if (servicesResult.docs.some(p => p.id === d.id)) return SEARCH_SERVICE;
+              if (benefitsResult.docs.some(p => p.id === d.id)) return SEARCH_CONVENANT;
+            }
+            const type = getType();
             return ({ 
               id: d.id, 
               createdAt: d.createdAt.toDate(),
@@ -57,6 +62,7 @@ class SearchActions extends ActionsStorageBase {
 
   getLink(type, document) {
     if (type === SEARCH_POST) return `/#/posts/view/${document.id}`;
+    if (type === SEARCH_CONVENANT) return `/#/benefits/${document.id}`;
     if (type === SEARCH_SERVICE) return document.link;
   }
 }
