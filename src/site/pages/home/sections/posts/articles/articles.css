@@ -3,3 +3,7 @@
   text-align: center;
   color: var(--grey);
 }
+
+.posts-section .post-card {
+  width: 30%;
+}

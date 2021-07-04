@@ -16,10 +16,20 @@ export default function PostCard(props) {
       <div className="detail">
         <h3>{ props.title }</h3>
         <div className="text-container">
-          <div className="text" style={ { WebkitLineClamp: props.image ? 3 : 16 } }>{ extractTextFromHtml(props.text) }</div>
+          <div className="text" style={ { WebkitLineClamp: getLines(props) } }>{ extractTextFromHtml(props.text) }</div>
         </div>
         <Link to={ link }>Ver mais</Link>
       </div>
     </div>
   );
+}
+
+function getLines(props) {
+  if (props.image) return 3;
+  if (window.innerWidth > 1800) return 20;
+  if (window.innerWidth > 1400) return 18;
+  if (window.innerWidth > 1100) return 15;
+  if (window.innerWidth > 800) return 10;
+  if (window.innerWidth > 500) return 5;
+  return 3;
 }

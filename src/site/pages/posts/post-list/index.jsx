@@ -24,7 +24,7 @@ class PostList extends Component {
     this.state = { 
       loading: true, 
       search: this.props.router.location.query.search,
-      sort: POST_SORT_TYPE,
+      sort: POST_SORT_DATE,
       type: this.props.router.params.type
     };
     this.title = mapTypeToTitle(this.state.type);
@@ -86,8 +86,8 @@ class PostList extends Component {
     const { sort } = this.state;
     if (!sort) return posts;
     if (sort === POST_SORT_TYPE) return posts.sort((a, b) => b.type.localeCompare(a.type));
-    if (sort === POST_SORT_DATE) return posts.sort((a, b) => a.createdAt - b.createdAt);
     if (sort === POST_SORT_TITLE) return posts.sort((a, b) => a.title.localeCompare(b.title));
+    if (sort === POST_SORT_DATE) return posts.sort((a, b) => b.createdAt - a.createdAt);
     return posts;
   }
 
