@@ -33,7 +33,7 @@ class SearchList extends Component {
   }
 
   componentWillMount() {
-    this.props.getAll(this.afterLoad);
+    this.props.getAll(this.state.search, this.state.sort, this.afterLoad);
   }
 
   afterLoad(success, list) {
@@ -41,8 +41,7 @@ class SearchList extends Component {
       this.setState({
         ...this.state,
         loading: false,
-        fullRecords: list,
-        filtredRecords: this.state.search ? this.applySort(this.applyFilter(list)) : null
+        records: list
       });
     }
   }
@@ -64,25 +63,6 @@ class SearchList extends Component {
         </div>
       </div>
     );
-  }
-
-  applyFilter(records) {
-    let result = records;
-    if (this.state.search) 
-      result = result.filter(a => (a.title || '').toLowerCase().search(this.state.search.toLowerCase()) !== -1
-        || (a.description || '').toLowerCase().search(this.state.search.toLowerCase()) !== -1
-      );
-    else
-      result = null;
-    return result;
-  }
-
-  applySort(records) {
-    const { sort } = this.state;
-    if (!sort || !records) return records;
-    if (sort === SEARCH_SORT_DATE) return records.sort((a, b) => a.createdAt - b.createdAt);
-    if (sort === SEARCH_SORT_TITLE) return records.sort((a, b) => (a.title || '').localeCompare(b.title));
-    return records;
   }
 
   searchForm() {
@@ -121,19 +101,16 @@ class SearchList extends Component {
       this.searchId = null;
     }
     this.toggleLoading(true);
-    this.setState({ 
-      ...this.state, loading: false,
-      filtredRecords: this.applySort(this.applyFilter(this.state.fullRecords))
-    });
+    this.props.getAll(this.state.search, this.state.sort, this.afterLoad);
   }
 
   list() {
-    const { filtredRecords, loading } = this.state;
+    const { records, loading } = this.state;
     if (loading) return <Loading block style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
 
-    if (!filtredRecords) return false;
-    if (filtredRecords.length === 0) return <Message style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
-    return filtredRecords.map(p => <SearchCard key={ p.id } { ...p }/>);
+    if (!records) return false;
+    if (records.length === 0) return <Message style={ { paddingTop: 'calc(38vh - 250px)' } }/>;
+    return records.map(p => <SearchCard key={ p.id } { ...p }/>);
   }   
 }
 
