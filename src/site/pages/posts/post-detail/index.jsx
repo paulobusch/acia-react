@@ -10,6 +10,7 @@ import { removeScripts } from '../../../../common/api/html';
 import { withRouter } from 'react-router';
 import PhotoCard from './../../medias/photos/photo-card/index';
 import VideoCard from './../../medias/videos/video-card/index';
+import DocumentCard from '../../static/conciliation-court/document-card';
 
 class PostDetail extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class PostDetail extends Component {
         <div className="content" dangerouslySetInnerHTML={ { __html: post.text } }></div>
         { this.photos(post.photos) }
         { this.videos(post.videos) }
+        { this.files(post.files) }
       </div>
     );
   }
@@ -84,6 +86,24 @@ class PostDetail extends Component {
         </div>
       </div>
     );
+  }
+
+  files(files) {
+    if (!files || files.length === 0) return false;
+
+    return (
+      <div>
+        <h4>ANEXOS</h4>
+        <div className="files">
+          { files.map((p, i) => <DocumentCard key={ i } { ...p } url={ p.file } description={ p.title } title={ this.getName(p.name) }/>) }
+        </div>
+      </div>
+    );
+  }
+
+  getName(fileName) {
+    if (!fileName || fileName.search('.') === -1) return '';
+    return fileName.substr(0, fileName.indexOf('.'));
   }
 }
 

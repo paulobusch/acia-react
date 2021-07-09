@@ -18,10 +18,15 @@
 }
 
 #post .photos,
-#post .videos {
+#post .videos,
+#post .files {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+#post .files {
+  flex-direction: column;
 }
 
 #post h4 {

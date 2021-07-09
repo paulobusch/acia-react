@@ -3,10 +3,30 @@ import { toastr } from 'react-redux-toastr';
 import ActionsStorageBase from '../actions-storage-base';
 import { POST_ACTION, POST_ARTICLE, POST_NEWS } from './post-type';
 import NewId from './../../common/random/random-id';
+import { initialize } from 'redux-form';
 
 class PostActions extends ActionsStorageBase {
   constructor() {
     super('posts', 'POST', 'post-form', false);
+  }
+  
+  loadForm(id, completed) {
+    return dispatch => {
+      this.getCollection().doc(id).get().then(doc => {
+        const data = { id: doc.id, ...doc.data() };
+        data.includePhotos = data.photos && !!data.photos.length;
+        data.includeVideos = data.videos && !!data.videos.length;
+        data.includeFiles = data.files && !!data.files.length;
+
+        dispatch(initialize(this.formId, data));
+        if (completed) completed(true);
+      })
+      .catch((error) => { 
+        toastr.error('Erro', `Falha ao carregar registro!`); 
+        if (completed) completed(false);
+        throw error;
+      });
+    };
   }
   
   getById(id, completed) {
@@ -14,6 +34,7 @@ class PostActions extends ActionsStorageBase {
       this.getCollection().doc(id).get().then(doc => {      
         const data = { id: doc.id, ...doc.data() };
         const tasksGetUrl = (data.photos || []).map(item => this.getFile(item.image).getDownloadURL());
+        tasksGetUrl.push(...(data.files || []).map(item => this.getFile(item.file).getDownloadURL()));
         if (data.image) tasksGetUrl.push(this.getFile(data.image).getDownloadURL());
         Promise.all(tasksGetUrl)
           .then(urlResults => {
@@ -21,6 +42,11 @@ class PostActions extends ActionsStorageBase {
               const index = data.photos.indexOf(photo);
               photo.imageRef = photo.image;
               photo.image = urlResults[index];
+            }
+            for (const file of (data.files || [])){
+              const index = data.files.indexOf(file) + (data.photos || []).length;
+              file.fileRef = file.file;
+              file.file = urlResults[index];
             }
             if (data.image) {
               data.imageRef = data.image;
@@ -90,6 +116,13 @@ class PostActions extends ActionsStorageBase {
           photo.image = this.getPath(name);
           return this.getFile(photo.image).put(file);
         });
+        values.files.map(document => {
+          const file = document.file;
+          const name = `${NewId()}${this.getExtension(file.name)}`;
+          document.name = file.name;
+          document.file = this.getPathDocuments(name);
+          tasksUpload.push(this.getFile(document.file).put(file));
+        });
         if (values.image instanceof File) {
           const file = values.image;
           const name = `${NewId()}${this.getExtension(file.name)}`;
@@ -143,6 +176,16 @@ class PostActions extends ActionsStorageBase {
           return this.getFile(photo.image).put(file);
         });
 
+      values.files
+        .filter(a => a.file instanceof File)
+        .map(document => {
+          const file = document.file;
+          const name = `${NewId()}${this.getExtension(file.name)}`;
+          document.name = file.name;
+          document.file = this.getPathDocuments(name);
+          tasksUpload.push(this.getFile(document.file).put(file));
+        });
+
       if (values.image instanceof File) {
         const file = values.image;
         const name = `${NewId()}${this.getExtension(file.name)}`;
@@ -188,8 +231,10 @@ class PostActions extends ActionsStorageBase {
     const post = Object.assign(new Object(), data);
     post.photos = post.photos || [];
     post.videos = post.videos || [];
-    post.photos = post.photos.filter(r => r.image || r.title);
-    post.videos = post.videos.filter(r => r.link || r.title);
+    post.files = post.files || [];
+    post.photos = post.includePhotos ? post.photos.filter(r => r.image || r.title) : [];
+    post.videos = post.includeVideos ? post.videos.filter(r => r.link || r.title) : [];
+    post.files = post.includeFiles ? post.files.filter(r => r.file || r.title) : [];
     return post;
   }
 }

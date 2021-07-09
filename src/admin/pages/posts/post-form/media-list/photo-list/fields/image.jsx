@@ -8,7 +8,7 @@ export default function Image(props) {
 
   return (
     <Field className="image-field" button="Selecionar" placeholder="Selecione uma imagem"
-      component={ File } name={ `photos[${index}].image` } 
+      component={ File } accept="image/*" name={ `photos[${index}].image` } 
     />
   );
 }

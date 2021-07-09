@@ -14,7 +14,8 @@
   height: 30vw;
   flex-basis: 60%;
   background-position: center center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 #benefit .detail {

@@ -1,4 +1,7 @@
 .media-container {    
-  flex-basis: 48%;
-  margin: 0;
+  flex-basis: 45%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 680px;
+  margin-top: 5px;
 }

@@ -41,6 +41,20 @@ class PostList extends Component {
     this.props.getAllByFilter({ }, this.afterLoad);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.state = { 
+        ...this.state, loading: true, 
+        type: this.props.router.params.type, 
+        search: this.props.router.location.query.search 
+      };
+      if (this.state.search || this.state.sort) 
+        this.props.initialize({ search: this.state.search, sort: this.state.sort });
+      this.props.getAllByFilter({ }, this.afterLoad);
+      this.title = mapTypeToTitle(this.state.type);
+    }
+  }
+
   afterLoad(success, list) {
     if (success) {
       for(const record of list) record.text = extractTextFromHtml(record.text);

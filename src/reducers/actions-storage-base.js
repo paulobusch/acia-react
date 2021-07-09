@@ -105,11 +105,11 @@ export default class ActionsStorageBase {
       this.getCollection().doc(id).get().then(doc => {
         const data = { id: doc.id, ...doc.data() };
         dispatch(initialize(this.formId, data));
-        if (completed) completed(true);
+        if (completed) completed(true, data);
       })
       .catch((error) => { 
         toastr.error('Erro', `Falha ao carregar registro!`); 
-        if (completed) completed(false);
+        if (completed) completed(false, data);
         throw error;
       });
     };
@@ -245,6 +245,10 @@ export default class ActionsStorageBase {
 
   getPath(fileName) {
     return `images/${this.collectionName}/${fileName}`;
+  }
+
+  getPathDocuments(fileName) {
+    return `documents/${this.collectionName}/${fileName}`;
   }
 
   getFile(path) {

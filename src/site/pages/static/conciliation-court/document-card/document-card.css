@@ -1,5 +1,6 @@
 .document-card {
-  padding: 5px 0;
+  padding: 5px 0;    
+  line-height: 2;
 }
 
 .document-card .action {

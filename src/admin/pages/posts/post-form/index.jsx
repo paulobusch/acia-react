@@ -16,12 +16,17 @@ import TextEditor from './../../../../common/fields/text-editor/index';
 import requiredTextEditor from './../../../../common/validators/requiredTextEditor';
 import PhotoList from './media-list/photo-list/index';
 import VideoList from './media-list/video-list/index';
+import FileList from './media-list/file-list/index';
+import Checkbox from '../../../../common/fields/checkbox';
 
 const DEFAULT_STATE = {
   image: null,
   type: null,
   title: '',
-  text: ''  
+  text: '',
+  includePhotos: false,
+  includeVideos: false,
+  includeFiles: false
 };
 
 class PostForm extends FormBase { 
@@ -40,8 +45,10 @@ class PostForm extends FormBase {
   form() {
     const types = [POST_NEWS, POST_ARTICLE, POST_ACTION];
     const { handleSubmit, type } = this.props;
+    const { includePhotos, includeVideos, includeFiles } = this.props;
     const photos = this.props.photos || [];
     const videos = this.props.videos || [];
+    const files = this.props.files || [];
     const imageValidators = [];
     if (type !== 'Artigo') imageValidators.push(required);
     return (
@@ -57,14 +64,26 @@ class PostForm extends FormBase {
             flex="50" component={ Input } validate={ required }
           />
         </Row>
+        <Row justify="flex-start">
+          <Field name="includePhotos" label="Incluir Fotos" type="checkbox" 
+            flex="25" component={ Checkbox }
+          />
+          <Field name="includeVideos" label="Incluir Vídeos" type="checkbox" 
+            flex="25" component={ Checkbox }
+          />
+          <Field name="includeFiles" label="Incluir Anexos" type="checkbox" 
+            flex="25" component={ Checkbox }
+          />
+        </Row>
+        <Row wrap>
+          { includePhotos && <PhotoList photos={ photos }/> }
+          { includeVideos && <VideoList videos={ videos }/> }
+          { includeFiles && <FileList files={ files }/> }
+        </Row>
         <Row>
           <Field name="text" label="Texto" placeholder="Informe um texto"
             flex="100" component={ TextEditor } validate={ requiredTextEditor }
           />
-        </Row>
-        <Row>
-          <PhotoList photos={ photos }/>
-          <VideoList videos={ videos }/>
         </Row>
       </Form>
     );
@@ -73,10 +92,14 @@ class PostForm extends FormBase {
 
 const postForm = reduxForm({ form: 'post-form' })(withRouter(PostForm));
 const selector = formValueSelector('post-form');
-const mapStateToProps = state => ({ 
+const mapStateToProps = state => ({
+  includePhotos: selector(state, 'includePhotos'),
+  includeVideos: selector(state, 'includeVideos'),
+  includeFiles: selector(state, 'includeFiles'),
   type: selector(state, 'type'),
   photos: selector(state, 'photos'),
-  videos: selector(state, 'videos')
+  videos: selector(state, 'videos'),
+  files: selector(state, 'files')
 });
 const mapDispatchToProps = dispatch => bindActionCreators({ create, update, submitForm, loadForm }, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(postForm);
