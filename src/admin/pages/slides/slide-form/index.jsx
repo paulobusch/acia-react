@@ -23,6 +23,7 @@ const DEFAULT_STATE = {
   overlay: {
     type: null,
     url: '',
+    text: '',
     title: '',
     subtitle: ''
   }
@@ -74,7 +75,7 @@ class SlideForm extends FormBase {
           />
         </Row>
         { overlaySlide &&
-          <Row justify="flex-start">
+          [<Row key="row-1" justify="flex-start">
             <Field name="overlay.type" label="Tipo" 
               flex="25" component={ Select } options={ types } validate={ required }
             />
@@ -82,15 +83,22 @@ class SlideForm extends FormBase {
               className={ type === SLIDE_OVERLAY_LINK ? 'field-padding' : '' }
               flex="25" component={ Input } validate={ [required, url] }
             />
-            { type !== SLIDE_OVERLAY_LINK &&    
-              [<Field key="title" name="overlay.title" label="Título" type="text" placeholder="Informe o título"
+            { type === SLIDE_OVERLAY_BUTTON &&    
+              [<Field key="text" name="overlay.text" label="Texto do Botão" type="text" placeholder="Informe o texto"
                 flex="25" component={ Input }
               />,
-              <Field key="subtitle" name="overlay.subtitle" label="Subtítulo" type="text" placeholder="Informe o subtítulo"
+              <Field key="title" name="overlay.title" label="Título" type="text" placeholder="Informe o título"
                 flex="25" component={ Input }
               />]
             }
-          </Row>
+          </Row>,
+          <Row key="row-2" justify="flex-start">
+            { type && type === SLIDE_OVERLAY_BUTTON && 
+              <Field name="overlay.subtitle" label="Subtítulo" type="text" placeholder="Informe o subtítulo"
+                className="field-padding" flex="25" component={ Input }
+              />
+            }
+          </Row>]
         }
       </Form>
     );
