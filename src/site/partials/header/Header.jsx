@@ -38,7 +38,7 @@ class Header extends Component {
 
   search(search) {
     if (search)
-      hashHistory.push(`/search?query=${search}`);
+      hashHistory.push(`/search?query=${encodeURIComponent(search)}`);
     this.toggleSearch();
   }
 

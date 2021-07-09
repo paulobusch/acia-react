@@ -36,6 +36,14 @@ class SearchList extends Component {
     this.props.getAll(this.state.search, this.state.sort, this.afterLoad);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.state = { ...this.state, loading: true, search: this.props.router.location.query.query };
+      this.props.initialize({ search: this.state.search, sort: this.state.sort });
+      this.props.getAll(this.state.search, this.state.sort, this.afterLoad);
+    }
+  }
+
   afterLoad(success, list) {
     if (success) {
       this.setState({

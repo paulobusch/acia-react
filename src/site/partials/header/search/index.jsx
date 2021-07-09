@@ -5,7 +5,6 @@ import { Field, Form, reduxForm } from 'redux-form';
 
 import SubmitButton from './../../../../common/buttons/submit/index';
 import Input from './../../../../common/fields/input/index';
-import required from './../../../../common/validators/required';
 
 class Search extends Component {
   constructor(props) {
@@ -16,6 +15,7 @@ class Search extends Component {
 
   submit(values) {
     this.props.onSearch(values.search);
+    setTimeout(() => this.props.initialize({ search: '' }), 200);
   }
 
   render() {
@@ -24,7 +24,7 @@ class Search extends Component {
     return (
       <Form id="search-form" onSubmit={ handleSubmit(this.submit) } className={ show ? 'open' : '' }>
         <Field name="search" type="text" placeholder="Termo de busca"
-          component={ Input } validate={ required }
+          component={ Input }
         />
         <SubmitButton text="BUSCAR" fill/>
       </Form>
