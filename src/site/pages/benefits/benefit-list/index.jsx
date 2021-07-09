@@ -35,7 +35,9 @@ class BenefitList extends Component {
 
   afterLoad(success, data) {
     if (success) {
-      const accrediteds = getAccrediteds([data]); 
+      const accrediteds = getAccrediteds([data]).map(r => {
+        return ({ ...r, search: ((r.title || '') + (r.responsible || '')).toLowerCase() })
+      });
       this.setState({
         ...this.state,
         loading: false,
@@ -59,7 +61,7 @@ class BenefitList extends Component {
 
   applyFilter(accrediteds) {
     if (this.state.search) 
-      return accrediteds.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1)
+      return accrediteds.filter(a => a.search.search(this.state.search.toLowerCase()) !== -1)
     return accrediteds;
   }
 

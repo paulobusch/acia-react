@@ -32,12 +32,16 @@ class Standards extends Component {
 
   afterLoad(success, list) {
     if (success) {
-      const sorted = list.sort((a, b) => (a.title || '').localeCompare(b.title));;
+
+      const sorted = list.sort((a, b) => (a.title || '').localeCompare(b.title));
+      const mapped = sorted.map(r => {
+        return ({ ...r, search: ((r.title || '') + (r.accrediteds.map(a => a.responsible).join(''))).toLowerCase() })
+      });
       this.setState({
         ...this.state,
         loading: false,
-        allStandards: sorted,
-        filtredStandards: this.applyFilter(sorted)
+        allStandards: mapped,
+        filtredStandards: this.applyFilter(mapped)
       });
     }
   }
@@ -57,7 +61,7 @@ class Standards extends Component {
   applyFilter(standards) {
     let result = standards;
     if (this.state.search)
-      result = result.filter(a => a.title.toLowerCase().search(this.state.search.toLowerCase()) !== -1);
+      result = result.filter(a => a.search.search(this.state.search.toLowerCase()) !== -1);
     if (this.state.type && BENEFIT_ALL !== this.state.type) 
       result = result.filter(a => a.type === this.state.type);
     return result;
