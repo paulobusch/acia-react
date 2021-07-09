@@ -56,7 +56,7 @@ class SlideForm extends FormBase {
       { text: 'Embaixo', value: 'bottom' }
     ];
     const types = [SLIDE_OVERLAY_LINK, SLIDE_OVERLAY_BUTTON];
-    const { handleSubmit, overlaySlide } = this.props;
+    const { handleSubmit, overlaySlide, type } = this.props;
     return (
       <Form onSubmit={ handleSubmit(this.submit) }>
         <Row justify="flex-start">
@@ -79,14 +79,17 @@ class SlideForm extends FormBase {
               flex="25" component={ Select } options={ types } validate={ required }
             />
             <Field name="overlay.url" label={ this.getUrlFieldLabel() } type="text" placeholder="Informe a url"
+              className={ type === SLIDE_OVERLAY_LINK ? 'field-padding' : '' }
               flex="25" component={ Input } validate={ [required, url] }
             />
-            <Field name="overlay.title" label="Título" type="text" placeholder="Informe o título"
-              flex="25" component={ Input }
-            />
-            <Field name="overlay.subtitle" label="Subtítulo" type="text" placeholder="Informe o subtítulo"
-              flex="25" component={ Input }
-            />
+            { type !== SLIDE_OVERLAY_LINK &&    
+              [<Field key="title" name="overlay.title" label="Título" type="text" placeholder="Informe o título"
+                flex="25" component={ Input }
+              />,
+              <Field key="subtitle" name="overlay.subtitle" label="Subtítulo" type="text" placeholder="Informe o subtítulo"
+                flex="25" component={ Input }
+              />]
+            }
           </Row>
         }
       </Form>
