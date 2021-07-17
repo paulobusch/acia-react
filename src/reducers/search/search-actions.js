@@ -1,9 +1,10 @@
 import { toastr } from 'react-redux-toastr';
 import { extractTextFromHtml } from '../../common/api/html';
+import { MENU_INSTITUCIONAL, MENU_PADRAO, MENU_VANTAGENS_ACIA } from '../../site/partials/header/menus';
 
 import ActionsStorageBase from '../actions-storage-base';
 import { SEARCH_SORT_DATE, SEARCH_SORT_TITLE } from './search-sort';
-import { SEARCH_BENEFIT, SEARCH_CONVENANT, SEARCH_POST, SEARCH_SERVICE } from './search-type';
+import { SEARCH_BENEFIT, SEARCH_CONVENANT, SEARCH_MENU, SEARCH_POST, SEARCH_SERVICE } from './search-type';
 
 class SearchActions extends ActionsStorageBase {
   constructor() {
@@ -32,12 +33,17 @@ class SearchActions extends ActionsStorageBase {
             mapped.push(accredited);
         }
 
+        const menus = [...MENU_VANTAGENS_ACIA, ...MENU_INSTITUCIONAL, ...MENU_PADRAO]
+          .map(m => ({ ...m, title: m.parent ? `${m.parent} > ${m.title}` : m.title }));
+        mapped.push(...menus);
+
         mapped = mapped
           .map(d => {
             function getType() {
               if (postsResult.docs.some(p => p.id === d.id)) return SEARCH_POST;
               if (servicesResult.docs.some(p => p.id === d.id)) return SEARCH_SERVICE;
               if (benefitsResult.docs.some(p => p.id === d.id)) return SEARCH_CONVENANT;
+              if (menus.some(p => p.id === d.id)) return SEARCH_MENU;
               return SEARCH_BENEFIT;
             }
             const type = getType();
@@ -95,6 +101,7 @@ class SearchActions extends ActionsStorageBase {
     if (type === SEARCH_CONVENANT) return `/#/benefits/${document.id}`;
     if (type === SEARCH_BENEFIT) return `/#/benefits/view/${document.id}`;
     if (type === SEARCH_SERVICE) return document.link;
+    if (type === SEARCH_MENU) return document.link;
   }
 }
 

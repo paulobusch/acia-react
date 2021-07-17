@@ -13,6 +13,7 @@ import Search from './search';
 import { generateAddContactLink } from './../../../common/api/whatsapp';
 import { WEBSITE_WHATSAPP } from './../../../consts';
 import { POST_ACTION } from './../../../reducers/posts/post-type';
+import { MENU_INSTITUCIONAL, MENU_PADRAO, MENU_VANTAGENS_ACIA } from './menus';
 
 const INITIAL_STATE = {
   showMenuMobile: false,
@@ -65,31 +66,12 @@ class Header extends Component {
           </div>
           <MainMenu className={ `menu ${this.state.showMenuMobile ? 'show-mobile-menu' : ''}` }>
             <MainMenuItem href="#" text="VANTAGENS ACIA">
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/acia-cred" text="ACIA CRED"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/digital-certificate" text="CERTIFICADO DIGITAL"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/serasa" text="SERASA"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/conciliation-court" text="CORTE CONCILIAÇÃO"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/cell-network" text="LIGUE ACIA"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/advantages-card" text="CARTÃO DE VANTAGENS"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/meeting-room" text="AUDITÓRIO / SALA REUNIÃO"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/photos" text="FOTOS"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/videos" text="VÍDEOS"/>
+              { MENU_VANTAGENS_ACIA.map(m => <MainMenuItem key={ m.id } onClick={ this.toggleMenuMobile } href={ m.link } text={ m.title }/>) }
             </MainMenuItem>
             <MainMenuItem href="#" text="INSTITUCIONAL">
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/about" text="QUEM SOMOS"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/boards" text="DIRETORIA"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="http://arquivohistoricoacia.com.br/site/" text="ARQUIVO HISTÓRICO"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href={ `/#/posts/${encodeURIComponent(POST_ACTION)}` } text={ POST_ACTION.toUpperCase() }/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/acia-woman" text="ACIA MULHER"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="https://www.aciaanapolis.com.br/polodedefesa" text="POLO DE DEFESA"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/policy-quality" text="POLÍTICA DE QUALIDADE"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/history" text="HISTÓRIA"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/geographical-information" text="INFORMAÇÕES GEOGRÁFICAS"/>
-              <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/relevant-informations" text="INFORMAÇÕES RELEVANTES"/>
+              { MENU_INSTITUCIONAL.map(m => <MainMenuItem key={ m.id } onClick={ this.toggleMenuMobile } href={ m.link } text={ m.title }/>) }
             </MainMenuItem>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/standards" text="REDE DE CONVÊNIOS"/>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/contact" text="CONTATO"/>
-            <MainMenuItem onClick={ this.toggleMenuMobile } href="/#/subscribe" text="ASSOCIE-SE" onlymobile/>
+            { MENU_PADRAO.map(m => <MainMenuItem key={ m.id } onClick={ this.toggleMenuMobile } href={ m.link } text={ m.title } onlymobile={ m.onlymobile }/>) }
           </MainMenu>
           <RightMenu onlydesktop>
             { user 
