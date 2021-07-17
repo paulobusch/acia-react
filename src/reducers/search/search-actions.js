@@ -1,6 +1,6 @@
 import { toastr } from 'react-redux-toastr';
 import { extractTextFromHtml } from '../../common/api/html';
-import { MENU_INSTITUCIONAL, MENU_PADRAO, MENU_VANTAGENS_ACIA } from '../../site/partials/header/menus';
+import { MENU_INSTITUCIONAL, MENU_PADRAO, MENU_PESQUISA, MENU_VANTAGENS_ACIA } from '../../site/partials/header/menus';
 
 import ActionsStorageBase from '../actions-storage-base';
 import { SEARCH_SORT_DATE, SEARCH_SORT_TITLE } from './search-sort';
@@ -33,7 +33,7 @@ class SearchActions extends ActionsStorageBase {
             mapped.push(accredited);
         }
 
-        const menus = [...MENU_VANTAGENS_ACIA, ...MENU_INSTITUCIONAL, ...MENU_PADRAO]
+        const menus = [...MENU_VANTAGENS_ACIA, ...MENU_INSTITUCIONAL, ...MENU_PADRAO, ...MENU_PESQUISA]
           .map(m => ({ ...m, title: m.parent ? `${m.parent} > ${m.title}` : m.title }));
         mapped.push(...menus);
 
