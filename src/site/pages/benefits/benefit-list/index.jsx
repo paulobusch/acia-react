@@ -20,13 +20,18 @@ class BenefitList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true, sort: BENEFIT_SORT_DATE };
+    this.state = { 
+      loading: true, 
+      sort: BENEFIT_SORT_DATE,
+      search: this.props.router.location.query.query
+    };
     this.id = this.props.router.params.id;
     this.afterLoad = this.afterLoad.bind(this);
     this.onSearch = this.onSearch.bind(this);
     this.onSort = this.onSort.bind(this);
     this.search = this.search.bind(this);
-    this.props.initialize({ sort: this.state.sort });
+    if (this.state.search || this.state.sort) 
+      this.props.initialize({ search: this.state.search, sort: this.state.sort });
   }
 
   componentWillMount() {
@@ -36,7 +41,7 @@ class BenefitList extends Component {
   afterLoad(success, data) {
     if (success) {
       const accrediteds = getAccrediteds([data]).map(r => {
-        return ({ ...r, search: ((r.title || '') + (r.responsible || '')).toLowerCase() })
+        return ({ ...r, search: ((r.title || '') + (r.responsible || '') + (r.phone || '') + (r.whatsapp || '')).toLowerCase() })
       });
       this.setState({
         ...this.state,

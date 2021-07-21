@@ -14,10 +14,8 @@
   padding: 15px;
   transition: .2s;
   cursor: pointer;
-}
-
-#standard-list .standard-cards {
   background-color: white;
+  border-bottom: 1px solid rgb(184, 184, 184);
 }
 
 #standard-list .standard:hover {
@@ -60,6 +58,12 @@
 
 #standard-list a.link-load-more:hover {
   opacity: 1;
+}
+
+#standard-list .container-readme {
+  height: 55px;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1000px) {

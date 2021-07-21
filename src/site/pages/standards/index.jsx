@@ -35,7 +35,7 @@ class Standards extends Component {
 
       const sorted = list.sort((a, b) => (a.title || '').localeCompare(b.title));
       const mapped = sorted.map(r => {
-        return ({ ...r, search: ((r.title || '') + (r.accrediteds.map(a => a.responsible).join(''))).toLowerCase() })
+        return ({ ...r, search: ((r.title || '') + (r.accrediteds.map(a => a.responsible + (a.phone || '') + (a.whatsapp || '')).join(''))).toLowerCase() })
       });
       this.setState({
         ...this.state,
@@ -117,6 +117,14 @@ class Standards extends Component {
 
     return (
       <div>
+        <div className="container-readme">
+          { this.state.search && !this.searchId && filtredStandards.length 
+            && <span className="readme">
+              A pesquisa pelo termo de busca "{this.state.search}" retornou {filtredStandards.length} resultado(s), 
+              clique na categoria para ver os conveniados.
+            </span> 
+          }
+        </div>
         <div className="standard-cards">
           { filtredStandards.map(a => this.standard(a)) }
         </div>
@@ -126,8 +134,9 @@ class Standards extends Component {
 
   standard(data) {
     const { accrediteds, title } = data;
+    const query = this.state.search;
     return (
-      <div className="standard" key={ data.id } onClick={ () => hashHistory.push(`/benefits/${data.id}`) }>
+      <div className="standard" key={ data.id } onClick={ () => hashHistory.push(`/benefits/${data.id}${query ? `?query=${query}` : ''}`) }>
         <div className="title">{ title }</div>
         <div className="count" title="Conveniados">{ accrediteds ? accrediteds.length : 0 }</div>
       </div>
