@@ -35,7 +35,7 @@ class Standards extends Component {
 
       const sorted = list.sort((a, b) => (a.title || '').localeCompare(b.title));
       const mapped = sorted.map(r => {
-        return ({ ...r, search: ((r.title || '') + (r.accrediteds.map(a => a.responsible + (a.phone || '') + (a.whatsapp || '')).join(''))).toLowerCase() })
+        return ({ ...r, search: ((r.title || '') + (r.accrediteds.map(a => a.title + a.responsible + (a.phone || '') + (a.whatsapp || '')).join(''))).toLowerCase() })
       });
       this.setState({
         ...this.state,
